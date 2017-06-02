@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color">#7b7b7b</color>
+    <string name="FireBase_Event_2FA">2FA Populated</string>
+    <string name="FireBase_Event_Read_Permission">OTP Permission</string>
+    <string name="FireBase_Param_AutoFill">OTP Auto Populated</string>
+    <string name="FireBase_Param_Granted">OTP Permission</string>
+    <string name="app_name">Loglr</string>
+    <string name="default_web_client_id" translatable="false">946302581909-04ol1v6oi0ev9p33imkghj025avre0e0.apps.googleusercontent.com</string>
+    <string name="dialog_2FA_enabled">If you have OTP based sign in, please grant SMS read permission so we may auto-fill.</string>
+    <string name="firebase_database_url" translatable="false">https://project-6154953717261928193.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">946302581909</string>
+    <string name="google_api_key" translatable="false">AIzaSyD9xD-iVVCzcXsLhCJ0BbVy9J7hVJbT-U0</string>
+    <string name="google_app_id" translatable="false">1:946302581909:android:b0e3b2812b8744bb</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD9xD-iVVCzcXsLhCJ0BbVy9J7hVJbT-U0</string>
+    <string name="google_storage_bucket" translatable="false">project-6154953717261928193.appspot.com</string>
+    <string name="tumblr_access">https://www.tumblr.com/oauth/access_token</string>
+    <string name="tumblr_auth">https://www.tumblr.com/oauth/authorize</string>
+    <string name="tumblr_auth_otp_redirect">https://www.tumblr.com/login</string>
+    <string name="tumblr_consumer_key">tumblr_consumer_key</string>
+    <string name="tumblr_consumer_secret_key">tumblr_consumer_secret_key</string>
+    <string name="tumblr_otp_manual">Please enter OTP Manually</string>
+    <string name="tumblr_otp_provider">android.provider.Telephony.SMS_RECEIVED</string>
+    <string name="tumblr_request">https://www.tumblr.com/oauth/request_token</string>
+    <string name="tumblrlogin_loading">Loading...</string>
+</resources>

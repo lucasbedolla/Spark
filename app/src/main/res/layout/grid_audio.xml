@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:id="@+id/card_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    card_view:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/source_pic"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@color/material_grey_300"
+            android:scaleType="fitXY"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:id="@+id/source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/source_pic"
+            android:layout_toRightOf="@+id/source_pic"
+            android:paddingLeft="5dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/search_blue"
+            android:textSize="16sp"
+            android:gravity="top"
+            android:layout_marginTop="5dp" />
+
+
+        <RelativeLayout
+            android:id="@+id/vid"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/source_pic"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:background="#494949"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/vDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_below="@+id/vTitle"
+                android:layout_alignLeft="@+id/vTitle"
+                android:layout_alignStart="@+id/vTitle"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:id="@+id/vTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_alignTop="@+id/vartwork"
+                android:layout_toRightOf="@+id/vartwork"
+                android:layout_toEndOf="@+id/vartwork"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/audio_play"
+                android:background="@drawable/play"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/vartwork"
+                android:layout_alignTop="@+id/audio_play"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="#000000" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/vid"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/notes"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp" />
+
+            <ImageButton
+                android:id="@+id/reblog_post"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignTop="@+id/like_post"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/like_post"
+                android:layout_toStartOf="@+id/like_post"
+                android:background="#00ffffff"
+                android:clickable="true"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/reblog"/>
+
+            <ImageButton
+                android:id="@+id/like_post"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="#00ffffff"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/like"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="5dp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/reblog_sign"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/source"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/source_pic"
+            android:layout_toRightOf="@+id/source_pic"
+            android:background="@drawable/reblog"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/reblogger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/source"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/reblog_sign"
+            android:layout_toRightOf="@+id/reblog_sign"
+            android:clickable="true"
+            android:textColor="@color/liked_red"/>
+
+        <Button
+            android:id="@+id/post_follow"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/messages_yellow"
+            android:elevation="0dp"
+            android:text="+"
+            android:textColor="#aaaaaa"
+            android:layout_marginEnd="5dp"
+            android:layout_alignBottom="@+id/reblog_sign"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

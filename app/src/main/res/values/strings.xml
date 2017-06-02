@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ruby</string>
+    <string name="title_activity_login">Ruby</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="go">go</string>
+    <string name="connect">connect</string>
+    <string name="liked_posts_toolbar">Liked Posts</string>
+
+</resources>
