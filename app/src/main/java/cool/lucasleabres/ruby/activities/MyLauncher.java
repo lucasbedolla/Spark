@@ -1,7 +1,6 @@
 package cool.lucasleabres.ruby.activities;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -31,10 +30,8 @@ public class MyLauncher extends AppCompatActivity {
         setContentView(R.layout.activity_launcher);
         handler = new Handler();
 
-        Typeface face = Typeface.createFromAsset(getAssets(),"fonts/arial.ttf");
-        rubyText.setTypeface(face);
-        rubyText.setTextSize(30f);
-
+        animView = (ImageView) findViewById(R.id.anim_view);
+        rubyText = (TextView) findViewById(R.id.rubyText);
 
         startAnimation(animView,1400);
         startAnimation(rubyText,1600);

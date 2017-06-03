@@ -12,12 +12,12 @@
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\anim\\abc_slide_out_top.xml"
-    },
-    {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\anim\\abc_slide_out_top.xml"
     },
     {
         "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",

@@ -20,16 +20,16 @@
         "source": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\src\\main\\res\\drawable\\liked.png"
     },
     {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\drawable\\abc_seekbar_thumb_material.xml"
+        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\single.png",
+        "source": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\src\\main\\res\\drawable\\single.png"
     },
     {
         "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gem_menu.png",
         "source": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\src\\main\\res\\drawable\\gem_menu.png"
     },
     {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\single.png",
-        "source": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\src\\main\\res\\drawable\\single.png"
+        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\pagebgn.png",

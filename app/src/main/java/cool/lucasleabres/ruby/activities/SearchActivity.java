@@ -37,17 +37,14 @@ import com.tumblr.jumblr.types.Post;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import cool.lucasleabres.ruby.util.Constants;
-import cool.lucasleabres.ruby.util.NetworkChecker;
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.fragments.SearchBlogFragment;
+import cool.lucasleabres.ruby.util.Constants;
+import cool.lucasleabres.ruby.util.NetworkChecker;
 
 public class SearchActivity extends AppCompatActivity {
 
     public static final String TAG = "SearchActivity";
-    public Context context;
     EditText editText;
     Toolbar searchBar;
     ImageButton back;
@@ -60,10 +57,6 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        ButterKnife.bind(this);
-        //editText.addTextChangedListener(watcher);
-        //search.setOnClickListener(this);
-        context = this;
 
         startAnimation(editText,1000);
         editText.setImeActionLabel("Search",EditorInfo.IME_ACTION_SEARCH);
@@ -110,7 +103,7 @@ public class SearchActivity extends AppCompatActivity {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEARCH & editText.getText().toString()!="") {
                     if(currentPage==0){
-                        NetworkChecker checker = new NetworkChecker(context);
+                        NetworkChecker checker = new NetworkChecker(SearchActivity.this);
                         AlertDialog dialog = checker.isConnected();
                         if(dialog!=null){
                             dialog.show();
@@ -121,7 +114,7 @@ public class SearchActivity extends AppCompatActivity {
                         }
 
                     }else{
-                        NetworkChecker checker = new NetworkChecker(context);
+                        NetworkChecker checker = new NetworkChecker(SearchActivity.this);
                         AlertDialog dialog = checker.isConnected();
                         if(dialog!=null){
                             dialog.show();
@@ -247,9 +240,9 @@ public class SearchActivity extends AppCompatActivity {
 
     private void conductInflation(int page, List<Post> tagged) {
             Log.d(TAG, "conductInflation: inflation on page:"+page);
-            Fragment frag = getSupportFragmentManager().getFragments().get(page);
-            SearchBlogFragment searchFrag = (SearchBlogFragment) frag;
-            searchFrag.inflateResults(tagged,this);
+        //Fragment frag = getSupportFragmentManager().getFragments().get(page);
+        //SearchBlogFragment searchFrag = (SearchBlogFragment) frag;
+        // searchFrag.inflateResults(tagged,this);
     }
 
     private List<Fragment> getFragments() {

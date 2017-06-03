@@ -27,11 +27,11 @@ import com.tumblr.jumblr.types.Post;
 
 import java.util.List;
 
-import cool.lucasleabres.ruby.util.Constants;
-import cool.lucasleabres.ruby.model.MyModel;
-import cool.lucasleabres.ruby.util.NetworkChecker;
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.adapter.RecyclerAdapter;
+import cool.lucasleabres.ruby.model.MyModel;
+import cool.lucasleabres.ruby.util.Constants;
+import cool.lucasleabres.ruby.util.NetworkChecker;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -155,7 +155,7 @@ public class ProfileActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        mRecyclerAdapter = new RecyclerAdapter(PostSorter.returnCasted(model), mRecyclerView);
+        mRecyclerAdapter = new RecyclerAdapter(mRecyclerView, model);
         mRecyclerView.setAdapter(mRecyclerAdapter);
     }
 

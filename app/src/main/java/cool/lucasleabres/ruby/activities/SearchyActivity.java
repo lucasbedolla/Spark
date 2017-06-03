@@ -29,12 +29,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cool.lucasleabres.ruby.util.Constants;
-import cool.lucasleabres.ruby.util.PrefsManager;
-import cool.lucasleabres.ruby.view.LoadingListener;
-import cool.lucasleabres.ruby.util.NetworkChecker;
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.adapter.RecyclerAdapter;
+import cool.lucasleabres.ruby.util.Constants;
+import cool.lucasleabres.ruby.util.NetworkChecker;
+import cool.lucasleabres.ruby.util.PrefsManager;
+import cool.lucasleabres.ruby.view.LoadingListener;
 
 public class SearchyActivity extends AppCompatActivity implements LoadingListener, View.OnClickListener {
 
@@ -153,7 +153,7 @@ public class SearchyActivity extends AppCompatActivity implements LoadingListene
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycler.setLayoutManager(linearLayoutManager);
         posts = model;
-        mRecyclerAdapter = new RecyclerAdapter(recycler, ,model);
+        mRecyclerAdapter = new RecyclerAdapter(recycler, model);
         mRecyclerAdapter.setOnLoadMoreListener(this);
         recycler.setAdapter(mRecyclerAdapter);
 

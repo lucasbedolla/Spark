@@ -28,8 +28,8 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import cool.lucasleabres.ruby.activities.MainActivity;
 import cool.lucasleabres.ruby.R;
+import cool.lucasleabres.ruby.activities.MainActivity;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
@@ -73,10 +73,6 @@ public class SwipeZoomView extends Fragment implements View.OnClickListener{
                 .into(imageView);
         zoomer.update();
 
-
-        MainActivity act = (MainActivity) getActivity();
-        act.fab.setVisibility(View.INVISIBLE);
-
         return layout;
     }
 
@@ -91,7 +87,7 @@ public class SwipeZoomView extends Fragment implements View.OnClickListener{
             case(R.id.button):
                 getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
                 MainActivity act = (MainActivity) getActivity();
-                act.fab.setVisibility(View.VISIBLE);
+
                 break;
             case (R.id.save):
                 savePhoto();

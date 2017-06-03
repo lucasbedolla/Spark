@@ -2,7 +2,6 @@ package cool.lucasleabres.ruby.view.viewholders;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import cool.lucasleabres.ruby.R;
 

@@ -4,28 +4,28 @@
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\single_answer.xml",
-        "source": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\src\\main\\res\\layout\\single_answer.xml"
+        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\single_answer.xml",
+        "source": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\src\\main\\res\\layout\\single_answer.xml"
     },
     {
         "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",

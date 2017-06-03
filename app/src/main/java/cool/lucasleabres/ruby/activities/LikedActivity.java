@@ -24,11 +24,11 @@ import org.scribe.exceptions.OAuthException;
 import java.util.ArrayList;
 import java.util.List;
 
-import cool.lucasleabres.ruby.util.Constants;
-import cool.lucasleabres.ruby.model.MyModel;
-import cool.lucasleabres.ruby.util.NetworkChecker;
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.adapter.RecyclerAdapter;
+import cool.lucasleabres.ruby.model.MyModel;
+import cool.lucasleabres.ruby.util.Constants;
+import cool.lucasleabres.ruby.util.NetworkChecker;
 
 public class LikedActivity extends AppCompatActivity {
 
@@ -99,7 +99,7 @@ public class LikedActivity extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            setUpRecyclerView(PostSorter.returnCasted(userPosts));
+                            setUpRecyclerView(userPosts);
                             Log.d(TAG, "setuprecyclerview has been called with globallist with size of: " + globalList.size());
                         }
                     });
@@ -118,7 +118,7 @@ public class LikedActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycler.setLayoutManager(linearLayoutManager);
-        RecyclerAdapter mRecyclerAdapter = new RecyclerAdapter(model, recycler);
+        RecyclerAdapter mRecyclerAdapter = new RecyclerAdapter(recycler, model);
         recycler.setAdapter(mRecyclerAdapter);
     }
 

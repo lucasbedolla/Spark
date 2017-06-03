@@ -25,10 +25,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cool.lucasleabres.ruby.util.Constants;
-import cool.lucasleabres.ruby.view.LoadingListener;
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.adapter.RecyclerAdapter;
+import cool.lucasleabres.ruby.util.Constants;
+import cool.lucasleabres.ruby.view.LoadingListener;
 
 //on search, get viewpager position, inflate pagerfragment's recyclerview
 
@@ -94,8 +94,7 @@ public class SearchBlogFragment extends Fragment implements LoadingListener {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycler.setLayoutManager(linearLayoutManager);
         posts = model;
-        mRecyclerAdapter = new RecyclerAdapter(PostSorter.returnCasted(model), recycler);
-        mRecyclerAdapter.setAppCompat(compat);
+        mRecyclerAdapter = new RecyclerAdapter(recycler, model);
         mRecyclerAdapter.setOnLoadMoreListener(this);
         recycler.setAdapter(mRecyclerAdapter);
     }
@@ -147,11 +146,7 @@ public class SearchBlogFragment extends Fragment implements LoadingListener {
                         posts.remove(posts.size() - 1);
                         mRecyclerAdapter.notifyItemRemoved(posts.size());
 
-
-                        List<Object> newList = PostSorter.returnCasted(newPosts);
-                        for (Object object : newList) {
-                            posts.add((Post) object);
-                        }
+                        posts.addAll(newPosts);
 
                         Log.d(TAG, "run: recycler adapter notify item range changed called");
                         mRecyclerAdapter.notifyItemRangeChanged(size, posts.size());

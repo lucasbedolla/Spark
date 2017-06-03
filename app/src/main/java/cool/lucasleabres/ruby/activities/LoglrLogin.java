@@ -13,8 +13,8 @@ import com.tumblr.loglr.Interfaces.LoginListener;
 import com.tumblr.loglr.LoginResult;
 import com.tumblr.loglr.Loglr;
 
-import cool.lucasleabres.ruby.util.Constants;
 import cool.lucasleabres.ruby.R;
+import cool.lucasleabres.ruby.util.Constants;
 
 public class LoglrLogin extends AppCompatActivity implements ExceptionHandler,LoginListener
 {

@@ -1,9 +1,7 @@
 package cool.lucasleabres.ruby.adapter;
 
-import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -48,17 +46,14 @@ import cool.lucasleabres.ruby.view.viewholders.VideoViewHolder;
 public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements BasicViewHolderActionListener {
 
     public static final String TAG = "RECYCLER ADAPTER";
-    public Handler handler;
     private boolean isLoading;
-    private final List<Object> itemList;
+    private final List<Post> itemList;
     private LoadingListener onLoadMoreListener;
     private int visibleThreshold = 5;
     private int lastVisibleItem, totalItemCount;
-    private int pos;
 
-    public RecyclerAdapter(RecyclerView recyclerView, Handler adapterHandler, List<Object> inputList) {
+    public RecyclerAdapter(RecyclerView recyclerView, List<Post> inputList) {
         itemList = inputList;
-        handler = adapterHandler;
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -104,8 +99,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
             switch (postType) {
                 case 0:
                     view = inflater.inflate(R.layout.grid_photoset, parent, false);
-                    PhotoPost post = (PhotoPost) itemList.get(pos);
-                    return new PhotoSetViewHolder(view, post.getPhotos().size());
+                    return new PhotoSetViewHolder(view);
 
                 case 1:
                     view = inflater.inflate(R.layout.grid_text, parent, false);
@@ -153,8 +147,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 case 0:
                 case 1:
                     view = inflater.inflate(R.layout.single_photoset, parent, false);
-                    PhotoPost post = (PhotoPost) itemList.get(pos);
-                    return new PhotoSetViewHolder(view, post.getPhotos().size());
+                    return new PhotoSetViewHolder(view);
                 case 2:
                     view = inflater.inflate(R.layout.single_text, parent, false);
                     return new TextViewHolder(view);
@@ -201,7 +194,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     @Override
     public int getItemViewType(int position) {
-        pos = position;
         if (itemList.get(position) instanceof PhotosetPost) {
             return 0;
         } else if (itemList.get(position) instanceof PhotoPost) {

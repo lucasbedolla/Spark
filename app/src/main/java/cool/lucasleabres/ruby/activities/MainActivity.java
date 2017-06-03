@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -50,14 +49,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cool.lucasleabres.ruby.view.LoadingListener;
-import cool.lucasleabres.ruby.util.NetworkChecker;
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.adapter.RecyclerAdapter;
 import cool.lucasleabres.ruby.http.JsonModel;
 import cool.lucasleabres.ruby.http.ServiceGenerator;
 import cool.lucasleabres.ruby.http.TumblrAPIConnect;
 import cool.lucasleabres.ruby.util.Constants;
+import cool.lucasleabres.ruby.util.NetworkChecker;
+import cool.lucasleabres.ruby.view.LoadingListener;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -76,9 +75,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean isGrid;
     private boolean isUp = true;
-    private boolean isalreadyrunningarequest = false;
 
-    private List<Object> centralList;
+    private List<Post> centralList;
     private List<Post> newPosts;
     private List<Post> posts;
 
@@ -91,12 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     SwipeRefreshLayout refreshLayout;
     FloatingActionButton fab;
     RelativeLayout menu;
-    CoordinatorLayout coordinator;
     ProgressBar prog;
-
-
     Button reconnect;
-
 
     ImageButton profileButton;
     ImageButton settingsButton;
@@ -340,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         refreshLayout.setProgressBackgroundColorSchemeColor(Color.WHITE);
         refreshLayout.setProgressViewOffset(false, 0, 225);
         refreshLayout.setOnRefreshListener(refreshListener);
-        centralList = PostSorter.returnCasted(rawPosts);
+        centralList = rawPosts;
 
         //sets layout manager depending on shared preferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -356,8 +350,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mRecyclerView.setLayoutManager(layoutManager);
         }
 
-        mRecyclerAdapter = new RecyclerAdapter(centralList, mRecyclerView);
-        mRecyclerAdapter.setAppCompat(this);
+        mRecyclerAdapter = new RecyclerAdapter(mRecyclerView, centralList);
         mRecyclerAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mRecyclerAdapter);
     }
@@ -505,7 +498,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void run() {
                 // Make the request
                 Log.d(TAG, "run: on load listener has been called for first time.");
-                isalreadyrunningarequest = true;
                 try {
                     Log.d(TAG, "run: creating new jumblr object in ONLOADMORE listener");
 
@@ -539,10 +531,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         mRecyclerAdapter.notifyItemRemoved(centralList.size());
 
 
-                        List<Object> newList = PostSorter.returnCasted(newPosts);
-                        for (Object object : newList) {
-                            centralList.add(object);
-                        }
+                        centralList.addAll(newPosts);
 
                         Log.d(TAG, "run: recycler adapter notify item range changed called");
                         mRecyclerAdapter.notifyItemRangeChanged(size, centralList.size());

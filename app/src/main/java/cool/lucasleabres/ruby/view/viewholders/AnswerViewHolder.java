@@ -1,6 +1,5 @@
 package cool.lucasleabres.ruby.view.viewholders;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 

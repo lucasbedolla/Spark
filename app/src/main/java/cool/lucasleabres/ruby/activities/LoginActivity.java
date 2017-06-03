@@ -28,9 +28,9 @@ import com.tumblr.loglr.Interfaces.LoginListener;
 import com.tumblr.loglr.LoginResult;
 import com.tumblr.loglr.Loglr;
 
-import cool.lucasleabres.ruby.util.Constants;
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.loginpager.LoginPagerContentFragment;
+import cool.lucasleabres.ruby.util.Constants;
 
 public class LoginActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
         View.OnClickListener, LoginListener, ExceptionHandler {
@@ -63,6 +63,12 @@ public class LoginActivity extends AppCompatActivity implements ViewPager.OnPage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        go = (Button) findViewById(R.id.go);
+        imagePager = (ViewPager) findViewById(R.id.pager_introduction);
+
+        pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
+
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         if (settings.getString("access_token",null) != null) {
             Intent intent = new Intent(LoginActivity.this, MyLauncher.class);
