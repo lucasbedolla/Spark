@@ -2,6 +2,7 @@ package cool.lucasleabres.ruby.view.viewholders;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import cool.lucasleabres.ruby.R;
 
@@ -11,11 +12,14 @@ import cool.lucasleabres.ruby.R;
 
 public class PhotoSetViewHolder extends BasicViewHolder {
 
-    private ImageView[] images;
+    private ImageView[] images = new ImageView[10];
+
+    private TextView title;
 
     public PhotoSetViewHolder(View v) {
         super(v);
 
+        title = (TextView) v.findViewById(R.id.vTitle);
         images[0] = (ImageView) v.findViewById(R.id.image_post);
         images[1] = (ImageView) v.findViewById(R.id.image_post1);
         images[2] = (ImageView) v.findViewById(R.id.image_post2);
@@ -30,6 +34,11 @@ public class PhotoSetViewHolder extends BasicViewHolder {
 
     public ImageView[] getImages() {
         return images;
+    }
+
+    @Override
+    public TextView getTitle() {
+        return title;
     }
 
 }

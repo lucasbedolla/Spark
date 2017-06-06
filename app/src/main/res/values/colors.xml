@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4e0000</color>
-    <color name="colorPrimaryDark">#350000</color>
-    <color name="colorAccent">#ffffff</color>
-    <color name="white">#ffffff</color>
-    <color name="orange">#ff9f55</color>
-    <color name="ruby">#c60c0c</color>
-    <color name="lightRuby">#e74f4f</color>
-    <color name="red">#c41616</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
+    <color name="white">#000000</color>
+    <color name="orange">#000000</color>
+    <color name="ruby">#000000</color>
+    <color name="lightRuby">#000000</color>
+    <color name="red">#000000</color>
 
     <color name="search_blue">#5e5fdf</color>
     <color name="liked_red">#ff7264</color>

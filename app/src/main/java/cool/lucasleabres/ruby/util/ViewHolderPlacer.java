@@ -8,7 +8,6 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.PhotoSize;
-import com.tumblr.jumblr.types.PhotosetPost;
 import com.tumblr.jumblr.types.Post;
 
 import java.util.List;
@@ -34,7 +33,7 @@ public class ViewHolderPlacer {
         setSpecificFunctions(photoSetHolder, photoPost, PostType.PHOTO, listener);
         setPhotoVisibility(photoSetHolder, photoSetSize);
         setPhotos(photoSetHolder, photoPost);
-        basicHolderSetUp(photoPost, PostType.PHOTO, photoSetHolder, listener);
+        basicHolderSetUp(photoPost, photoSetHolder, listener);
     }
 
     private static void setPhotoVisibility(PhotoSetViewHolder viewHolder, int numberOfPhotos) {
@@ -52,37 +51,30 @@ public class ViewHolderPlacer {
 
     private static void setPhotos(final PhotoSetViewHolder photoSetHolder, final PhotoPost photoPost) {
         final ImageView[] image = photoSetHolder.getImages();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < photoPost.getPhotos().size(); i++) {
-                    List<PhotoSize> sizes = photoPost.getPhotos().get(i).getSizes();
-                    Picasso.with(photoSetHolder.getLike().getContext())
-                            .load(sizes.get(0).getUrl())
-                            .placeholder(R.drawable.loadingshadow)
-                            .error(R.drawable.loadingshadow)
-                            .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                            .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
-                            .into(image[i]);
-                }
-            }
-        }).start();
 
+        for (int i = 0; i < photoPost.getPhotos().size(); i++) {
+            List<PhotoSize> sizes = photoPost.getPhotos().get(i).getSizes();
+            Picasso.with(photoSetHolder.getTitle().getContext())
+                    .load(sizes.get(0).getUrl())
+                    .placeholder(R.drawable.loadingshadow)
+                    .error(R.drawable.loadingshadow)
+                    .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                    .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
+                    .into(image[i]);
+        }
     }
 
-    //this method is for setting up basic functions of a viewholder
-    private static void basicHolderSetUp(Post post, PostType type, BasicViewHolder holder, BasicViewHolderActionListener listener) {
+    private static void basicHolderSetUp(Post post, BasicViewHolder holder, BasicViewHolderActionListener listener) {
 
-        holder.getNotes().setText(String.valueOf(post.getNoteCount()));
-        holder.getReblogger().setText("title");
-        holder.getReblogSign();
-        holder.getReblog();
-        holder.getLike();
-        holder.getFollow();
-        holder.getSource().setText(post.getRebloggedFromName());
-        holder.getSourcePic();
-
-
+       /*
+        Picasso.with(holder.getTitle().getContext())
+                .load("https://api.tumblr.com/v2/blog/" + post.getBlogName() + ".tumblr.com/avatar/512")
+                .placeholder(R.drawable.loadingshadow)
+                .error(R.drawable.loadingshadow)
+                .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
+                .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
+                .into(holder.getSourcePic());
+        */
     }
 
     //this sets viewholder specific functionality
@@ -91,8 +83,8 @@ public class ViewHolderPlacer {
         switch (type) {
             case PHOTO:
                 PhotoSetViewHolder setHolder = (PhotoSetViewHolder) holder;
-                PhotosetPost photoPost = (PhotosetPost) post;
-                holder.getTitle().setText(photoPost.getSourceTitle());
+                PhotoPost photoPost = (PhotoPost) post;
+                setHolder.getTitle().setText(photoPost.getSourceTitle());
                 setPhotos(setHolder, photoPost);
                 break;
 

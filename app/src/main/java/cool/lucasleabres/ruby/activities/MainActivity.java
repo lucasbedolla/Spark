@@ -32,8 +32,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.api.client.auth.oauth.OAuthHmacSigner;
-import com.google.api.client.auth.oauth.OAuthParameters;
 import com.melnykov.fab.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 import com.tumblr.jumblr.JumblrClient;
@@ -43,7 +41,6 @@ import com.tumblr.jumblr.types.User;
 
 import org.scribe.exceptions.OAuthConnectionException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,15 +48,9 @@ import java.util.Map;
 
 import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.adapter.RecyclerAdapter;
-import cool.lucasleabres.ruby.http.JsonModel;
-import cool.lucasleabres.ruby.http.ServiceGenerator;
-import cool.lucasleabres.ruby.http.TumblrAPIConnect;
 import cool.lucasleabres.ruby.util.Constants;
 import cool.lucasleabres.ruby.util.NetworkChecker;
 import cool.lucasleabres.ruby.view.LoadingListener;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, LoadingListener {
@@ -106,6 +97,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        menu = (RelativeLayout) findViewById(R.id.toolBar);
+        refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresher);
+
+        profileButton = (ImageButton) findViewById(R.id.profile);
+        settingsButton = (ImageButton) findViewById(R.id.settings);
+        likes = (ImageButton) findViewById(R.id.likes);
+        search = (ImageButton) findViewById(R.id.search);
+        post = (ImageButton) findViewById(R.id.post);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler);
+        profileText = (TextView) findViewById(R.id.profile_text);
+
+        dashButton = (Button) findViewById(R.id.dashboard);
+        prog = (ProgressBar) findViewById(R.id.progressBar);
+        reconnect = (Button) findViewById(R.id.reconnect);
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+
         init();
 
         //check permissions
@@ -237,40 +249,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             reconnect.setVisibility(View.INVISIBLE);
             jumblrDash();
         }
-    }
-
-    private void loadPosts() {
-
-        OAuthHmacSigner signer = new OAuthHmacSigner();
-        signer.clientSharedSecret = Constants.CONSUMER_SECRET;
-        signer.tokenSharedSecret = token_secret;
-        OAuthParameters authorizer = new OAuthParameters();
-        authorizer.consumerKey = Constants.CONSUMER_KEY;
-        authorizer.signer = signer;
-        authorizer.token = token;
-
-        TumblrAPIConnect connect = ServiceGenerator.createService(
-                TumblrAPIConnect.class, Constants.API_BASE_URL, authorizer);
-
-        Call<JsonModel> element = connect.listRepos();
-
-        element.enqueue(new Callback<JsonModel>() {
-            @Override
-            public void onResponse(Call<JsonModel> call, Response<JsonModel> response) {
-
-                try {
-                    Log.d(TAG, "onResponse: errbody:" + response.errorBody().string());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<JsonModel> call, Throwable t) {
-                Log.d(TAG, "onFailure: failure.. Rats!" + t.getCause() + t.getLocalizedMessage() + t.getStackTrace());
-            }
-        });
     }
 
     private void jumblrDash() {

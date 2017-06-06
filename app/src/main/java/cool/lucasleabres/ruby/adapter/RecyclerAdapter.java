@@ -21,6 +21,7 @@ import com.tumblr.jumblr.types.UnknownTypePost;
 import com.tumblr.jumblr.types.VideoPost;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import cool.lucasleabres.ruby.R;
@@ -47,13 +48,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     public static final String TAG = "RECYCLER ADAPTER";
     private boolean isLoading;
-    private final List<Post> itemList;
+    private final List<Post> itemList = new ArrayList<>();
     private LoadingListener onLoadMoreListener;
     private int visibleThreshold = 5;
     private int lastVisibleItem, totalItemCount;
 
     public RecyclerAdapter(RecyclerView recyclerView, List<Post> inputList) {
-        itemList = inputList;
+        for (Post post : inputList) {
+            if (post instanceof PhotoPost) {
+                itemList.add(post);
+            }
+        }
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -90,12 +95,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     @Override
     public BasicViewHolder onCreateViewHolder(ViewGroup parent, int postType) {
-
+        View view;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
         //staggered
         if (PrefsManager.getPanelSettingsIsDual(parent.getContext())) {
-            View view;
+
             switch (postType) {
                 case 0:
                     view = inflater.inflate(R.layout.grid_photoset, parent, false);
@@ -142,7 +147,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                     return new BasicViewHolder(view);
             }
         } else {
-            View view;
             switch (postType) {
                 case 0:
                 case 1:

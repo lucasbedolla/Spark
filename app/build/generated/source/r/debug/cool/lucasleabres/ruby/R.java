@@ -3046,7 +3046,6 @@ containing a value of this type.
         public static final int bpane=0x7f0d00ec;
         public static final int button=0x7f0d00b0;
         public static final int buttonPanel=0x7f0d0053;
-        public static final int button_panel=0x7f0d010f;
         public static final int cachingCheckBox=0x7f0d00ae;
         public static final int cancel_action=0x7f0d00f7;
         public static final int card_view=0x7f0d00c8;
@@ -3138,7 +3137,7 @@ containing a value of this type.
         public static final int login=0x7f0d0088;
         public static final int login_ruby=0x7f0d00c4;
         public static final int logout=0x7f0d00ab;
-        public static final int masked=0x7f0d0112;
+        public static final int masked=0x7f0d0111;
         public static final int media_actions=0x7f0d00f9;
         public static final int middle=0x7f0d003a;
         public static final int mini=0x7f0d0038;
@@ -3190,7 +3189,7 @@ containing a value of this type.
         public static final int relativeLayout3=0x7f0d00df;
         public static final int relativeLayout4=0x7f0d010e;
         public static final int relativeLayout5=0x7f0d010c;
-        public static final int relativeLayout6=0x7f0d0110;
+        public static final int relativeLayout6=0x7f0d010f;
         public static final int relativeLayout7=0x7f0d010d;
         public static final int right=0x7f0d002e;
         public static final int right_icon=0x7f0d0101;
@@ -3277,7 +3276,7 @@ containing a value of this type.
         public static final int viewPagerCountDots=0x7f0d0083;
         public static final int view_offset_helper=0x7f0d000f;
         public static final int viewer_placeholder=0x7f0d009a;
-        public static final int visible=0x7f0d0111;
+        public static final int visible=0x7f0d0110;
         public static final int web_layout=0x7f0d0085;
         public static final int web_view=0x7f0d0086;
         public static final int wide=0x7f0d0044;

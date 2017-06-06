@@ -4,16 +4,8 @@
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
-    },
-    {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b156d532d7657441084876b0ca3165\\res\\drawable-v21\\avd_hide_password.xml"
-    },
-    {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
@@ -26,10 +18,6 @@
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_password_eye.xml",
         "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b156d532d7657441084876b0ca3165\\res\\drawable-v21\\design_password_eye.xml"
-    },
-    {
-        "merged": "C:\\Users\\Lucas Leabres\\My Projects\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.0.aar\\9b66fe983472796373c6826a6081c59a\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
