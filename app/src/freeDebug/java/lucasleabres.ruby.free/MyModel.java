@@ -1,4 +1,5 @@
 package lucasleabres.ruby.free;
+
 import com.tumblr.jumblr.types.Post;
 
 /**

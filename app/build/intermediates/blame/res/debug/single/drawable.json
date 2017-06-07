@@ -9,19 +9,19 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_dialog_material_background.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_light.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_plus_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_bottom_navigation_item_background.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b156d532d7657441084876b0ca3165\\res\\drawable\\design_bottom_navigation_item_background.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_plus_signin_btn_text_light.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\f579b8220378b055e77d0d57efe4ea7c\\res\\drawable\\design_bottom_navigation_item_background.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\reblog.png",
@@ -37,7 +37,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\back_red.png",
@@ -45,7 +45,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ratingbar_small_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\dialog_save.xml",
@@ -53,7 +53,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\errorimage.png",
@@ -65,15 +65,15 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_dark.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_cab_background_internal_bg.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b156d532d7657441084876b0ca3165\\res\\drawable\\design_fab_background.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\f579b8220378b055e77d0d57efe4ea7c\\res\\drawable\\design_fab_background.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\exit.png",
@@ -81,7 +81,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_text_cursor_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\white_message.png",
@@ -89,35 +89,35 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ic_search_api_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\notification_bg_low.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\notification_bg_low.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_list_selector_holo_dark.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_seekbar_track_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b156d532d7657441084876b0ca3165\\res\\drawable\\design_snackbar_background.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\f579b8220378b055e77d0d57efe4ea7c\\res\\drawable\\design_snackbar_background.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_btn_radio_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ic_go_search_api_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\white_likes.png",
@@ -125,7 +125,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\notification_tile_bg.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\notification_tile_bg.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner.png",
@@ -141,11 +141,11 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_cab_background_top_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\reconnect_bgn.xml",
@@ -153,19 +153,19 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\notification_icon_background.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\notification_icon_background.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_tab_indicator_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ic_ab_back_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\launcher_logo.png",
@@ -173,7 +173,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_btn.xml",
@@ -181,7 +181,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_btn_borderless_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\client.png",
@@ -193,7 +193,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_btn_colored_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\like.png",
@@ -201,7 +201,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b156d532d7657441084876b0ca3165\\res\\drawable\\design_password_eye.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\f579b8220378b055e77d0d57efe4ea7c\\res\\drawable\\design_password_eye.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\nonselecteditem_dot.xml",
@@ -209,19 +209,19 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_item_background_holo_dark.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ic_clear_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\search_bgn.xml",
@@ -233,11 +233,11 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_switch_thumb_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ratingbar_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\liked.png",
@@ -245,27 +245,27 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_light.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_plus_signin_btn_icon_light.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_plus_signin_btn_icon_light.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b156d532d7657441084876b0ca3165\\res\\drawable\\navigation_empty_icon.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\f579b8220378b055e77d0d57efe4ea7c\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\notification_bg.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_item_background_holo_light.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\back.png",
@@ -273,7 +273,7 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_edit_text_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\menu_btn.xml",
@@ -281,19 +281,19 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_seekbar_thumb_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_textfield_search_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\enjoy.png",
@@ -301,19 +301,19 @@
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_btn_check_material.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_list_selector_holo_light.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\66d92090ff638e7342097fabcdde55e6\\res\\drawable\\abc_vector_test.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\drawable\\abc_vector_test.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
-        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\9376365e4319b321d137866517d19b87\\res\\drawable\\common_google_signin_btn_text_light.xml"
+        "source": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\7fbb8a29592802b62e43a39fb86ab45c\\res\\drawable\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\loadingshadow.jpg",

@@ -15,18 +15,16 @@ import com.tumblr.loglr.Loglr;
 
 import cool.lucasbedolla.ruby.R;
 
-public class LoglrLogin extends AppCompatActivity implements ExceptionHandler,LoginListener
-{
+public class LoglrLogin extends AppCompatActivity implements ExceptionHandler, LoginListener {
 
     public static final String CALLBACK_URL = "gem://www.gem.com/ok";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loglr_login);
 
-        try{
+        try {
             Loglr.getInstance()
                     .setConsumerKey(Constants.CONSUMER_KEY)
                     .setConsumerSecretKey(Constants.CONSUMER_SECRET)
@@ -34,15 +32,14 @@ public class LoglrLogin extends AppCompatActivity implements ExceptionHandler,Lo
                     .setExceptionHandler(this)
                     .setUrlCallBack(CALLBACK_URL)
                     .initiateInActivity(this);
-        }catch (Exception e){
-            Toast.makeText(this,"exception caught",Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "exception caught", Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    private void login()
-    {
-        try{
+    private void login() {
+        try {
             Loglr.getInstance()
                     .setConsumerKey(Constants.CONSUMER_KEY)
                     .setConsumerSecretKey(Constants.CONSUMER_SECRET)
@@ -50,8 +47,8 @@ public class LoglrLogin extends AppCompatActivity implements ExceptionHandler,Lo
                     .setExceptionHandler(this)
                     .setUrlCallBack(CALLBACK_URL)
                     .initiateInActivity(this);
-        }catch (Exception e){
-            Toast.makeText(this,"exception caught",Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "exception caught", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -70,14 +67,14 @@ public class LoglrLogin extends AppCompatActivity implements ExceptionHandler,Lo
 
     @Override
     public void onLoginFailed(RuntimeException exception) {
-        Toast.makeText(this,"Login failed. Please try again!",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Login failed. Please try again!", Toast.LENGTH_LONG).show();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 login();
             }
-        },3000);
+        }, 3000);
 
     }
 }

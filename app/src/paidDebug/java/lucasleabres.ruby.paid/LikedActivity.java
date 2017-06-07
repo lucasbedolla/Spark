@@ -30,10 +30,6 @@ import oauth.signpost.exception.OAuthCommunicationException;
 public class LikedActivity extends AppCompatActivity {
 
     public static final String TAG = "ACTIVITY LIKED";
-
-    private String token;
-    private String token_secret;
-
     @Bind(R.id.liked_back)
     ImageView mback;
     @Bind(R.id.liked_recycler)
@@ -42,6 +38,8 @@ public class LikedActivity extends AppCompatActivity {
     ProgressBar progress;
     @Bind(R.id.liked_title)
     TextView likedTitle;
+    private String token;
+    private String token_secret;
     private List<Post> userPosts;
     private List<MyModel> globalList;
     private Handler handler = new Handler(Looper.getMainLooper());
@@ -79,7 +77,6 @@ public class LikedActivity extends AppCompatActivity {
             dialog.show();
 
         } else {
-
 
 
             new Thread(new Runnable() {

@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
 
     <RelativeLayout
         android:id="@+id/relativeLayout4"
@@ -13,80 +14,80 @@
             android:id="@+id/image_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post1"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post2"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post3"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post4"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post5"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post6"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post7"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/image_post9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image_post8"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/vTitle"
@@ -96,7 +97,6 @@
             android:autoLink="web"
             android:padding="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/ruby"
             android:visibility="gone" />
     </RelativeLayout>
 </RelativeLayout>

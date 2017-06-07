@@ -28,6 +28,24 @@ public class SuperClickListener {
     private String url;
 
     private AppCompatActivity compat;
+    View.OnClickListener imageListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (url != null) {
+                inflateImageViewer(url);
+            }
+
+        }
+    };
+    View.OnClickListener videoListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (url != null) {
+                inflateVideoViewer(url);
+            }
+
+        }
+    };
 
     SuperClickListener(View view, int number, Post post, AppCompatActivity compat) {
 
@@ -52,7 +70,7 @@ public class SuperClickListener {
             //now set the url as the one mentioned in the onclick;
             url = size.getUrl();
             view.setOnClickListener(imageListener);
-        }else{
+        } else {
 
             //is photoset
             PhotoPost photoSet = (PhotoPost) post;
@@ -64,27 +82,6 @@ public class SuperClickListener {
             view.setOnClickListener(imageListener);
         }
     }
-
-    View.OnClickListener imageListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if(url!=null){
-                inflateImageViewer(url);
-            }
-
-        }
-    };
-
-    View.OnClickListener videoListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if(url!=null){
-                inflateVideoViewer(url);
-            }
-
-        }
-    };
-
 
     private void inflateImageViewer(String urly) {
 
@@ -106,7 +103,6 @@ public class SuperClickListener {
                     1. create an html document with the embed code.
                     2. have browser read html document in layout.
          */
-
 
 
         SwipeZoomView zoomView = new SwipeZoomView();

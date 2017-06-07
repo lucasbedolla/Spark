@@ -48,11 +48,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             LINK = 7,
             UNKNOWN = 8,
             LOADING = 9;
-
-    AppCompatActivity appCompat;
-
     public Handler handler = new Handler();
     public boolean isLoading;
+    AppCompatActivity appCompat;
     private List<Object> itemList;
     private LoadingListener onLoadMoreListener;
     private int visibleThreshold = 5;
@@ -101,7 +99,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.onLoadMoreListener = onLoadMoreListener;
     }
 
-    public void setAppCompat(AppCompatActivity compat){
+    public void setAppCompat(AppCompatActivity compat) {
         this.appCompat = compat;
     }
 

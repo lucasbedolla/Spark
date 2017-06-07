@@ -1,170 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    android:id="@+id/card_view"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    android:background="@color/white"
-    android:paddingBottom="4dp"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto" android:id="@+id/card_view"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="4dp" android:background="@color/white" android:paddingBottom="4dp"
     android:paddingTop="4dp"
     card_view:cardCornerRadius="4dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        >
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+        <RelativeLayout android:id="@+id/relativeLayout" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="5dp"
             android:paddingRight="5dp">
 
-            <ImageView
-                android:id="@+id/source_pic"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/material_grey_300"
-                android:scaleType="fitXY"/>
+            <ImageView android:id="@+id/source_pic" android:layout_width="36dp"
+                android:layout_height="36dp" android:layout_marginLeft="5dp"
+                android:background="@color/material_grey_300" android:scaleType="fitXY" />
 
-            <TextView
-                android:id="@+id/source"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@+id/source_pic"
-                android:layout_toRightOf="@+id/source_pic"
-                android:text="source"
+            <TextView android:id="@+id/source" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_alignParentTop="true"
+                android:layout_marginLeft="5dp" android:layout_toEndOf="@+id/source_pic"
+                android:layout_toRightOf="@+id/source_pic" android:text="source"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/search_blue"
-                android:textSize="12sp"/>
+                android:textColor="@color/search_blue" android:textSize="12sp" />
 
-            <ImageView
-                android:id="@+id/reblog_sign"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_below="@+id/source"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@+id/source_pic"
-                android:layout_toRightOf="@+id/source_pic"
-                android:background="@drawable/reblog"
-                android:padding="10dp"/>
+            <ImageView android:id="@+id/reblog_sign" android:layout_width="10dp"
+                android:layout_height="10dp" android:layout_below="@+id/source"
+                android:layout_marginLeft="5dp" android:layout_toEndOf="@+id/source_pic"
+                android:layout_toRightOf="@+id/source_pic" android:background="@drawable/reblog"
+                android:padding="10dp" />
 
-            <TextView
-                android:id="@+id/reblogger"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/source"
-                android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@+id/reblog_sign"
-                android:layout_toRightOf="@+id/reblog_sign"
-                android:clickable="true"
-                android:text="reblogger"
-                android:textColor="@color/liked_red"
-                android:textSize="10sp"/>
+            <TextView android:id="@+id/reblogger" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_below="@+id/source"
+                android:layout_marginLeft="5dp" android:layout_toEndOf="@+id/reblog_sign"
+                android:layout_toRightOf="@+id/reblog_sign" android:clickable="true"
+                android:text="reblogger" android:textColor="@color/liked_red"
+                android:textSize="10sp" />
 
-            <Button
-                android:id="@+id/post_follow"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignBottom="@+id/reblog_sign"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:background="@color/messages_yellow"
-                android:elevation="0dp"
-                android:text="+"
-                android:textColor="#ffffff"
-                android:visibility="invisible"/>
+            <Button android:id="@+id/post_follow" style="?android:attr/buttonStyleSmall"
+                android:layout_width="30dp" android:layout_height="30dp"
+                android:layout_alignBottom="@+id/reblog_sign" android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" android:layout_marginRight="10dp"
+                android:background="@color/messages_yellow" android:elevation="0dp" android:text="+"
+                android:textColor="#ffffff" android:visibility="invisible" />
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout2"
+        <RelativeLayout android:id="@+id/linearLayout2" android:layout_width="match_parent"
+            android:layout_height="40dp" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_below="@+id/relativeLayout2"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/notes"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="notes"
-                />
+            <TextView android:id="@+id/notes" android:layout_width="wrap_content"
+                android:layout_height="36dp" android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" android:layout_centerVertical="true"
+                android:gravity="center" android:padding="5dp" android:text="notes" />
 
-            <ImageButton
-                android:id="@+id/reblog_post"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_alignTop="@+id/like_post"
-                android:layout_marginRight="16dp"
-                android:layout_toLeftOf="@+id/like_post"
-                android:layout_toStartOf="@+id/like_post"
-                android:background="#00ffffff"
-                android:clickable="true"
-                android:paddingBottom="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/reblog"/>
+            <ImageButton android:id="@+id/reblog_post" style="?android:attr/buttonStyleSmall"
+                android:layout_width="18dp" android:layout_height="18dp"
+                android:layout_alignTop="@+id/like_post" android:layout_marginRight="16dp"
+                android:layout_toLeftOf="@+id/like_post" android:layout_toStartOf="@+id/like_post"
+                android:background="#00ffffff" android:clickable="true" android:paddingBottom="0dp"
+                android:paddingLeft="0dp" android:paddingTop="0dp" android:scaleType="fitCenter"
+                android:src="@drawable/reblog" />
 
-            <ImageButton
-                android:id="@+id/like_post"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="16dp"
-                android:background="#00ffffff"
-                android:clickable="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/like"/>
+            <ImageButton android:id="@+id/like_post" android:layout_width="18dp"
+                android:layout_height="18dp" android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" android:layout_centerVertical="true"
+                android:layout_marginRight="16dp" android:background="#00ffffff"
+                android:clickable="true" android:scaleType="fitCenter"
+                android:src="@drawable/like" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/relativeLayout"
-            >
+        <RelativeLayout android:id="@+id/relativeLayout2" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_below="@+id/relativeLayout">
 
-            <TextView
-                android:id="@+id/quote_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="question"
-                android:textSize="8sp"
-                android:textColor="@color/post_charcoal"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
+            <TextView android:id="@+id/quote_title" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="question"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/post_charcoal" android:textSize="8sp" />
 
-            <TextView
-                android:id="@+id/quote_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/quote_title"
-                android:text="answer"
-                android:textAppearance="?android:attr/textAppearanceSmall"/>
+            <TextView android:id="@+id/quote_desc" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" android:layout_below="@+id/quote_title"
+                android:text="answer" android:textAppearance="?android:attr/textAppearanceSmall" />
         </RelativeLayout>
 
     </RelativeLayout>

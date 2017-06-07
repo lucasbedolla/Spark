@@ -23,10 +23,10 @@ public class TumblrPostDeserializer implements JsonDeserializer<Object> {
         try {
             Class<?> clz = Class.forName("com.tumblr.jumblr.types." + className);
             return jdc.deserialize(json, clz);
-            } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             System.out.println("deserialized post for unknown type: " + typeName);
             return jdc.deserialize(json, UnknownTypePost.class);
-            }
+        }
 
     }
 }

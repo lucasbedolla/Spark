@@ -3,16 +3,16 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
-    <color name="white">#000000</color>
-    <color name="orange">#000000</color>
-    <color name="ruby">#000000</color>
-    <color name="lightRuby">#000000</color>
-    <color name="red">#000000</color>
 
-    <color name="search_blue">#5e5fdf</color>
-    <color name="liked_red">#ff7264</color>
-    <color name="messages_yellow">#00ffffff</color>
-    <color name="notification_green">#7dffcb</color>
+    <color name="white">#ffffff</color>
     <color name="post_charcoal">#252525</color>
-    <color name="post_luscent">#00252525</color>
+    <color name="black">#000000</color>
+
+    <color name="purple">#ff793cff</color>
+    <color name="blue">#ff5871fe</color>
+    <color name="red">#ffff2852</color>
+    <color name="orange">#ffff521b</color>
+    <color name="yellow">#ffffed20</color>
+    <color name="green">#ff38ebbf</color>
+
 </resources>

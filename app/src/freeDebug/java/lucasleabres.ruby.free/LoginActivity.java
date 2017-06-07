@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements ViewPager.OnPage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        if (settings.getString("access_token",null) != null) {
+        if (settings.getString("access_token", null) != null) {
             Intent intent = new Intent(LoginActivity.this, MyLauncher.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     @Override
-    public void onPause(){
+    public void onPause() {
         super.onPause();
         Log.d(TAG, "onpause called.");
     }
@@ -254,12 +254,13 @@ public class LoginActivity extends AppCompatActivity implements ViewPager.OnPage
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    Bundle fragBundle3s= new Bundle();
+                    Bundle fragBundle3s = new Bundle();
 
                     fragBundle3s.putInt("frag", 4);
                     LoginPagerContentFragment four = new LoginPagerContentFragment();
                     four.setArguments(fragBundle3s);
-                    return four;                case 1:
+                    return four;
+                case 1:
                     Bundle fragBundle = new Bundle();
                     fragBundle.putInt("frag", 1);
                     LoginPagerContentFragment one = new LoginPagerContentFragment();

@@ -62,11 +62,11 @@ public class SearchActivity extends FragmentActivity {
         //search.setOnClickListener(this);
         context = this;
 
-        startAnimation(editText,1000);
-        editText.setImeActionLabel("Search",EditorInfo.IME_ACTION_SEARCH);
+        startAnimation(editText, 1000);
+        editText.setImeActionLabel("Search", EditorInfo.IME_ACTION_SEARCH);
 
 
-        MyPageAdapter adapter = new MyPageAdapter(getSupportFragmentManager(),getFragments());
+        MyPageAdapter adapter = new MyPageAdapter(getSupportFragmentManager(), getFragments());
         pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
@@ -91,10 +91,7 @@ public class SearchActivity extends FragmentActivity {
         });
 
 
-
-
-
-    back.setOnClickListener(new View.OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
@@ -105,35 +102,35 @@ public class SearchActivity extends FragmentActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
-                if (actionId == EditorInfo.IME_ACTION_SEARCH & editText.getText().toString()!="") {
-                    if(currentPage==0){
+                if (actionId == EditorInfo.IME_ACTION_SEARCH & editText.getText().toString() != "") {
+                    if (currentPage == 0) {
                         NetworkChecker checker = new NetworkChecker(context);
                         AlertDialog dialog = checker.isConnected();
-                        if(dialog!=null){
+                        if (dialog != null) {
                             dialog.show();
-                        }else{
+                        } else {
                             //party!
                             searchTagged(1);
                         }
 
-                    }else{
+                    } else {
                         NetworkChecker checker = new NetworkChecker(context);
                         AlertDialog dialog = checker.isConnected();
-                        if(dialog!=null){
+                        if (dialog != null) {
                             dialog.show();
-                        }else{
+                        } else {
                             //party!
                             searchBlogs(0);
                         }
                     }
 
-                    List<Fragment> blogFrags =  getSupportFragmentManager().getFragments();
-                    for(Fragment frag:blogFrags){
+                    List<Fragment> blogFrags = getSupportFragmentManager().getFragments();
+                    for (Fragment frag : blogFrags) {
                         SearchBlogFragment sBF = (SearchBlogFragment) frag;
                         sBF.progress.setVisibility(View.VISIBLE);
                     }
-                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                    if (getCurrentFocus()!=null){
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if (getCurrentFocus() != null) {
                         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                     }
 
@@ -145,19 +142,19 @@ public class SearchActivity extends FragmentActivity {
 
     }
 
-    private void startAnimation(View v,int milis) {
+    private void startAnimation(View v, int milis) {
 
         v.setVisibility(View.VISIBLE);
 
         Animation scaleAnim = new ScaleAnimation(
-                0f,1f,
-                0f,1f,
-                Animation.RELATIVE_TO_SELF,0.5f,
-                Animation.RELATIVE_TO_SELF,0.5f);
+                0f, 1f,
+                0f, 1f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
         scaleAnim.setInterpolator(new OvershootInterpolator(8f));
 
 
-        Animation alphaAnim = new AlphaAnimation(0f,1f);
+        Animation alphaAnim = new AlphaAnimation(0f, 1f);
         alphaAnim.setInterpolator(new LinearInterpolator());
 
 
@@ -170,15 +167,14 @@ public class SearchActivity extends FragmentActivity {
         v.setAnimation(set);
 
 
-
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
     }
 
-    public void searchTagged(final int page){
+    public void searchTagged(final int page) {
 
         new Thread(new Runnable() {
             @Override
@@ -188,17 +184,17 @@ public class SearchActivity extends FragmentActivity {
                 final List<Post> posts = client.tagged(editText.getText().toString());
                 Log.d("lucasleabres.ruby.free.SearchActivity", "run: tagged size" + posts.size());
 
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (posts.size()!=0){
-                                conductInflation(page, posts);
-                            }else{
-                                Toast.makeText(SearchActivity.this, "No tagged posts found :O", Toast.LENGTH_SHORT).show();
-                            }
-
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (posts.size() != 0) {
+                            conductInflation(page, posts);
+                        } else {
+                            Toast.makeText(SearchActivity.this, "No tagged posts found :O", Toast.LENGTH_SHORT).show();
                         }
-                    });
+
+                    }
+                });
 
 
             }
@@ -215,22 +211,22 @@ public class SearchActivity extends FragmentActivity {
 
                 JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET);
 
-                try{
-                    final List<Post> posts  = client.blogPosts(editText.getText().toString());
+                try {
+                    final List<Post> posts = client.blogPosts(editText.getText().toString());
                     Log.d("lucasleabres.ruby.free.SearchActivity", "run: tagged size" + posts.size());
 
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            if (posts.size()!=0){
-                                conductInflation(page,posts);
-                            }else{
+                            if (posts.size() != 0) {
+                                conductInflation(page, posts);
+                            } else {
                                 Toast.makeText(SearchActivity.this, "Blog not found.", Toast.LENGTH_SHORT).show();
                             }
 
                         }
                     });
-                }catch (JumblrException e){
+                } catch (JumblrException e) {
                     Log.d(TAG, "jumblr exception thrown.");
                     handler.post(new Runnable() {
                         @Override
@@ -248,10 +244,10 @@ public class SearchActivity extends FragmentActivity {
 
 
     private void conductInflation(int page, List<Post> tagged) {
-            Log.d(TAG, "conductInflation: inflation on page:"+page);
-            Fragment frag = getSupportFragmentManager().getFragments().get(page);
-            SearchBlogFragment searchFrag = (SearchBlogFragment) frag;
-            searchFrag.inflateResults(page,tagged);
+        Log.d(TAG, "conductInflation: inflation on page:" + page);
+        Fragment frag = getSupportFragmentManager().getFragments().get(page);
+        SearchBlogFragment searchFrag = (SearchBlogFragment) frag;
+        searchFrag.inflateResults(page, tagged);
     }
 
     private List<Fragment> getFragments() {
@@ -261,31 +257,32 @@ public class SearchActivity extends FragmentActivity {
         return fList;
     }
 
-        class MyPageAdapter extends FragmentPagerAdapter {
+    class MyPageAdapter extends FragmentPagerAdapter {
 
-            private String tabTitles[] = new String[] { "Hashtag Search", "Blog Search" };
-            private List<Fragment> fragments;
+        private String tabTitles[] = new String[]{"Hashtag Search", "Blog Search"};
+        private List<Fragment> fragments;
 
-            public MyPageAdapter(FragmentManager fm, List<Fragment> fragments) {
-                super(fm);
-                this.fragments = fragments;
-            }
-
-            @Override
-            public Fragment getItem(int position) {
-
-                return this.fragments.get(position);
-            }
-
-            @Override
-            public int getCount() {
-                return 2;
-            }
-            @Override
-            public CharSequence getPageTitle(int position) {
-                // Generate title based on item position
-                return tabTitles[position];
-            }
+        public MyPageAdapter(FragmentManager fm, List<Fragment> fragments) {
+            super(fm);
+            this.fragments = fragments;
         }
+
+        @Override
+        public Fragment getItem(int position) {
+
+            return this.fragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            // Generate title based on item position
+            return tabTitles[position];
+        }
+    }
 
 }

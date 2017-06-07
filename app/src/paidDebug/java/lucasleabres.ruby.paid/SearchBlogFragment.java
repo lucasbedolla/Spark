@@ -31,7 +31,7 @@ public class SearchBlogFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static SearchBlogFragment getFragmentInstance(int page){
+    public static SearchBlogFragment getFragmentInstance(int page) {
 
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
@@ -59,12 +59,12 @@ public class SearchBlogFragment extends Fragment {
         return view;
     }
 
-    public void inflateResults(int page, List<Post> tagged){
+    public void inflateResults(int page, List<Post> tagged) {
 
-        if(page ==0){
+        if (page == 0) {
             //inflate recycler for tagged posts
             setUpRecyclerView(tagged);
-        }else if (page == 1){
+        } else if (page == 1) {
             //inflate recycler for blog post search
             setUpRecyclerView(tagged);
         }

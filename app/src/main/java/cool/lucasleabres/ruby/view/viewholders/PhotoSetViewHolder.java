@@ -36,9 +36,4 @@ public class PhotoSetViewHolder extends BasicViewHolder {
         return images;
     }
 
-    @Override
-    public TextView getTitle() {
-        return title;
-    }
-
 }

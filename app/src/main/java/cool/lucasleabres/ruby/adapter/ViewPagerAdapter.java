@@ -5,9 +5,6 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-
-import cool.lucasleabres.ruby.R;
 
 /**
  * Created by LUCASURE on 2/7/2016.
@@ -41,10 +38,10 @@ public class ViewPagerAdapter extends PagerAdapter {
         switch (position) {
             case 0:
                 layout.setTag("zero");
-                ImageView spin = (ImageView) layout.findViewById(R.id.gem_spinner);
-                spin.setVisibility(View.VISIBLE);
-                ImageView gem = (ImageView) layout.findViewById(R.id.gem_center);
-                gem.setVisibility(View.VISIBLE);
+                //ImageView spin = (ImageView) layout.findViewById(R.id.gem_spinner);
+                //spin.setVisibility(View.VISIBLE);
+                //ImageView gem = (ImageView) layout.findViewById(R.id.gem_center);
+                //gem.setVisibility(View.VISIBLE);
                 break;
             case 1:
                 layout.setTag("one");

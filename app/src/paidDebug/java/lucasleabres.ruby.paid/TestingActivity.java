@@ -8,8 +8,9 @@ import android.widget.Button;
 
 import cool.lucasbedolla.ruby.R;
 
-public class TestingActivity extends AppCompatActivity implements View.OnClickListener{
+public class TestingActivity extends AppCompatActivity implements View.OnClickListener {
     private Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class TestingActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void inflateImageViewer(String urly){
+    private void inflateImageViewer(String urly) {
         SwipeZoomView zoomView = new SwipeZoomView();
         Bundle bundle = new Bundle();
         bundle.putString("URL", urly);

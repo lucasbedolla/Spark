@@ -37,52 +37,16 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:testOnly="true" >
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:launchMode="singleInstance"
-            android:theme="@style/fullScreen" >
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="cool.lucasleabres.ruby.activities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.MyLauncher"
-            android:theme="@style/MyLauncherTheme" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.LoginActivity" />
-        </activity>
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.MainActivity"
-            android:theme="@style/IntroTheme" />
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.ProfileActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.LikedActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.SearchActivity"
-            android:theme="@style/AppTwo"
-            android:windowSoftInputMode="stateVisible" />
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.SettingsActivity"
-            android:theme="@style/AppTheme" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MainActivity" />
-        </activity>
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.LoglrLogin"
-            android:theme="@style/IntroTheme" />
-        <activity
-            android:name="cool.lucasleabres.ruby.activities.SearchyActivity"
-            android:theme="@style/SearchTheme"
-            android:windowSoftInputMode="adjustResize" />
+        <activity android:name="cool.lucasleabres.ruby.activities.MainActivity" />
         <activity
             android:name="com.tumblr.loglr.LoglrActivity"
             android:label="@string/app_name"

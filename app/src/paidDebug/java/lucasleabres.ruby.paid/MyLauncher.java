@@ -1,4 +1,5 @@
 package lucasleabres.ruby.paid;
+
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -21,13 +22,11 @@ import cool.lucasbedolla.ruby.R;
 public class MyLauncher extends AppCompatActivity {
 
     public static final int ANIMATION_TIME = 1000;
-
-    private Handler handler;
-
-    @Bind (R.id.anim_view)
+    @Bind(R.id.anim_view)
     ImageView animView;
     @Bind(R.id.rubyText)
     TextView rubyText;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,55 +40,52 @@ public class MyLauncher extends AppCompatActivity {
         rubyText.setTextSize(30f);
 
 
-        startAnimation(animView,1400);
-        startAnimation(rubyText,1600);
+        startAnimation(animView, 1400);
+        startAnimation(rubyText, 1600);
         killAnimation();
 
     }
 
 
-        private void startAnimation(View v,int milis) {
+    private void startAnimation(View v, int milis) {
 
-            v.setVisibility(View.VISIBLE);
+        v.setVisibility(View.VISIBLE);
 
-            Animation scaleAnim = new ScaleAnimation(
-                                            0f,1f,
-                                            0f,1f,
-                                            Animation.RELATIVE_TO_SELF,0.5f,
-                                            Animation.RELATIVE_TO_SELF,0.5f);
-            scaleAnim.setInterpolator(new OvershootInterpolator(8f));
-
-
-            Animation alphaAnim = new AlphaAnimation(0f,1f);
-            alphaAnim.setInterpolator(new LinearInterpolator());
+        Animation scaleAnim = new ScaleAnimation(
+                0f, 1f,
+                0f, 1f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleAnim.setInterpolator(new OvershootInterpolator(8f));
 
 
-            AnimationSet set = new AnimationSet(false);
-            set.addAnimation(scaleAnim);
-            //set.addAnimation(alphaAnim);
-            set.setFillAfter(true);
-            set.setDuration(milis);
-            set.start();
-            v.setAnimation(set);
+        Animation alphaAnim = new AlphaAnimation(0f, 1f);
+        alphaAnim.setInterpolator(new LinearInterpolator());
 
 
-
-        }
-
-        private void killAnimation() {
-            handler.postDelayed(
-                    new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(MyLauncher.this, MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            finish();
-                                    }
-                    },2000);
-        }
+        AnimationSet set = new AnimationSet(false);
+        set.addAnimation(scaleAnim);
+        //set.addAnimation(alphaAnim);
+        set.setFillAfter(true);
+        set.setDuration(milis);
+        set.start();
+        v.setAnimation(set);
 
 
+    }
+
+    private void killAnimation() {
+        handler.postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(MyLauncher.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 2000);
+    }
 
 
 }

@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
-    android:theme="@style/IntroTheme"
     tools:context=".activities.MainActivity">
 
     <android.support.design.widget.CoordinatorLayout
@@ -25,13 +24,8 @@
                 android:id="@+id/recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingEnd="5dp"
-                android:paddingStart="5dp"
                 android:scrollbarAlwaysDrawVerticalTrack="true"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
-            </android.support.v7.widget.RecyclerView>
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v7.widget.RecyclerView>
 
 
         </android.support.v4.widget.SwipeRefreshLayout>
@@ -43,7 +37,7 @@
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/lightRuby"
+        android:background="@color/red"
         android:clickable="true"
         android:visibility="visible">
 
@@ -76,16 +70,16 @@
             android:layout_height="20sp"
             android:layout_below="@id/profile"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:text="profile"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp" />
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/dashboard"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/notification_green"
+            android:background="@color/green"
             android:clickable="true"
             android:text="dashboard"
             android:textColor="@color/white" />
@@ -94,13 +88,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_above="@id/dashboard"
             android:layout_below="@id/profile_text"
             android:layout_marginBottom="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="30dp"
+            android:orientation="horizontal"
             android:weightSum="2">
 
             <LinearLayout
@@ -111,24 +105,24 @@
                 android:weightSum="2">
 
                 <ImageButton
+                    android:id="@+id/post"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/menu_btn"
-                    android:text="search"
-                    android:id="@+id/post"
-                    android:src="@drawable/ic_camera_black_24px" />
+                    android:src="@drawable/ic_camera_black_24px"
+                    android:text="search" />
 
                 <ImageButton
+                    android:id="@+id/search"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/menu_btn"
-                    android:text="search"
-                    android:id="@+id/search"
-                    android:src="@drawable/ic_search_black_24px" />
+                    android:src="@drawable/ic_search_black_24px"
+                    android:text="search" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,14 +143,14 @@
                     android:src="@drawable/menu_settings" />
 
                 <ImageButton
+                    android:id="@+id/likes"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/menu_btn"
-                    android:text="search"
                     android:src="@drawable/ic_thumb_up_black_24px"
-                    android:id="@+id/likes" />
+                    android:text="search" />
             </LinearLayout>
         </LinearLayout>
 

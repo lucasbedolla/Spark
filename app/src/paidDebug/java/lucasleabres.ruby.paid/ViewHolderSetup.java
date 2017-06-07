@@ -763,7 +763,7 @@ public class ViewHolderSetup {
                         public void run() {
                             try {
                                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                                blogName = prefs.getString("blog","tumblr");
+                                blogName = prefs.getString("blog", "tumblr");
                                 post.reblog(blogName);
                             } catch (NullPointerException e) {
                                 //do nothing

@@ -6,5 +6,6 @@ package cool.lucasleabres.ruby.listeners;
 
 public interface BasicViewHolderActionListener {
     void setResult();
+
     void invoke();
 }

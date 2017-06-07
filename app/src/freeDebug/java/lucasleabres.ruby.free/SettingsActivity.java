@@ -74,11 +74,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
 
 
-
-
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/aleo.ttf");
         rubyText.setTypeface(face);
-        infoText.setText("Ruby, Version: "+ BuildConfig.VERSION_NAME+", by Lucas Leabres");
+        infoText.setText("Ruby, Version: " + BuildConfig.VERSION_NAME + ", by Lucas Leabres");
         info.setOnClickListener(this);
         logout.setOnClickListener(this);
         logout.setOnLongClickListener(new View.OnLongClickListener() {
@@ -86,7 +84,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             public boolean onLongClick(View v) {
 
                 PreferenceManager.getDefaultSharedPreferences(context).edit().clear().commit();
-                Intent intent = new Intent(SettingsActivity.this,LoginActivity.class);
+                Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
@@ -95,8 +93,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         });
 
 
-        startAnimation(gem,1400);
-        startAnimation(rubyText,1800);
+        startAnimation(gem, 1400);
+        startAnimation(rubyText, 1800);
     }
 
     public void loadSharedPrefs(String... prefs) {
@@ -152,16 +150,15 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-
     private void startAnimation(View v, int milis) {
 
         v.setVisibility(View.VISIBLE);
 
         Animation scaleAnim = new ScaleAnimation(
-                0f,1f,
-                0f,1f,
-                Animation.RELATIVE_TO_SELF,.5f,
-                Animation.RELATIVE_TO_SELF,0.5f);
+                0f, 1f,
+                0f, 1f,
+                Animation.RELATIVE_TO_SELF, .5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
         scaleAnim.setInterpolator(new OvershootInterpolator(4f));
 
 
@@ -178,18 +175,17 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         v.setAnimation(set);
 
 
-
     }
 
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.info:
                 //moves views up, fades in text
-                if(!isUp){
+                if (!isUp) {
 
-                    isUp=true;
+                    isUp = true;
                     //fade textview away
 
                     ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(info, "translationY", 0, -100);
@@ -200,16 +196,16 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                     objectAnimator.setDuration(400);
                     objectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
 
-                    Animation animation = new AlphaAnimation(0,1);
+                    Animation animation = new AlphaAnimation(0, 1);
                     animation.setDuration(600);
                     infoText.setVisibility(View.VISIBLE);
 
                     infoText.startAnimation(animation);
                     logoutAnimator.start();
                     objectAnimator.start();
-                }else{
+                } else {
                     //moves views down, fades text out
-                    isUp=false;
+                    isUp = false;
 
                     ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(info, "translationY", -100, 0);
                     objectAnimator.setDuration(400);
@@ -219,7 +215,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                     objectAnimator.setDuration(400);
                     objectAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
 
-                    Animation animation = new AlphaAnimation(1,0);
+                    Animation animation = new AlphaAnimation(1, 0);
                     animation.setDuration(300);
                     animation.setFillAfter(true);
 

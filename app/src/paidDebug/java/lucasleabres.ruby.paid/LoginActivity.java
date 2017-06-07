@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity implements ViewPager.OnPage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        if (settings.getString("access_token",null) != null) {
+        if (settings.getString("access_token", null) != null) {
             Intent intent = new Intent(LoginActivity.this, MyLauncher.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     @Override
-    public void onPause(){
+    public void onPause() {
         super.onPause();
         Log.d(TAG, "onpause called.");
     }
@@ -206,7 +206,7 @@ public class LoginActivity extends AppCompatActivity implements ViewPager.OnPage
                         .setExceptionHandler(this)
                         .setUrlCallBack(CALLBACK_URL)
                         .initiateInActivity(this);
-                        //.initiateInDialog(getSupportFragmentManager());
+                //.initiateInDialog(getSupportFragmentManager());
                 break;
         }
     }

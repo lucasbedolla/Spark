@@ -1,18 +1,16 @@
 package cool.lucasleabres.ruby.util;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
-import com.tumblr.jumblr.types.PhotoSize;
 import com.tumblr.jumblr.types.Post;
 
 import java.util.List;
 
-import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.listeners.BasicViewHolderActionListener;
 import cool.lucasleabres.ruby.view.viewholders.BasicViewHolder;
 import cool.lucasleabres.ruby.view.viewholders.PhotoSetViewHolder;
@@ -51,15 +49,26 @@ public class ViewHolderPlacer {
 
     private static void setPhotos(final PhotoSetViewHolder photoSetHolder, final PhotoPost photoPost) {
         final ImageView[] image = photoSetHolder.getImages();
+        ImageView imageView = image[0];
 
-        for (int i = 0; i < photoPost.getPhotos().size(); i++) {
-            List<PhotoSize> sizes = photoPost.getPhotos().get(i).getSizes();
-            Picasso.with(photoSetHolder.getTitle().getContext())
-                    .load(sizes.get(0).getUrl())
-                    .placeholder(R.drawable.loadingshadow)
-                    .error(R.drawable.loadingshadow)
-                    .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                    .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
+        double w = ((Activity) imageView.getContext()).getWindow().getWindowManager().getDefaultDisplay().getWidth();
+
+        List<Photo> photos = photoPost.getPhotos();
+        for (int i = 0; i < photos.size(); i++) {
+            int width = photos.get(i).getSizes().get(0).getWidth();
+            int height = photos.get(i).getSizes().get(0).getHeight();
+
+            //this is the ratio for the image.
+            double ratio = width / height;
+            //this is the height for the image view before it is completely loaded
+            double h = w * ratio;
+
+            image[i].setMinimumHeight((int) h);
+            image[i].invalidate();
+
+            Glide.with(image[i].getContext())
+                    .load(photos.get(i).getSizes().get(0).getUrl())
+                    .thumbnail(0.1f)
                     .into(image[i]);
         }
     }
@@ -84,7 +93,6 @@ public class ViewHolderPlacer {
             case PHOTO:
                 PhotoSetViewHolder setHolder = (PhotoSetViewHolder) holder;
                 PhotoPost photoPost = (PhotoPost) post;
-                setHolder.getTitle().setText(photoPost.getSourceTitle());
                 setPhotos(setHolder, photoPost);
                 break;
 

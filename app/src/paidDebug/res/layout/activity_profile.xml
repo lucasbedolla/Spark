@@ -1,80 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="lucasleabres.ruby.free.ProfileActivity">
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="lucasleabres.ruby.free.ProfileActivity">
 
-    <android.support.v4.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/d_layout">
+    <android.support.v4.widget.DrawerLayout android:id="@+id/d_layout"
+        android:layout_width="match_parent" android:layout_height="match_parent">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-            <android.support.design.widget.CoordinatorLayout
-                android:layout_width="match_parent"
+            <android.support.design.widget.CoordinatorLayout android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.design.widget.AppBarLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <android.support.v7.widget.Toolbar
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                <android.support.design.widget.AppBarLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.Toolbar android:id="@+id/profile_toolbar"
+                        android:layout_width="match_parent" android:layout_height="60dp"
                         android:background="@color/liked_red"
-                        android:id="@+id/profile_toolbar"
                         app:layout_scrollFlags="scroll|enterAlways">
 
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
+                        <LinearLayout android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/liked_red">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/liked_red"
-                            android:layout_weight="7">
+                            android:background="@color/liked_red" android:orientation="horizontal">
+                            <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content" android:layout_weight="7"
+                                android:background="@color/liked_red">
 
-                            <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="match_parent"
-                                android:src="@drawable/back"
-                                android:paddingRight="10dp"
-                                android:paddingEnd="10dp"
-                                android:background="@color/liked_red"
-                                android:id="@+id/profile_back"/>
+                                <ImageView android:id="@+id/profile_back"
+                                    android:layout_width="40dp" android:layout_height="match_parent"
+                                    android:background="@color/liked_red" android:paddingEnd="10dp"
+                                    android:paddingRight="10dp" android:src="@drawable/back" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="60dp"
-                                android:textColor="@color/white"
-                                android:background="@color/post_luscent"
-                                android:id="@+id/profile_name"
-                                android:layout_toRightOf="@id/profile_back"
-                                android:layout_toEndOf="@id/profile_back"
-                                android:gravity="center_vertical"
-                                android:text="PROFILE"
-                                android:textSize="15dp"/>
-                        </RelativeLayout>
+                                <TextView android:id="@+id/profile_name"
+                                    android:layout_width="wrap_content" android:layout_height="60dp"
+                                    android:layout_toEndOf="@id/profile_back"
+                                    android:layout_toRightOf="@id/profile_back"
+                                    android:background="@color/post_luscent"
+                                    android:gravity="center_vertical" android:text="PROFILE"
+                                    android:textColor="@color/white" android:textSize="15dp" />
+                            </RelativeLayout>
 
-                        <ImageButton
-                            android:layout_weight="5"
-                            android:layout_width="80dp"
-                            android:id="@+id/profile_menu"
-                            android:layout_height="match_parent"
-                            android:padding="10dp"
-                            android:scaleType="fitXY"
-                            android:gravity="right|end|center_vertical"
-                            android:src="@drawable/gemenu_white"
-                            android:background="@color/main_background"/>
+                            <ImageButton android:id="@+id/profile_menu" android:layout_width="80dp"
+                                android:layout_height="match_parent" android:layout_weight="5"
+                                android:background="@color/main_background"
+                                android:gravity="right|end|center_vertical" android:padding="10dp"
+                                android:scaleType="fitXY" android:src="@drawable/gemenu_white" />
 
                         </LinearLayout>
 
@@ -83,71 +54,43 @@
                 </android.support.design.widget.AppBarLayout>
 
 
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/profile_recycler"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                <android.support.v7.widget.RecyclerView android:id="@+id/profile_recycler"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />
             </android.support.design.widget.CoordinatorLayout>
 
         </FrameLayout>
 
-        <RelativeLayout
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="end|right"
-            android:background="@color/white"
-            android:layout_alignParentBottom="true">
+        <RelativeLayout android:layout_width="300dp" android:layout_height="match_parent"
+            android:layout_alignParentBottom="true" android:layout_gravity="end|right"
+            android:background="@color/white">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:id="@+id/imageView"
-                android:background="@color/orange"
-                android:layout_alignRight="@+id/right_drawer"
-                android:layout_alignEnd="@+id/right_drawer">
+            <RelativeLayout android:id="@+id/imageView" android:layout_width="match_parent"
+                android:layout_height="150dp" android:layout_alignEnd="@+id/right_drawer"
+                android:layout_alignRight="@+id/right_drawer" android:background="@color/orange">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:background="@color/white"
-                    />
+                <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@color/white" android:scaleType="centerCrop" />
 
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:padding="10dp"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/profile_pic"/>
+                <ImageView android:id="@+id/profile_pic" android:layout_width="64dp"
+                    android:layout_height="64dp" android:layout_centerHorizontal="true"
+                    android:padding="10dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:id="@+id/description"
-                    android:padding="10dp"
-                    android:gravity="center"
-                    android:layout_below="@id/profile_pic"/>
+                <TextView android:id="@+id/description" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_below="@id/profile_pic"
+                    android:gravity="center" android:padding="10dp" android:textSize="12sp" />
 
-                </RelativeLayout>
+            </RelativeLayout>
 
 
-            <ListView android:id="@+id/right_drawer"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:choiceMode="singleChoice"
-                      android:background="@color/white"
-                      android:layout_gravity="right|end"
-                      android:footerDividersEnabled="false"
-                      android:layout_below="@+id/imageView" />
+            <ListView android:id="@+id/right_drawer" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_below="@+id/imageView"
+                android:layout_gravity="right|end" android:background="@color/white"
+                android:choiceMode="singleChoice" android:footerDividersEnabled="false" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/right_drawer"
-                android:src="@drawable/stripe2"
-                android:scaleType="centerCrop"/>
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_below="@+id/right_drawer" android:scaleType="centerCrop"
+                android:src="@drawable/stripe2" />
 
 
         </RelativeLayout>
@@ -156,13 +99,9 @@
     </android.support.v4.widget.DrawerLayout>
 
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/profile_progress"
-        android:layout_centerVertical="true"
-        android:background="@color/post_luscent"
-        android:layout_centerHorizontal="true"/>
+    <ProgressBar android:id="@+id/profile_progress" style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" android:layout_centerVertical="true"
+        android:background="@color/post_luscent" />
 
 </RelativeLayout>

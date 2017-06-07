@@ -15,22 +15,18 @@ public class NetworkChecker {
     private Context context;
     private AlertDialog alert = null;
 
-    public NetworkChecker(Context c){
+    public NetworkChecker(Context c) {
         context = c;
     }
 
 
-    public AlertDialog isConnected()
-    {
+    public AlertDialog isConnected() {
 
-        if(checkConnection())
-        {
+        if (checkConnection()) {
             /*
             connection is valid!
              */
-        }
-        else
-        {
+        } else {
             alert = new AlertDialog.Builder(context)
                     .setTitle("No internet connection detected.")
                     .setMessage("Please connect to the internet.")
@@ -45,8 +41,7 @@ public class NetworkChecker {
         return alert;
     }
 
-    private boolean checkConnection()
-    {
+    private boolean checkConnection() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();

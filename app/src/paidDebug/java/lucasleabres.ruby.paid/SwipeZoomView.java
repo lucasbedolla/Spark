@@ -34,7 +34,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 /**
  * Created by LUCASVENTURES on 8/21/2016.
  */
-public class SwipeZoomView extends Fragment implements View.OnClickListener{
+public class SwipeZoomView extends Fragment implements View.OnClickListener {
 
     public static final String TAG = "SWIPEZOOMVIEW FRAGMENT";
 
@@ -47,7 +47,7 @@ public class SwipeZoomView extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(Context context) {
         super.onAttach(context);
         Bundle bundle = getArguments();
         setURL(bundle.getString("URL"));
@@ -57,7 +57,7 @@ public class SwipeZoomView extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View layout = inflater.inflate(R.layout.zoom_view,container,false);
+        View layout = inflater.inflate(R.layout.zoom_view, container, false);
 
         ImageButton button = (ImageButton) layout.findViewById(R.id.button);
         button.setOnClickListener(this);
@@ -80,14 +80,14 @@ public class SwipeZoomView extends Fragment implements View.OnClickListener{
     }
 
 
-    private void setURL(String url){
+    private void setURL(String url) {
         URL = url;
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case(R.id.button):
+        switch (v.getId()) {
+            case (R.id.button):
                 getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
                 MainActivity act = (MainActivity) getActivity();
                 act.fab.setVisibility(View.VISIBLE);

@@ -3,8 +3,6 @@ package cool.lucasleabres.ruby.activities;
 import android.Manifest;
 import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -32,8 +30,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.melnykov.fab.FloatingActionButton;
-import com.squareup.picasso.Picasso;
 import com.tumblr.jumblr.JumblrClient;
 import com.tumblr.jumblr.exceptions.JumblrException;
 import com.tumblr.jumblr.types.Post;
@@ -50,48 +48,90 @@ import cool.lucasleabres.ruby.R;
 import cool.lucasleabres.ruby.adapter.RecyclerAdapter;
 import cool.lucasleabres.ruby.util.Constants;
 import cool.lucasleabres.ruby.util.NetworkChecker;
-import cool.lucasleabres.ruby.view.LoadingListener;
+import cool.lucasleabres.ruby.util.PrefsManager;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, LoadingListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-    private final String TAG = "MAIN_ACTIVITY";
-    private final int PERMISSION_REQ = 1;
-    private Context context;
 
     private static String token;
     private static String token_secret;
     private static String blogName;
+    private final String TAG = "MAIN_ACTIVITY";
+    private final int PERMISSION_REQ = 1;
+    private SwipeRefreshLayout refreshLayout;
+    private FloatingActionButton fab;
+    private RelativeLayout menu;
+    private ProgressBar prog;
+    private Button reconnect;
 
-    private boolean isGrid;
+    private ImageButton profileButton;
+    private ImageButton settingsButton;
+    private RecyclerView mRecyclerView;
+    private TextView profileText;
+    private Button dashButton;
+    private ImageButton likes;
+    private ImageButton search;
+    private ImageButton post;
+
+    private int lastVisibleItem, totalItemCount;
+    private boolean isLoading;
+
+    private boolean isGrid = false;
     private boolean isUp = true;
 
-    private List<Post> centralList;
-    private List<Post> newPosts;
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();
 
     private Handler handler;
     private RecyclerAdapter mRecyclerAdapter;
 
     private JumblrClient jumblr;
+    private SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
 
+        @Override
+        public void onRefresh() {
+            createDataSet();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    refreshLayout.setRefreshing(false);
+                }
+            }, 4200);
+        }
+    };
+    private View.OnClickListener fabListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
-    SwipeRefreshLayout refreshLayout;
-    FloatingActionButton fab;
-    RelativeLayout menu;
-    ProgressBar prog;
-    Button reconnect;
+            Point size = new Point();
+            getWindowManager().getDefaultDisplay().getSize(size);
+            int height = size.y;
 
-    ImageButton profileButton;
-    ImageButton settingsButton;
-    RecyclerView mRecyclerView;
-    TextView profileText;
-    Button dashButton;
-    ImageButton likes;
-    ImageButton search;
-    ImageButton post;
+            if (isUp) {
+                animateDown(height);
+            } else {
+                animateUp(height);
+            }
+        }
+    };
+    private RecyclerView.OnScrollListener scrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            //this determines if should load more
+            LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+            totalItemCount = manager.getItemCount();
+            lastVisibleItem = manager.findLastVisibleItemPosition();
 
+          /*
+            if (!isLoading && lastVisibleItem >= totalItemCount - 5) {
+                isLoading = false;
+            } else {
+                loadMorePosts();
+                isLoading = true;
+            }
+           */
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         post = (ImageButton) findViewById(R.id.post);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler);
+        mRecyclerView.setOnScrollListener(scrollListener);
         profileText = (TextView) findViewById(R.id.profile_text);
 
         dashButton = (Button) findViewById(R.id.dashboard);
@@ -115,7 +156,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         reconnect = (Button) findViewById(R.id.reconnect);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
-
 
 
         init();
@@ -142,7 +182,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPause() {
         super.onPause();
     }
-
 
     @Override
     public void onResume() {
@@ -193,10 +232,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void init() {
 
-        context = this;
-
-        //get tokens tokens
-        getTokens();
+        token = PrefsManager.getOAuthToken(this);
+        token_secret = PrefsManager.getOAuthTokenSecret(this);
 
         handler = new Handler();
 
@@ -267,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.i(TAG, "\t" + blogName);
 
                 //save blog name to prefs
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("blog", blogName);
                 editor.apply();
@@ -282,10 +319,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
 
-                        Picasso.with(context)
+                        Glide.with(MainActivity.this)
                                 .load(picUrl)
-                                .placeholder(R.mipmap.ic_launcher)
-                                .error(R.mipmap.ic_launcher)
                                 .into(profileButton);
 
                         profileText.setText(blogName);
@@ -308,11 +343,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         prog.setVisibility(View.GONE);
         // pull to refresh layout config
         refreshLayout.setVisibility(View.VISIBLE);
-        refreshLayout.setColorSchemeResources(R.color.notification_green, R.color.liked_red, R.color.orange, R.color.search_blue);
+        refreshLayout.setColorSchemeResources(R.color.green, R.color.red, R.color.orange, R.color.blue);
         refreshLayout.setProgressBackgroundColorSchemeColor(Color.WHITE);
         refreshLayout.setProgressViewOffset(false, 0, 225);
         refreshLayout.setOnRefreshListener(refreshListener);
-        centralList = rawPosts;
 
         //sets layout manager depending on shared preferences
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -328,53 +362,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mRecyclerView.setLayoutManager(layoutManager);
         }
 
-        mRecyclerAdapter = new RecyclerAdapter(mRecyclerView, centralList);
-        mRecyclerAdapter.setOnLoadMoreListener(this);
+        mRecyclerAdapter = new RecyclerAdapter(posts);
         mRecyclerView.setAdapter(mRecyclerAdapter);
     }
-
-    private void getTokens() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        token = preferences.getString("access_token", null);
-        Log.d(TAG, "1, token: " + token);
-        token_secret = preferences.getString("access_token_secret", null);
-        Log.d(TAG, "1, token secret: " + token_secret);
-    }
-
-    /*
-    listener and menu animation items
-     */
-
-
-    private SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
-
-        @Override
-        public void onRefresh() {
-            createDataSet();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    refreshLayout.setRefreshing(false);
-                }
-            }, 4200);
-        }
-    };
-
-    private View.OnClickListener fabListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            Point size = new Point();
-            getWindowManager().getDefaultDisplay().getSize(size);
-            int height = size.y;
-
-            if (isUp) {
-                animateDown(height);
-            } else {
-                animateUp(height);
-            }
-        }
-    };
 
     public void animateUp(int h) {
 
@@ -425,33 +415,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 getWindowManager().getDefaultDisplay().getSize(size);
                 animateDown(size.y);
                 break;
-            case R.id.profile:
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                intent.putExtra("blog", blogName);
-                startActivity(intent);
 
-                break;
-            case R.id.settings:
-                Intent settings = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(settings);
-                break;
-
-            case R.id.likes:
-                Intent likes = new Intent(MainActivity.this, LikedActivity.class);
-                startActivity(likes);
-
-                break;
-            case R.id.post:
-                Toast.makeText(MainActivity.this, "Posting is currently under development!", Toast.LENGTH_SHORT).show();
-
-                break;
-            case R.id.search:
-                Intent search = new Intent(MainActivity.this, SearchyActivity.class);
-                startActivity(search);
-
-                break;
             case R.id.reconnect:
-                NetworkChecker checker = new NetworkChecker(context);
+                NetworkChecker checker = new NetworkChecker(MainActivity.this);
                 AlertDialog dialog = checker.isConnected();
                 if (dialog != null) {
                     dialog.show();
@@ -462,63 +428,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onLoadMore() {
+    private void loadMorePosts() {
 
-        Log.d(TAG, "Loading More posts");
-        //adding null equates to adding "loading view" into recyclerview
-        Log.d(TAG, "onLoadMore: adding null to central list.");
-        centralList.add(null);
-        //call for more
-        Log.d(TAG, "onLoadMore: starting new thread for getting new posts");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                // Make the request
-                Log.d(TAG, "run: on load listener has been called for first time.");
-                try {
-                    Log.d(TAG, "run: creating new jumblr object in ONLOADMORE listener");
+        if (isLoading) {
 
-                    Log.d(TAG, "run: recycler adapter setloaded method called");
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    final int postSize = posts.size();
+                    try {
+                        Map<String, Object> params = new HashMap<String, Object>();
+                        params.put("limit", 20);
+                        params.put("offset", posts.size());
 
-                    Map<String, Object> params = new HashMap<String, Object>();
-                    params.put("limit", 20);
-                    params.put("offset", centralList.size());
-
-                    //jumblr.setRequestBuilder(new RequestBuilder(jumblr));
-
-                    newPosts = jumblr.userDashboard(params);
-                } catch (OAuthConnectionException o) {
-                    Log.d(TAG, "run: error creating new posts in onload();");
-                } catch (JumblrException j) {
-                    Log.d(TAG, "run: jumblr exception thrown! wtf");
-                } catch (OutOfMemoryError e) {
-                    Log.e(TAG, "OUT OF MEMORY ERROR");
-                }
-                Log.d(TAG, "central list size:" + centralList.size());
-
-                Log.d(TAG, "run:  handler is now posting update to recycleradapter");
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        //removing loading sign, populating new items
-                        //Remove loading items
-
-                        int size = centralList.size() - 1;
-                        centralList.remove(centralList.size() - 1);
-                        mRecyclerAdapter.notifyItemRemoved(centralList.size());
-
-
-                        centralList.addAll(newPosts);
-
-                        Log.d(TAG, "run: recycler adapter notify item range changed called");
-                        mRecyclerAdapter.notifyItemRangeChanged(size, centralList.size());
-                        mRecyclerAdapter.setLoaded();
+                        posts.addAll(jumblr.userDashboard(params));
+                    } catch (OAuthConnectionException o) {
+                        Log.d(TAG, "run: error creating new posts in onload();");
+                    } catch (JumblrException j) {
+                        Log.d(TAG, "run: jumblr exception thrown! wtf");
+                    } catch (OutOfMemoryError e) {
+                        Log.e(TAG, "OUT OF MEMORY ERROR");
                     }
-                });
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            mRecyclerAdapter.notifyItemRangeChanged(postSize, posts.size());
+                        }
+                    });
 
-
-            }
-        }).start();
+                }
+            }).start();
+        }
     }
+
 }

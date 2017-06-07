@@ -59,27 +59,11 @@ import cool.lucasbedolla.ruby.http.TumblrAPIConnect;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, LoadingListener {
 
-    private final String TAG = "MAIN_ACTIVITY";
-    private final int PERMISSION_REQ = 1;
-    private Context context;
-
     private static String token;
     private static String token_secret;
     private static String blogName;
-
-    private boolean isGrid;
-    private boolean isUp = true;
-    private boolean isalreadyrunningarequest = false;
-
-    private List<Object> centralList;
-    private List<Post> newPosts;
-    private List<Post> posts;
-
-    private Handler handler = new Handler();
-    private RecyclerAdapter mRecyclerAdapter;
-
-    private JumblrClient jumblr;
-
+    private final String TAG = "MAIN_ACTIVITY";
+    private final int PERMISSION_REQ = 1;
     @Bind(R.id.reconnect)
     Button reconnect;
     @Bind(R.id.refresher)
@@ -92,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CoordinatorLayout coordinator;
     @Bind(R.id.progressBar)
     ProgressBar prog;
-
     @Bind(R.id.profile)
     ImageButton profileButton;
     @Bind(R.id.settings)
@@ -103,7 +86,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView profileText;
     @Bind(R.id.dashboard)
     Button dashButton;
+    private Context context;
+    private boolean isGrid;
+    private boolean isUp = true;
+    private boolean isalreadyrunningarequest = false;
+    private List<Object> centralList;
+    private List<Post> newPosts;
+    private List<Post> posts;
+    private Handler handler = new Handler();
+    private RecyclerAdapter mRecyclerAdapter;
+    private JumblrClient jumblr;
+    private SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
 
+        @Override
+        public void onRefresh() {
+            createDataSet();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    refreshLayout.setRefreshing(false);
+                }
+            }, 4200);
+        }
+    };
+    private View.OnClickListener fabListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Point size = new Point();
+            getWindowManager().getDefaultDisplay().getSize(size);
+            int height = size.y;
+
+            if (isUp) {
+                animateDown(height);
+            } else if (!isUp) {
+                animateUp(height);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPause() {
         super.onPause();
     }
-
 
     @Override
     public void onResume() {
@@ -265,10 +284,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 authorizer.token = token;
 
                 TumblrAPIConnect connect = ServiceGenerator.createService(
-                    TumblrAPIConnect.class, Constants.BASE_URL, authorizer);
+                        TumblrAPIConnect.class, Constants.BASE_URL, authorizer);
 
                 String x = connect.listRepos();
-                Log.d(TAG, "loadPosts: JSONN:"+x);
+                Log.d(TAG, "loadPosts: JSONN:" + x);
 
             }
         }).start();
@@ -325,6 +344,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         thread.start();
     }
 
+    /*
+    listener and menu animation items
+     */
+
     private void setUpRecyclerView(List<Post> rawPosts) {
 
         //remove progress bar
@@ -374,41 +397,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         token_secret = preferences.getString("access_token_secret", null);
         Log.d(TAG, "1, token secret: " + token_secret);
     }
-
-    /*
-    listener and menu animation items
-     */
-
-
-    private SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
-
-        @Override
-        public void onRefresh() {
-            createDataSet();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    refreshLayout.setRefreshing(false);
-                }
-            }, 4200);
-        }
-    };
-
-    private View.OnClickListener fabListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            Point size = new Point();
-            getWindowManager().getDefaultDisplay().getSize(size);
-            int height = size.y;
-
-            if (isUp) {
-                animateDown(height);
-            } else if (!isUp) {
-                animateUp(height);
-            }
-        }
-    };
 
     public void animateUp(int h) {
 

@@ -54,8 +54,8 @@ public class PostSorter {
                 case "audio":
                     //not yet added
 
-                   // AudioPost audio = (AudioPost) post;
-                   // castedList.add(audio);
+                    // AudioPost audio = (AudioPost) post;
+                    // castedList.add(audio);
                     break;
                 case "answer":
                     AnswerPost answer = (AnswerPost) post;

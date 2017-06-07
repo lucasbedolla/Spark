@@ -44,12 +44,6 @@ public class ProfileActivity extends AppCompatActivity {
     public List<Post> userPosts;
     public List<MyModel> globalList;
     public RecyclerAdapter mRecyclerAdapter;
-
-    private String token;
-    private String token_secret;
-
-
-
     @Bind(R.id.profile_recycler)
     RecyclerView mRecyclerView;
     @Bind(R.id.profile_toolbar)
@@ -70,6 +64,8 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView mBack;
     @Bind(R.id.description)
     TextView description;
+    private String token;
+    private String token_secret;
     private String[] menuItems =
             new String[]{"Ask", "Message", "Likes", "Submit"};
     private View.OnClickListener layoutToggler = new View.OnClickListener() {
@@ -104,7 +100,7 @@ public class ProfileActivity extends AppCompatActivity {
         profName.setText(blogName);
         Typeface face = Typeface.createFromAsset(getAssets(), "fonts/aleo.ttf");
         profName.setTypeface(face);
-       // mToolbar.setTitle(blogName);
+        // mToolbar.setTitle(blogName);
         Picasso.with(this)
                 .load(blogPicUrl)
                 .placeholder(R.drawable.loadingshadow)
@@ -113,9 +109,9 @@ public class ProfileActivity extends AppCompatActivity {
                 .into(profPic);
         NetworkChecker checker = new NetworkChecker(this);
         AlertDialog dialog = checker.isConnected();
-        if(dialog!=null){
+        if (dialog != null) {
             dialog.show();
-        }else{
+        } else {
             //party!
             setupRecyclerView();
         }
@@ -126,7 +122,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    @Override public void onBackPressed (){
+    @Override
+    public void onBackPressed() {
         super.onBackPressed();
     }
 
@@ -140,16 +137,16 @@ public class ProfileActivity extends AppCompatActivity {
             public void run() {
 
                 //jumblr stuff
-                Log.d(TAG,"setting up jumblr client");
+                Log.d(TAG, "setting up jumblr client");
                 JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET);
-                Log.d(TAG,"setting jumblr tokens");
+                Log.d(TAG, "setting jumblr tokens");
                 client.setToken(token, token_secret);
                 //get user posts
                 userPosts = client.blogPosts(blogName);
-                Log.d(TAG, "post list size: "+userPosts.size());
+                Log.d(TAG, "post list size: " + userPosts.size());
 
                 Blog blog = client.blogInfo(blogName);
-                final String desc =  blog.getDescription();
+                final String desc = blog.getDescription();
 
                 //looper must be called in order to handle handler messages to main thread
                 Looper.prepare();
@@ -195,15 +192,23 @@ public class ProfileActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mRecyclerAdapter);
     }
 
+    private void getTokens() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        token = preferences.getString("access_token", null);
+        Log.d(TAG, "1, token: " + token);
+        token_secret = preferences.getString("access_token_secret", null);
+        Log.d(TAG, "1, token secret: " + token_secret);
+    }
+
     //nav adapter class
-    class MyAdapter extends BaseAdapter{
-        String[]navBar;
+    class MyAdapter extends BaseAdapter {
+        String[] navBar;
         int[] images = {
                 R.drawable.ask, R.drawable.white_likes, R.drawable.white_message, R.drawable.submit
         };
         private Context context;
 
-        public MyAdapter(Context context){
+        public MyAdapter(Context context) {
             this.context = context;
             navBar = menuItems;
             this.context.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -228,22 +233,26 @@ public class ProfileActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View row = null;
-            if(convertView == null){
+            if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                row =  inflater.inflate(R.layout.profile_menu, null);
+                row = inflater.inflate(R.layout.profile_menu, null);
 
-            }else{
+            } else {
                 row = convertView;
             }
-            switch (navBar[position]){
-                case "Ask": row.setBackgroundResource(R.color.notification_green);
+            switch (navBar[position]) {
+                case "Ask":
+                    row.setBackgroundResource(R.color.notification_green);
                     break;
-                case "Message": row.setBackgroundResource(R.color.liked_red);
+                case "Message":
+                    row.setBackgroundResource(R.color.liked_red);
                     break;
-                case "Likes": row.setBackgroundResource(R.color.orange);
+                case "Likes":
+                    row.setBackgroundResource(R.color.orange);
                     break;
-                case "Submit": row.setBackgroundResource(R.color.search_blue);
+                case "Submit":
+                    row.setBackgroundResource(R.color.search_blue);
                     break;
 
             }
@@ -254,13 +263,5 @@ public class ProfileActivity extends AppCompatActivity {
             iv.setImageResource(images[position]);
             return row;
         }
-    }
-
-    private void getTokens() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        token = preferences.getString("access_token", null);
-        Log.d(TAG, "1, token: " + token);
-        token_secret = preferences.getString("access_token_secret", null);
-        Log.d(TAG, "1, token secret: " + token_secret);
     }
 }

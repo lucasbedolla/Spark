@@ -6,11 +6,11 @@
 
         dependencies {
             classpath 'com.android.tools.build:gradle:3.0.0-alpha1'
-            classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         }
 
         allprojects {
             repositories {
+                mavenCentral()
                 jcenter()
                 maven { url "https://jitpack.io" }
             }
