@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\res\\merged\\debug\\values-land\\values-land.xml",
+        "outputFile": "C:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 120
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\71c62eba02661e16f1a9776e208e8c35\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 184
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\71c62eba02661e16f1a9776e208e8c35\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 255
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\71c62eba02661e16f1a9776e208e8c35\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 323
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\7195300677e565a482af7e5b11a91a90\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\71c62eba02661e16f1a9776e208e8c35\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -88,7 +88,7 @@
                     "endOffset": 505
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\f579b8220378b055e77d0d57efe4ea7c\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\11b0b3f045284dd11138c6d01e1317f3\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

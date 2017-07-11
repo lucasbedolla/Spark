@@ -1,4 +1,4 @@
-package cool.lucasleabres.ruby;
+package cool.lucasleabres.swish;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
 
@@ -14,5 +14,6 @@
     <color name="orange">#ffff521b</color>
     <color name="yellow">#ffffed20</color>
     <color name="green">#ff38ebbf</color>
+    <color name="profile_backdrop">#80525252</color>
 
 </resources>

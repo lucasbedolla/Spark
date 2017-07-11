@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@color/profile_backdrop"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <ImageButton
+        android:id="@+id/post_reblog"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/back_red" />
+
+    <ImageButton
+        android:id="@+id/post_like"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@color/orange" />
+
+</LinearLayout>

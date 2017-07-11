@@ -3,7 +3,7 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp">
+    android:layout_marginTop="5dp">
 
     <RelativeLayout
         android:id="@+id/relativeLayout4"
@@ -98,5 +98,26 @@
             android:padding="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/vTitle"
+            android:layout_toRightOf="@+id/vTitle">
+
+            <include layout="@layout/info_bottom" />
+        </RelativeLayout>
+
+
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/relativeLayout4">
+
+        <include layout="@layout/info_top" />
+    </RelativeLayout>
+
 </RelativeLayout>
