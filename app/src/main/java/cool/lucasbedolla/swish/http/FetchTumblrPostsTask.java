@@ -43,7 +43,7 @@ public class FetchTumblrPostsTask extends AsyncTask {
             String token_secret = PrefsManager.getOAuthTokenSecret(ctx);
             JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET, token, token_secret);
             Map<String, Object> params = new HashMap<>();
-            params.put("limit", 200);
+            params.put("limit", 40);
             params.put("offset", currentSizeOfPostsList);
 
             return client.userDashboard(params);
