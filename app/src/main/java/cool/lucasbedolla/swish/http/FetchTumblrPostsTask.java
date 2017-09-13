@@ -17,7 +17,7 @@ import java.util.Map;
 
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.util.Constants;
-import cool.lucasbedolla.swish.util.PrefsManager;
+import cool.lucasbedolla.swish.util.MyPrefs;
 
 /**
  * Created by Lucas Bedolla on 7/4/2017.
@@ -39,8 +39,8 @@ public class FetchTumblrPostsTask extends AsyncTask {
         listener = (FetchPostListener) objects[2];
 
         try {
-            String token = PrefsManager.getOAuthToken(ctx);
-            String token_secret = PrefsManager.getOAuthTokenSecret(ctx);
+            String token = MyPrefs.getOAuthToken(ctx);
+            String token_secret = MyPrefs.getOAuthTokenSecret(ctx);
             JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET, token, token_secret);
             Map<String, Object> params = new HashMap<>();
             params.put("limit", 40);
