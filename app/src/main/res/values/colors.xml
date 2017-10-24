@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#576CA8</color>
-    <color name="colorPrimaryDark">#274690</color>
-    <color name="colorAccent">#077187</color>
+    <color name="colorPrimary">#007aec</color>
+    <color name="colorPrimaryDark">#0068ca</color>
+    <color name="colorAccent">#f7f7f7</color>
 
-    <color name="pool_shallow">#576CA8</color>
-    <color name="pool_blue">#274690</color>
-    <color name="pool_deep_end">#1B264F</color>
-    <color name="pool_time">#077187</color>
+    <color name="pool_shallow">#f04245</color>
+    <color name="pool_blue">#de373a</color>
+    <color name="pool_deep_end">#851e1f</color>
+    <color name="pool_time">#b63335</color>
     <color name="pool_tile">#e1e1e1</color>
     <color name="pool_guard">#DB504A</color>
-
 
     <color name="white">#ffffff</color>
     <color name="charcoal">#252525</color>
     <color name="black">#000000</color>
     <color name="pool_tile_dark">#aaaaaa</color>
+    <color name="light_gray">#ebebeb</color>
 </resources>

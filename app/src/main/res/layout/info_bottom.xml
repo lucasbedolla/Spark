@@ -9,16 +9,47 @@
     <LinearLayout
         android:id="@+id/extras_content"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
         android:visibility="gone">
 
-        <Button
-            android:id="@+id/like_button"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="#ff62a6"
-            android:layout_height="60dp" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/reblog_button"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#244fff"
+                android:text="reblog"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/like_button"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
+                android:background="#ff292c"
+                android:text="like"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="notes"
+            android:visibility="visible" />
+
 
     </LinearLayout>
 

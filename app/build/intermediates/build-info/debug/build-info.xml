@@ -5,36 +5,77 @@
     build-mode="COLD"
     density="xxhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.0.0-alpha4"
-    timestamp="1505286078312"
+    timestamp="1508814668657"
     token="4595560276093017331"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1840" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="31" />
     <task
         name="verifier"
-        duration="0" />
+        duration="2" />
+
+    <artifact
+        location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1505286014015"
+        timestamp="1508812526328"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
             location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1508813495264"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -49,13 +90,7 @@
             location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
@@ -66,7 +101,12 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1505286078312"
-        verifier="COLD_SWAP_REQUESTED" />
+        ir-eligibility="COMPATIBLE"
+        timestamp="1508814668657"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+    </build>
 
 </instant-run>

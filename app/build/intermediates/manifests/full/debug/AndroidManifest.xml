@@ -35,13 +35,15 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="cool.lucasbedolla.swish.activities.LoginActivity" >
+        </activity>
+        <activity android:name="cool.lucasbedolla.swish.activities.MainActivity" />
+        <activity android:name="cool.lucasbedolla.swish.activities.onboarding.OnboardingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="cool.lucasbedolla.swish.activities.MainActivity" />
 
         <meta-data
             android:name="android.support.VERSION"

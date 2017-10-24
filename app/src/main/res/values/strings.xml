@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Rumblr</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Spark</string>
     <string name="go">go</string>
     <string name="connect">connect</string>
 </resources>

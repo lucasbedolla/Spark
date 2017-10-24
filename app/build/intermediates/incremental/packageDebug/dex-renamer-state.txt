@@ -1,4 +1,4 @@
-#Wed Sep 13 00:00:31 PDT 2017
+#Mon Oct 23 19:51:41 PDT 2017
 base.0=C\:\\Users\\lucasventures\\Desktop\\fruby\\Swish\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\10
 renamed.1=classes2.dex
 renamed.0=classes.dex
