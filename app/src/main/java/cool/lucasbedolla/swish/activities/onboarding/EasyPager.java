@@ -12,10 +12,21 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class EasyPager extends FragmentPagerAdapter {
 
     String[] urls = {
-            "https://78.media.tumblr.com/23a03432e9129aae6754995535ca695f/tumblr_ope3fv3ZJs1v1fqrro1_500.gif",
+
+            "https://78.media.tumblr.com/78c1f796b9af285c85106728221f638f/tumblr_otrybhSCsG1ujqvcvo1_500.gif",
             "https://78.media.tumblr.com/f5c05f21654fcfebb2d0a63c2fc6ed13/tumblr_oqhp6zgFGQ1v8hxmso1_r1_1280.gif",
-            "http://78.media.tumblr.com/46310e07580fd30881ea04f6378e205a/tumblr_mq8v7nEkwN1sne1e1o1_250.gif",
-            "https://78.media.tumblr.com/7f1e80b9067a22238353705c70ecf1bf/tumblr_oue5i7LRd11v8hxmso1_1280.gif"};
+            "https://78.media.tumblr.com/d3f1f85ed8203d249425eeaf70f5f0e4/tumblr_oynyi5sHUX1rk9xsjo2_400.gif",
+            "https://78.media.tumblr.com/0c4556acc0873af9e78d879ee7b02f90/tumblr_oystneD33f1ubmu0ko1_400.gif",
+            "https://78.media.tumblr.com/d16dcfc43f0816b34e9fd69cc0613b48/tumblr_oypfa3IfCH1qdwujbo3_250.gif"};
+
+    String[] titles = {
+            "A new way to tumblr!",
+            "Manage your blogs.",
+            "Check out multiple thingies at once.",
+            "Experience  things in new fangled ways.",
+            "OK. Now click the button."
+    };
+
 
     public EasyPager(FragmentManager fm) {
         super(fm);
@@ -23,19 +34,15 @@ public class EasyPager extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 
     @Override
     public Fragment getItem(int position) {
+
         OnboardingFragment frag = new OnboardingFragment();
         Bundle bundle = new Bundle();
-
-        if (position == 3) {
-            bundle.putInt("key", 1);
-        } else {
-            bundle.putInt("key", 0);
-        }
+        bundle.putString("text", titles[position]);
         bundle.putString("url", urls[position]);
         frag.setArguments(bundle);
 

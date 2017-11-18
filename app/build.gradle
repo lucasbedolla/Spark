@@ -7,13 +7,13 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
 
-    compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.1'
 
     defaultConfig {
         applicationId "cool.lucasleabres.ruby"
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion 19
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -45,10 +45,10 @@ android {
     dependencies {
         compile fileTree(include: ['*.jar'], dir: 'libs')
 
-        compile 'com.android.support:appcompat-v7:26.0.1'
-        compile 'com.android.support:recyclerview-v7:26.0.1'
-        compile 'com.android.support:design:26.0.1'
-        compile 'com.android.support:support-v4:26.0.1'
+        compile 'com.android.support:appcompat-v7:27.0.1'
+        compile 'com.android.support:recyclerview-v7:27.0.1'
+        compile 'com.android.support:design:27.0.1'
+        compile 'com.android.support:support-v4:27.0.1'
 
         compile 'com.makeramen:roundedimageview:2.3.0'
 
@@ -64,7 +64,4 @@ android {
         provided "org.projectlombok:lombok:1.16.18"
         annotationProcessor "org.projectlombok:lombok:1.16.18"
     }
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
 }

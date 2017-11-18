@@ -1,13 +1,19 @@
 package cool.lucasbedolla.swish.activities.onboarding;
 
-import android.animation.ArgbEvaluator;
 import android.content.Intent;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.rd.PageIndicatorView;
@@ -18,8 +24,8 @@ import com.tumblr.loglr.LoginResult;
 import com.tumblr.loglr.Loglr;
 
 import cool.lucasbedolla.swish.R;
-import cool.lucasbedolla.swish.activities.MainActivity;
-import cool.lucasbedolla.swish.activities.UnderTheHoodActivity;
+import cool.lucasbedolla.swish.activities.main.MainActivity;
+import cool.lucasbedolla.swish.activities.main.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.util.Constants;
 import cool.lucasbedolla.swish.util.MyPrefs;
 
@@ -33,14 +39,20 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
     private int[] colors = {
             R.color.colorPrimary, R.color.charcoal, R.color.charcoal
     };
-    private ArgbEvaluator argbEvaluator;
+
     private EasyPager adapter;
     private View goButton;
+    private ImageView splashImageView;
+    private RelativeLayout whiteLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
+
+        Window window = getWindow();
+
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
         pager = findViewById(R.id.content_pager);
         pager.setOffscreenPageLimit(5);
@@ -48,14 +60,8 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
         pager.setAdapter(adapter);
 
         pageIndicatorView = findViewById(R.id.pageIndicatorView);
-        pageIndicatorView.setAnimationType(AnimationType.WORM);
+        pageIndicatorView.setAnimationType(AnimationType.SLIDE);
         pageIndicatorView.setViewPager(pager);
-        pager.setPageTransformer(true, new ViewPager.PageTransformer() {
-            @Override
-            public void transformPage(View view, float position) {
-                view.setTranslationX(position < 0 ? 0f : -view.getWidth() * position);
-            }
-        });
         pager.addOnPageChangeListener(this);
 
         colorFilterLayout = findViewById(R.id.filter);
@@ -63,6 +69,75 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
         goButton = findViewById(R.id.go);
         goButton.setOnClickListener(this);
 
+        whiteLayout = findViewById(R.id.splash);
+        splashImageView = findViewById(R.id.splash_image);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                beginSparkAnimation();
+            }
+        }, 300);
+    }
+
+    private void beginSparkAnimation() {
+
+        final AlphaAnimation alphaIn = new AlphaAnimation(1f, 0f);
+        alphaIn.setDuration(900);
+        alphaIn.setInterpolator(new AccelerateDecelerateInterpolator());
+        alphaIn.setRepeatMode(Animation.REVERSE);
+        alphaIn.setRepeatCount(2);
+        alphaIn.setStartOffset(400);
+
+
+        alphaIn.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                AlphaAnimation alphaOut = new AlphaAnimation(1f, 0);
+                alphaOut.setFillAfter(true);
+                alphaOut.setInterpolator(new LinearInterpolator());
+                alphaOut.setDuration(1000);
+                alphaOut.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        whiteLayout.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+
+                whiteLayout.startAnimation(alphaOut);
+
+                TransitionDrawable drawable = (TransitionDrawable) splashImageView.getDrawable();
+                drawable.startTransition(1000);
+
+                Window window = getWindow();
+                WindowManager.LayoutParams winParams = window.getAttributes();
+                winParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+                window.setAttributes(winParams);
+                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        splashImageView.startAnimation(alphaIn);
     }
 
     @Override
@@ -73,26 +148,10 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-
     }
-
 
     @Override
     public void onPageSelected(int position) {
-        if (position == 3) {
-            pageIndicatorView.setAnimation(getAlphaAnimation(1f, 0f));
-            pageIndicatorView.setVisibility(View.GONE);
-            goButton.setAnimation(getAlphaAnimation(0f, 1f));
-            goButton.setVisibility(View.VISIBLE);
-        } else {
-            if (pageIndicatorView.getVisibility() == View.GONE) {
-                pageIndicatorView.setAnimation(getAlphaAnimation(0f, 1f));
-                pageIndicatorView.setVisibility(View.VISIBLE);
-                goButton.setAnimation(getAlphaAnimation(1f, 0f));
-                goButton.setVisibility(View.GONE);
-            }
-        }
-
     }
 
     private AlphaAnimation getAlphaAnimation(float fromAlpha, float toAlpha) {

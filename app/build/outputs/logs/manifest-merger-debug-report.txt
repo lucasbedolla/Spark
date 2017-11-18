@@ -4,11 +4,10 @@ ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManife
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:2:1-32:12
-MERGED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:design:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-27.0.1.aar\2a6360aff26dfb953b319b332a059604\AndroidManifest.xml:17:1-22:12
 MERGED from [com.daksh:loglr:1.1.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\loglr-1.1.1.aar\891c79e9b91cf26b101d5a2749f91a53\AndroidManifest.xml:2:1-22:12
-MERGED from [com.android.support:appcompat-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.1.aar\15825b3b18f4c0fa38b67e7121332874\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:recyclerview-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.1.aar\ec45e7713e094f1f2a2fb9aaf01f9317\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:transition:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-26.0.1.aar\a28315744418c49351bc4ca1d38eba5f\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:appcompat-v7:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.1.aar\73d0758d62553048524ae4dd9fba943c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.1.aar\621e7b9d53c6caeeb50256b113e69be0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-crash:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.0.2.aar\0f955b67c4f55fb183e7f59dfc6ebfde\AndroidManifest.xml:16:1-34:12
 MERGED from [com.google.firebase:firebase-core:9.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-core-9.0.0.aar\7d77a470ca18190f8b86544c6c28944a\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-analytics:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.0.2.aar\ab2aef77546cac7121be2a7debcedb0c\AndroidManifest.xml:16:1-42:12
@@ -18,18 +17,19 @@ MERGED from [com.google.firebase:firebase-iid:9.0.2] C:\Users\Lucas Leabres\.gra
 MERGED from [com.google.firebase:firebase-common:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-common-9.0.2.aar\555f9c04e73d4fdd74bc3c49f23eb8cb\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.gms:play-services-tasks:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.0.2.aar\e0f88140fb43a9a09031f203e0ddb18c\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.0.2.aar\d9d8510fc7f741480d1d34962147e03b\AndroidManifest.xml:16:1-26:12
-MERGED from [com.android.support:support-v4:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.1.aar\271ac9b08f378e502cbf41a7e42ff407\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-v4:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.1.aar\52f02155c6f208009cbad86792257508\AndroidManifest.xml:17:1-22:12
 MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\roundedimageview-2.3.0.aar\8bcfbee05e6bcc5c5ae0eba62d990e87\AndroidManifest.xml:2:1-9:12
 MERGED from [com.romandanylyk:pageindicatorview:0.2.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\pageindicatorview-0.2.0.aar\e327fcaf7d464cae463cca2fdf9512b8\AndroidManifest.xml:2:1-12:12
 MERGED from [com.android.support:multidex:1.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\multidex-1.0.1.aar\a224076ec4765d50733cc25da22a3721\AndroidManifest.xml:16:1-19:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0-beta3] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0-beta3.aar\579b0c02639a812ea1571e3a75b6cb6a\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:animated-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.1.aar\ba2465c03f8ac1ec0f66e5f65c082a87\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.1.aar\7ed8a37c9a7e50b0b953cf4661513c12\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-fragment:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.1.aar\b74a9ca7a9dd5d390c48305e00fdde74\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.1.aar\b734c2f1810a0bd92e85de32385f33d4\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.1.aar\f32b443ab893a6fe3a5e5f89cc3b6ef7\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.1.aar\663d4da1d0741655a45a7f25f2948f57\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.1.aar\fc8ab632c56e0ad7f528a94021004994\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:transition:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-27.0.1.aar\85421036b90d5592bd6a0a9c92ab1faf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.1.aar\6b5f2d5d037f2a84304b6ce94317f54d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.1.aar\e6dce33b2e3f77a8432d0a8a53fb6a99\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.1.aar\2ee3a4e0d4d80211e286a254240b3936\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.1.aar\4442b0aaae9a745e8e99e2925afddc72\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.1.aar\54cbc86880addb9292d5f54c0208c482\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.1.aar\c25e055cd664b0dd05c1c7b713ef1de3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.1.aar\ebe54c87a47381d9626b6cc795385025\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:17:1-30:12
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:2:1-32:12
@@ -103,16 +103,8 @@ ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManife
 		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:13:22-72
 application
 ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:15:5-30:19
-MERGED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:25:5-29:19
 MERGED from [com.daksh:loglr:1.1.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\loglr-1.1.1.aar\891c79e9b91cf26b101d5a2749f91a53\AndroidManifest.xml:11:5-20:19
 MERGED from [com.daksh:loglr:1.1.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\loglr-1.1.1.aar\891c79e9b91cf26b101d5a2749f91a53\AndroidManifest.xml:11:5-20:19
-MERGED from [com.android.support:appcompat-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.1.aar\15825b3b18f4c0fa38b67e7121332874\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:appcompat-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.1.aar\15825b3b18f4c0fa38b67e7121332874\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:recyclerview-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.1.aar\ec45e7713e094f1f2a2fb9aaf01f9317\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:recyclerview-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.1.aar\ec45e7713e094f1f2a2fb9aaf01f9317\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:transition:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-26.0.1.aar\a28315744418c49351bc4ca1d38eba5f\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:transition:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-26.0.1.aar\a28315744418c49351bc4ca1d38eba5f\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.firebase:firebase-crash:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.0.2.aar\0f955b67c4f55fb183e7f59dfc6ebfde\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.firebase:firebase-crash:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.0.2.aar\0f955b67c4f55fb183e7f59dfc6ebfde\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.firebase:firebase-core:9.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-core-9.0.0.aar\7d77a470ca18190f8b86544c6c28944a\AndroidManifest.xml:5:5-20
@@ -131,42 +123,28 @@ MERGED from [com.google.android.gms:play-services-tasks:9.0.2] C:\Users\Lucas Le
 MERGED from [com.google.android.gms:play-services-tasks:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.0.2.aar\e0f88140fb43a9a09031f203e0ddb18c\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.0.2.aar\d9d8510fc7f741480d1d34962147e03b\AndroidManifest.xml:20:5-24:19
 MERGED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.0.2.aar\d9d8510fc7f741480d1d34962147e03b\AndroidManifest.xml:20:5-24:19
-MERGED from [com.android.support:support-v4:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.1.aar\271ac9b08f378e502cbf41a7e42ff407\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-v4:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.1.aar\271ac9b08f378e502cbf41a7e42ff407\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0-beta3] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0-beta3.aar\579b0c02639a812ea1571e3a75b6cb6a\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0-beta3] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0-beta3.aar\579b0c02639a812ea1571e3a75b6cb6a\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.1.aar\ba2465c03f8ac1ec0f66e5f65c082a87\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:animated-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.1.aar\ba2465c03f8ac1ec0f66e5f65c082a87\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.1.aar\7ed8a37c9a7e50b0b953cf4661513c12\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.1.aar\7ed8a37c9a7e50b0b953cf4661513c12\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-fragment:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.1.aar\b74a9ca7a9dd5d390c48305e00fdde74\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.1.aar\b74a9ca7a9dd5d390c48305e00fdde74\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.1.aar\b734c2f1810a0bd92e85de32385f33d4\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.1.aar\b734c2f1810a0bd92e85de32385f33d4\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.1.aar\f32b443ab893a6fe3a5e5f89cc3b6ef7\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.1.aar\f32b443ab893a6fe3a5e5f89cc3b6ef7\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.1.aar\663d4da1d0741655a45a7f25f2948f57\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.1.aar\663d4da1d0741655a45a7f25f2948f57\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.1.aar\fc8ab632c56e0ad7f528a94021004994\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.1.aar\fc8ab632c56e0ad7f528a94021004994\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
 		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:20:9-35
 	android:label
 		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:19:9-41
 	android:icon
-		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:18:9-43
+		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:18:9-48
 	android:allowBackup
 		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:17:9-35
 	android:theme
 		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:21:9-40
 	android:name
 		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:16:9-40
-activity#cool.lucasbedolla.swish.activities.MainActivity
-ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:22:9-61
+activity#cool.lucasbedolla.swish.activities.main.MainActivity
+ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:22:9-66
 	android:name
-		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:22:19-58
+		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:22:19-63
 activity#cool.lucasbedolla.swish.activities.onboarding.OnboardingActivity
 ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:23:9-29:20
+	android:theme
+		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:23:76-107
 	android:name
 		ADDED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml:23:19-75
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
@@ -183,16 +161,14 @@ uses-sdk
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-27.0.1.aar\2a6360aff26dfb953b319b332a059604\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-27.0.1.aar\2a6360aff26dfb953b319b332a059604\AndroidManifest.xml:20:5-44
 MERGED from [com.daksh:loglr:1.1.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\loglr-1.1.1.aar\891c79e9b91cf26b101d5a2749f91a53\AndroidManifest.xml:7:5-9:41
 MERGED from [com.daksh:loglr:1.1.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\loglr-1.1.1.aar\891c79e9b91cf26b101d5a2749f91a53\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.1.aar\15825b3b18f4c0fa38b67e7121332874\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.1.aar\15825b3b18f4c0fa38b67e7121332874\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:recyclerview-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.1.aar\ec45e7713e094f1f2a2fb9aaf01f9317\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.1.aar\ec45e7713e094f1f2a2fb9aaf01f9317\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-26.0.1.aar\a28315744418c49351bc4ca1d38eba5f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-26.0.1.aar\a28315744418c49351bc4ca1d38eba5f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.1.aar\73d0758d62553048524ae4dd9fba943c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.1.aar\73d0758d62553048524ae4dd9fba943c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.1.aar\621e7b9d53c6caeeb50256b113e69be0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.1.aar\621e7b9d53c6caeeb50256b113e69be0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-crash:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.0.2.aar\0f955b67c4f55fb183e7f59dfc6ebfde\AndroidManifest.xml:22:5-42
 MERGED from [com.google.firebase:firebase-crash:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.0.2.aar\0f955b67c4f55fb183e7f59dfc6ebfde\AndroidManifest.xml:22:5-42
 MERGED from [com.google.firebase:firebase-core:9.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\firebase-core-9.0.0.aar\7d77a470ca18190f8b86544c6c28944a\AndroidManifest.xml:4:5-42
@@ -211,68 +187,40 @@ MERGED from [com.google.android.gms:play-services-tasks:9.0.2] C:\Users\Lucas Le
 MERGED from [com.google.android.gms:play-services-tasks:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.0.2.aar\e0f88140fb43a9a09031f203e0ddb18c\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.0.2.aar\d9d8510fc7f741480d1d34962147e03b\AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.0.2.aar\d9d8510fc7f741480d1d34962147e03b\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support:support-v4:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.1.aar\271ac9b08f378e502cbf41a7e42ff407\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.1.aar\271ac9b08f378e502cbf41a7e42ff407\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.1.aar\52f02155c6f208009cbad86792257508\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.1.aar\52f02155c6f208009cbad86792257508\AndroidManifest.xml:20:5-44
 MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\roundedimageview-2.3.0.aar\8bcfbee05e6bcc5c5ae0eba62d990e87\AndroidManifest.xml:7:5-43
 MERGED from [com.makeramen:roundedimageview:2.3.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\roundedimageview-2.3.0.aar\8bcfbee05e6bcc5c5ae0eba62d990e87\AndroidManifest.xml:7:5-43
 MERGED from [com.romandanylyk:pageindicatorview:0.2.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\pageindicatorview-0.2.0.aar\e327fcaf7d464cae463cca2fdf9512b8\AndroidManifest.xml:8:5-10:41
 MERGED from [com.romandanylyk:pageindicatorview:0.2.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\pageindicatorview-0.2.0.aar\e327fcaf7d464cae463cca2fdf9512b8\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:multidex:1.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\multidex-1.0.1.aar\a224076ec4765d50733cc25da22a3721\AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:multidex:1.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\multidex-1.0.1.aar\a224076ec4765d50733cc25da22a3721\AndroidManifest.xml:18:5-42
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0-beta3] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0-beta3.aar\579b0c02639a812ea1571e3a75b6cb6a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0-beta3] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0-beta3.aar\579b0c02639a812ea1571e3a75b6cb6a\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:animated-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.1.aar\ba2465c03f8ac1ec0f66e5f65c082a87\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.1.aar\ba2465c03f8ac1ec0f66e5f65c082a87\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.1.aar\7ed8a37c9a7e50b0b953cf4661513c12\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.1.aar\7ed8a37c9a7e50b0b953cf4661513c12\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.1.aar\b74a9ca7a9dd5d390c48305e00fdde74\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.1.aar\b74a9ca7a9dd5d390c48305e00fdde74\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-ui:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.1.aar\b734c2f1810a0bd92e85de32385f33d4\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.1.aar\b734c2f1810a0bd92e85de32385f33d4\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.1.aar\f32b443ab893a6fe3a5e5f89cc3b6ef7\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.1.aar\f32b443ab893a6fe3a5e5f89cc3b6ef7\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.1.aar\663d4da1d0741655a45a7f25f2948f57\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.1.aar\663d4da1d0741655a45a7f25f2948f57\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.1.aar\fc8ab632c56e0ad7f528a94021004994\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.1.aar\fc8ab632c56e0ad7f528a94021004994\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:transition:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-27.0.1.aar\85421036b90d5592bd6a0a9c92ab1faf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-27.0.1.aar\85421036b90d5592bd6a0a9c92ab1faf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.1.aar\6b5f2d5d037f2a84304b6ce94317f54d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.1.aar\6b5f2d5d037f2a84304b6ce94317f54d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.1.aar\e6dce33b2e3f77a8432d0a8a53fb6a99\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.1.aar\e6dce33b2e3f77a8432d0a8a53fb6a99\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.1.aar\2ee3a4e0d4d80211e286a254240b3936\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.1.aar\2ee3a4e0d4d80211e286a254240b3936\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.1.aar\4442b0aaae9a745e8e99e2925afddc72\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.1.aar\4442b0aaae9a745e8e99e2925afddc72\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.1.aar\54cbc86880addb9292d5f54c0208c482\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.1.aar\54cbc86880addb9292d5f54c0208c482\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.1.aar\c25e055cd664b0dd05c1c7b713ef1de3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.1.aar\c25e055cd664b0dd05c1c7b713ef1de3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.1.aar\ebe54c87a47381d9626b6cc795385025\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.1.aar\ebe54c87a47381d9626b6cc795385025\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
-	tools:overrideLibrary
-		ADDED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\lucasventures\Desktop\fruby\Swish\app\src\main\AndroidManifest.xml
-meta-data#android.support.VERSION
-ADDED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:appcompat-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.1.aar\15825b3b18f4c0fa38b67e7121332874\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:appcompat-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.1.aar\15825b3b18f4c0fa38b67e7121332874\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:recyclerview-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.1.aar\ec45e7713e094f1f2a2fb9aaf01f9317\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:recyclerview-v7:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.1.aar\ec45e7713e094f1f2a2fb9aaf01f9317\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:transition:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-26.0.1.aar\a28315744418c49351bc4ca1d38eba5f\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:transition:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\transition-26.0.1.aar\a28315744418c49351bc4ca1d38eba5f\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-v4:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.1.aar\271ac9b08f378e502cbf41a7e42ff407\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-v4:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.1.aar\271ac9b08f378e502cbf41a7e42ff407\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:animated-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.1.aar\ba2465c03f8ac1ec0f66e5f65c082a87\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:animated-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.1.aar\ba2465c03f8ac1ec0f66e5f65c082a87\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.1.aar\7ed8a37c9a7e50b0b953cf4661513c12\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-vector-drawable:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.1.aar\7ed8a37c9a7e50b0b953cf4661513c12\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-fragment:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.1.aar\b74a9ca7a9dd5d390c48305e00fdde74\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.1.aar\b74a9ca7a9dd5d390c48305e00fdde74\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.1.aar\b734c2f1810a0bd92e85de32385f33d4\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.1.aar\b734c2f1810a0bd92e85de32385f33d4\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.1.aar\f32b443ab893a6fe3a5e5f89cc3b6ef7\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.1.aar\f32b443ab893a6fe3a5e5f89cc3b6ef7\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.1.aar\663d4da1d0741655a45a7f25f2948f57\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.1.aar\663d4da1d0741655a45a7f25f2948f57\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.1.aar\fc8ab632c56e0ad7f528a94021004994\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.1.aar\fc8ab632c56e0ad7f528a94021004994\AndroidManifest.xml:26:9-28:38
-	android:value
-		ADDED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:28:13-35
-	android:name
-		ADDED from [com.android.support:design:26.0.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\design-26.0.1.aar\e6f401b62161d887514e1c6d277b3400\AndroidManifest.xml:27:13-51
 activity#com.tumblr.loglr.LoglrActivity
 ADDED from [com.daksh:loglr:1.1.1] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\loglr-1.1.1.aar\891c79e9b91cf26b101d5a2749f91a53\AndroidManifest.xml:15:9-19:20
 	android:label
@@ -397,3 +345,9 @@ ADDED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas 
 		ADDED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.0.2.aar\d9d8510fc7f741480d1d34962147e03b\AndroidManifest.xml:23:13-66
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:9.0.2] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.0.2.aar\d9d8510fc7f741480d1d34962147e03b\AndroidManifest.xml:22:13-58
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucas Leabres\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\792e4959e226a27821281a4ac439aa99\AndroidManifest.xml:26:13-58

@@ -7,17 +7,17 @@
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 105,
-                    "endColumn": 116,
-                    "endOffset": 217
+                    "endColumn": 105,
+                    "endOffset": 206
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 116,
-                        "endOffset": 167
+                        "startOffset": 105,
+                        "endColumn": 105,
+                        "endOffset": 206
                     }
                 }
             },
@@ -25,18 +25,18 @@
                 "to": {
                     "startLine": 3,
                     "startColumn": 4,
-                    "startOffset": 222,
-                    "endColumn": 107,
-                    "endOffset": 325
+                    "startOffset": 211,
+                    "endColumn": 96,
+                    "endOffset": 303
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 172,
-                        "endColumn": 107,
-                        "endOffset": 275
+                        "startOffset": 211,
+                        "endColumn": 96,
+                        "endOffset": 303
                     }
                 }
             },
@@ -44,18 +44,18 @@
                 "to": {
                     "startLine": 4,
                     "startColumn": 4,
-                    "startOffset": 330,
-                    "endColumn": 122,
-                    "endOffset": 448
+                    "startOffset": 308,
+                    "endColumn": 109,
+                    "endOffset": 413
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 280,
-                        "endColumn": 122,
-                        "endOffset": 398
+                        "startOffset": 308,
+                        "endColumn": 109,
+                        "endOffset": 413
                     }
                 }
             },
@@ -63,18 +63,18 @@
                 "to": {
                     "startLine": 5,
                     "startColumn": 4,
-                    "startOffset": 453,
-                    "endColumn": 104,
-                    "endOffset": 553
+                    "startOffset": 418,
+                    "endColumn": 85,
+                    "endOffset": 499
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 403,
-                        "endColumn": 104,
-                        "endOffset": 503
+                        "startOffset": 418,
+                        "endColumn": 85,
+                        "endOffset": 499
                     }
                 }
             },
@@ -82,18 +82,18 @@
                 "to": {
                     "startLine": 6,
                     "startColumn": 4,
-                    "startOffset": 558,
-                    "endColumn": 106,
-                    "endOffset": 660
+                    "startOffset": 504,
+                    "endColumn": 101,
+                    "endOffset": 601
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 508,
-                        "endColumn": 106,
-                        "endOffset": 610
+                        "startOffset": 504,
+                        "endColumn": 101,
+                        "endOffset": 601
                     }
                 }
             },
@@ -101,18 +101,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 665,
-                    "endColumn": 84,
-                    "endOffset": 745
+                    "startOffset": 606,
+                    "endColumn": 121,
+                    "endOffset": 723
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 615,
-                        "endColumn": 84,
-                        "endOffset": 695
+                        "startOffset": 606,
+                        "endColumn": 121,
+                        "endOffset": 723
                     }
                 }
             },
@@ -120,18 +120,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 750,
-                    "endColumn": 101,
-                    "endOffset": 847
+                    "startOffset": 728,
+                    "endColumn": 76,
+                    "endOffset": 800
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 700,
-                        "endColumn": 101,
-                        "endOffset": 797
+                        "startOffset": 728,
+                        "endColumn": 76,
+                        "endOffset": 800
                     }
                 }
             },
@@ -139,18 +139,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 852,
-                    "endColumn": 121,
-                    "endOffset": 969
+                    "startOffset": 805,
+                    "endColumn": 77,
+                    "endOffset": 878
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 802,
-                        "endColumn": 121,
-                        "endOffset": 919
+                        "startOffset": 805,
+                        "endColumn": 77,
+                        "endOffset": 878
                     }
                 }
             },
@@ -158,18 +158,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 974,
-                    "endColumn": 76,
-                    "endOffset": 1046
+                    "startOffset": 883,
+                    "endColumn": 89,
+                    "endOffset": 968
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 924,
-                        "endColumn": 76,
-                        "endOffset": 996
+                        "startOffset": 883,
+                        "endColumn": 89,
+                        "endOffset": 968
                     }
                 }
             },
@@ -177,18 +177,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 1051,
-                    "endColumn": 77,
-                    "endOffset": 1124
+                    "startOffset": 973,
+                    "endColumn": 108,
+                    "endOffset": 1077
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1001,
-                        "endColumn": 77,
-                        "endOffset": 1074
+                        "startOffset": 973,
+                        "endColumn": 108,
+                        "endOffset": 1077
                     }
                 }
             },
@@ -196,18 +196,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1129,
-                    "endColumn": 89,
-                    "endOffset": 1214
+                    "startOffset": 1082,
+                    "endColumn": 102,
+                    "endOffset": 1180
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1079,
-                        "endColumn": 89,
-                        "endOffset": 1164
+                        "startOffset": 1082,
+                        "endColumn": 102,
+                        "endOffset": 1180
                     }
                 }
             },
@@ -215,18 +215,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1219,
-                    "endColumn": 108,
-                    "endOffset": 1323
+                    "startOffset": 1185,
+                    "endColumn": 101,
+                    "endOffset": 1282
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1169,
-                        "endColumn": 108,
-                        "endOffset": 1273
+                        "startOffset": 1185,
+                        "endColumn": 101,
+                        "endOffset": 1282
                     }
                 }
             },
@@ -234,18 +234,18 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1328,
-                    "endColumn": 101,
-                    "endOffset": 1425
+                    "startOffset": 1287,
+                    "endColumn": 109,
+                    "endOffset": 1392
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1278,
-                        "endColumn": 101,
-                        "endOffset": 1375
+                        "startOffset": 1287,
+                        "endColumn": 109,
+                        "endOffset": 1392
                     }
                 }
             },
@@ -253,18 +253,18 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1430,
-                    "endColumn": 97,
-                    "endOffset": 1523
+                    "startOffset": 1397,
+                    "endColumn": 100,
+                    "endOffset": 1493
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1380,
-                        "endColumn": 97,
-                        "endOffset": 1473
+                        "startOffset": 1397,
+                        "endColumn": 100,
+                        "endOffset": 1493
                     }
                 }
             },
@@ -272,18 +272,18 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1528,
-                    "endColumn": 109,
-                    "endOffset": 1633
+                    "startOffset": 1498,
+                    "endColumn": 114,
+                    "endOffset": 1608
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1478,
-                        "endColumn": 109,
-                        "endOffset": 1583
+                        "startOffset": 1498,
+                        "endColumn": 114,
+                        "endOffset": 1608
                     }
                 }
             },
@@ -291,18 +291,18 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1638,
-                    "endColumn": 99,
-                    "endOffset": 1733
+                    "startOffset": 1613,
+                    "endColumn": 161,
+                    "endOffset": 1770
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1588,
-                        "endColumn": 99,
-                        "endOffset": 1683
+                        "startOffset": 1613,
+                        "endColumn": 161,
+                        "endOffset": 1770
                     }
                 }
             },
@@ -310,18 +310,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1738,
-                    "endColumn": 114,
-                    "endOffset": 1848
+                    "startOffset": 1775,
+                    "endColumn": 100,
+                    "endOffset": 1871
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1688,
-                        "endColumn": 114,
-                        "endOffset": 1798
+                        "startOffset": 1775,
+                        "endColumn": 100,
+                        "endOffset": 1871
                     }
                 }
             },
@@ -329,47 +329,9 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1853,
-                    "endColumn": 124,
-                    "endOffset": 1973
-                },
-                "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 1803,
-                        "endColumn": 124,
-                        "endOffset": 1923
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 1978,
-                    "endColumn": 105,
-                    "endOffset": 2079
-                },
-                "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 1928,
-                        "endColumn": 105,
-                        "endOffset": 2029
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 21,
-                    "startColumn": 4,
-                    "startOffset": 2084,
+                    "startOffset": 1876,
                     "endColumn": 267,
-                    "endOffset": 2347
+                    "endOffset": 2139
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -384,11 +346,11 @@
             },
             {
                 "to": {
-                    "startLine": 22,
+                    "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 2352,
+                    "startOffset": 2144,
                     "endColumn": 129,
-                    "endOffset": 2477
+                    "endOffset": 2269
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -403,11 +365,11 @@
             },
             {
                 "to": {
-                    "startLine": 23,
+                    "startLine": 21,
                     "startColumn": 4,
-                    "startOffset": 2482,
+                    "startOffset": 2274,
                     "endColumn": 202,
-                    "endOffset": 2680
+                    "endOffset": 2472
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -422,11 +384,11 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 2685,
+                    "startOffset": 2477,
                     "endColumn": 128,
-                    "endOffset": 2809
+                    "endOffset": 2601
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -441,11 +403,11 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 2814,
+                    "startOffset": 2606,
                     "endColumn": 132,
-                    "endOffset": 2942
+                    "endOffset": 2734
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -460,11 +422,11 @@
             },
             {
                 "to": {
-                    "startLine": 26,
+                    "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 2947,
+                    "startOffset": 2739,
                     "endColumn": 213,
-                    "endOffset": 3156
+                    "endOffset": 2948
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -479,11 +441,11 @@
             },
             {
                 "to": {
-                    "startLine": 27,
+                    "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 3161,
+                    "startOffset": 2953,
                     "endColumn": 216,
-                    "endOffset": 3373
+                    "endOffset": 3165
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -498,11 +460,11 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 3378,
+                    "startOffset": 3170,
                     "endColumn": 131,
-                    "endOffset": 3505
+                    "endOffset": 3297
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -517,11 +479,11 @@
             },
             {
                 "to": {
-                    "startLine": 29,
+                    "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 3510,
+                    "startOffset": 3302,
                     "endColumn": 176,
-                    "endOffset": 3682
+                    "endOffset": 3474
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -536,11 +498,11 @@
             },
             {
                 "to": {
-                    "startLine": 30,
+                    "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 3687,
+                    "startOffset": 3479,
                     "endColumn": 119,
-                    "endOffset": 3802
+                    "endOffset": 3594
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -555,11 +517,11 @@
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 3807,
+                    "startOffset": 3599,
                     "endColumn": 174,
-                    "endOffset": 3977
+                    "endOffset": 3769
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -574,11 +536,11 @@
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 3982,
+                    "startOffset": 3774,
                     "endColumn": 120,
-                    "endOffset": 4098
+                    "endOffset": 3890
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -593,11 +555,11 @@
             },
             {
                 "to": {
-                    "startLine": 33,
+                    "startLine": 31,
                     "startColumn": 4,
-                    "startOffset": 4103,
+                    "startOffset": 3895,
                     "endColumn": 130,
-                    "endOffset": 4229
+                    "endOffset": 4021
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -612,11 +574,11 @@
             },
             {
                 "to": {
-                    "startLine": 34,
+                    "startLine": 32,
                     "startColumn": 4,
-                    "startOffset": 4234,
+                    "startOffset": 4026,
                     "endColumn": 184,
-                    "endOffset": 4414
+                    "endOffset": 4206
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -631,11 +593,11 @@
             },
             {
                 "to": {
-                    "startLine": 35,
+                    "startLine": 33,
                     "startColumn": 4,
-                    "startOffset": 4419,
+                    "startOffset": 4211,
                     "endColumn": 151,
-                    "endOffset": 4566
+                    "endOffset": 4358
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -650,11 +612,11 @@
             },
             {
                 "to": {
-                    "startLine": 36,
+                    "startLine": 34,
                     "startColumn": 4,
-                    "startOffset": 4571,
+                    "startOffset": 4363,
                     "endColumn": 181,
-                    "endOffset": 4748
+                    "endOffset": 4540
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -669,11 +631,11 @@
             },
             {
                 "to": {
-                    "startLine": 37,
+                    "startLine": 35,
                     "startColumn": 4,
-                    "startOffset": 4753,
+                    "startOffset": 4545,
                     "endColumn": 131,
-                    "endOffset": 4880
+                    "endOffset": 4672
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -688,11 +650,11 @@
             },
             {
                 "to": {
-                    "startLine": 38,
+                    "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 4885,
+                    "startOffset": 4677,
                     "endColumn": 178,
-                    "endOffset": 5059
+                    "endOffset": 4851
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -707,11 +669,11 @@
             },
             {
                 "to": {
-                    "startLine": 39,
+                    "startLine": 37,
                     "startColumn": 4,
-                    "startOffset": 5064,
+                    "startOffset": 4856,
                     "endColumn": 127,
-                    "endOffset": 5187
+                    "endOffset": 4979
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -726,11 +688,11 @@
             },
             {
                 "to": {
-                    "startLine": 40,
+                    "startLine": 38,
                     "startColumn": 4,
-                    "startOffset": 5192,
+                    "startOffset": 4984,
                     "endColumn": 243,
-                    "endOffset": 5431
+                    "endOffset": 5223
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-9.0.2.aar\\d9d8510fc7f741480d1d34962147e03b\\res\\values-hi\\values.xml",
@@ -745,11 +707,11 @@
             },
             {
                 "to": {
-                    "startLine": 41,
+                    "startLine": 39,
                     "startColumn": 4,
-                    "startOffset": 5436,
+                    "startOffset": 5228,
                     "endColumn": 250,
-                    "endOffset": 5682
+                    "endOffset": 5474
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -764,11 +726,11 @@
             },
             {
                 "to": {
-                    "startLine": 42,
+                    "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 5687,
+                    "startOffset": 5479,
                     "endColumn": 121,
-                    "endOffset": 5804
+                    "endOffset": 5596
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -783,11 +745,11 @@
             },
             {
                 "to": {
-                    "startLine": 43,
+                    "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 5809,
+                    "startOffset": 5601,
                     "endColumn": 110,
-                    "endOffset": 5915
+                    "endOffset": 5707
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -802,11 +764,11 @@
             },
             {
                 "to": {
-                    "startLine": 44,
+                    "startLine": 42,
                     "startColumn": 4,
-                    "startOffset": 5920,
+                    "startOffset": 5712,
                     "endColumn": 196,
-                    "endOffset": 6112
+                    "endOffset": 5904
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -821,11 +783,11 @@
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 6117,
+                    "startOffset": 5909,
                     "endColumn": 131,
-                    "endOffset": 6244
+                    "endOffset": 6036
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -840,11 +802,11 @@
             },
             {
                 "to": {
-                    "startLine": 46,
+                    "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 6249,
+                    "startOffset": 6041,
                     "endColumn": 207,
-                    "endOffset": 6452
+                    "endOffset": 6244
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -859,11 +821,11 @@
             },
             {
                 "to": {
-                    "startLine": 47,
+                    "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 6457,
+                    "startOffset": 6249,
                     "endColumn": 136,
-                    "endOffset": 6589
+                    "endOffset": 6381
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -878,11 +840,11 @@
             },
             {
                 "to": {
-                    "startLine": 48,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 6594,
+                    "startOffset": 6386,
                     "endColumn": 183,
-                    "endOffset": 6773
+                    "endOffset": 6565
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -897,11 +859,11 @@
             },
             {
                 "to": {
-                    "startLine": 49,
+                    "startLine": 47,
                     "startColumn": 4,
-                    "startOffset": 6778,
+                    "startOffset": 6570,
                     "endColumn": 92,
-                    "endOffset": 6866
+                    "endOffset": 6658
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -916,11 +878,11 @@
             },
             {
                 "to": {
-                    "startLine": 50,
+                    "startLine": 48,
                     "startColumn": 4,
-                    "startOffset": 6871,
+                    "startOffset": 6663,
                     "endColumn": 95,
-                    "endOffset": 6962
+                    "endOffset": 6754
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -935,11 +897,11 @@
             },
             {
                 "to": {
-                    "startLine": 51,
+                    "startLine": 49,
                     "startColumn": 4,
-                    "startOffset": 6967,
+                    "startOffset": 6759,
                     "endColumn": 113,
-                    "endOffset": 7076
+                    "endOffset": 6868
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.2.aar\\e2b49df44e806213115401fd26d06fac\\res\\values-hi\\values.xml",
@@ -954,39 +916,39 @@
             },
             {
                 "to": {
-                    "startLine": 52,
+                    "startLine": 50,
                     "startColumn": 4,
-                    "startOffset": 7081,
-                    "endColumn": 78,
-                    "endOffset": 7155
+                    "startOffset": 6873,
+                    "endColumn": 79,
+                    "endOffset": 6948
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-hi\\values-hi.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 2034,
-                        "endColumn": 78,
-                        "endOffset": 2108
+                        "startOffset": 1876,
+                        "endColumn": 79,
+                        "endOffset": 1951
                     }
                 }
             },
             {
                 "to": {
-                    "startLine": 53,
+                    "startLine": 51,
                     "startColumn": 4,
-                    "startOffset": 7160,
+                    "startOffset": 6953,
                     "endColumn": 100,
-                    "endOffset": 7256
+                    "endOffset": 7049
                 },
                 "from": {
-                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\15825b3b18f4c0fa38b67e7121332874\\res\\values-hi\\values-hi.xml",
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\ebe54c87a47381d9626b6cc795385025\\res\\values-hi\\values-hi.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 2113,
+                        "startOffset": 55,
                         "endColumn": 100,
-                        "endOffset": 2209
+                        "endOffset": 151
                     }
                 }
             }

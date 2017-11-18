@@ -3,8 +3,8 @@
     package="cool.lucasleabres.ruby.test" >
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="26" />
+        android:minSdkVersion="19"
+        android:targetSdkVersion="27" />
 
     <instrumentation
         android:name="com.android.test.runner.MultiDexTestRunner"

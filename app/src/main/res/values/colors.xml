@@ -3,6 +3,9 @@
     <color name="colorPrimary">#FFec4700</color>
     <color name="colorPrimaryDark">#FFca3600</color>
     <color name="colorAccent">#FFf7f7f7</color>
+    <color name="colorPrimaryLuscent">#bcec4700</color>
+    <color name="colorPrimaryDarkLuscent">#bcca3600</color>
+    <color name="colorLuscent">#b7000000</color>
 
     <color name="pool_shallow">#f04245</color>
     <color name="pool_blue">#de373a</color>

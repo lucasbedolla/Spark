@@ -1,12 +1,15 @@
 package cool.lucasbedolla.swish.activities.onboarding;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
@@ -22,23 +25,18 @@ public class OnboardingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Bundle bundle = getArguments();
-        int type = bundle.getInt("key");
+        String text = bundle.getString("text");
         String url = bundle.getString("url");
         View layout = inflater.inflate(R.layout.fragment_onboarding, container, false);
-
-
-        return configureView(type, layout, url);
+        return configureView(layout, url, text);
     }
 
-    private View configureView(int type, View layout, String url) {
+    private View configureView(View layout, String url, String text) {
 
-        switch (type) {
-            case 0:
-                break;
-            case 1:
-                //layout.findViewById(R.id.go).setVisibility(View.VISIBLE);
-                break;
-        }
+        TextView title = layout.findViewById(R.id.title);
+        title.setText(text);
+        Typeface type = ResourcesCompat.getFont(getContext(), R.font.helvetica);
+        title.setTypeface(type);
 
         ImageView image = layout.findViewById(R.id.image);
 
@@ -46,8 +44,8 @@ public class OnboardingFragment extends Fragment {
                 .load(url)
                 .thumbnail(0.1f)
                 .into(image);
+
         return layout;
     }
-
 
 }
