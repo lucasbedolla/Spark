@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFec4700</color>
-    <color name="colorPrimaryDark">#FFca3600</color>
+    <color name="colorPrimary">#ff5353</color>
+    <color name="colorPrimaryDark">#ff3333</color>
     <color name="colorAccent">#FFf7f7f7</color>
-    <color name="colorPrimaryLuscent">#bcec4700</color>
-    <color name="colorPrimaryDarkLuscent">#bcca3600</color>
-    <color name="colorLuscent">#b7000000</color>
+    <color name="colorPrimaryLuscent">#bcff5353</color>
+    <color name="colorPrimaryDarkLuscent">#bcff3333</color>
+    <color name="colorLuscent">#6b000000</color>
 
     <color name="pool_shallow">#f04245</color>
     <color name="pool_blue">#de373a</color>
     <color name="pool_deep_end">#851e1f</color>
     <color name="pool_time">#b63335</color>
-    <color name="pool_tile">#e1e1e1</color>
+    <color name="pool_tile">#f5f5f5</color>
     <color name="pool_guard">#DB504A</color>
 
     <color name="white">#ffffff</color>

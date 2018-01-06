@@ -2094,6 +2094,27 @@
                         "endOffset": 1355
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 291,
+                    "startColumn": 4,
+                    "startOffset": 21245,
+                    "endLine": 292,
+                    "endColumn": 10,
+                    "endOffset": 21330
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-v21\\values-v21.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 3,
+                        "endColumn": 10,
+                        "endOffset": 140
+                    }
+                }
             }
         ]
     }

@@ -919,8 +919,464 @@
                     "startLine": 50,
                     "startColumn": 4,
                     "startOffset": 7130,
+                    "endColumn": 83,
+                    "endOffset": 7209
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 83,
+                        "endOffset": 134
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 51,
+                    "startColumn": 4,
+                    "startOffset": 7214,
+                    "endColumn": 79,
+                    "endOffset": 7289
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 139,
+                        "endColumn": 79,
+                        "endOffset": 214
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 52,
+                    "startColumn": 4,
+                    "startOffset": 7294,
+                    "endColumn": 119,
+                    "endOffset": 7409
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 219,
+                        "endColumn": 119,
+                        "endOffset": 334
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 7414,
+                    "endColumn": 93,
+                    "endOffset": 7503
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 339,
+                        "endColumn": 93,
+                        "endOffset": 428
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 7508,
+                    "endColumn": 54,
+                    "endOffset": 7558
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 433,
+                        "endColumn": 54,
+                        "endOffset": 483
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 7563,
+                    "endColumn": 63,
+                    "endOffset": 7622
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 488,
+                        "endColumn": 63,
+                        "endOffset": 547
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 56,
+                    "startColumn": 4,
+                    "startOffset": 7627,
+                    "endColumn": 105,
+                    "endOffset": 7728
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 552,
+                        "endColumn": 105,
+                        "endOffset": 653
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 57,
+                    "startColumn": 4,
+                    "startOffset": 7733,
+                    "endColumn": 68,
+                    "endOffset": 7797
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 658,
+                        "endColumn": 68,
+                        "endOffset": 722
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 7802,
+                    "endColumn": 72,
+                    "endOffset": 7870
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 727,
+                        "endColumn": 72,
+                        "endOffset": 795
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 59,
+                    "startColumn": 4,
+                    "startOffset": 7875,
+                    "endColumn": 123,
+                    "endOffset": 7994
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 800,
+                        "endColumn": 123,
+                        "endOffset": 919
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 60,
+                    "startColumn": 4,
+                    "startOffset": 7999,
+                    "endColumn": 93,
+                    "endOffset": 8088
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 924,
+                        "endColumn": 93,
+                        "endOffset": 1013
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 61,
+                    "startColumn": 4,
+                    "startOffset": 8093,
+                    "endColumn": 67,
+                    "endOffset": 8156
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1018,
+                        "endColumn": 67,
+                        "endOffset": 1081
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 62,
+                    "startColumn": 4,
+                    "startOffset": 8161,
+                    "endColumn": 72,
+                    "endOffset": 8229
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1086,
+                        "endColumn": 72,
+                        "endOffset": 1154
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 63,
+                    "startColumn": 4,
+                    "startOffset": 8234,
+                    "endColumn": 72,
+                    "endOffset": 8302
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1159,
+                        "endColumn": 72,
+                        "endOffset": 1227
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 64,
+                    "startColumn": 4,
+                    "startOffset": 8307,
+                    "endColumn": 71,
+                    "endOffset": 8374
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1232,
+                        "endColumn": 71,
+                        "endOffset": 1299
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 65,
+                    "startColumn": 4,
+                    "startOffset": 8379,
+                    "endColumn": 90,
+                    "endOffset": 8465
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1304,
+                        "endColumn": 90,
+                        "endOffset": 1390
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 66,
+                    "startColumn": 4,
+                    "startOffset": 8470,
+                    "endColumn": 149,
+                    "endOffset": 8615
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1395,
+                        "endColumn": 149,
+                        "endOffset": 1540
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 67,
+                    "startColumn": 4,
+                    "startOffset": 8620,
+                    "endColumn": 128,
+                    "endOffset": 8744
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1545,
+                        "endColumn": 128,
+                        "endOffset": 1669
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 68,
+                    "startColumn": 4,
+                    "startOffset": 8749,
+                    "endColumn": 105,
+                    "endOffset": 8850
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1674,
+                        "endColumn": 105,
+                        "endOffset": 1775
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 69,
+                    "startColumn": 4,
+                    "startOffset": 8855,
+                    "endColumn": 72,
+                    "endOffset": 8923
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1780,
+                        "endColumn": 72,
+                        "endOffset": 1848
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 70,
+                    "startColumn": 4,
+                    "startOffset": 8928,
+                    "endColumn": 62,
+                    "endOffset": 8986
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1853,
+                        "endColumn": 62,
+                        "endOffset": 1911
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 71,
+                    "startColumn": 4,
+                    "startOffset": 8991,
+                    "endColumn": 62,
+                    "endOffset": 9049
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1916,
+                        "endColumn": 62,
+                        "endOffset": 1974
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 72,
+                    "startColumn": 4,
+                    "startOffset": 9054,
+                    "endColumn": 94,
+                    "endOffset": 9144
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1979,
+                        "endColumn": 94,
+                        "endOffset": 2069
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 73,
+                    "startColumn": 4,
+                    "startOffset": 9149,
+                    "endColumn": 108,
+                    "endOffset": 9253
+                },
+                "from": {
+                    "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\leakcanary-android-1.5.4.aar\\d864b50e2a1cb0c4afa4089017c799bb\\res\\values-de\\values-de.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 2074,
+                        "endColumn": 108,
+                        "endOffset": 2178
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 74,
+                    "startColumn": 4,
+                    "startOffset": 9258,
                     "endColumn": 81,
-                    "endOffset": 7207
+                    "endOffset": 9335
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\73d0758d62553048524ae4dd9fba943c\\res\\values-de\\values-de.xml",
@@ -935,11 +1391,11 @@
             },
             {
                 "to": {
-                    "startLine": 51,
+                    "startLine": 75,
                     "startColumn": 4,
-                    "startOffset": 7212,
+                    "startOffset": 9340,
                     "endColumn": 100,
-                    "endOffset": 7308
+                    "endOffset": 9436
                 },
                 "from": {
                     "file": "C:\\Users\\Lucas Leabres\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\ebe54c87a47381d9626b6cc795385025\\res\\values-de\\values-de.xml",
