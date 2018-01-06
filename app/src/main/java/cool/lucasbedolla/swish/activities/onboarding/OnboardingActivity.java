@@ -29,7 +29,7 @@ import cool.lucasbedolla.swish.activities.main.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.util.Constants;
 import cool.lucasbedolla.swish.util.MyPrefs;
 
-public class OnboardingActivity extends UnderTheHoodActivity implements ViewPager.OnPageChangeListener, OnClickListener, ExceptionHandler, LoginListener {
+public class OnboardingActivity extends UnderTheHoodActivity implements ViewPager.OnPageChangeListener, OnClickListener {
 
     public static final String CALLBACK_URL = "gem://www.gem.com/ok";
 
@@ -177,34 +177,39 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
 
     private void login() {
         try {
-            Loglr.getInstance()
-                    .setConsumerKey(Constants.CONSUMER_KEY)
-                    .setConsumerSecretKey(Constants.CONSUMER_SECRET)
-                    .setLoginListener(this)
-                    .setExceptionHandler(this)
-                    .setUrlCallBack(CALLBACK_URL)
-                    .initiateInActivity(this);
+
+            if(Loglr.getInstance() == null) {
+                Loglr.getInstance()
+                        .setConsumerKey(Constants.CONSUMER_KEY)
+                        .setConsumerSecretKey(Constants.CONSUMER_SECRET)
+                        .setLoginListener(new LoginListener() {
+                            @Override
+                            public void onLoginSuccessful(LoginResult loginResult) {
+                                MyPrefs.setOAuthToken(OnboardingActivity.this, loginResult.getOAuthToken());
+                                MyPrefs.setOAuthTokenSecret(OnboardingActivity.this, loginResult.getOAuthTokenSecret());
+                                MyPrefs.setIsLoggedIn(OnboardingActivity.this, true);
+
+                                Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setExceptionHandler(new ExceptionHandler() {
+                            @Override
+                            public void onLoginFailed(RuntimeException exception) {
+                                Toast.makeText(OnboardingActivity.this, "Login failed. Please try again!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setUrlCallBack(CALLBACK_URL);
+            }else{
+                Loglr.getInstance().initiateInActivity(this);
+            }
+
+
         } catch (Exception e) {
-            Toast.makeText(this, "exception caught", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "An error occurred.", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    @Override
-    public void onLoginSuccessful(LoginResult loginResult) {
-        MyPrefs.setOAuthToken(this, loginResult.getOAuthToken());
-        MyPrefs.setOAuthTokenSecret(this, loginResult.getOAuthTokenSecret());
-        MyPrefs.setIsLoggedIn(this, true);
-
-
-        Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish();
-    }
-
-    @Override
-    public void onLoginFailed(RuntimeException exception) {
-        Toast.makeText(this, "Login failed. Please try again!", Toast.LENGTH_LONG).show();
     }
 
     @Override

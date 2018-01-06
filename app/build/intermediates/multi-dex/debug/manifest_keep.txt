@@ -1,3 +1,0 @@
-# Referenced at C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:28
--keep class cool.lucasbedolla.swish.PoolApplication { <init>(...); }
-

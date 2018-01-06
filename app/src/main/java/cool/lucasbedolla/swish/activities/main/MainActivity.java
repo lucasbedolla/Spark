@@ -49,12 +49,11 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
         }
     };
 
-    private View menu;
-
     private View menuButton;
 
     private View lay;
     private TextView menuBack;
+    private View menuLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +70,8 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
 
         menuBack = findViewById(R.id.menu_back);
         menuBack.setOnClickListener(this);
+
+        menuLayout = findViewById(R.id.menu_layout);
 
         // pull to refresh layout config
         refreshLayout = findViewById(R.id.refresher);
@@ -160,9 +161,11 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.menu_button) {
-            animateInMenuLayout();
+            menuButton.setVisibility(View.GONE);
+            menuLayout.setVisibility(View.VISIBLE);
         } else if (v.getId() == R.id.menu_back) {
-            animateOutMenuLayout();
+            menuLayout.setVisibility(View.GONE);
+            menuButton.setVisibility(View.VISIBLE);
         }
     }
 
@@ -176,6 +179,7 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                menuBack.setVisibility(View.GONE);
                 findViewById(R.id.menu_layout).setVisibility(View.VISIBLE);
             }
 
@@ -184,7 +188,6 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
 
             }
         });
-        findViewById(R.id.menu_layout).setVisibility(View.VISIBLE);
         findViewById(R.id.menu_layout).startAnimation(animation);
     }
 
@@ -199,6 +202,8 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
             @Override
             public void onAnimationEnd(Animation animation) {
                 findViewById(R.id.menu_layout).setVisibility(View.GONE);
+                menuBack.setVisibility(View.VISIBLE);
+
             }
 
             @Override
@@ -206,8 +211,6 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
 
             }
         });
-
-
         findViewById(R.id.menu_layout).startAnimation(animation);
     }
 
