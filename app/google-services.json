@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "945757163689",
+    "firebase_url": "https://swish-ee6b7.firebaseio.com",
+    "project_id": "swish-ee6b7",
+    "storage_bucket": "swish-ee6b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945757163689:android:5e999eaa2690fd6c",
+        "android_client_info": {
+          "package_name": "cool.lucasleabres.ruby"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945757163689-1ee90kesd0j61jim08bog79ae9d4htcv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cool.lucasleabres.ruby",
+            "certificate_hash": "71c8c7f2efba3b427056c162dbf45ccfea5378d4"
+          }
+        },
+        {
+          "client_id": "945757163689-b6n80j5gocvmb9n4somoddnn0f7786hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9trjySlyj_mRIGcGVzqoI7P1dBoKq7Rg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945757163689-b6n80j5gocvmb9n4somoddnn0f7786hu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

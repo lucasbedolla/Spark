@@ -1,0 +1,6 @@
+COMMAND=PREDEX_LIBRARY_TO_DEX_ARCHIVE
+FILE_PATH=C:\Users\lucasventures\Desktop\fruby\Swish\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar
+FILE_HASH=cfb7be1ec3b1f0a8c241293ee4fd819e506dea64
+DX_VERSION=1.13
+JUMBO_MODE=true
+OPTIMIZE=true
