@@ -1,0 +1,6 @@
+build/intermediates/
+build/android-profile/
+app/build/intermediates/
+app/build/generated/
+.gradle/4.0-rc-1/
+app/build/outputs/
