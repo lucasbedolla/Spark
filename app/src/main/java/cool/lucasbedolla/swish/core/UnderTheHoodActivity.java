@@ -1,4 +1,4 @@
-package cool.lucasbedolla.swish.activities.main;
+package cool.lucasbedolla.swish.core;
 
 import android.os.Bundle;
 import android.os.Handler;

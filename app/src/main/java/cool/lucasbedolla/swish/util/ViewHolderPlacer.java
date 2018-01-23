@@ -96,13 +96,13 @@ public class ViewHolderPlacer {
                 PhotoSetViewHolder setHolder = (PhotoSetViewHolder) holder;
                 PhotoPost photoPost = (PhotoPost) post;
                 setPhotos(setHolder, photoPost);
+                placeText(holder, post, listener);
                 break;
-
         }
     }
 
     public static void placeText(BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
-
+        inferredViewHolder.getTitleTextView().setText(post.getBlogName());
     }
 
     public static void placeVideo(BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {

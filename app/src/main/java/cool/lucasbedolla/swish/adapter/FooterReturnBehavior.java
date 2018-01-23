@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.WindowManager;
 
-import cool.lucasbedolla.swish.activities.main.UnderTheHoodActivity;
+import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 
 
 public class FooterReturnBehavior extends CoordinatorLayout.Behavior<View> {

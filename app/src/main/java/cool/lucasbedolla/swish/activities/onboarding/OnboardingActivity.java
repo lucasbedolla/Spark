@@ -24,8 +24,8 @@ import com.tumblr.loglr.LoginResult;
 import com.tumblr.loglr.Loglr;
 
 import cool.lucasbedolla.swish.R;
-import cool.lucasbedolla.swish.activities.main.MainActivity;
-import cool.lucasbedolla.swish.activities.main.UnderTheHoodActivity;
+import cool.lucasbedolla.swish.activities.main.DashboardActivity;
+import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.util.Constants;
 import cool.lucasbedolla.swish.util.MyPrefs;
 
@@ -35,10 +35,6 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
 
     private ViewPager pager;
     private PageIndicatorView pageIndicatorView;
-    private View colorFilterLayout;
-    private int[] colors = {
-            R.color.colorPrimary, R.color.charcoal, R.color.charcoal
-    };
 
     private EasyPager adapter;
     private View goButton;
@@ -49,11 +45,6 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (MyPrefs.getIsLoggedIn(this)) {
-            Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        }
         setContentView(R.layout.activity_onboarding);
 
         Window window = getWindow();
@@ -69,8 +60,6 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
         pageIndicatorView.setAnimationType(AnimationType.SLIDE);
         pageIndicatorView.setViewPager(pager);
         pager.addOnPageChangeListener(this);
-
-        colorFilterLayout = findViewById(R.id.filter);
 
         goButton = findViewById(R.id.go);
         goButton.setOnClickListener(this);
@@ -177,8 +166,6 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
 
     private void login() {
         try {
-
-            if(Loglr.getInstance() == null) {
                 Loglr.getInstance()
                         .setConsumerKey(Constants.CONSUMER_KEY)
                         .setConsumerSecretKey(Constants.CONSUMER_SECRET)
@@ -189,7 +176,7 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
                                 MyPrefs.setOAuthTokenSecret(OnboardingActivity.this, loginResult.getOAuthTokenSecret());
                                 MyPrefs.setIsLoggedIn(OnboardingActivity.this, true);
 
-                                Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
+                                Intent intent = new Intent(OnboardingActivity.this, DashboardActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();
@@ -201,12 +188,8 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
                                 Toast.makeText(OnboardingActivity.this, "Login failed. Please try again!", Toast.LENGTH_LONG).show();
                             }
                         })
-                        .setUrlCallBack(CALLBACK_URL);
-            }else{
-                Loglr.getInstance().initiateInActivity(this);
-            }
-
-
+                        .setUrlCallBack(CALLBACK_URL)
+                        .initiateInActivity(this);
         } catch (Exception e) {
             Toast.makeText(this, "An error occurred.", Toast.LENGTH_SHORT).show();
         }

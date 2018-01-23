@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 
 import cool.lucasbedolla.swish.R;
 
@@ -15,6 +17,8 @@ import cool.lucasbedolla.swish.R;
 public class BasicViewHolder extends RecyclerView.ViewHolder {
     private ImageView profilePicture;
     private LinearLayout extrasParentLayout;
+
+    private TextView titleTextView;
 
     private ImageView likeButton;
 
@@ -29,6 +33,7 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         extrasButton = itemView.findViewById(R.id.extras_button);
         likeButton = itemView.findViewById(R.id.like_button);
         reblogButton = itemView.findViewById(R.id.reblog_button);
+        titleTextView = itemView.findViewById(R.id.vTitle);
     }
 
 
@@ -52,4 +57,7 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return reblogButton;
     }
 
+    public TextView getTitleTextView() {
+        return titleTextView;
+    }
 }

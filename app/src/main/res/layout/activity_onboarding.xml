@@ -56,7 +56,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/button_background"
-                android:text="login"
+                android:text="login to tumblr"
                 android:textColor="@color/white" />
         </RelativeLayout>
 

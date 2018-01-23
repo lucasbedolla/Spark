@@ -16,7 +16,6 @@
         android:layout_gravity="center"
         android:fontFamily="@font/helvetica"
         android:gravity="center"
-        android:text="lucasventures reblogged aliciadaniii"
         android:textColor="@color/pool_tile_dark"
         android:textSize="10sp" />
 

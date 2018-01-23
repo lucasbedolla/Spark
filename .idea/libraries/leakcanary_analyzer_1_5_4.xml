@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="leakcanary-analyzer-1.5.4">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/leakcanary-analyzer-1.5.4.aar/edcc710e1fc9151cf67bab98a081cbd4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/leakcanary-analyzer-1.5.4.aar/edcc710e1fc9151cf67bab98a081cbd4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/leakcanary-analyzer-1.5.4.aar/0292e33ac1a0f296e625e15ff47f9850/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/leakcanary-analyzer-1.5.4.aar/0292e33ac1a0f296e625e15ff47f9850/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

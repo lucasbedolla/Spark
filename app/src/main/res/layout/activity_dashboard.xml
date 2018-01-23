@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/charcoal"
-    tools:context=".activities.main.MainActivity">
+    tools:context=".activities.main.DashboardActivity">
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinator"
@@ -35,10 +35,10 @@
             app:layout_behavior="cool.lucasbedolla.swish.adapter.FooterReturnBehavior">
 
             <TextView
+                android:id="@+id/menu_button"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/colorLuscent"
-                android:id="@+id/menu_button"
                 android:fontFamily="@font/interstate_light"
                 android:gravity="center"
                 android:text="menu"
@@ -58,10 +58,16 @@
                 android:id="@+id/menu_back"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@color/colorPrimary"
-                android:text="dashboard"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:background="@color/colorPrimary"
+                android:text="dashboard" />
+
+            <Button
+                android:id="@+id/settings"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="settings" />
 
         </RelativeLayout>
 

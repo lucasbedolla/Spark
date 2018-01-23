@@ -1,6 +1,7 @@
 package cool.lucasbedolla.swish.activities.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,13 +24,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
+import cool.lucasbedolla.swish.activities.settings.SettingsActivity;
 import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
+import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.util.MyPrefs;
 
 
-public class MainActivity extends UnderTheHoodActivity implements FetchPostListener, View.OnTouchListener {
+public class DashboardActivity extends UnderTheHoodActivity implements FetchPostListener, View.OnTouchListener {
 
     int firstVisibleItem, visibleItemCount, totalItemCount;
     private SwipeRefreshLayout refreshLayout;
@@ -45,7 +49,7 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
         public void onRefresh() {
             refreshLayout.setRefreshing(true);
             posts.clear();
-            fetchPosts(MainActivity.this, posts.size(), MainActivity.this);
+            fetchPosts(DashboardActivity.this, posts.size(), DashboardActivity.this);
         }
     };
 
@@ -60,7 +64,7 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dashboard);
 
         lay = findViewById(R.id.lay);
         lay.setOnTouchListener(this);
@@ -72,6 +76,15 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
         menuBack.setOnClickListener(this);
 
         menuLayout = findViewById(R.id.menu_layout);
+
+        Button settingsButton = findViewById(R.id.settings);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // pull to refresh layout config
         refreshLayout = findViewById(R.id.refresher);
@@ -88,7 +101,7 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
         recyclerViewMain.setDrawingCacheEnabled(true);
         recyclerViewMain.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
-        if (MyPrefs.getIsDualView(this)) {
+        if (MyPrefs.getIsDualMode(this)) {
             manager = new StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL);
             ((StaggeredGridLayoutManager) manager).setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
 
@@ -108,7 +121,7 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
                 super.onScrolled(recyclerView, dx, dy);
 
 
-                if (MyPrefs.getIsDualView(MainActivity.this)) {
+                if (MyPrefs.getIsDualMode(DashboardActivity.this)) {
                     visibleItemCount = recyclerViewMain.getChildCount();
                     totalItemCount = manager.getItemCount();
                     firstVisibleItem = ((StaggeredGridLayoutManager) manager).findFirstCompletelyVisibleItemPositions(null)[0];
@@ -127,7 +140,7 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
                 if (!loading && (totalItemCount - visibleItemCount)
                         <= (firstVisibleItem + visibleThreshold)) {
 
-                    fetchPosts(MainActivity.this, posts.size(), MainActivity.this);
+                    fetchPosts(DashboardActivity.this, posts.size(), DashboardActivity.this);
 
                     loading = true;
                 }
@@ -250,5 +263,14 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(menuLayout.getVisibility() == View.VISIBLE){
+            menuLayout.setVisibility(View.INVISIBLE);
+        }else{
+            super.onBackPressed();
+        }
     }
 }

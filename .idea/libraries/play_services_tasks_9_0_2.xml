@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="play-services-tasks-9.0.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/e0f88140fb43a9a09031f203e0ddb18c/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/e0f88140fb43a9a09031f203e0ddb18c/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/5e0409613ed8dba622c04cc5bb237947/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/5e0409613ed8dba622c04cc5bb237947/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
