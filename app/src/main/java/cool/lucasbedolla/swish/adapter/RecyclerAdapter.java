@@ -20,7 +20,6 @@ import java.util.List;
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.util.PostType;
-import cool.lucasbedolla.swish.view.ViewHolderSetup;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
 import cool.lucasbedolla.swish.view.viewholders.PhotoSetViewHolder;
 
@@ -95,8 +94,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
             switch (postType) {
                 case 0:
                 case 1:
-                    view = inflater.inflate(R.layout.single_photoset, parent, false);
-                    return new PhotoSetViewHolder(view);
+                    return new PhotoSetViewHolder(inflater.inflate(R.layout.single_photoset, parent, false));
                 case 666:
                     return new EmptyViewHolder(inflater.inflate(R.layout.is_loading, parent, false));
             }
@@ -162,7 +160,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     @Override
     public void onBindViewHolder(BasicViewHolder holder, int position) {
-
 
         Post post = itemList.get(position);
         switch (holder.getItemViewType()) {

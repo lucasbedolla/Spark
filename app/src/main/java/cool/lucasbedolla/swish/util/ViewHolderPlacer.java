@@ -2,6 +2,7 @@ package cool.lucasbedolla.swish.util;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.tumblr.jumblr.types.Photo;
@@ -26,43 +27,29 @@ public class ViewHolderPlacer {
 
         PhotoSetViewHolder photoSetHolder = (PhotoSetViewHolder) inferredViewHolder;
         PhotoPost photoPost = (PhotoPost) post;
-        int photoSetSize = photoPost.getPhotos().size();
         setSpecificFunctions(photoSetHolder, photoPost, PostType.PHOTO, listener);
-        setPhotoVisibility(photoSetHolder, photoSetSize);
-        setPhotos(photoSetHolder, photoPost);
         basicHolderSetUp(photoPost, photoSetHolder, listener);
     }
 
-    private static void setPhotoVisibility(PhotoSetViewHolder viewHolder, int numberOfPhotos) {
-        ImageView[] images = viewHolder.getImages();
-        int remainder = 10;
-        for (int i = 0; i < numberOfPhotos; i++) {
-            images[i].setVisibility(View.VISIBLE);
-            remainder--;
-        }
-        while (remainder != 0) {
-            images[remainder].setVisibility(View.GONE);
-            remainder--;
-        }
-    }
 
     private static void setPhotos(final PhotoSetViewHolder photoSetHolder, final PhotoPost photoPost) {
-        final SmartImageView[] image = photoSetHolder.getImages();
-        SmartImageView imageView = image[0];
+        LinearLayout imageHolder = photoSetHolder.getImageViewHolderLayout();
+        if(imageHolder.getChildCount() > 0){
+            imageHolder.removeAllViews();
+        }
 
         List<Photo> photos = photoPost.getPhotos();
         for (int i = 0; i < photos.size(); i++) {
-            float width = photos.get(i).getSizes().get(0).getWidth();
-            float height = photos.get(i).getSizes().get(0).getHeight();
 
-            //this is the ratio for the image.
-            float ratio = height / width;
-            imageView.setAspectRatio(ratio);
+            SmartImageView imageView = new SmartImageView(photoSetHolder.getImageViewHolderLayout().getContext());
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            imageView.setAdjustViewBounds(true);
+            imageHolder.addView(imageView);
 
-            Glide.with(image[i].getContext())
+            Glide.with(photoSetHolder.getImageViewHolderLayout().getContext())
                     .load(photos.get(i).getSizes().get(0).getUrl())
                     .thumbnail(0.1f)
-                    .into(image[i]);
+                    .into(imageView);
         }
     }
 
@@ -81,10 +68,10 @@ public class ViewHolderPlacer {
         }
 
         //set basic item click listeners
-        holder.getExtrasParentLayout().setOnClickListener(listener);
-        holder.getExtrasButton().setOnClickListener(listener);
-        holder.getLikeButton().setOnClickListener(listener);
-        holder.getReblogButton().setOnClickListener(listener);
+//        holder.getExtrasParentLayout().setOnClickListener(listener);
+//        holder.getExtrasButton().setOnClickListener(listener);
+//        holder.getLikeButton().setOnClickListener(listener);
+//        holder.getReblogButton().setOnClickListener(listener);
 
     }
 

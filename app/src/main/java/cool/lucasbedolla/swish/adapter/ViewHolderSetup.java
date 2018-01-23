@@ -1,4 +1,4 @@
-package cool.lucasbedolla.swish.view;
+package cool.lucasbedolla.swish.adapter;
 
 import android.view.View;
 
