@@ -45,6 +45,12 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (MyPrefs.getIsLoggedIn(this)) {
+            Intent intent = new Intent(this, DashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.activity_onboarding);
 
         Window window = getWindow();

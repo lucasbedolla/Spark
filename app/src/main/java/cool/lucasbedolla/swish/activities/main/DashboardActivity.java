@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,7 +76,7 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
 
         menuLayout = findViewById(R.id.menu_layout);
 
-        Button settingsButton = findViewById(R.id.settings);
+        TextView settingsButton = findViewById(R.id.settings);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,50 +101,18 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         recyclerViewMain.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
         if (MyPrefs.getIsDualMode(this)) {
-            manager = new StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL);
+            manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             ((StaggeredGridLayoutManager) manager).setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
-
-
+            recyclerViewMain.setLayoutManager(manager);
         } else {
-
             manager = new LinearLayoutManager(this);
             ((LinearLayoutManager) manager).setOrientation(LinearLayoutManager.VERTICAL);
+            recyclerViewMain.setLayoutManager(manager);
+            setOnScroll();
         }
 
 
-        recyclerViewMain.setLayoutManager(manager);
-        recyclerViewMain.setOnScrollListener(new RecyclerView.OnScrollListener() {
 
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-
-                if (MyPrefs.getIsDualMode(DashboardActivity.this)) {
-                    visibleItemCount = recyclerViewMain.getChildCount();
-                    totalItemCount = manager.getItemCount();
-                    firstVisibleItem = ((StaggeredGridLayoutManager) manager).findFirstCompletelyVisibleItemPositions(null)[0];
-                } else {
-                    visibleItemCount = recyclerViewMain.getChildCount();
-                    totalItemCount = manager.getItemCount();
-                    firstVisibleItem = ((LinearLayoutManager) manager).findFirstVisibleItemPosition();
-                }
-
-                if (loading) {
-                    if (totalItemCount >= previousTotal) {
-                        loading = false;
-                        previousTotal = totalItemCount;
-                    }
-                }
-                if (!loading && (totalItemCount - visibleItemCount)
-                        <= (firstVisibleItem + visibleThreshold)) {
-
-                    fetchPosts(DashboardActivity.this, posts.size(), DashboardActivity.this);
-
-                    loading = true;
-                }
-            }
-        });
 
         fetchPosts(this, posts.size(), this);
 
@@ -180,6 +147,42 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
             menuLayout.setVisibility(View.GONE);
             menuButton.setVisibility(View.VISIBLE);
         }
+    }
+
+
+    private void setOnScroll(){
+        recyclerViewMain.setOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+
+                if (MyPrefs.getIsDualMode(DashboardActivity.this)) {
+                    visibleItemCount = recyclerViewMain.getChildCount();
+                    totalItemCount = manager.getItemCount();
+                    firstVisibleItem = ((StaggeredGridLayoutManager) manager).findFirstCompletelyVisibleItemPositions(null)[0];
+                } else {
+                    visibleItemCount = recyclerViewMain.getChildCount();
+                    totalItemCount = manager.getItemCount();
+                    firstVisibleItem = ((LinearLayoutManager) manager).findFirstVisibleItemPosition();
+                }
+
+                if (loading) {
+                    if (totalItemCount >= previousTotal) {
+                        loading = false;
+                        previousTotal = totalItemCount;
+                    }
+                }
+                if (!loading && (totalItemCount - visibleItemCount)
+                        <= (firstVisibleItem + visibleThreshold)) {
+
+                    fetchPosts(DashboardActivity.this, posts.size(), DashboardActivity.this);
+
+                    loading = true;
+                }
+            }
+        });
     }
 
     private void animateInMenuLayout() {
@@ -240,7 +243,7 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
 
         if (initialPostSize == 0) {
             //recycleradapter config
-            adapter = new RecyclerAdapter(posts);
+            adapter = new RecyclerAdapter(this, posts);
             recyclerViewMain.setAdapter(adapter);
             refreshLayout.setRefreshing(false);
         } else {

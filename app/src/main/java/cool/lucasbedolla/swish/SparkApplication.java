@@ -25,11 +25,5 @@ public class SparkApplication extends Application {
         }
         LeakCanary.install(this);
         // Normal app init code...
-
-        if (MyPrefs.getIsLoggedIn(this)) {
-            Intent intent = new Intent(SparkApplication.this, DashboardActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        }
     }
 }

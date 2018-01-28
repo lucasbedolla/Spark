@@ -1,5 +1,6 @@
 package cool.lucasbedolla.swish.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,136 +15,41 @@ import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.PhotosetPost;
 import com.tumblr.jumblr.types.Post;
 
-import java.io.IOException;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.util.MyPrefs;
-import cool.lucasbedolla.swish.util.PostType;
+import cool.lucasbedolla.swish.util.ViewHolderBinder;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
-import cool.lucasbedolla.swish.view.viewholders.PhotoSetViewHolder;
 
 /**
  * Created by LUCASURE on 2/4/2016.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements View.OnClickListener {
 
+    enum PostType {
+        PHOTO, TEXT, VIDEO, QUESTION, ANSWER, CHAT, AUDIO, QUOTE, UNKNOWN, LOADING, LINK
+    }
+
     public static final String TAG = "RECYCLER ADAPTER";
     private final List<Post> itemList;
+    private Context ctx;
 
-    public RecyclerAdapter(List<Post> inputList) {
+    public RecyclerAdapter(Context context, List<Post> inputList) {
+        this.ctx = context;
         itemList = inputList;
     }
 
     @Override
     public BasicViewHolder onCreateViewHolder(ViewGroup parent, int postType) {
-        View view;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-
         //staggered
-        if (MyPrefs.getPanelSettingsIsDual(parent.getContext())) {
-/*
-
-            switch (postType) {
-                case 0:
-                    view = inflater.inflate(R.layout.grid_photoset, parent, false);
-                    return new PhotoSetViewHolder(view);
-
-                case 1:
-                    view = inflater.inflate(R.layout.grid_text, parent, false);
-                    return new TextViewHolder(view);
-
-                case 2:
-                    view = inflater.inflate(R.layout.grid_answer, parent, false);
-                    return new AnswerViewHolder(view);
-
-                case 3:
-                    view = inflater.inflate(R.layout.grid_video, parent, false);
-                    return new VideoViewHolder(view);
-
-                case 4:
-                    view = inflater.inflate(R.layout.grid_quote, parent, false);
-                    return new QuoteViewHolder(view);
-
-                case 5:
-                    view = inflater.inflate(R.layout.grid_chat, parent, false);
-                    return new ChatViewHolder(view);
-
-                case 6:
-                    view = inflater.inflate(R.layout.grid_link, parent, false);
-                    return new LinkViewHolder(view);
-
-                case 7:
-                    view = inflater.inflate(R.layout.grid_photo, parent, false);
-                    return new BasicViewHolder(view);
-
-                case 8:
-                    view = inflater.inflate(R.layout.is_loading, parent, false);
-                    return new LoadingViewHolder(view);
-
-                case 9:
-                    view = inflater.inflate(R.layout.grid_audio, parent, false);
-                    return new AudioViewHolder(view);
-
-                default:
-                    view = inflater.inflate(R.layout.grid_photo, parent, false);
-                    return new BasicViewHolder(view);
-            }*/
+        if (MyPrefs.getIsDualMode(parent.getContext())) {
+            //tweak a new set of this layout to have smaller scale for dual mode
+            return new BasicViewHolder(inflater.inflate(R.layout.view_holder_base, parent, false));
         } else {
-
-            switch (postType) {
-                case 0:
-                case 1:
-                    return new PhotoSetViewHolder(inflater.inflate(R.layout.single_photoset, parent, false));
-                case 666:
-                    return new EmptyViewHolder(inflater.inflate(R.layout.is_loading, parent, false));
-            }
+            return new BasicViewHolder(inflater.inflate(R.layout.view_holder_base, parent, false));
         }
-                    /*
-                case 2:
-                    view = inflater.inflate(R.layout.single_text, parent, false);
-                    return new TextViewHolder(view);
-
-                case 3:
-                    view = inflater.inflate(R.layout.single_answer, parent, false);
-                    return new AnswerViewHolder(view);
-
-                case 4:
-                    view = inflater.inflate(R.layout.single_video, parent, false);
-                    return new VideoViewHolder(view);
-
-                case 5:
-                    view = inflater.inflate(R.layout.single_quote, parent, false);
-                    return new QuoteViewHolder(view);
-
-                case 6:
-                    view = inflater.inflate(R.layout.single_chat, parent, false);
-                    return new ChatViewHolder(view);
-
-                case 7:
-                    view = inflater.inflate(R.layout.single_link, parent, false);
-                    return new LinkViewHolder(view);
-
-                case 8:
-                    view = inflater.inflate(R.layout.single_photo, parent, false);
-                    return new BasicViewHolder(view);
-
-                case 9:
-                    view = inflater.inflate(R.layout.is_loading, parent, false);
-                    return new LoadingViewHolder(view);
-
-                case 10:
-                    view = inflater.inflate(R.layout.single_audio, parent, false);
-                    return new AudioViewHolder(view);
-
-                default:
-                    view = inflater.inflate(R.layout.single_text, parent, false);
-                    return new BasicViewHolder(view);
-            }
-
-
-  */
-        return null;
     }
 
 
@@ -162,84 +68,70 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     public void onBindViewHolder(BasicViewHolder holder, int position) {
 
         Post post = itemList.get(position);
-        switch (holder.getItemViewType()) {
-            case 0:
-            case 1:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.PHOTO, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 2:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.TEXT, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 3:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.ANSWER, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 4:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.VIDEO, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 5:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.CHAT, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 6:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.QUOTE, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 7:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.LINK, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 8:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.UNKNOWN, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case 9:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.LOADING, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                break;
 
-            case 10:
-                try {
-                    ViewHolderSetup.setBasicFunctions(holder, PostType.AUDIO, post, this);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        PostType type = mapPost(holder);
 
-            case 666:
+        switch (type) {
+            case PHOTO:
+                ViewHolderBinder.placePhotos(ctx, holder, post, this);
+                break;
+            case TEXT:
+                ViewHolderBinder.placeText(holder, post);
+                break;
+            case CHAT:
+                ViewHolderBinder.placeChat(ctx, holder, post, this);
+                break;
+            case AUDIO:
+                ViewHolderBinder.placeAudio(ctx, holder, post, this);
+                break;
+            case QUOTE:
+                ViewHolderBinder.placeQuote(ctx, holder, post, this);
+                break;
+            case VIDEO:
+                ViewHolderBinder.placeVideo(ctx, holder, post, this);
+                break;
+            case ANSWER:
+                ViewHolderBinder.placeAnswer(ctx, holder, post, this);
+                break;
+            case UNKNOWN:
+                ViewHolderBinder.placeUnknown(ctx, holder, post, this);
+                break;
+            case LOADING:
+                ViewHolderBinder.placeLoading(ctx, holder, this);
 
                 break;
+
         }
 
+    }
+
+    private PostType mapPost(BasicViewHolder holder) {
+        switch (holder.getItemViewType()) {
+            case 0:
+                return PostType.PHOTO;
+            case 1:
+                return PostType.PHOTO;
+            case 2:
+                return PostType.TEXT;
+            case 3:
+                return PostType.ANSWER;
+            case 4:
+                return PostType.VIDEO;
+            case 5:
+                return PostType.QUOTE;
+            case 6:
+                return PostType.CHAT;
+            case 7:
+                return PostType.LINK;
+            case 8:
+                return PostType.UNKNOWN;
+            case 9:
+                return PostType.LOADING;
+            case 10:
+                return PostType.AUDIO;
+            default:
+                return PostType.UNKNOWN;
+        }
     }
 
     @Override
