@@ -1,7 +1,10 @@
 package cool.lucasbedolla.swish.util;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
@@ -11,9 +14,10 @@ import com.tumblr.jumblr.types.Post;
 
 import java.util.List;
 
+import cool.lucasbedolla.swish.R;
+import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
 import cool.lucasbedolla.swish.view.SmartImageView;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
-import cool.lucasbedolla.swish.view.viewholders.PhotoSetViewHolder;
 
 /**
  * Created by Lucas Bedolla on 5/31/2017.
@@ -25,18 +29,18 @@ public class ViewHolderBinder {
     }
 
     public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
-
         PhotoPost photoPost = (PhotoPost) post;
         setPhotos(ctx, inferredViewHolder, photoPost);
         basicHolderSetUp(ctx, photoPost, inferredViewHolder, listener);
     }
 
-
     private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost) {
-        LinearLayout imageHolder = holder.getTargetLayoutAsLinearLayout();
-        if (imageHolder.getChildCount() > 0) {
-            imageHolder.removeAllViews();
+        FrameLayout targetLayout = holder.getContentTargetLayout();
+        if (targetLayout.getChildCount() > 0) {
+            targetLayout.removeAllViews();
         }
+
+        LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
 
         List<Photo> photos = photoPost.getPhotos();
         for (int i = 0; i < photos.size(); i++) {
@@ -44,51 +48,53 @@ public class ViewHolderBinder {
             SmartImageView imageView = new SmartImageView(ctx);
             imageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             imageView.setAdjustViewBounds(true);
-            imageHolder.addView(imageView);
+            contentHolder.addView(imageView);
 
-            Glide.with(imageView.getContext())
-                    .load(photos.get(i).getSizes().get(0).getUrl())
-                    .thumbnail(0.1f)
-                    .into(imageView);
+            downloadImageIntoImageView(imageView, photos.get(i).getSizes().get(0).getUrl());
         }
     }
 
     private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder, View.OnClickListener listener) {
 
+        configureTopLayout(context, holder, post);
+        setClickListeners(holder, listener);
+
+
+    }
+
+    private static void configureTopLayout(Context context, BasicViewHolder holder, Post post) {
+
         if (MyPrefs.getIsClassicMode(context)) {
-            configureToClassicMode(context, post, holder, listener);
-        } else if (MyPrefs.getIsMinimalistMode(context)) {
-            configureToMinimalistMode(context, post, holder, listener);
-        } else if (MyPrefs.getIsExtremeMinimalist(context)) {
-            configureToExtremeMinimalistMode(context, post, holder, listener);
+            holder.getProfilePicture().setVisibility(View.VISIBLE);
+            downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getSourceTitle() + "/avatar/128");
         }
 
-
-        //set basic item click listeners
-//        holder.getExtrasParentLayout().setOnClickListener(listener);
-//        holder.getExtrasButton().setOnClickListener(listener);
-//        holder.getLikeButton().setOnClickListener(listener);
-//        holder.getReblogButton().setOnClickListener(listener);
-
-    }
-
-
-    public static void placeText(BasicViewHolder holder, Post post){
-        holder.getTitleTextView().setText(post.getBlogName());
-    }
-
-    private static void configureToClassicMode(Context context, Post post, BasicViewHolder holder, View.OnClickListener listener) {
+        if (post.getSourceTitle() == null) {
+            holder.getAuthorText().setText(post.getBlogName());
+            holder.getAuthorText().setTextColor(context.getResources().getColor(R.color.colorPrimary));
+        } else {
+            holder.getAuthorText().setText(Html.fromHtml(post.getBlogName() + " <font color='#5387ff'>reblogged</font> " + post.getSourceTitle()));
+        }
 
     }
 
 
-    private static void configureToMinimalistMode(Context context, Post post, BasicViewHolder holder, View.OnClickListener listener) {
-
+    private static void downloadImageIntoImageView(ImageView imageView, String url) {
+        Glide.with(imageView.getContext())
+                .load(url)
+                .thumbnail(0.1f)
+                .into(imageView);
     }
 
 
-    private static void configureToExtremeMinimalistMode(Context context, Post post, BasicViewHolder holder, View.OnClickListener listener) {
+    public static void placeText(Context context, BasicViewHolder holder, Post post) {
 
+    }
+
+    private static void setClickListeners(BasicViewHolder holder, View.OnClickListener listener) {
+        holder.getExtrasButton().setOnClickListener(listener);
+        holder.getLikeButton().setOnClickListener(listener);
+        holder.getReblogButton().setOnClickListener(listener);
     }
 
 
@@ -120,4 +126,7 @@ public class ViewHolderBinder {
     }
 
 
+    public static void placeQuestion(Context ctx, BasicViewHolder holder, Post post, RecyclerAdapter recyclerAdapter) {
+
+    }
 }

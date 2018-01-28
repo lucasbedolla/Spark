@@ -11,8 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.tumblr.jumblr.types.PhotoPost;
-import com.tumblr.jumblr.types.PhotosetPost;
 import com.tumblr.jumblr.types.Post;
 
 import java.util.List;
@@ -43,10 +41,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     @Override
     public BasicViewHolder onCreateViewHolder(ViewGroup parent, int postType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        //staggered
         if (MyPrefs.getIsDualMode(parent.getContext())) {
             //tweak a new set of this layout to have smaller scale for dual mode
-            return new BasicViewHolder(inflater.inflate(R.layout.view_holder_base, parent, false));
+            return new BasicViewHolder(inflater.inflate(R.layout.view_holder_base_dual, parent, false));
         } else {
             return new BasicViewHolder(inflater.inflate(R.layout.view_holder_base, parent, false));
         }
@@ -55,13 +52,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     @Override
     public int getItemViewType(int position) {
-        Post post = itemList.get(position);
-        if (post instanceof PhotosetPost ||
-                post instanceof PhotoPost) {
-            return 0;
-        } else {
-            return 666;
-        }
+        return 0;
     }
 
     @Override
@@ -76,7 +67,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 ViewHolderBinder.placePhotos(ctx, holder, post, this);
                 break;
             case TEXT:
-                ViewHolderBinder.placeText(holder, post);
+                ViewHolderBinder.placeText(ctx, holder, post);
                 break;
             case CHAT:
                 ViewHolderBinder.placeChat(ctx, holder, post, this);
@@ -92,6 +83,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 break;
             case ANSWER:
                 ViewHolderBinder.placeAnswer(ctx, holder, post, this);
+                break;
+            case QUESTION:
+                ViewHolderBinder.placeQuestion(ctx, holder, post, this);
                 break;
             case UNKNOWN:
                 ViewHolderBinder.placeUnknown(ctx, holder, post, this);
@@ -124,7 +118,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
             case 7:
                 return PostType.LINK;
             case 8:
-                return PostType.UNKNOWN;
+                return PostType.QUESTION;
             case 9:
                 return PostType.LOADING;
             case 10:

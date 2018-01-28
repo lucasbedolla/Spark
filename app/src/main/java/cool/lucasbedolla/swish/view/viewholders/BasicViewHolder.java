@@ -4,9 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import cool.lucasbedolla.swish.R;
 
@@ -17,27 +20,42 @@ import cool.lucasbedolla.swish.R;
 
 public class BasicViewHolder extends RecyclerView.ViewHolder {
 
-    private ImageView profilePicture;
+    private RoundedImageView profileImageView;
     private LinearLayout extrasParentLayout;
     private FrameLayout contentTargetLayout;
     private TextView titleTextView;
     private ImageView likeButton;
     private ImageView reblogButton;
     private ImageView extrasButton;
+    private ImageButton followButtom;
+    private TextView authorText;
 
     public BasicViewHolder(View itemView) {
         super(itemView);
-        profilePicture = itemView.findViewById(R.id.profile_picture);
+
+
+        //top layout
+        profileImageView = itemView.findViewById(R.id.profile_picture);
+        authorText = itemView.findViewById(R.id.post_author);
+        followButtom = itemView.findViewById(R.id.post_follow);
+
+        //content center
         contentTargetLayout = itemView.findViewById(R.id.target_layout);
+        titleTextView = itemView.findViewById(R.id.post_text_content);
+
+        //bottom layout
         extrasParentLayout = itemView.findViewById(R.id.extras_parent);
         extrasButton = itemView.findViewById(R.id.extras_button);
         likeButton = itemView.findViewById(R.id.like_button);
         reblogButton = itemView.findViewById(R.id.reblog_button);
-        titleTextView = itemView.findViewById(R.id.vTitle);
     }
 
-    public ImageView getProfilePicture() {
-        return profilePicture;
+    public RoundedImageView getProfilePicture() {
+        return profileImageView;
+    }
+
+    public TextView getAuthorText() {
+        return authorText;
     }
 
     public LinearLayout getExtrasParentLayout() {
@@ -64,7 +82,7 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return contentTargetLayout;
     }
 
-    public LinearLayout getTargetLayoutAsLinearLayout(){
+    public LinearLayout getTargetLayoutAsLinearLayout() {
         LinearLayout linearLayout = new LinearLayout(getContentTargetLayout().getContext());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         linearLayout.setLayoutParams(params);
@@ -72,5 +90,9 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         getContentTargetLayout().addView(linearLayout);
         return linearLayout;
+    }
+
+    public ImageButton getFollowButtom() {
+        return followButtom;
     }
 }

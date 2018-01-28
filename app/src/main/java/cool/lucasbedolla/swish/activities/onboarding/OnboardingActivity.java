@@ -45,12 +45,6 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (MyPrefs.getIsLoggedIn(this)) {
-            Intent intent = new Intent(this, DashboardActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        }
-
         setContentView(R.layout.activity_onboarding);
 
         Window window = getWindow();
@@ -111,7 +105,13 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        whiteLayout.setVisibility(View.GONE);
+                        if (MyPrefs.getIsLoggedIn(OnboardingActivity.this)) {
+                            Intent intent = new Intent(OnboardingActivity.this, DashboardActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        } else {
+                            whiteLayout.setVisibility(View.GONE);
+                        }
                     }
 
                     @Override

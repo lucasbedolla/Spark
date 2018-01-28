@@ -111,11 +111,7 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
             setOnScroll();
         }
 
-
-
-
         fetchPosts(this, posts.size(), this);
-
     }
 
     private void fetchPosts(Context ctx, int postSize, FetchPostListener listener) {

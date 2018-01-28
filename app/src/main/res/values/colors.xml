@@ -6,6 +6,8 @@
     <color name="colorPrimaryLuscent">#bcff5353</color>
     <color name="colorPrimaryDarkLuscent">#bcff3333</color>
     <color name="colorLuscent">#6b000000</color>
+    <color name="colorBluePrimary">#5387ff</color>
+
 
     <color name="pool_shallow">#f04245</color>
     <color name="pool_blue">#de373a</color>

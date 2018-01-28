@@ -9,12 +9,12 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
         android:orientation="vertical">
 
         <include
             android:id="@+id/top"
-            layout="@layout/info_top" />
+            layout="@layout/info_top_dual" />
 
         <FrameLayout
             android:id="@+id/target_layout"
@@ -32,7 +32,7 @@
 
         <include
             android:id="@+id/bottom"
-            layout="@layout/info_bottom" />
+            layout="@layout/info_bottom_dual" />
 
     </LinearLayout>
 
