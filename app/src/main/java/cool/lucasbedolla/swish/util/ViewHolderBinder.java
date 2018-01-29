@@ -31,6 +31,11 @@ public class ViewHolderBinder {
     public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
         PhotoPost photoPost = (PhotoPost) post;
         setPhotos(ctx, inferredViewHolder, photoPost);
+        if (photoPost.getCaption() != null && photoPost.getCaption().length() > 0) {
+            inferredViewHolder.getDescription().setText(Html.fromHtml(((PhotoPost) post).getCaption()));
+        } else {
+            inferredViewHolder.getDescription().setVisibility(View.GONE);
+        }
         basicHolderSetUp(ctx, photoPost, inferredViewHolder, listener);
     }
 
@@ -57,23 +62,33 @@ public class ViewHolderBinder {
     private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder, View.OnClickListener listener) {
 
         configureTopLayout(context, holder, post);
+        configureBottomLayout(context, holder, post);
         setClickListeners(holder, listener);
 
 
+    }
+
+    private static void configureBottomLayout(Context context, BasicViewHolder holder, Post post) {
+        if (post.getNoteCount() == 1) {
+            holder.getNotes().setText(post.getNoteCount() + " note");
+        } else {
+            holder.getNotes().setText(post.getNoteCount() + " notes");
+        }
     }
 
     private static void configureTopLayout(Context context, BasicViewHolder holder, Post post) {
 
         if (MyPrefs.getIsClassicMode(context)) {
             holder.getProfilePicture().setVisibility(View.VISIBLE);
-            downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getSourceTitle() + "/avatar/128");
         }
 
         if (post.getSourceTitle() == null) {
             holder.getAuthorText().setText(post.getBlogName());
             holder.getAuthorText().setTextColor(context.getResources().getColor(R.color.colorPrimary));
+            downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getBlogName() + "/avatar/512");
         } else {
-            holder.getAuthorText().setText(Html.fromHtml(post.getBlogName() + " <font color='#5387ff'>reblogged</font> " + post.getSourceTitle()));
+            holder.getAuthorText().setText(Html.fromHtml("<b>" + post.getBlogName() + "<b/> " + " <br> <font color='#5387ff'>reblogged</font> </br> " + "<br>" + post.getSourceTitle() + "</br>"));
+            downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getSourceTitle() + "/avatar/512");
         }
 
     }
@@ -92,7 +107,6 @@ public class ViewHolderBinder {
     }
 
     private static void setClickListeners(BasicViewHolder holder, View.OnClickListener listener) {
-        holder.getExtrasButton().setOnClickListener(listener);
         holder.getLikeButton().setOnClickListener(listener);
         holder.getReblogButton().setOnClickListener(listener);
     }

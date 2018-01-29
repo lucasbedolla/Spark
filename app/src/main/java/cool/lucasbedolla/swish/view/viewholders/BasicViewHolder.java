@@ -20,13 +20,13 @@ import cool.lucasbedolla.swish.R;
 
 public class BasicViewHolder extends RecyclerView.ViewHolder {
 
+    private TextView notes;
     private RoundedImageView profileImageView;
     private LinearLayout extrasParentLayout;
     private FrameLayout contentTargetLayout;
-    private TextView titleTextView;
+    private TextView description;
     private ImageView likeButton;
     private ImageView reblogButton;
-    private ImageView extrasButton;
     private ImageButton followButtom;
     private TextView authorText;
 
@@ -41,11 +41,11 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
 
         //content center
         contentTargetLayout = itemView.findViewById(R.id.target_layout);
-        titleTextView = itemView.findViewById(R.id.post_text_content);
+        description = itemView.findViewById(R.id.post_text_content);
 
         //bottom layout
         extrasParentLayout = itemView.findViewById(R.id.extras_parent);
-        extrasButton = itemView.findViewById(R.id.extras_button);
+        notes = itemView.findViewById(R.id.notes);
         likeButton = itemView.findViewById(R.id.like_button);
         reblogButton = itemView.findViewById(R.id.reblog_button);
     }
@@ -66,16 +66,12 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return likeButton;
     }
 
-    public ImageView getExtrasButton() {
-        return extrasButton;
-    }
-
     public ImageView getReblogButton() {
         return reblogButton;
     }
 
-    public TextView getTitleTextView() {
-        return titleTextView;
+    public TextView getDescription() {
+        return description;
     }
 
     public FrameLayout getContentTargetLayout() {
@@ -94,5 +90,9 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
 
     public ImageButton getFollowButtom() {
         return followButtom;
+    }
+
+    public TextView getNotes() {
+        return notes;
     }
 }

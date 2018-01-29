@@ -5,10 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.tumblr.jumblr.types.Post;
@@ -133,13 +129,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         return itemList.size();
     }
 
-
     @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case R.id.extras_parent:
-                animateExtras(view);
+            case R.id.extras_button:
+
                 break;
             case R.id.like_button:
                 Toast.makeText(view.getContext(), "Liked!", Toast.LENGTH_SHORT).show();
@@ -152,41 +147,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     }
 
-
-    private void animateExtras(final View view) {
-        final ImageView buttonSpin = view.findViewById(R.id.extras_button);
-        final LinearLayout extraContentLayout = view.findViewById(R.id.extras_content);
-
-        if (extraContentLayout.getVisibility() == View.GONE) {
-
-            extraContentLayout.startAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.extras_content_animate_down));
-            buttonSpin.startAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.arrow_clockwise_rotate));
-            extraContentLayout.setVisibility(View.VISIBLE);
-        } else {
-
-            Animation upAnimation = AnimationUtils.loadAnimation(view.getContext(), R.anim.extras_content_animate_up);
-            upAnimation.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    extraContentLayout.setVisibility(View.GONE);
-                    //animate arrow
-                    buttonSpin.startAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.arrow_counterclockwise_rotate));
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-            });
-
-            extraContentLayout.startAnimation(upAnimation);
-
-        }
-    }
 }
 

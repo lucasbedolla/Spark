@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -139,9 +140,15 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         if (v.getId() == R.id.menu_button) {
             menuButton.setVisibility(View.GONE);
             menuLayout.setVisibility(View.VISIBLE);
+
+            Window window = getWindow();
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+
         } else if (v.getId() == R.id.menu_back) {
             menuLayout.setVisibility(View.GONE);
             menuButton.setVisibility(View.VISIBLE);
+            Window window = getWindow();
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
         }
     }
 

@@ -23,4 +23,10 @@
     <color name="light_gray">#ebebeb</color>
     <color name="black_luscent">#cf000000</color>
     <color name="white_luscent">#9fffffff</color>
+
+    <color name="purple">#a179ff</color>
+    <color name="green">#55ffbb</color>
+    <color name="blue">#4ac0ff</color>
+    <color name="orange">#ff8548</color>
+    <color name="red">#f06c6c</color>
 </resources>

@@ -13,7 +13,6 @@
         android:orientation="vertical">
 
         <include
-            android:id="@+id/top"
             layout="@layout/info_top" />
 
         <FrameLayout
@@ -25,13 +24,12 @@
             android:id="@+id/post_text_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autoLink="web"
             android:padding="10dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="gone" />
+            android:background="@color/pool_tile"
+            android:textColor="@color/charcoal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <include
-            android:id="@+id/bottom"
             layout="@layout/info_bottom" />
 
     </LinearLayout>
