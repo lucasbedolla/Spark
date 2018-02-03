@@ -30,7 +30,7 @@ public class ViewHolderBinder {
 
     public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
         PhotoPost photoPost = (PhotoPost) post;
-        setPhotos(ctx, inferredViewHolder, photoPost);
+        setPhotos(ctx, inferredViewHolder, photoPost, listener);
         if (photoPost.getCaption() != null && photoPost.getCaption().length() > 0) {
             inferredViewHolder.getDescription().setText(Html.fromHtml(((PhotoPost) post).getCaption()));
         } else {
@@ -39,7 +39,7 @@ public class ViewHolderBinder {
         basicHolderSetUp(ctx, photoPost, inferredViewHolder, listener);
     }
 
-    private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost) {
+    private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost, View.OnClickListener listener) {
         FrameLayout targetLayout = holder.getContentTargetLayout();
         if (targetLayout.getChildCount() > 0) {
             targetLayout.removeAllViews();
@@ -53,9 +53,11 @@ public class ViewHolderBinder {
             SmartImageView imageView = new SmartImageView(ctx);
             imageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             imageView.setAdjustViewBounds(true);
+            imageView.setImageUrl(photos.get(i).getSizes().get(0).getUrl());
             contentHolder.addView(imageView);
+            imageView.setOnClickListener(listener);
 
-            downloadImageIntoImageView(imageView, photos.get(i).getSizes().get(0).getUrl());
+            downloadImageIntoImageView(imageView, imageView.getImageUrl());
         }
     }
 
@@ -94,7 +96,7 @@ public class ViewHolderBinder {
     }
 
 
-    private static void downloadImageIntoImageView(ImageView imageView, String url) {
+    public static void downloadImageIntoImageView(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
                 .load(url)
                 .thumbnail(0.1f)

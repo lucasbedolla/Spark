@@ -37,7 +37,6 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         //top layout
         profileImageView = itemView.findViewById(R.id.profile_picture);
         authorText = itemView.findViewById(R.id.post_author);
-        followButtom = itemView.findViewById(R.id.post_follow);
 
         //content center
         contentTargetLayout = itemView.findViewById(R.id.target_layout);

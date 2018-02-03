@@ -1,6 +1,6 @@
 package cool.lucasbedolla.swish.adapter;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +12,12 @@ import com.tumblr.jumblr.types.Post;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
+import cool.lucasbedolla.swish.activities.main.DashboardActivity;
+import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
+import cool.lucasbedolla.swish.fragments.InteractionFragment;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.util.ViewHolderBinder;
+import cool.lucasbedolla.swish.view.SmartImageView;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
 
 /**
@@ -27,9 +31,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     public static final String TAG = "RECYCLER ADAPTER";
     private final List<Post> itemList;
-    private Context ctx;
+    private UnderTheHoodActivity ctx;
 
-    public RecyclerAdapter(Context context, List<Post> inputList) {
+    public RecyclerAdapter(UnderTheHoodActivity context, List<Post> inputList) {
         this.ctx = context;
         itemList = inputList;
     }
@@ -132,18 +136,40 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     @Override
     public void onClick(View view) {
 
+        if (view instanceof SmartImageView && ctx instanceof DashboardActivity) {
+            String url = ((SmartImageView) view).getImageUrl();
+            if (url != null) {
+                showImageFragment(url);
+            }
+            return;
+        }
+
         switch (view.getId()) {
             case R.id.extras_button:
-
                 break;
             case R.id.like_button:
                 Toast.makeText(view.getContext(), "Liked!", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.reblog_button:
                 Toast.makeText(view.getContext(), "Reblogged!", Toast.LENGTH_SHORT).show();
-
                 break;
         }
+
+    }
+
+
+    private void showImageFragment(String url) {
+
+        InteractionFragment interactionFragment = new InteractionFragment();
+        Bundle arguments = new Bundle();
+        arguments.putString(InteractionFragment.RESOURCE_URL, url);
+        arguments.putString(InteractionFragment.RESOURCE_TYPE, InteractionFragment.RESOURCE_IMAGE);
+        interactionFragment.setArguments(arguments);
+
+        ctx.getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                .replace(R.id.fragment_container, interactionFragment, "IMAGE")
+                .commitNow();
 
     }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -65,6 +66,9 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dashboard);
+
+//        ImageView toBlog = findViewById(R.id.to_blog);
+//        toBlog.setOnClickListener(this);
 
         lay = findViewById(R.id.lay);
         lay.setOnTouchListener(this);
@@ -140,7 +144,6 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         if (v.getId() == R.id.menu_button) {
             menuButton.setVisibility(View.GONE);
             menuLayout.setVisibility(View.VISIBLE);
-
             Window window = getWindow();
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
@@ -149,11 +152,13 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
             menuButton.setVisibility(View.VISIBLE);
             Window window = getWindow();
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        } else if (v.getId() == R.id.to_blog) {
+            //TODO make the layout come in from the right
         }
     }
 
 
-    private void setOnScroll(){
+    private void setOnScroll() {
         recyclerViewMain.setOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
@@ -273,10 +278,18 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
 
     @Override
     public void onBackPressed() {
-        if(menuLayout.getVisibility() == View.VISIBLE){
+
+        if (getSupportFragmentManager().findFragmentByTag("IMAGE") != null) {
+            Fragment frag = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            getSupportFragmentManager().beginTransaction().remove(frag).commit();
+            return;
+        }
+
+        if (menuLayout.getVisibility() == View.VISIBLE) {
             menuLayout.setVisibility(View.INVISIBLE);
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
+
 }

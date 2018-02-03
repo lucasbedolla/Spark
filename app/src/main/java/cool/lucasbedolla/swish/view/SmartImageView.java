@@ -1,7 +1,6 @@
 package cool.lucasbedolla.swish.view;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import android.view.View;
 
 /**
@@ -10,7 +9,7 @@ import android.view.View;
 
 public class SmartImageView extends android.support.v7.widget.AppCompatImageView implements View.OnClickListener {
 
-    String imageUrl;
+    public String imageUrl;
 
     public SmartImageView(Context context) {
         super(context);
