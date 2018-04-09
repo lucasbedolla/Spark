@@ -4,8 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,18 +20,12 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
 
     private TextView notes;
     private RoundedImageView profileImageView;
-    private LinearLayout extrasParentLayout;
     private FrameLayout contentTargetLayout;
     private TextView description;
-    private ImageView likeButton;
-    private ImageView reblogButton;
-    private ImageButton followButtom;
     private TextView authorText;
 
     public BasicViewHolder(View itemView) {
         super(itemView);
-
-
         //top layout
         profileImageView = itemView.findViewById(R.id.profile_picture);
         authorText = itemView.findViewById(R.id.post_author);
@@ -43,10 +35,7 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         description = itemView.findViewById(R.id.post_text_content);
 
         //bottom layout
-        extrasParentLayout = itemView.findViewById(R.id.extras_parent);
         notes = itemView.findViewById(R.id.notes);
-        likeButton = itemView.findViewById(R.id.like_button);
-        reblogButton = itemView.findViewById(R.id.reblog_button);
     }
 
     public RoundedImageView getProfilePicture() {
@@ -57,17 +46,6 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return authorText;
     }
 
-    public LinearLayout getExtrasParentLayout() {
-        return extrasParentLayout;
-    }
-
-    public ImageView getLikeButton() {
-        return likeButton;
-    }
-
-    public ImageView getReblogButton() {
-        return reblogButton;
-    }
 
     public TextView getDescription() {
         return description;
@@ -85,10 +63,6 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         getContentTargetLayout().addView(linearLayout);
         return linearLayout;
-    }
-
-    public ImageButton getFollowButtom() {
-        return followButtom;
     }
 
     public TextView getNotes() {

@@ -28,9 +28,9 @@ public class ViewHolderBinder {
     private ViewHolderBinder() {
     }
 
-    public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
+    public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener, View.OnLongClickListener longClickListener) {
         PhotoPost photoPost = (PhotoPost) post;
-        setPhotos(ctx, inferredViewHolder, photoPost, listener);
+        setPhotos(ctx, inferredViewHolder, photoPost, listener, longClickListener);
         if (photoPost.getCaption() != null && photoPost.getCaption().length() > 0) {
             inferredViewHolder.getDescription().setText(Html.fromHtml(((PhotoPost) post).getCaption()));
         } else {
@@ -39,7 +39,7 @@ public class ViewHolderBinder {
         basicHolderSetUp(ctx, photoPost, inferredViewHolder, listener);
     }
 
-    private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost, View.OnClickListener listener) {
+    private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost, View.OnClickListener listener, View.OnLongClickListener longCLickListener) {
         FrameLayout targetLayout = holder.getContentTargetLayout();
         if (targetLayout.getChildCount() > 0) {
             targetLayout.removeAllViews();
@@ -51,23 +51,23 @@ public class ViewHolderBinder {
         for (int i = 0; i < photos.size(); i++) {
 
             SmartImageView imageView = new SmartImageView(ctx);
-            imageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-            imageView.setAdjustViewBounds(true);
+            int h = photos.get(i).getOriginalSize().getHeight();
+            int w = photos.get(i).getOriginalSize().getWidth();
+
+            imageView.setAspectRatio(h, w);
             imageView.setImageUrl(photos.get(i).getSizes().get(0).getUrl());
             contentHolder.addView(imageView);
             imageView.setOnClickListener(listener);
+            imageView.setOnLongClickListener(longCLickListener);
 
             downloadImageIntoImageView(imageView, imageView.getImageUrl());
         }
     }
 
     private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder, View.OnClickListener listener) {
-
         configureTopLayout(context, holder, post);
         configureBottomLayout(context, holder, post);
         setClickListeners(holder, listener);
-
-
     }
 
     private static void configureBottomLayout(Context context, BasicViewHolder holder, Post post) {
@@ -109,8 +109,7 @@ public class ViewHolderBinder {
     }
 
     private static void setClickListeners(BasicViewHolder holder, View.OnClickListener listener) {
-        holder.getLikeButton().setOnClickListener(listener);
-        holder.getReblogButton().setOnClickListener(listener);
+
     }
 
 

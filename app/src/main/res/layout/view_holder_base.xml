@@ -12,8 +12,7 @@
         android:layout_marginTop="16dp"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/info_top" />
+        <include layout="@layout/info_top" />
 
         <FrameLayout
             android:id="@+id/target_layout"
@@ -24,13 +23,12 @@
             android:id="@+id/post_text_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:background="@color/pool_tile"
-            android:textColor="@color/charcoal"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/charcoal" />
 
-        <include
-            layout="@layout/info_bottom" />
+        <include layout="@layout/info_bottom" />
 
     </LinearLayout>
 

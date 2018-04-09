@@ -1,5 +1,7 @@
 package cool.lucasbedolla.swish.adapter;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +14,11 @@ import com.tumblr.jumblr.types.Post;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
-import cool.lucasbedolla.swish.activities.main.DashboardActivity;
+import cool.lucasbedolla.swish.SparkApplication;
+import cool.lucasbedolla.swish.activities.dashboard.DashboardActivity;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.fragments.InteractionFragment;
+import cool.lucasbedolla.swish.util.ImageHelper;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.util.ViewHolderBinder;
 import cool.lucasbedolla.swish.view.SmartImageView;
@@ -23,16 +27,11 @@ import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
 /**
  * Created by LUCASURE on 2/4/2016.
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements View.OnClickListener {
-
-    enum PostType {
-        PHOTO, TEXT, VIDEO, QUESTION, ANSWER, CHAT, AUDIO, QUOTE, UNKNOWN, LOADING, LINK
-    }
+public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements View.OnClickListener, View.OnLongClickListener {
 
     public static final String TAG = "RECYCLER ADAPTER";
     private final List<Post> itemList;
     private UnderTheHoodActivity ctx;
-
     public RecyclerAdapter(UnderTheHoodActivity context, List<Post> inputList) {
         this.ctx = context;
         itemList = inputList;
@@ -49,7 +48,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         }
     }
 
-
     @Override
     public int getItemViewType(int position) {
         return 0;
@@ -64,7 +62,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
         switch (type) {
             case PHOTO:
-                ViewHolderBinder.placePhotos(ctx, holder, post, this);
+                ViewHolderBinder.placePhotos(ctx, holder, post, this, this);
                 break;
             case TEXT:
                 ViewHolderBinder.placeText(ctx, holder, post);
@@ -154,9 +152,40 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 Toast.makeText(view.getContext(), "Reblogged!", Toast.LENGTH_SHORT).show();
                 break;
         }
-
     }
 
+    @Override
+    public boolean onLongClick(View view) {
+        if (view instanceof SmartImageView) {
+            String url = ((SmartImageView) view).getImageUrl();
+            if (url != null) {
+
+                final SmartImageView imageView = (SmartImageView) view;
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext())
+                        .setCancelable(true)
+                        .setTitle("Save image?")
+                        .setPositiveButton("save", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                ImageHelper.downloadImagefromUrl(SparkApplication.getContext(), imageView.getImageUrl());
+                            }
+                        })
+                        .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+
+                alert.create().show();
+
+                Toast.makeText(ctx, "long click", Toast.LENGTH_LONG).show();
+            }
+        }
+        return false;
+    }
 
     private void showImageFragment(String url) {
 
@@ -171,6 +200,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 .replace(R.id.fragment_container, interactionFragment, "IMAGE")
                 .commitNow();
 
+    }
+
+    enum PostType {
+        PHOTO, TEXT, VIDEO, QUESTION, ANSWER, CHAT, AUDIO, QUOTE, UNKNOWN, LOADING, LINK
     }
 
 }

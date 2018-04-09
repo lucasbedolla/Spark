@@ -20,7 +20,7 @@
         android:roundIcon="@drawable/adaptive_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.main.DashboardActivity" />
+        <activity android:name=".activities.dashboard.DashboardActivity" />
         <activity
             android:name=".activities.onboarding.OnboardingActivity"
             android:theme="@style/AppTheme">

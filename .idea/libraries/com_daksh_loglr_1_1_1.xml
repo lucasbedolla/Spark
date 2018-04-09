@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="com.daksh:loglr-1.1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/loglr-1.1.1.aar/09e6209bc0cffdcc136c2f51d135e130/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/loglr-1.1.1.aar/09e6209bc0cffdcc136c2f51d135e130/jars/libs/signpost-core-1.2.1.2.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/loglr-1.1.1.aar/09e6209bc0cffdcc136c2f51d135e130/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/loglr-1.1.1.aar/09e6209bc0cffdcc136c2f51d135e130/jars/libs/signpost-commonshttp4-1.2.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.daksh/loglr/1.1.1/e4f8ffc9fb30350687a9f3466ebbb7526439ae3c/loglr-1.1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.daksh/loglr/1.1.1/55394d090f21cef4b4b65bf38a886d80819e335a/loglr-1.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

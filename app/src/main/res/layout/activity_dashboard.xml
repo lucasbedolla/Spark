@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/charcoal"
-    tools:context=".activities.main.DashboardActivity">
+    tools:context=".activities.dashboard.DashboardActivity">
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinator"

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="net.protyposis.android.mediaplayer:mediaplayer-4.3.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediaplayer-4.3.3.aar/ab8c527767a01ad6dfa6d68f8db519ad/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediaplayer-4.3.3.aar/ab8c527767a01ad6dfa6d68f8db519ad/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.protyposis.android.mediaplayer/mediaplayer/4.3.3/71112435123572a185aef9e3b920647566b6249b/mediaplayer-4.3.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.protyposis.android.mediaplayer/mediaplayer/4.3.3/84d33f89e115ab2f8e3caec46b1da150fdc6761e/mediaplayer-4.3.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
