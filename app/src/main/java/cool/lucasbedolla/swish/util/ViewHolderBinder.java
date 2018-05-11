@@ -4,10 +4,8 @@ import android.content.Context;
 import android.text.Html;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.bumptech.glide.Glide;
 import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
@@ -19,6 +17,8 @@ import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
 import cool.lucasbedolla.swish.view.SmartImageView;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
 
+import static cool.lucasbedolla.swish.util.ImageHelper.downloadImageIntoImageView;
+
 /**
  * Created by Lucas Bedolla on 5/31/2017.
  */
@@ -28,11 +28,14 @@ public class ViewHolderBinder {
     private ViewHolderBinder() {
     }
 
+
     public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener, View.OnLongClickListener longClickListener) {
         PhotoPost photoPost = (PhotoPost) post;
         setPhotos(ctx, inferredViewHolder, photoPost, listener, longClickListener);
         if (photoPost.getCaption() != null && photoPost.getCaption().length() > 0) {
-            inferredViewHolder.getDescription().setText(Html.fromHtml(((PhotoPost) post).getCaption()));
+            String captionHtml = ((PhotoPost) post).getCaption();
+            String caption = Html.fromHtml(captionHtml).toString().trim();
+            inferredViewHolder.getDescription().setText(caption);
         } else {
             inferredViewHolder.getDescription().setVisibility(View.GONE);
         }
@@ -93,14 +96,6 @@ public class ViewHolderBinder {
             downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getSourceTitle() + "/avatar/512");
         }
 
-    }
-
-
-    public static void downloadImageIntoImageView(ImageView imageView, String url) {
-        Glide.with(imageView.getContext())
-                .load(url)
-                .thumbnail(0.1f)
-                .into(imageView);
     }
 
 

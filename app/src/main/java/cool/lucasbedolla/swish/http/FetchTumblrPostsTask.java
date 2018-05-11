@@ -6,14 +6,17 @@ import android.util.Log;
 
 import com.tumblr.jumblr.JumblrClient;
 import com.tumblr.jumblr.exceptions.JumblrException;
+import com.tumblr.jumblr.types.Blog;
 import com.tumblr.jumblr.types.Post;
 
 import org.scribe.exceptions.OAuthConnectionException;
 
-import java.util.Collections;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.util.Constants;
@@ -27,44 +30,49 @@ public class FetchTumblrPostsTask extends AsyncTask {
 
     private static final String TAG = "FetchTumblrPostsTask";
 
-    private FetchPostListener listener;
+    private WeakReference<FetchPostListener> listener;
 
     @Override
     protected Object doInBackground(Object[] objects) {
 
-        Context ctx = (Context) objects[0];
+        WeakReference<Context> ctx = new WeakReference<>((Context) objects[0]);
 
         int currentSizeOfPostsList = (int) objects[1];
 
-        listener = (FetchPostListener) objects[2];
+        listener = new WeakReference<>((FetchPostListener) objects[2]);
 
+        List<Post> dashList = new ArrayList<>(40);
         try {
-            String token = MyPrefs.getOAuthToken(ctx);
-            String token_secret = MyPrefs.getOAuthTokenSecret(ctx);
+            String token = MyPrefs.getOAuthToken(ctx.get());
+            String token_secret = MyPrefs.getOAuthTokenSecret(ctx.get());
             JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET, token, token_secret);
+
             Map<String, Object> params = new HashMap<>();
             params.put("limit", 40);
             params.put("offset", currentSizeOfPostsList);
 
-            return client.userDashboard(params);
-        } catch (
-                OAuthConnectionException o)
+            List<Blog> blogs = client.user().getBlogs();
 
-        {
+            if (MyPrefs.getBlogNames(ctx.get()) == null || MyPrefs.getBlogNames(ctx.get()).size() < blogs.size()) {
+
+                Set<String> blogSet = new android.support.v4.util.ArraySet<>(5);
+                for (Blog blog : blogs) {
+                    String name = blog.getName();
+                    blogSet.add(name);
+                }
+
+                MyPrefs.setBlogNames(ctx.get(), blogSet);
+            }
+
+            dashList = client.userDashboard(params);
+        } catch (OAuthConnectionException o) {
             Log.d(TAG, "run: error creating new posts in onload();");
-        } catch (
-                JumblrException j)
-
-        {
+        } catch (JumblrException j) {
             Log.d(TAG, "run: jumblr exception thrown!");
-        } catch (
-                OutOfMemoryError e)
-
-        {
+        } catch (OutOfMemoryError e) {
             Log.e(TAG, "OUT OF MEMORY ERROR: " + e.getMessage());
         }
-
-        return Collections.emptyList();
+        return dashList;
     }
 
     @Override
@@ -75,8 +83,8 @@ public class FetchTumblrPostsTask extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        listener.fetchedPosts((List<Post>) o);
+        listener.get().fetchedPosts((List<Post>) o);
+        listener.clear();
         listener = null;
-
     }
 }

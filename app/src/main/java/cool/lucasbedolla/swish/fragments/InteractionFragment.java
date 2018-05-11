@@ -1,6 +1,7 @@
 package cool.lucasbedolla.swish.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +12,7 @@ import android.widget.FrameLayout;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import cool.lucasbedolla.swish.R;
-import cool.lucasbedolla.swish.util.ViewHolderBinder;
+import cool.lucasbedolla.swish.util.ImageHelper;
 
 /**
  * Created by Lucas Bedolla on 2/3/2018.
@@ -61,21 +62,20 @@ public class InteractionFragment extends Fragment {
         if (type.equals(RESOURCE_IMAGE)) {
             setUpImage(layout, url);
         } else if (type.equals(RESOURCE_VIDEO)) {
+
             // setUpVideo(layout, url);
         }
     }
-
 
     private void setUpImage(View layout, String url) {
         FrameLayout frame = layout.findViewById(R.id.frameLayout);
         PhotoView photoView = new PhotoView(frame.getContext());
         frame.addView(photoView);
-        ViewHolderBinder.downloadImageIntoImageView(photoView, url);
+        ImageHelper.downloadImageIntoImageView(photoView, url);
     }
 
-
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
 }

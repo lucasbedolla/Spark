@@ -1,7 +1,10 @@
 package cool.lucasbedolla.swish.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.preference.PreferenceManager;
+
+import java.util.Set;
 
 /**
  * Created by Lucas Bedolla on 5/30/2017.
@@ -18,6 +21,7 @@ public class MyPrefs {
     private static final String IS_CLASSIC_MODE = "IS_CLASSIC_MODE";
     private static final String IS_MINIMALIST_MODE = "IS_MINIMALIST_MODE";
     private static final String IS_EXTREME_MINIMALIST_MODE = "IS_EXTREME_MINIMALIST_MODE";
+    private static final String BLOG_NAMES = "BLOG_NAMES";
 
 
     private MyPrefs() {
@@ -94,5 +98,14 @@ public class MyPrefs {
 
     public static boolean getIsExtremeMinimalist(Context ctx) {
         return PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(IS_EXTREME_MINIMALIST_MODE, false);
+    }
+
+    public static Set<String> getBlogNames(Context ctx) {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).getStringSet(BLOG_NAMES, null);
+    }
+
+    @SuppressLint("ApplySharedPref")
+    public static void setBlogNames(Context ctx, Set<String> blogNames) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putStringSet(BLOG_NAMES, blogNames).commit();
     }
 }

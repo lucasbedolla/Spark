@@ -1,14 +1,17 @@
 package cool.lucasbedolla.swish.util;
 
 import android.app.Application;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -18,31 +21,53 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
+import cool.lucasbedolla.swish.SparkApplication;
+
 /**
  * Created by Lucas Bedolla on 2/5/2018.
  */
+
+//TODO: fix downloader, learn why it wont download, learn how to get it to download. refresh on system storage permisssion needs and downloading
 
 public class ImageHelper {
     private static final String TAG = ImageHelper.class.toString();
 
     /**
      * CONTEXT SHOULD BE AN APPLICATION CONTEXT IN ORDER TO AVOID A MEMORY LEAK
-     *
-     * @param context
-     * @param imageUrl
      */
+
+
+    public static void downloadImageIntoImageView(ImageView imageView, String url) {
+        Glide.with(imageView.getContext())
+                .load(url)
+                .thumbnail(0.1f)
+                .into(imageView);
+    }
+
 
     public static void downloadImagefromUrl(Application context, String imageUrl) {
         DownloadImagesTask downloadImagesTask = new DownloadImagesTask(context);
         downloadImagesTask.execute(imageUrl);
     }
 
-    private static boolean saveImageToInternalStorage(Context context, Bitmap image, String dotExtension) {
+    private static boolean saveImageToInternalStorage(Bitmap image, String dotExtension) {
 
-        File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        String path = file.getAbsolutePath() + "/" + System.currentTimeMillis() + dotExtension;
+
+        File file;
+
+
+        String path = System.currentTimeMillis() + dotExtension;
+        file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/spark/downloads/");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+
+        File imageFile = new File(file.getAbsolutePath() + "/" + path);
+
         try {
-            FileOutputStream fos = context.openFileOutput(path, Context.MODE_PRIVATE);
+
+            FileOutputStream fos = new FileOutputStream(imageFile);
+
             switch (dotExtension) {
                 case ".jpg":
                     image.compress(Bitmap.CompressFormat.JPEG, 100, fos);
@@ -56,10 +81,17 @@ public class ImageHelper {
                 default:
                     return false;
             }
-            image.compress(Bitmap.CompressFormat.PNG, 100, fos);
+
+            fos.flush();
             fos.close();
 
-            MediaScannerConnection.scanFile(context, new String[]{path}, new String[]{"image/" + dotExtension.substring(1)}, null);
+            MediaScannerConnection.scanFile(SparkApplication.getContext(), new String[]{imageFile.getAbsolutePath()}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                @Override
+                public void onScanCompleted(String path, Uri uri) {
+                    Log.d(TAG, "onScanCompleted: image scanned");
+                }
+            });
+
 
             return true;
         } catch (Exception e) {
@@ -82,7 +114,7 @@ public class ImageHelper {
             this.imageUrl = url[0];
 
             Bitmap image = downloadFile(imageUrl);
-            return image != null && saveImageToInternalStorage(ctx, image, getExtension(imageUrl));
+            return image != null && saveImageToInternalStorage(image, getExtension(imageUrl));
         }
 
         @Override

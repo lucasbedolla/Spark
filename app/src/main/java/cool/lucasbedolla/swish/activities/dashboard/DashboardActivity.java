@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,7 +80,7 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
 
         menuLayout = findViewById(R.id.menu_layout);
 
-        TextView settingsButton = findViewById(R.id.settings);
+        ImageView settingsButton = menuLayout.findViewById(R.id.settings);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

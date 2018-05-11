@@ -70,6 +70,8 @@ android {
 
         implementation 'com.airbnb.android:lottie:2.2.5'
 
+        implementation 'com.karumi:dexter:4.2.0'
+
         implementation 'net.protyposis.android.mediaplayer:mediaplayer:4.3.3'
         implementation 'net.protyposis.android.mediaplayer:mediaplayer-dash:4.3.3'
 

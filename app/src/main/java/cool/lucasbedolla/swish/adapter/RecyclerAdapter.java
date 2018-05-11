@@ -3,6 +3,7 @@ package cool.lucasbedolla.swish.adapter;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -169,7 +170,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
-                                ImageHelper.downloadImagefromUrl(SparkApplication.getContext(), imageView.getImageUrl());
+                                //TODO: check for storage permissions!, if accepted, allow download, else, prompt that storage access must be granted
+                                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                                    ImageHelper.downloadImagefromUrl(SparkApplication.getContext(), imageView.getImageUrl());
+                                } else {
+                                    //TODO: write cool extensible alertDialog class
+                                }
+
                             }
                         })
                         .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
