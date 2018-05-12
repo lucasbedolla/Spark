@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/extras_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/pool_tile"
+    android:gravity="center"
+    android:minHeight="48dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton"
+        android:layout_below="@+id/extras_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="notes"
+        android:textColor="@color/charcoal" />
+
+    <LinearLayout
+        android:id="@+id/extras_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:visibility="visible"></LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/extras_content"
+        android:layout_marginEnd="36dp"
+        android:layout_toStartOf="@+id/imageButton2"
+        android:background="@drawable/ic_filled_reblog" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/extras_content"
+        android:layout_marginEnd="33dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_filled_heart" />
+
+</RelativeLayout>

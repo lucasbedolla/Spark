@@ -35,11 +35,28 @@ public class ViewHolderBinder {
         if (photoPost.getCaption() != null && photoPost.getCaption().length() > 0) {
             String captionHtml = ((PhotoPost) post).getCaption();
             String caption = Html.fromHtml(captionHtml).toString().trim();
-            inferredViewHolder.getDescription().setText(caption);
+
+            if (post.getSourceTitle() == null) {
+                inferredViewHolder.getDescription().setText(caption);
+            } else {
+                inferredViewHolder.getDescription().setText(removeAuthorText(post.getSourceTitle(), caption));
+            }
         } else {
             inferredViewHolder.getDescription().setVisibility(View.GONE);
         }
         basicHolderSetUp(ctx, photoPost, inferredViewHolder, listener);
+    }
+
+    private static String removeAuthorText(String authorTitle, String caption) {
+
+        if (caption.contains(":") && caption.contains(authorTitle)) {
+
+            int firstColon = caption.indexOf(":");
+
+            return caption.subSequence(firstColon + 1, caption.length() - 1).toString().trim();
+        } else {
+            return caption;
+        }
     }
 
     private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost, View.OnClickListener listener, View.OnLongClickListener longCLickListener) {
