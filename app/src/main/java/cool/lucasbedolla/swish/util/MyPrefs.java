@@ -1,10 +1,11 @@
 package cool.lucasbedolla.swish.util;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import java.util.Set;
+import com.google.gson.Gson;
+
+import java.util.List;
 
 /**
  * Created by Lucas Bedolla on 5/30/2017.
@@ -22,6 +23,8 @@ public class MyPrefs {
     private static final String IS_MINIMALIST_MODE = "IS_MINIMALIST_MODE";
     private static final String IS_EXTREME_MINIMALIST_MODE = "IS_EXTREME_MINIMALIST_MODE";
     private static final String BLOG_NAMES = "BLOG_NAMES";
+    private static final String CURRENT_BLOG = "CURRENT_BLOG";
+    private static final String CURRENT_USER = "CURRENT_USER";
 
 
     private MyPrefs() {
@@ -100,12 +103,36 @@ public class MyPrefs {
         return PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(IS_EXTREME_MINIMALIST_MODE, false);
     }
 
-    public static Set<String> getBlogNames(Context ctx) {
-        return PreferenceManager.getDefaultSharedPreferences(ctx).getStringSet(BLOG_NAMES, null);
+    public static List<String> getBlogNames(Context ctx) {
+        String jsonString = PreferenceManager.getDefaultSharedPreferences(ctx).getString(BLOG_NAMES, null);
+        if (jsonString.equals(null)) {
+            return null;
+        } else {
+            return new Gson().fromJson(jsonString, List.class);
+        }
     }
 
-    @SuppressLint("ApplySharedPref")
-    public static void setBlogNames(Context ctx, Set<String> blogNames) {
-        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putStringSet(BLOG_NAMES, blogNames).commit();
+    //this refers to which post creation or interaction will apply to
+    public static void setBlogNames(Context ctx, String blogNames) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(BLOG_NAMES, blogNames).commit();
+    }
+
+    //this refers to which post creation or interaction will apply to
+    public static String getCurrentBlog(Context ctx) {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).getString(CURRENT_BLOG, null);
+    }
+
+    public static void setCurrentBlog(Context ctx, String currentBlog) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(CURRENT_BLOG, currentBlog).commit();
+    }
+
+    //this refers to actual tumblr account which provides the dashboard content
+    public static String getCurrentUser(Context ctx) {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).getString(CURRENT_USER, null);
+    }
+
+    //this refers to actual tumblr account which provides the dashboard content
+    public static void setCurrentUser(Context ctx, String currentUser) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(CURRENT_USER, currentUser).commit();
     }
 }

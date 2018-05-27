@@ -3,6 +3,8 @@ package cool.lucasbedolla.swish.util;
 import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -14,10 +16,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -27,14 +31,27 @@ import cool.lucasbedolla.swish.SparkApplication;
  * Created by Lucas Bedolla on 2/5/2018.
  */
 
-//TODO: fix downloader, learn why it wont download, learn how to get it to download. refresh on system storage permisssion needs and downloading
 
 public class ImageHelper {
-    private static final String TAG = ImageHelper.class.toString();
 
-    /**
-     * CONTEXT SHOULD BE AN APPLICATION CONTEXT IN ORDER TO AVOID A MEMORY LEAK
-     */
+    private static final String TAG = ImageHelper.class.toString();
+    private static final String IMAGE_GIF = ".gif";
+
+    public static File createSparkFile(String extension) {
+
+        //must ensure our special directory exists
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+
+        return new File(file.getAbsolutePath() + generatePath(extension));
+    }
+
+    private static String generatePath(String extension) {
+        return "/spark/downloads/" +
+                "spark_download_" + System.currentTimeMillis() + extension;
+    }
 
 
     public static void downloadImageIntoImageView(ImageView imageView, String url) {
@@ -44,25 +61,49 @@ public class ImageHelper {
                 .into(imageView);
     }
 
+    public static void downloadImagefromDrawable(WeakReference<Application> context, Drawable drawable) {
+        DownloadImagesTask downloadImagesTask = new DownloadImagesTask(context, drawable);
+        downloadImagesTask.execute();
+    }
 
-    public static void downloadImagefromUrl(Application context, String imageUrl) {
-        DownloadImagesTask downloadImagesTask = new DownloadImagesTask(context);
-        downloadImagesTask.execute(imageUrl);
+    public static void downloadImagefromUrl(WeakReference<Application> context, String resourceUrl) {
+        DownloadImagesTask downloadImagesTask = new DownloadImagesTask(context, resourceUrl);
+        downloadImagesTask.execute();
+    }
+
+    public static boolean saveGIFToInternalStorage(byte[] gif) {
+        boolean success;
+
+        File file = createSparkFile(IMAGE_GIF);
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(file);
+            outputStream.write(gif);
+
+            outputStream.flush();
+            outputStream.close();
+
+            scanFile(file);
+
+            success = true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            success = false;
+        }
+        return success;
+    }
+
+    private static void scanFile(File file) {
+        MediaScannerConnection.scanFile(SparkApplication.getContext(), new String[]{file.getAbsolutePath()}, null, new MediaScannerConnection.OnScanCompletedListener() {
+            @Override
+            public void onScanCompleted(String path, Uri uri) {
+                Log.d(TAG, "onScanCompleted: File scanned");
+            }
+        });
     }
 
     private static boolean saveImageToInternalStorage(Bitmap image, String dotExtension) {
-
-
-        File file;
-
-
-        String path = System.currentTimeMillis() + dotExtension;
-        file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/spark/downloads/");
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-
-        File imageFile = new File(file.getAbsolutePath() + "/" + path);
+        File imageFile = createSparkFile(dotExtension);
 
         try {
 
@@ -85,13 +126,7 @@ public class ImageHelper {
             fos.flush();
             fos.close();
 
-            MediaScannerConnection.scanFile(SparkApplication.getContext(), new String[]{imageFile.getAbsolutePath()}, null, new MediaScannerConnection.OnScanCompletedListener() {
-                @Override
-                public void onScanCompleted(String path, Uri uri) {
-                    Log.d(TAG, "onScanCompleted: image scanned");
-                }
-            });
-
+            scanFile(imageFile);
 
             return true;
         } catch (Exception e) {
@@ -100,22 +135,91 @@ public class ImageHelper {
         }
     }
 
-    public static class DownloadImagesTask extends AsyncTask<String, Void, Boolean> {
+    public static class DownloadImagesTask extends AsyncTask<Void, Void, Boolean> {
 
-        private Application ctx;
-        private String imageUrl;
+        private WeakReference<Application> ctx;
+        private Drawable drawable;
+        private String resourceUrl;
 
-        DownloadImagesTask(Application context) {
+        DownloadImagesTask(WeakReference<Application> context, Drawable drawable) {
+            this.drawable = drawable;
             ctx = context;
         }
 
-        @Override
-        protected Boolean doInBackground(String... url) {
-            this.imageUrl = url[0];
-
-            Bitmap image = downloadFile(imageUrl);
-            return image != null && saveImageToInternalStorage(image, getExtension(imageUrl));
+        DownloadImagesTask(WeakReference<Application> context, String resourceUrl) {
+            ctx = context;
+            this.resourceUrl = resourceUrl;
         }
+
+        @Override
+        protected Boolean doInBackground(Void... url) {
+            if (drawable == null) {
+
+                return false;
+            } else {
+                Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+                return ImageHelper.saveImageToInternalStorage(bitmap, getExtension(resourceUrl));
+            }
+
+
+//            if (getExtension(imageUrl).equals(".gif")) {
+//                byte[] gif = downloadGIFFile(imageUrl);
+//                return gif != null && gif.length > 0 && saveGIFToInternalStorage(gif);
+//            } else {
+//                Bitmap image = downloadImageFile(imageUrl);
+//                return image != null && saveImageToInternalStorage(image, getExtension(imageUrl));
+//            }
+        }
+
+        private byte[] downloadGIFFile(String gifUrl) {
+
+
+            try {
+                URL url = new URL(gifUrl);
+                URLConnection conn = url.openConnection();
+                conn.connect();
+
+                InputStream is = conn.getInputStream();
+
+                BufferedInputStream bis = new BufferedInputStream(is);
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+                int current;
+                while ((current = bis.read()) != -1) {
+                    baos.write(current);
+                }
+                return baos.toByteArray();
+
+            } catch (IOException e) {
+                Log.e(TAG, "downloadGIFFile: IO ERROR downloading gif.", e);
+            }
+            return new byte[0];
+        }
+
+
+        private Bitmap downloadImageFile(String imageUrl) {
+            Bitmap bm = null;
+            try {
+                URL url = new URL(imageUrl);
+                URLConnection conn = url.openConnection();
+                conn.connect();
+
+                InputStream is = conn.getInputStream();
+
+                BufferedInputStream bis = new BufferedInputStream(is);
+                bm = BitmapFactory.decodeStream(bis);
+                bis.close();
+                is.close();
+
+            } catch (IOException e) {
+                Log.e(TAG, "Error getting the image from server : " + e.getMessage());
+
+            }
+
+            return bm;
+        }
+
 
         @Override
         protected void onProgressUpdate(Void... values) {
@@ -124,7 +228,7 @@ public class ImageHelper {
 
         @Override
         protected void onPostExecute(Boolean aBoolean) {
-            Toast.makeText(ctx, "done saving image", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx.get(), "Save complete.", Toast.LENGTH_LONG).show();
         }
 
         private String getExtension(String uri) {
@@ -132,27 +236,12 @@ public class ImageHelper {
             if (uri.contains(".")) {
                 extension = uri.substring(uri.lastIndexOf("."));
             }
-            return extension;
-        }
 
-        private Bitmap downloadFile(String imageUrl) {
-            Bitmap bm = null;
-            try {
-                URL url = new URL(imageUrl);
-                URLConnection conn = url.openConnection();
-                conn.connect();
-
-                InputStream is = conn.getInputStream();
-                BufferedInputStream bis = new BufferedInputStream(is);
-                bm = BitmapFactory.decodeStream(bis);
-
-                bis.close();
-                is.close();
-            } catch (IOException e) {
-                Log.e(TAG, "Error getting the image from server : " + e.getMessage().toString());
-                ctx = null;
+            if (extension == null) {
+                extension = ".jpg";
             }
-            return bm;
+
+            return extension.trim();
         }
     }
 

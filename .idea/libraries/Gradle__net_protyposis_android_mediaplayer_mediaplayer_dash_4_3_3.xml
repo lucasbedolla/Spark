@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: net.protyposis.android.mediaplayer:mediaplayer-dash-4.3.3">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediaplayer-dash-4.3.3.aar/48614486332562a981e7c446b80f70b1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mediaplayer-dash-4.3.3.aar/48614486332562a981e7c446b80f70b1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.protyposis.android.mediaplayer/mediaplayer-dash/4.3.3/9385a0e29bcefe0839d3441ae0cea3ecd4553a5f/mediaplayer-dash-4.3.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.protyposis.android.mediaplayer/mediaplayer-dash/4.3.3/4810a28314e2770a136934cc5342213948a7026d/mediaplayer-dash-4.3.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

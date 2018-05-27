@@ -6,7 +6,6 @@ import android.util.Log;
 
 import com.tumblr.jumblr.JumblrClient;
 import com.tumblr.jumblr.exceptions.JumblrException;
-import com.tumblr.jumblr.types.Blog;
 import com.tumblr.jumblr.types.Post;
 
 import org.scribe.exceptions.OAuthConnectionException;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.util.Constants;
@@ -46,23 +44,9 @@ public class FetchTumblrPostsTask extends AsyncTask {
             String token = MyPrefs.getOAuthToken(ctx.get());
             String token_secret = MyPrefs.getOAuthTokenSecret(ctx.get());
             JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET, token, token_secret);
-
             Map<String, Object> params = new HashMap<>();
             params.put("limit", 40);
             params.put("offset", currentSizeOfPostsList);
-
-            List<Blog> blogs = client.user().getBlogs();
-
-            if (MyPrefs.getBlogNames(ctx.get()) == null || MyPrefs.getBlogNames(ctx.get()).size() < blogs.size()) {
-
-                Set<String> blogSet = new android.support.v4.util.ArraySet<>(5);
-                for (Blog blog : blogs) {
-                    String name = blog.getName();
-                    blogSet.add(name);
-                }
-
-                MyPrefs.setBlogNames(ctx.get(), blogSet);
-            }
 
             dashList = client.userDashboard(params);
         } catch (OAuthConnectionException o) {

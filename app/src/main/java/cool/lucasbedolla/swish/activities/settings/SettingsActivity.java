@@ -1,10 +1,12 @@
 package cool.lucasbedolla.swish.activities.settings;
 
+import android.app.ActivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
@@ -37,11 +39,17 @@ public class SettingsActivity extends UnderTheHoodActivity {
             }
         });
         // Other click listeners are set in XML
+
+        TextView logout = findViewById(R.id.logout);
+        logout.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
-
+        ((ActivityManager) getSystemService(ACTIVITY_SERVICE))
+                .clearApplicationUserData(); // note: it has a return value!
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
 

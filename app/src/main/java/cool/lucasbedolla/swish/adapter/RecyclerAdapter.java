@@ -1,6 +1,7 @@
 package cool.lucasbedolla.swish.adapter;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
@@ -8,10 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.tumblr.jumblr.types.Post;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
@@ -32,9 +41,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     public static final String TAG = "RECYCLER ADAPTER";
     private final List<Post> itemList;
-    private UnderTheHoodActivity ctx;
-    public RecyclerAdapter(UnderTheHoodActivity context, List<Post> inputList) {
-        this.ctx = context;
+    private WeakReference<UnderTheHoodActivity> ctx;
+
+    public RecyclerAdapter(UnderTheHoodActivity underTheHoodActivity, List<Post> inputList) {
+        this.ctx = new WeakReference<>(underTheHoodActivity);
         itemList = inputList;
     }
 
@@ -63,34 +73,34 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
         switch (type) {
             case PHOTO:
-                ViewHolderBinder.placePhotos(ctx, holder, post, this, this);
+                ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this);
                 break;
             case TEXT:
-                ViewHolderBinder.placeText(ctx, holder, post);
+                ViewHolderBinder.placeText(ctx.get(), holder, post);
                 break;
             case CHAT:
-                ViewHolderBinder.placeChat(ctx, holder, post, this);
+                ViewHolderBinder.placeChat(ctx.get(), holder, post, this);
                 break;
             case AUDIO:
-                ViewHolderBinder.placeAudio(ctx, holder, post, this);
+                ViewHolderBinder.placeAudio(ctx.get(), holder, post, this);
                 break;
             case QUOTE:
-                ViewHolderBinder.placeQuote(ctx, holder, post, this);
+                ViewHolderBinder.placeQuote(ctx.get(), holder, post, this);
                 break;
             case VIDEO:
-                ViewHolderBinder.placeVideo(ctx, holder, post, this);
+                ViewHolderBinder.placeVideo(ctx.get(), holder, post, this);
                 break;
             case ANSWER:
-                ViewHolderBinder.placeAnswer(ctx, holder, post, this);
+                ViewHolderBinder.placeAnswer(ctx.get(), holder, post, this);
                 break;
             case QUESTION:
-                ViewHolderBinder.placeQuestion(ctx, holder, post, this);
+                ViewHolderBinder.placeQuestion(ctx.get(), holder, post, this);
                 break;
             case UNKNOWN:
-                ViewHolderBinder.placeUnknown(ctx, holder, post, this);
+                ViewHolderBinder.placeUnknown(ctx.get(), holder, post, this);
                 break;
             case LOADING:
-                ViewHolderBinder.placeLoading(ctx, holder, this);
+                ViewHolderBinder.placeLoading(ctx.get(), holder, this);
 
                 break;
 
@@ -135,7 +145,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     @Override
     public void onClick(View view) {
 
-        if (view instanceof SmartImageView && ctx instanceof DashboardActivity) {
+        if (view instanceof SmartImageView && ctx.get() instanceof DashboardActivity) {
             String url = ((SmartImageView) view).getImageUrl();
             if (url != null) {
                 showImageFragment(url);
@@ -156,14 +166,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     }
 
     @Override
-    public boolean onLongClick(View view) {
+    public boolean onLongClick(final View view) {
         if (view instanceof SmartImageView) {
-            String url = ((SmartImageView) view).getImageUrl();
+            final String url = ((SmartImageView) view).getImageUrl();
             if (url != null) {
 
-                final SmartImageView imageView = (SmartImageView) view;
-
-                AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext())
+                AlertDialog.Builder alert = new AlertDialog.Builder(ctx.get())
                         .setCancelable(true)
                         .setTitle("Save image?")
                         .setPositiveButton("save", new DialogInterface.OnClickListener() {
@@ -172,9 +180,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
                                 //TODO: check for storage permissions!, if accepted, allow download, else, prompt that storage access must be granted
                                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                                    ImageHelper.downloadImagefromUrl(SparkApplication.getContext(), imageView.getImageUrl());
-                                } else {
-                                    //TODO: write cool extensible alertDialog class
+
+                                    Dexter.withActivity(ctx.get())
+                                            .withPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                            .withListener(new PermissionListener() {
+                                                @Override
+                                                public void onPermissionGranted(PermissionGrantedResponse response) {
+                                                    if (url.contains(".gif")) {
+                                                        Toast.makeText(ctx.get(), "Saving a GIF file is currently not supported.", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        WeakReference<Application> applicationWeakReference = new WeakReference<>(SparkApplication.getContext());
+                                                        ImageHelper.downloadImagefromDrawable(applicationWeakReference, ((ImageView) view).getDrawable());
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onPermissionDenied(PermissionDeniedResponse response) {
+                                                    Toast.makeText(view.getContext(), "Please grant permission in order to save to current device.", Toast.LENGTH_LONG).show();
+                                                }
+
+                                                @Override
+                                                public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {/* ... */}
+                                            }).check();
                                 }
 
                             }
@@ -187,8 +214,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                         });
 
                 alert.create().show();
-
-                Toast.makeText(ctx, "long click", Toast.LENGTH_LONG).show();
             }
         }
         return false;
@@ -202,11 +227,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         arguments.putString(InteractionFragment.RESOURCE_TYPE, InteractionFragment.RESOURCE_IMAGE);
         interactionFragment.setArguments(arguments);
 
-        ctx.getSupportFragmentManager().beginTransaction()
+        ctx.get().getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                 .replace(R.id.fragment_container, interactionFragment, "IMAGE")
                 .commitNow();
-
     }
 
     enum PostType {

@@ -3,6 +3,7 @@ package cool.lucasbedolla.swish.activities.onboarding;
 import android.content.Intent;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,12 +17,18 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.rd.PageIndicatorView;
 import com.rd.animation.type.AnimationType;
+import com.tumblr.jumblr.JumblrClient;
+import com.tumblr.jumblr.types.Blog;
 import com.tumblr.loglr.Interfaces.ExceptionHandler;
 import com.tumblr.loglr.Interfaces.LoginListener;
 import com.tumblr.loglr.LoginResult;
 import com.tumblr.loglr.Loglr;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.dashboard.DashboardActivity;
@@ -172,21 +179,50 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
 
 
     private void login() {
+        final Handler handler = new Handler();
         try {
             Loglr.getInstance()
                     .setConsumerKey(Constants.CONSUMER_KEY)
                     .setConsumerSecretKey(Constants.CONSUMER_SECRET)
                     .setLoginListener(new LoginListener() {
                         @Override
-                        public void onLoginSuccessful(LoginResult loginResult) {
-                            MyPrefs.setOAuthToken(OnboardingActivity.this, loginResult.getOAuthToken());
-                            MyPrefs.setOAuthTokenSecret(OnboardingActivity.this, loginResult.getOAuthTokenSecret());
-                            MyPrefs.setIsLoggedIn(OnboardingActivity.this, true);
+                        public void onLoginSuccessful(final LoginResult loginResult) {
 
-                            Intent intent = new Intent(OnboardingActivity.this, DashboardActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                            finish();
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    MyPrefs.setOAuthToken(OnboardingActivity.this, loginResult.getOAuthToken());
+                                    MyPrefs.setOAuthTokenSecret(OnboardingActivity.this, loginResult.getOAuthTokenSecret());
+                                    MyPrefs.setIsLoggedIn(OnboardingActivity.this, true);
+
+                                    JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY,
+                                            Constants.CONSUMER_SECRET,
+                                            loginResult.getOAuthToken(),
+                                            loginResult.getOAuthTokenSecret());
+
+                                    MyPrefs.setCurrentBlog(OnboardingActivity.this, client.user().getName());
+                                    MyPrefs.setCurrentUser(OnboardingActivity.this, client.user().getName());
+                                    List<Blog> blogs = client.user().getBlogs();
+                                    client = null;
+
+                                    List<String> blogsNames = new ArrayList<>();
+                                    for (Blog blog : blogs) {
+                                        blogsNames.add(blog.getName());
+                                    }
+                                    String jsonBlog = new Gson().toJson(blogsNames, List.class);
+
+                                    MyPrefs.setBlogNames(OnboardingActivity.this, jsonBlog);
+                                    handler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Intent intent = new Intent(OnboardingActivity.this, DashboardActivity.class);
+                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            startActivity(intent);
+                                        }
+                                    });
+                                }
+                            }).start();
+
                         }
                     })
                     .setExceptionHandler(new ExceptionHandler() {

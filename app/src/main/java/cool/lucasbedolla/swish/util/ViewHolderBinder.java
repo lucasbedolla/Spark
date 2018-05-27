@@ -104,7 +104,7 @@ public class ViewHolderBinder {
             holder.getProfilePicture().setVisibility(View.VISIBLE);
         }
 
-        if (post.getSourceTitle() == null) {
+        if (post.getBlogName() != null) {
             holder.getAuthorText().setText(post.getBlogName());
             holder.getAuthorText().setTextColor(context.getResources().getColor(R.color.colorPrimary));
             downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getBlogName() + "/avatar/512");

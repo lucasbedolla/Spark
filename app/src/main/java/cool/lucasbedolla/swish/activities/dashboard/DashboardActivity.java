@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +31,7 @@ import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
+import cool.lucasbedolla.swish.util.ImageHelper;
 import cool.lucasbedolla.swish.util.MyPrefs;
 
 
@@ -45,6 +47,14 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
     private boolean loading = true;
     private int visibleThreshold = 5;
 
+    private View menuButton;
+
+    private View lay;
+    private TextView menuBack;
+    private View menuLayout;
+    private int pressCount = 0;
+    private final int PRESS_COUNT_TWICE = 1;
+
     private SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
@@ -53,12 +63,7 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
             fetchPosts(DashboardActivity.this, posts.size(), DashboardActivity.this);
         }
     };
-
-    private View menuButton;
-
-    private View lay;
-    private TextView menuBack;
-    private View menuLayout;
+    private ImageView heroImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +84,12 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         menuBack.setOnClickListener(this);
 
         menuLayout = findViewById(R.id.menu_layout);
+
+        //set menu hero image
+        heroImage = menuLayout.findViewById(R.id.hero_image);
+        String currentUser = MyPrefs.getCurrentUser(this);
+        ImageHelper.downloadImageIntoImageView(heroImage, "https://api.tumblr.com/v2/blog/" + currentUser + ".tumblr.com/avatar/512");
+        heroImage.setOnClickListener(this);
 
         ImageView settingsButton = menuLayout.findViewById(R.id.settings);
         settingsButton.setOnClickListener(new View.OnClickListener() {
@@ -296,9 +307,22 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
 
         if (menuLayout.getVisibility() == View.VISIBLE) {
             menuLayout.setVisibility(View.INVISIBLE);
-        } else {
-            super.onBackPressed();
         }
-    }
 
+        if (pressCount == PRESS_COUNT_TWICE) {
+            super.onBackPressed();
+        } else {
+            pressCount++;
+            Toast.makeText(this, "Press back once more to exit.", Toast.LENGTH_SHORT).show();
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    pressCount = 0;
+                }
+            }, 3000);
+        }
+
+    }
 }
