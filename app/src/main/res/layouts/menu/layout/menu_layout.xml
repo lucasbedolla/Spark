@@ -7,12 +7,12 @@
     android:background="#dddddd"
     android:clickable="true"
     android:orientation="vertical"
-    android:visibility="visible">
-
+    android:visibility="gone">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="72dp"
+        android:alpha="20"
         android:background="@drawable/spark_bg"
         android:gravity="bottom"
         android:paddingTop="12dp">
@@ -38,13 +38,30 @@
 
     </RelativeLayout>
 
-
-    <ImageView
-        android:id="@+id/hero_image"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:layout_weight="1"
-        android:scaleType="centerCrop" />
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/hero_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:id="@+id/changeBlog"
+            android:shadowColor="@color/black_luscent"
+            android:text="S P A R K"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="36sp" />
+    </RelativeLayout>
 
 
     <RelativeLayout
@@ -54,9 +71,7 @@
         android:orientation="vertical"
         android:padding="12dp">
 
-
     </RelativeLayout>
-
 
     <TextView
         android:id="@+id/menu_back"

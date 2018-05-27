@@ -1,7 +1,6 @@
 package cool.lucasbedolla.swish.activities.dashboard;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,9 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,12 +22,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
-import cool.lucasbedolla.swish.activities.settings.SettingsActivity;
 import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
-import cool.lucasbedolla.swish.util.ImageHelper;
 import cool.lucasbedolla.swish.util.MyPrefs;
 
 
@@ -47,11 +41,8 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
     private boolean loading = true;
     private int visibleThreshold = 5;
 
-    private View menuButton;
-
     private View lay;
-    private TextView menuBack;
-    private View menuLayout;
+
     private int pressCount = 0;
     private final int PRESS_COUNT_TWICE = 1;
 
@@ -64,11 +55,12 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         }
     };
     private ImageView heroImage;
+    private TextView changeBlogButton;
+    private ImageView loadingLottie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        hideStatusBar();
         setContentView(R.layout.activity_dashboard);
 
 //        ImageView toBlog = findViewById(R.id.to_blog);
@@ -77,28 +69,18 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         lay = findViewById(R.id.lay);
         lay.setOnTouchListener(this);
 
-        menuButton = findViewById(R.id.menu_button);
-        menuButton.setOnClickListener(this);
+        loadingLottie = findViewById(R.id.loading_lottie);
 
-        menuBack = findViewById(R.id.menu_back);
-        menuBack.setOnClickListener(this);
+        //String currentUser = MyPrefs.getCurrentUser(this);
 
-        menuLayout = findViewById(R.id.menu_layout);
-
-        //set menu hero image
-        heroImage = menuLayout.findViewById(R.id.hero_image);
-        String currentUser = MyPrefs.getCurrentUser(this);
-        ImageHelper.downloadImageIntoImageView(heroImage, "https://api.tumblr.com/v2/blog/" + currentUser + ".tumblr.com/avatar/512");
-        heroImage.setOnClickListener(this);
-
-        ImageView settingsButton = menuLayout.findViewById(R.id.settings);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
-                startActivity(intent);
-            }
-        });
+//
+//        settingsButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         // pull to refresh layout config
         refreshLayout = findViewById(R.id.refresher);
@@ -129,12 +111,6 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         fetchPosts(this, posts.size(), this);
     }
 
-    private void hideStatusBar() {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().getDecorView().setSystemUiVisibility(View.INVISIBLE);
-    }
-
     private void fetchPosts(Context ctx, int postSize, FetchPostListener listener) {
 
         new FetchTumblrPostsTask().execute(ctx, postSize, listener);
@@ -157,24 +133,22 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.menu_button) {
-            menuButton.setVisibility(View.GONE);
-            menuLayout.setVisibility(View.VISIBLE);
-            showStatusBar();
-
-        } else if (v.getId() == R.id.menu_back) {
-            menuLayout.setVisibility(View.GONE);
-            menuButton.setVisibility(View.VISIBLE);
-            hideStatusBar();
-
-        } else if (v.getId() == R.id.to_blog) {
-            //TODO make the layout come in from the right
-        }
-    }
-
-    private void showStatusBar() {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+//        if (v.getId() == R.id.menu_button) {
+//            menuButton.setVisibility(View.GONE);
+//            menuLayout.setVisibility(View.VISIBLE);
+//            showStatusBar();
+//
+//        } else if (v.getId() == R.id.menu_back) {
+//            menuLayout.setVisibility(View.GONE);
+//            menuButton.setVisibility(View.VISIBLE);
+//            hideStatusBar();
+//
+//        } else if (v.getId() == R.id.to_blog) {
+//            //TODO make the layout come in from the right
+//        } else if (v.getId() == R.id.changeBlog) {
+//            //TODO:prompt user with custom dialog!
+//            //TODO:change currentBlog
+//        }
     }
 
 
@@ -213,53 +187,58 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
         });
     }
 
-    private void animateInMenuLayout() {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha_in);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                menuBack.setVisibility(View.GONE);
-                findViewById(R.id.menu_layout).setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        findViewById(R.id.menu_layout).startAnimation(animation);
-    }
-
-    private void animateOutMenuLayout() {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha_out);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                findViewById(R.id.menu_layout).setVisibility(View.GONE);
-                menuBack.setVisibility(View.VISIBLE);
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        findViewById(R.id.menu_layout).startAnimation(animation);
-    }
+//    private void animateInMenuLayout() {
+//        Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha_in);
+//        animation.setAnimationListener(new Animation.AnimationListener() {
+//            @Override
+//            public void onAnimationStart(Animation animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animation animation) {
+//                menuBack.setVisibility(View.GONE);
+//                findViewById(R.id.menu_layout).setVisibility(View.VISIBLE);
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animation animation) {
+//
+//            }
+//        });
+//        findViewById(R.id.menu_layout).startAnimation(animation);
+//    }
+//
+//    private void animateOutMenuLayout() {
+//        Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha_out);
+//        animation.setAnimationListener(new Animation.AnimationListener() {
+//            @Override
+//            public void onAnimationStart(Animation animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animation animation) {
+//                findViewById(R.id.menu_layout).setVisibility(View.GONE);
+//                menuBack.setVisibility(View.VISIBLE);
+//
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animation animation) {
+//
+//            }
+//        });
+//        findViewById(R.id.menu_layout).startAnimation(animation);
+//    }
 
     @Override
     public void fetchedPosts(List<Post> fetchedPosts) {
+
+        if (loadingLottie.getVisibility() == View.VISIBLE) {
+            loadingLottie.setVisibility(View.GONE);
+            loadingLottie.clearAnimation();
+        }
 
         int initialPostSize = posts.size();
 
@@ -304,10 +283,10 @@ public class DashboardActivity extends UnderTheHoodActivity implements FetchPost
             getSupportFragmentManager().beginTransaction().remove(frag).commit();
             return;
         }
-
-        if (menuLayout.getVisibility() == View.VISIBLE) {
-            menuLayout.setVisibility(View.INVISIBLE);
-        }
+//
+//        if (menuLayout.getVisibility() == View.VISIBLE) {
+//            menuLayout.setVisibility(View.INVISIBLE);
+//        }
 
         if (pressCount == PRESS_COUNT_TWICE) {
             super.onBackPressed();

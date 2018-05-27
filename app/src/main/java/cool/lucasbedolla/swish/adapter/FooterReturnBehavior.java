@@ -1,6 +1,7 @@
 package cool.lucasbedolla.swish.adapter;
 
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
@@ -45,11 +46,32 @@ public class FooterReturnBehavior extends CoordinatorLayout.Behavior<View> {
         }
     }
 
-    private void hideView(final View child) {
+    private void showStatusBar(Context context) {
+        if (context instanceof Activity) {
+//            ((Activity) context).getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+//                    WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
+            View decorView = ((Activity) context).getWindow().getDecorView();
+            // Hide the status bar.
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
+    }
+
+
+    public static void hideStatusBar(Context context) {
+        if (context instanceof Activity) {
+            View decorView = ((Activity) context).getWindow().getDecorView();
+            // Hide the status bar.
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        }
+    }
+
+
+    private void hideView(final View child) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(child, "translationY", 0, childHeight);
         animator.setDuration(300);
         animator.start();
+        hideStatusBar(child.getContext());
     }
 
     private void showView(final View child) {
@@ -58,5 +80,6 @@ public class FooterReturnBehavior extends CoordinatorLayout.Behavior<View> {
         ObjectAnimator animator = ObjectAnimator.ofFloat(child, "translationY", childHeight, 0);
         animator.setDuration(300);
         animator.start();
+        showStatusBar(child.getContext());
     }
 }

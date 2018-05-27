@@ -5,8 +5,19 @@
     android:id="@+id/lay"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/charcoal"
+    android:background="@color/white"
     tools:context=".activities.dashboard.DashboardActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_lottie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:padding="60dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="lottie_dashboard.json"
+        app:lottie_loop="true" />
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinator"
@@ -27,28 +38,49 @@
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:gravity="center"
+            android:background="@color/black_luscent"
+            android:orientation="horizontal"
             app:layout_behavior="cool.lucasbedolla.swish.adapter.FooterReturnBehavior">
 
-            <TextView
-                android:id="@+id/menu_button"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/menu_dash"
+                android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:background="@color/colorLuscent"
-                android:fontFamily="@font/interstate_light"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:text="menu"
-                android:textColor="@color/white"
-                app:layout_scrollFlags="scroll|enterAlways|snap" />
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_dashboard" />
 
-        </RelativeLayout>
+            <ImageView
+                android:id="@+id/menu_search"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_search" />
 
+            <ImageView
+                android:id="@+id/menu_spark"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:src="@drawable/spark" />
 
-        <include layout="@layout/menu_layout" />
+            <ImageView
+                android:id="@+id/menu_profile"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                app:srcCompat="@drawable/profile" />
+
+        </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>
 
