@@ -2,7 +2,6 @@ package cool.lucasbedolla.swish.http;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.tumblr.jumblr.JumblrClient;
 import com.tumblr.jumblr.exceptions.JumblrException;
@@ -48,13 +47,19 @@ public class FetchTumblrPostsTask extends AsyncTask {
             params.put("limit", 40);
             params.put("offset", currentSizeOfPostsList);
 
-            dashList = client.userDashboard(params);
-        } catch (OAuthConnectionException o) {
-            Log.d(TAG, "run: error creating new posts in onload();");
-        } catch (JumblrException j) {
-            Log.d(TAG, "run: jumblr exception thrown!");
+            if (objects.length == 4) {
+                //is a search request
+                dashList = client.tagged((String) objects[3]);
+            } else {
+                //is dash request
+                dashList = client.userDashboard(params);
+
+            }
+
+        } catch (OAuthConnectionException | JumblrException o) {
+            listener.get().fetchFailed(o);
         } catch (OutOfMemoryError e) {
-            Log.e(TAG, "OUT OF MEMORY ERROR: " + e.getMessage());
+            listener.get().fetchFailed((Exception) e.getCause());
         }
         return dashList;
     }

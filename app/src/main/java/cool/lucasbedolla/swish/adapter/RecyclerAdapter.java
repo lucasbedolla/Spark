@@ -25,7 +25,7 @@ import java.util.List;
 
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.SparkApplication;
-import cool.lucasbedolla.swish.activities.dashboard.DashboardActivity;
+import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.fragments.InteractionFragment;
 import cool.lucasbedolla.swish.util.ImageHelper;
@@ -39,7 +39,6 @@ import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements View.OnClickListener, View.OnLongClickListener {
 
-    public static final String TAG = "RECYCLER ADAPTER";
     private final List<Post> itemList;
     private WeakReference<UnderTheHoodActivity> ctx;
 
@@ -145,7 +144,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     @Override
     public void onClick(View view) {
 
-        if (view instanceof SmartImageView && ctx.get() instanceof DashboardActivity) {
+        if (view instanceof SmartImageView && ctx.get() instanceof MainActivity) {
             String url = ((SmartImageView) view).getImageUrl();
             if (url != null) {
                 showImageFragment(url);

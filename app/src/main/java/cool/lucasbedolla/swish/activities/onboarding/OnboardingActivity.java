@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
-import cool.lucasbedolla.swish.activities.dashboard.DashboardActivity;
+import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.util.Constants;
 import cool.lucasbedolla.swish.util.MyPrefs;
@@ -53,7 +53,7 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
         super.onCreate(savedInstanceState);
 
         if (MyPrefs.getIsLoggedIn(OnboardingActivity.this)) {
-            Intent intent = new Intent(OnboardingActivity.this, DashboardActivity.class);
+            Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -215,7 +215,7 @@ public class OnboardingActivity extends UnderTheHoodActivity implements ViewPage
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            Intent intent = new Intent(OnboardingActivity.this, DashboardActivity.class);
+                                            Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(intent);
                                         }

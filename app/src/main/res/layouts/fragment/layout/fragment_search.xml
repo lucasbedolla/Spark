@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lay"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
-    android:background="@color/white"
-    tools:context=".activities.dashboard.DashboardActivity">
+    android:layout_height="match_parent"
+    android:background="@color/tumblr"
+    tools:context="cool.lucasbedolla.swish.fragments.SearchFragment">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_lottie"
@@ -17,27 +14,49 @@
         android:adjustViewBounds="true"
         android:padding="60dp"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="lottie_dashboard.json"
+        app:lottie_fileName="lottie_whale.json"
         app:lottie_loop="true" />
+
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="22dp"
+        android:background="@drawable/rounded_text"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            app:srcCompat="@drawable/search_blue" />
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Search the depths... blub...blub..."
+            android:imeOptions="actionGo|actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/tumblr"
+            android:textColorHint="@color/tumblr_light" />
+    </LinearLayout>
+
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_layout">
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/refresher"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbarAlwaysDrawVerticalTrack="true" />
-
-        </android.support.v4.widget.SwipeRefreshLayout>
+            android:scrollbarAlwaysDrawVerticalTrack="true" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,6 +76,13 @@
                 app:srcCompat="@drawable/ic_dashboard" />
 
             <ImageView
+                android:id="@+id/menu_spark"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:src="@drawable/spark" />
+
+            <ImageView
                 android:id="@+id/menu_search"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
@@ -65,12 +91,6 @@
                 android:padding="10dp"
                 app:srcCompat="@drawable/ic_search" />
 
-            <ImageView
-                android:id="@+id/menu_spark"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:src="@drawable/spark" />
 
             <ImageView
                 android:id="@+id/menu_profile"
@@ -85,12 +105,5 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
 
 </RelativeLayout>

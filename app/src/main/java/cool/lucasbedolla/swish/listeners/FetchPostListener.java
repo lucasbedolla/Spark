@@ -11,4 +11,6 @@ import java.util.List;
 public interface FetchPostListener {
 
     void fetchedPosts(List<Post> posts);
+
+    void fetchFailed(Exception e);
 }

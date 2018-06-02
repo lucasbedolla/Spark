@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/spark_bg"
+    android:layout_gravity="center"
+    tools:context="cool.lucasbedolla.swish.fragments.SparkFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="60sp"
+        android:textColor="@color/white"
+        android:text="S P A R K" />
+
+</RelativeLayout>
