@@ -3,7 +3,7 @@
     android:id="@+id/extras_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/pool_tile"
+    android:background="@color/waves_light"
     android:gravity="center"
     android:minHeight="48dp"
     android:orientation="vertical">

@@ -21,12 +21,12 @@ import cool.lucasbedolla.swish.fragments.SearchFragment;
 import cool.lucasbedolla.swish.fragments.SparkFragment;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
+import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.NoSwipeViewPager;
 
 public class MainActivity extends UnderTheHoodActivity implements FetchPostListener, View.OnTouchListener, FragmentEventController {
 
     private NoSwipeViewPager mViewPager;
-
     private int pressCount = 0;
     private final int PRESS_COUNT_TWICE = 1;
 
@@ -72,9 +72,13 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
                 case 2:
                     return new SearchFragment();
                 case 3:
-                    return new ProfileFragment();
+                    ProfileFragment profileFragment = new ProfileFragment();
+                    Bundle args = new Bundle();
+                    args.putString(ProfileFragment.BLOG_NAME, MyPrefs.getCurrentUser(MainActivity.this));
+                    profileFragment.setArguments(args);
+                    return profileFragment;
                 default:
-                    return new DashboardFragment();
+                    return new SparkFragment();
             }
         }
 
@@ -134,30 +138,45 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
                 handleSearchEvents(v);
                 break;
             case 3:
-                handleProfEvents();
+                handleProfEvents(v);
                 break;
         }
     }
 
-    private void handleProfEvents() {
+    private void handleProfEvents(View v) {
+        switch (v.getId()) {
+            case R.id.menu_dash:
+                mViewPager.setCurrentItem(0, false);
+                break;
+            case R.id.menu_spark:
+                mViewPager.setCurrentItem(1, false);
+                break;
+            case R.id.menu_search:
+                mViewPager.setCurrentItem(2, false);
+                break;
+            case R.id.menu_profile:
+
+                break;
+        }
     }
 
     private void handleSearchEvents(View v) {
         switch (v.getId()) {
             case R.id.menu_dash:
-                mViewPager.setCurrentItem(0, true);
+                mViewPager.setCurrentItem(0, false);
                 break;
             case R.id.menu_spark:
-                mViewPager.setCurrentItem(1, true);
+                mViewPager.setCurrentItem(1, false);
                 break;
             case R.id.menu_search:
 
                 break;
             case R.id.menu_profile:
-                mViewPager.setCurrentItem(3, true);
+                mViewPager.setCurrentItem(3, false);
                 break;
         }
     }
+
 
     private void handleSparkEvents() {
     }
@@ -165,16 +184,16 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
     private void handleDashEvents(View v) {
         switch (v.getId()) {
             case R.id.menu_dash:
-                mViewPager.setCurrentItem(0, true);
+
                 break;
             case R.id.menu_spark:
-                mViewPager.setCurrentItem(1, true);
+                mViewPager.setCurrentItem(1, false);
                 break;
             case R.id.menu_search:
-                mViewPager.setCurrentItem(2, true);
+                mViewPager.setCurrentItem(2, false);
                 break;
             case R.id.menu_profile:
-                mViewPager.setCurrentItem(3, true);
+                mViewPager.setCurrentItem(3, false);
                 break;
         }
     }

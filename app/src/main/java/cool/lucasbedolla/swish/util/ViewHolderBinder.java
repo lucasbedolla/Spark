@@ -17,6 +17,7 @@ import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
 import cool.lucasbedolla.swish.view.SmartImageView;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
 
+import static cool.lucasbedolla.swish.util.ImageHelper.downloadBlogAvatarIntoImageView;
 import static cool.lucasbedolla.swish.util.ImageHelper.downloadImageIntoImageView;
 
 /**
@@ -107,10 +108,10 @@ public class ViewHolderBinder {
         if (post.getBlogName() != null) {
             holder.getAuthorText().setText(post.getBlogName());
             holder.getAuthorText().setTextColor(context.getResources().getColor(R.color.colorPrimary));
-            downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getBlogName() + "/avatar/512");
+            downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
         } else {
             holder.getAuthorText().setText(Html.fromHtml("<b>" + post.getBlogName() + "<b/> " + " <br> <font color='#5387ff'>reblogged</font> </br> " + "<br>" + post.getSourceTitle() + "</br>"));
-            downloadImageIntoImageView(holder.getProfilePicture(), "http://api.tumblr.com/v2/blog/" + post.getSourceTitle() + "/avatar/512");
+            downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getSourceTitle());
         }
 
     }

@@ -23,7 +23,7 @@
             android:id="@+id/post_text_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/pool_tile"
+            android:background="@color/white"
             android:padding="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/charcoal" />

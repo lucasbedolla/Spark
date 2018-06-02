@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tumblr"
+    android:background="@color/waves"
     tools:context="cool.lucasbedolla.swish.fragments.SearchFragment">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -41,8 +41,8 @@
             android:imeOptions="actionGo|actionSearch"
             android:inputType="text"
             android:maxLines="1"
-            android:textColor="@color/tumblr"
-            android:textColorHint="@color/tumblr_light" />
+            android:textColor="@color/waves"
+            android:textColorHint="@color/waves_light" />
     </LinearLayout>
 
 

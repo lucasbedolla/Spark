@@ -57,16 +57,16 @@ public class DashboardFragment
         public void onRefresh() {
             refreshLayout.setRefreshing(true);
             loadedPosts.clear();
-            fetchPosts(getActivity(), loadedPosts.size(), ((MainActivity) getActivity()));
+            fetchPosts(getActivity(), loadedPosts.size(), ((MainActivity) getActivity()), FetchTumblrPostsTask.DASHBOARD);
         }
     };
 
     private ImageView loadingLottie;
 
 
-    private void fetchPosts(Context ctx, int postSize, FetchPostListener listener) {
+    private void fetchPosts(Context ctx, int postSize, FetchPostListener listener, int actionID) {
 
-        new FetchTumblrPostsTask().execute(ctx, postSize, listener);
+        new FetchTumblrPostsTask().execute(ctx, postSize, listener, actionID);
     }
 
     @Override
@@ -94,7 +94,7 @@ public class DashboardFragment
         // pull to refresh layout config
         refreshLayout = layout.findViewById(R.id.refresher);
         refreshLayout.setVisibility(View.VISIBLE);
-        refreshLayout.setColorSchemeResources(R.color.pool_blue, R.color.pool_deep_end, R.color.pool_shallow, R.color.pool_time);
+        refreshLayout.setColorSchemeResources(R.color.blue, R.color.orange, R.color.red, R.color.charcoal);
         refreshLayout.setProgressBackgroundColorSchemeColor(Color.WHITE);
         refreshLayout.setProgressViewOffset(false, 0, 225);
         refreshLayout.setOnRefreshListener(refreshListener);
@@ -107,7 +107,6 @@ public class DashboardFragment
         layout.findViewById(R.id.menu_profile).setOnClickListener(this);
         //recyclerview config
         recyclerViewMain = layout.findViewById(R.id.recycler);
-
         recyclerViewMain.setItemViewCacheSize(4);
         recyclerViewMain.setDrawingCacheEnabled(true);
         recyclerViewMain.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
@@ -123,7 +122,7 @@ public class DashboardFragment
             setOnScroll();
         }
 
-        fetchPosts(getActivity(), loadedPosts.size(), this);
+        fetchPosts(getActivity(), loadedPosts.size(), this, FetchTumblrPostsTask.DASHBOARD);
 
         return layout;
     }
@@ -155,7 +154,7 @@ public class DashboardFragment
                 if (!loading && (totalItemCount - visibleItemCount)
                         <= (firstVisibleItem + visibleThreshold)) {
 
-                    fetchPosts(getActivity(), loadedPosts.size(), (MainActivity) getActivity());
+                    fetchPosts(getActivity(), loadedPosts.size(), (MainActivity) getActivity(), FetchTumblrPostsTask.DASHBOARD);
 
                     loading = true;
                 }

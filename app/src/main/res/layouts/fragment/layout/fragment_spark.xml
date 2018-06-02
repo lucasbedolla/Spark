@@ -2,9 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/spark_bg"
     android:layout_gravity="center"
     tools:context="cool.lucasbedolla.swish.fragments.SparkFragment">
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_lottie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        app:lottie_autoPlay="true"
+        android:scaleType="centerCrop"
+        app:lottie_fileName="lottie_waves.json"
+        app:lottie_loop="true" />
+
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -13,6 +27,6 @@
         android:gravity="center"
         android:textSize="60sp"
         android:textColor="@color/white"
-        android:text="S P A R K" />
+        android:text="W A V E S" />
 
 </RelativeLayout>

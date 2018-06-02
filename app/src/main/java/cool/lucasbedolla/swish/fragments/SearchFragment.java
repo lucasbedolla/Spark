@@ -109,7 +109,7 @@ public class SearchFragment extends Fragment implements FetchPostListener, View.
                     //TODO: search using jumblr through main activity
                     Log.d("Search Value", "onEditorAction: " + searchValue);
 
-                    fetchPosts(getContext(), 40, SearchFragment.this);
+                    fetchPosts(getContext(), 40, SearchFragment.this, FetchTumblrPostsTask.SEARCH);
 
                     //todo: ONSEARCH COMPLETED SET BELOW CODE, MUST SET AFTER SEARCH FAILURE
                     //TODO: ON SEARCH COMPLETED, ANIMATE THE WHALE OUT
@@ -122,8 +122,8 @@ public class SearchFragment extends Fragment implements FetchPostListener, View.
         return layout;
     }
 
-    private void fetchPosts(Context ctx, int postSize, FetchPostListener listener) {
-        new FetchTumblrPostsTask().execute(ctx, postSize, listener, searchValue);
+    private void fetchPosts(Context ctx, int postSize, FetchPostListener listener, int actionID) {
+        new FetchTumblrPostsTask().execute(ctx, postSize, listener, actionID, searchValue);
     }
 
     @Override
