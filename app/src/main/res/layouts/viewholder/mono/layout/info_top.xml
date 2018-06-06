@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:background="@color/waves_light"
-    android:gravity="center"
-    android:orientation="horizontal">
+    android:background="@color/white"
+    android:gravity="left|center_vertical"
+    android:orientation="horizontal"
+    android:padding="8dp">
 
     <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_picture"
         android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_alignParentTop="true"
         android:background="@drawable/post_author_pic"
         android:scaleType="fitCenter"
         android:visibility="visible"
@@ -29,25 +28,25 @@
         android:id="@+id/post_author"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignBottom="@+id/profile_picture"
-        android:layout_alignTop="@+id/profile_picture"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
-        android:layout_toEndOf="@+id/profile_picture"
-        android:layout_toStartOf="@+id/to_blog"
+        android:layout_marginStart="60dp"
         android:fontFamily="@font/helvetica"
         android:gravity="start|center_vertical"
         android:text="text"
         android:textColor="@color/charcoal"
         android:textSize="16sp" />
 
-    <ImageView
-        android:id="@+id/to_blog"
-        android:layout_width="30dp"
+    <TextView
+        android:id="@+id/follow_text"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_gravity="center"
-        android:rotation="270"
-        app:srcCompat="@drawable/ic_arrow_down" />
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:text="follow source"
+        android:textColor="#d9d9d9" />
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
@@ -33,14 +33,31 @@
                 android:src="@drawable/spark_bg"
                 app:layout_collapseMode="parallax" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="LUCASVENTURES"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="36sp"
+                android:textColor="@color/white"
+                app:layout_collapseMode="parallax" />
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/main.toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@color/colorLuscent"
+                app:popupTheme="@color/colorPrimary"
                 app:layout_collapseMode="pin" />
         </android.support.design.widget.CollapsingToolbarLayout>
+
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_height="wrap_content"
@@ -49,12 +66,6 @@
         app:srcCompat="@drawable/ic_search"
         app:layout_anchor="@id/main.appbar"
         app:layout_anchorGravity="bottom|right|end" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbarAlwaysDrawVerticalTrack="true" />
 
     <LinearLayout
         android:layout_width="match_parent"

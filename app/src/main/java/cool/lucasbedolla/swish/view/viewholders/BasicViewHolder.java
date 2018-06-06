@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,12 +24,15 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
     private FrameLayout contentTargetLayout;
     private TextView description;
     private TextView authorText;
+    private TextView followSource;
+    private ImageView likeButton, reblogButton;
 
     public BasicViewHolder(View itemView) {
         super(itemView);
         //top layout
         profileImageView = itemView.findViewById(R.id.profile_picture);
         authorText = itemView.findViewById(R.id.post_author);
+        followSource = itemView.findViewById(R.id.follow_text);
 
         //content center
         contentTargetLayout = itemView.findViewById(R.id.target_layout);
@@ -36,6 +40,8 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
 
         //bottom layout
         notes = itemView.findViewById(R.id.notes);
+        reblogButton = itemView.findViewById(R.id.reblog_button);
+        likeButton = itemView.findViewById(R.id.like_button);
     }
 
     public RoundedImageView getProfilePicture() {
@@ -46,6 +52,13 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return authorText;
     }
 
+    public RoundedImageView getProfileImageView() {
+        return profileImageView;
+    }
+
+    public TextView getFollowSource() {
+        return followSource;
+    }
 
     public TextView getDescription() {
         return description;
@@ -67,5 +80,13 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
 
     public TextView getNotes() {
         return notes;
+    }
+
+    public ImageView getReblogButton() {
+        return reblogButton;
+    }
+
+    public ImageView getLikeButton() {
+        return likeButton;
     }
 }

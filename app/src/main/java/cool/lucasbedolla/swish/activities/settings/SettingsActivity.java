@@ -4,9 +4,7 @@ import android.app.ActivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
@@ -21,27 +19,6 @@ public class SettingsActivity extends UnderTheHoodActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
-        classic = findViewById(R.id.classic);
-        minimalist = findViewById(R.id.minimalist);
-        extremeMinimalist = findViewById(R.id.extreme_minimalist);
-        dualMode = findViewById(R.id.dual_mode);
-
-        classic.setChecked(MyPrefs.getIsClassicMode(this));
-        minimalist.setChecked(MyPrefs.getIsMinimalistMode(this));
-        extremeMinimalist.setChecked(MyPrefs.getIsExtremeMinimalist(this));
-        dualMode.setChecked(MyPrefs.getIsDualMode(this));
-
-        dualMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                MyPrefs.setIsDualMode(SettingsActivity.this, b);
-            }
-        });
-        // Other click listeners are set in XML
-
-        TextView logout = findViewById(R.id.logout);
-        logout.setOnClickListener(this);
 
     }
 

@@ -105,17 +105,35 @@ public class ViewHolderBinder {
             holder.getProfilePicture().setVisibility(View.VISIBLE);
         }
 
-        if (post.getBlogName() != null) {
-            holder.getAuthorText().setText(post.getBlogName());
+        //setting up follow source text
+
+
+        //set up blog text
+        if (post.getSourceTitle() == null) {
+            holder.getAuthorText().setText(Html.fromHtml("<b>" + post.getBlogName() + "</b>"));
             holder.getAuthorText().setTextColor(context.getResources().getColor(R.color.colorPrimary));
-            downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
+            holder.getFollowSource().setVisibility(View.GONE);
         } else {
-            holder.getAuthorText().setText(Html.fromHtml("<b>" + post.getBlogName() + "<b/> " + " <br> <font color='#5387ff'>reblogged</font> </br> " + "<br>" + post.getSourceTitle() + "</br>"));
-            downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getSourceTitle());
+            holder.getAuthorText().setText(Html.fromHtml("<b>" +
+                    post.getBlogName() +
+                    " <br> <font color='#5387ff'>reblogged</font> </br> " + "<br>"
+                    + post.getSourceTitle() + "</br> </b>"));
+
+            if (isFollowingSourceOrReblogger()) {
+                holder.getFollowSource().setVisibility(View.GONE);
+            } else {
+                String sourceText = "follow \n" + post.getSourceTitle();
+                holder.getFollowSource().setText(sourceText);
+            }
+            holder.getFollowSource().setVisibility(View.VISIBLE);
         }
 
+        downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
     }
 
+    private static boolean isFollowingSourceOrReblogger() {
+        return false;
+    }
 
     public static void placeText(Context context, BasicViewHolder holder, Post post) {
 

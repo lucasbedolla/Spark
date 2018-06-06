@@ -240,6 +240,9 @@ public class ImageHelper {
 
         private String getExtension(String uri) {
             String extension = null;
+            if (uri == null) {
+                return ".jpeg";
+            }
             if (uri.contains(".")) {
                 extension = uri.substring(uri.lastIndexOf("."));
             }
