@@ -107,19 +107,31 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
 
     @Override
     public void onBackPressed() {
-        if (pressCount == PRESS_COUNT_TWICE) {
-            super.onBackPressed();
-        } else {
-            pressCount++;
-            Toast.makeText(this, "Press back once more to exit.", Toast.LENGTH_SHORT).show();
 
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    pressCount = 0;
-                }
-            }, 3000);
+
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag("IMAGE");
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                    .remove(fragment)
+                    .commit();
+
+        } else {
+            if (pressCount == PRESS_COUNT_TWICE) {
+                super.onBackPressed();
+            } else {
+                pressCount++;
+                Toast.makeText(this, "Press back once more to exit.", Toast.LENGTH_SHORT).show();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pressCount = 0;
+                    }
+                }, 3000);
+            }
         }
     }
 

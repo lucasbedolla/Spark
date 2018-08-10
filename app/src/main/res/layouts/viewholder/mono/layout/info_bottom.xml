@@ -29,7 +29,6 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:layout_toLeftOf="@+id/like_button"
-        android:background="@drawable/reblog_grey"
         android:scaleType="fitXY" />
 
     <ImageButton
@@ -38,7 +37,6 @@
         android:layout_height="24dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/heart_grey"
         android:scaleType="fitXY" />
 
 </RelativeLayout>

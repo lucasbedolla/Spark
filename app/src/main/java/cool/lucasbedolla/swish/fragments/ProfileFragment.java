@@ -56,7 +56,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
             return getErrorLayout();
         }
 
-
         //init menu buttons
         layout.findViewById(R.id.menu_dash).setOnClickListener(this);
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
@@ -69,13 +68,16 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
         recyclerViewMain.setDrawingCacheEnabled(true);
         recyclerViewMain.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
-
         Bundle bundle = getArguments();
+        /*
+        blog name is not self contained for flexibility of class
+         */
         String blogName = bundle.getString(BLOG_NAME);
+
         if (blogName != null) {
             ImageView backdrop = layout.findViewById(R.id.backdrop);
             ImageHelper.downloadBlogAvatarIntoImageView(backdrop, blogName);
-            fetchPosts(getActivity(), 40, this, blogName);
+            fetchPosts(getActivity(), 0, this, blogName);
         } else {
             //todo: provide error message and return error layout  :O
             return getErrorLayout();
@@ -124,7 +126,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
 
     @Override
     public void fetchFailed(Exception e) {
-        Toast.makeText(getContext(), "Search has unexpectedly failed. Please try again later.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Search has unexpectedly failed. Please try again later.", Toast.LENGTH_SHORT).show();
     }
 
 }

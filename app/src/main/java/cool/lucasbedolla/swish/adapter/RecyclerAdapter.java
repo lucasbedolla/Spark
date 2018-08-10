@@ -67,7 +67,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     public void onBindViewHolder(BasicViewHolder holder, int position) {
 
         Post post = itemList.get(position);
-
         PostType type = mapPost(holder);
 
         switch (type) {
@@ -100,9 +99,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 break;
             case LOADING:
                 ViewHolderBinder.placeLoading(ctx.get(), holder, this);
-
                 break;
-
         }
 
     }
@@ -144,23 +141,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     @Override
     public void onClick(View view) {
 
-        if (view instanceof SmartImageView && ctx.get() instanceof MainActivity) {
+        if (view instanceof SmartImageView & ctx.get() instanceof MainActivity) {
             String url = ((SmartImageView) view).getImageUrl();
             if (url != null) {
                 showImageFragment(url);
             }
-            return;
-        }
-
-        switch (view.getId()) {
-            case R.id.extras_button:
-                break;
-            case R.id.like_button:
-                Toast.makeText(view.getContext(), "Liked!", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.reblog_button:
-                Toast.makeText(view.getContext(), "Reblogged!", Toast.LENGTH_SHORT).show();
-                break;
         }
     }
 
@@ -230,9 +215,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                 .replace(R.id.fragment_container, interactionFragment, "IMAGE")
                 .commitNow();
+
     }
 
-    enum PostType {
+    public enum PostType {
         PHOTO, TEXT, VIDEO, QUESTION, ANSWER, CHAT, AUDIO, QUOTE, UNKNOWN, LOADING, LINK
     }
 

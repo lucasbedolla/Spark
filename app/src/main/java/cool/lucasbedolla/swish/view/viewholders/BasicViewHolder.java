@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,11 +25,15 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
     private TextView description;
     private TextView authorText;
     private TextView followSource;
-    private ImageView likeButton, reblogButton;
+    private ImageButton likeButton, reblogButton;
 
     public BasicViewHolder(View itemView) {
         super(itemView);
-        //top layout
+        setupLayout(itemView);
+    }
+
+    private void setupLayout(View itemView) {
+        //toplayout
         profileImageView = itemView.findViewById(R.id.profile_picture);
         authorText = itemView.findViewById(R.id.post_author);
         followSource = itemView.findViewById(R.id.follow_text);
@@ -82,11 +86,13 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return notes;
     }
 
-    public ImageView getReblogButton() {
+    public ImageButton getReblogButton() {
         return reblogButton;
     }
 
-    public ImageView getLikeButton() {
+    public ImageButton getLikeButton() {
         return likeButton;
     }
+
+
 }

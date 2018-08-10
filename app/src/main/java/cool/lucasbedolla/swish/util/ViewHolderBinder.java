@@ -1,6 +1,8 @@
 package cool.lucasbedolla.swish.util;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -10,10 +12,13 @@ import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
 
+import java.util.HashMap;
 import java.util.List;
 
 import cool.lucasbedolla.swish.R;
+import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
+import cool.lucasbedolla.swish.fragments.ProfileFragment;
 import cool.lucasbedolla.swish.view.SmartImageView;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
 
@@ -28,7 +33,6 @@ public class ViewHolderBinder {
 
     private ViewHolderBinder() {
     }
-
 
     public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener, View.OnLongClickListener longClickListener) {
         PhotoPost photoPost = (PhotoPost) post;
@@ -45,7 +49,7 @@ public class ViewHolderBinder {
         } else {
             inferredViewHolder.getDescription().setVisibility(View.GONE);
         }
-        basicHolderSetUp(ctx, photoPost, inferredViewHolder, listener);
+        basicHolderSetUp(ctx, photoPost, inferredViewHolder);
     }
 
     private static String removeAuthorText(String authorTitle, String caption) {
@@ -85,28 +89,102 @@ public class ViewHolderBinder {
         }
     }
 
-    private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder, View.OnClickListener listener) {
+    private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder) {
         configureTopLayout(context, holder, post);
         configureBottomLayout(context, holder, post);
-        setClickListeners(holder, listener);
     }
 
-    private static void configureBottomLayout(Context context, BasicViewHolder holder, Post post) {
+    private static void configureBottomLayout(final Context context, final BasicViewHolder holder, final Post post) {
+        //done to reset reused viewholder
+
+        final Drawable filledHeart = context.getResources().getDrawable(R.drawable.ic_filled_heart);
+        final Drawable emptyHeart = context.getResources().getDrawable(R.drawable.ic_empty_heart);
+        final Drawable filledReblog = context.getResources().getDrawable(R.drawable.ic_filled_reblog);
+        final Drawable emptyReblog = context.getResources().getDrawable(R.drawable.ic_empty_reblog);
+
+        if (post.isLiked()) {
+            //make post imageview to selected
+            holder.getLikeButton().setBackground(filledHeart);
+        } else {
+            holder.getLikeButton().setBackground(emptyHeart);
+        }
+
+        holder.getReblogButton().setBackground(emptyReblog);
+
         if (post.getNoteCount() == 1) {
             holder.getNotes().setText(post.getNoteCount() + " note");
         } else {
             holder.getNotes().setText(post.getNoteCount() + " notes");
         }
+
+        holder.getLikeButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (v.getBackground() == emptyHeart) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            post.like();
+                        }
+                    }).start();
+
+                    holder.getLikeButton().setBackground(filledHeart);
+
+                } else if (v.getBackground() == filledHeart) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            post.unlike();
+                        }
+                    }).start();
+                    holder.getLikeButton().setBackground(emptyHeart);
+                }
+            }
+        });
+
+        holder.getReblogButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.getBackground() == emptyReblog) {
+                    //do  reblog
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (MyPrefs.getCurrentBlog(context) != null) {
+                                    post.reblog(MyPrefs.getCurrentBlog(context), new HashMap<String, Object>());
+                                } else {
+                                    post.reblog(MyPrefs.getCurrentUser(context), new HashMap<String, Object>());
+                                }
+                            } catch (Exception e) {
+                                //there's an issue with the jumblr library, but call is still successful
+                            }
+
+                        }
+                    }).start();
+                    holder.getReblogButton().setBackground(filledReblog);
+
+                } else if (holder.getReblogButton().getBackground() == filledReblog) {
+                    //delete reblog
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            post.delete();
+                        }
+                    }).start();
+
+                    holder.getReblogButton().setBackground(emptyReblog);
+                }
+            }
+        });
     }
 
-    private static void configureTopLayout(Context context, BasicViewHolder holder, Post post) {
+    private static void configureTopLayout(final Context context, BasicViewHolder holder, final Post post) {
 
         if (MyPrefs.getIsClassicMode(context)) {
             holder.getProfilePicture().setVisibility(View.VISIBLE);
         }
-
-        //setting up follow source text
-
 
         //set up blog text
         if (post.getSourceTitle() == null) {
@@ -122,11 +200,32 @@ public class ViewHolderBinder {
             if (isFollowingSourceOrReblogger()) {
                 holder.getFollowSource().setVisibility(View.GONE);
             } else {
-                String sourceText = "follow \n" + post.getSourceTitle();
+                String sourceText = "view \n" + post.getSourceTitle();
                 holder.getFollowSource().setText(sourceText);
             }
             holder.getFollowSource().setVisibility(View.VISIBLE);
         }
+
+        holder.getProfilePicture().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //todo: open up profile fragment
+                ProfileFragment interactionFragment = new ProfileFragment();
+                Bundle arguments = new Bundle();
+                arguments.putString(ProfileFragment.BLOG_NAME, post.getBlogName());
+                interactionFragment.setArguments(arguments);
+
+                ((MainActivity) context).getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                        .replace(R.id.fragment_container, interactionFragment, "IMAGE")
+                        .commitNow();
+            }
+        });
+
+
+//
+//        holder.getProfileImageView().setOnClickListener(listener);
+//        holder.getAuthorText().setOnClickListener(listener);
 
         downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
     }
@@ -138,11 +237,6 @@ public class ViewHolderBinder {
     public static void placeText(Context context, BasicViewHolder holder, Post post) {
 
     }
-
-    private static void setClickListeners(BasicViewHolder holder, View.OnClickListener listener) {
-
-    }
-
 
     public static void placeVideo(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
 

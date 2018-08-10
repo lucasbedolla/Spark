@@ -25,10 +25,4 @@ public abstract class UnderTheHoodActivity extends AppCompatActivity implements 
 
     }
 
-
-    //public FirebaseAnalytics getFirebaseInstance(){
-    // return firebaseAnalytics;
-    //}
-
-
 }

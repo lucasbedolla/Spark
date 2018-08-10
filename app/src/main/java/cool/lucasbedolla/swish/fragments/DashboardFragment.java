@@ -99,7 +99,6 @@ public class DashboardFragment
         refreshLayout.setProgressViewOffset(false, 0, 225);
         refreshLayout.setOnRefreshListener(refreshListener);
 
-
         //init menu buttons
         layout.findViewById(R.id.menu_dash).setOnClickListener(this);
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
@@ -183,6 +182,7 @@ public class DashboardFragment
             adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
             recyclerViewMain.setAdapter(adapter);
             refreshLayout.setRefreshing(false);
+
         } else {
             adapter.notifyItemRangeChanged(0, loadedPosts.size());
             adapter.notifyDataSetChanged();
@@ -191,7 +191,6 @@ public class DashboardFragment
 
     @Override
     public void fetchFailed(Exception e) {
-
     }
 
     @Override
