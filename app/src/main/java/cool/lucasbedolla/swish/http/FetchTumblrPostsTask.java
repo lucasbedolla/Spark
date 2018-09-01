@@ -28,6 +28,8 @@ public class FetchTumblrPostsTask extends AsyncTask {
     public static final int DASHBOARD = 0;
     public static final int SEARCH = 1;
     public static final int PROFILE = 2;
+    public static final int SETTINGS = 3;
+
 
     private WeakReference<FetchPostListener> listener;
 
@@ -35,16 +37,9 @@ public class FetchTumblrPostsTask extends AsyncTask {
     protected Object doInBackground(Object[] objects) {
 
         WeakReference<Context> ctx = new WeakReference<>((Context) objects[0]);
-
         int currentSizeOfPostsList = (int) objects[1];
-
         listener = new WeakReference<>((FetchPostListener) objects[2]);
-
         int actionID = (int) objects[3];
-        String blogName = null;
-        if (objects.length > 4) {
-            blogName = (String) objects[4];
-        }
 
         List<Post> fetchedList = new ArrayList<>(40);
         try {
@@ -57,19 +52,23 @@ public class FetchTumblrPostsTask extends AsyncTask {
             params.put("limit", 40);
             params.put("offset", currentSizeOfPostsList);
 
+            String blogName;
+
             switch (actionID) {
-                case SEARCH:
-                    if (blogName == null) {
-                        listener.get().fetchFailed(new Exception("No blog name set during fetch task."));
-                    }
-                    fetchedList = client.tagged(blogName, params);
-                    break;
                 case DASHBOARD:
                     fetchedList = client.userDashboard(params);
                     break;
-                case PROFILE:
+                case SEARCH:
+                    blogName = MyPrefs.getCurrentBlog(ctx.get());
                     if (blogName == null) {
-                        listener.get().fetchFailed(new Exception("No blog name set during fetch task."));
+                        listener.get().fetchFailed(new Exception("SEARCH FETCH ERROR: No blog name set during fetch task."));
+                    }
+                    fetchedList = client.tagged(blogName, params);
+                    break;
+                case PROFILE:
+                    blogName = (String) objects[4];
+                    if (blogName == null) {
+                        listener.get().fetchFailed(new Exception("PROFILE FETCH ERROR: No blog name set during fetch task."));
                     } else {
                         fetchedList = client.blogPosts(blogName, params);
                     }
@@ -93,7 +92,5 @@ public class FetchTumblrPostsTask extends AsyncTask {
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
         listener.get().fetchedPosts((List<Post>) o);
-        listener.clear();
-        listener = null;
     }
 }
