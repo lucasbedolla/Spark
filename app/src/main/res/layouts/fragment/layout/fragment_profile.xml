@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/colorPrimaryLuscent"
+        android:background="@color/black_luscent"
         android:orientation="horizontal"
         app:layout_behavior="cool.lucasbedolla.swish.adapter.FooterReturnBehavior">
 
@@ -95,7 +95,7 @@
             android:gravity="center"
             android:padding="10dp"
             app:srcCompat="@drawable/ic_search" />
-
+        
         <ImageView
             android:id="@+id/menu_profile"
             android:layout_width="0dp"
