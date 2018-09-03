@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="waves_dark">#181744</color>
-    <color name="waves">#302f7b</color>
-    <color name="waves_light">#5050a8</color>
+    <color name="waves_dark">#5c2a2b</color>
+    <color name="waves">#8f3a47</color>
+    <color name="waves_light">#c46161</color>
 
-    <color name="colorPrimary">#302f7b</color>
-    <color name="colorPrimaryDark">#181744</color>
-    <color name="colorAccent">#5050a8</color>
+    <color name="colorPrimary">#8f3a47</color>
+    <color name="colorPrimaryDark">#5c2a2b</color>
+    <color name="colorAccent">#c46161</color>
 
-    <color name="colorPrimaryLuscent">#e2302f7b</color>
-    <color name="colorPrimaryDarkLuscent">#eb181744</color>
-    <color name="colorLuscent">#6b000000</color>
-    <color name="colorBluePrimary">#5387ff</color>
+    <color name="colorPrimaryLuscent">#e28f3a47</color>
+    <color name="colorPrimaryDarkLuscent">#eb5c2a2b</color>
+    <color name="colorLuscent">#6bd07777</color>
+    <color name="colorBluePrimary">#ff5359</color>
 
     <color name="white">#ffffff</color>
     <color name="charcoal">#252525</color>
