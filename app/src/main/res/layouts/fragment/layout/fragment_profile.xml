@@ -95,7 +95,7 @@
             android:gravity="center"
             android:padding="10dp"
             app:srcCompat="@drawable/ic_search" />
-        
+
         <ImageView
             android:id="@+id/menu_profile"
             android:layout_width="0dp"

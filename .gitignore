@@ -28,3 +28,4 @@ build/kotlin-build/version.txt
 .gradle/4.4/fileHashes/fileHashes.lock
 .gradle/4.4/fileHashes/fileHashes.bin
 .gradle/4.4/fileContent/fileContent.lock
+.idea/
