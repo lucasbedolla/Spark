@@ -4,7 +4,6 @@
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context="cool.lucasbedolla.swish.activities.MainActivity">
 
     <cool.lucasbedolla.swish.view.NoSwipeViewPager

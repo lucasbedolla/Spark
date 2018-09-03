@@ -11,9 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="437d4673-6220-407a-aa45-b71d87f89e10" name="Default" comment="Sweeping changes, really.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/http/FetchTumblrPostsTask.java" afterPath="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/http/FetchTumblrPostsTask.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_main.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_profile.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -129,8 +129,8 @@
       <file leaf-file-name="ProfileFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/fragments/ProfileFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+            <state relative-caret-position="1683">
+              <caret line="58" column="27" lean-forward="false" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
               <folding>
                 <element signature="e#3185#3186#0" expanded="true" />
                 <element signature="e#3236#3237#0" expanded="true" />
@@ -144,12 +144,9 @@
       <file leaf-file-name="ViewHolderBinder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/util/ViewHolderBinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-510">
-              <caret line="224" column="0" lean-forward="true" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-              <folding>
-                <element signature="e#8474#9227#0" expanded="true" />
-                <element signature="e#9226#9227#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="9945">
+              <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -157,23 +154,59 @@
       <file leaf-file-name="RecyclerAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1553">
+            <state relative-caret-position="5814">
               <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FetchTumblrPostsTask.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FetchTumblrPostsTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/http/FetchTumblrPostsTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="992">
-              <caret line="39" column="54" lean-forward="true" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+            <state relative-caret-position="765">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="e#3071#3072#0" expanded="true" />
                 <element signature="e#3107#3108#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_profile.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_profile.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -2354,7 +2387,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/util/ImageHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/adaptive_launcher.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/activities/settings/SettingsActivity.java" />
@@ -2370,17 +2402,19 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/fragments/DashboardFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/fragments/SearchFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_profile.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/util/ViewHolderBinder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/fragments/ProfileFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/http/FetchTumblrPostsTask.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_profile.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-14" />
     <option name="width" value="1948" />
-    <option name="height" value="2160" />
+    <option name="height" value="2174" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -2400,6 +2434,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2516,9 +2553,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2528,11 +2562,11 @@
     <property name="DEBUGGABLE_PROCESS" value="cool.lucasleabres.ruby" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="DEBUGGER_ID" value="Auto" />
-    <property name="SearchEverywhereHistoryKey" value="recycler&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;vieho&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/util/ViewHolderBinder.java&#10;Search&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.fragments.SearchFragment&#10;search&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_search.xml&#10;main&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;recyclera&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;bottom&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/drawable/post_bottom.xml&#10;dash&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_dashboard.xml&#10;Profil&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/ProfileFragment.java&#10;Basic&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/viewholders/BasicViewHolder.java&#10;mainA&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;profil&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/ProfileFragment.java&#10;Main&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;Da&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/DashboardFragment.java&#10;recycl&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;Profile&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_profile.xml&#10;basic&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/viewholders/BasicViewHolder.java&#10;Spark&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/SparkFragment.java&#10;spark&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_spark.xml&#10;Recycler&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.adapter.RecyclerAdapter&#10;profi&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_profile.xml&#10;tumblr&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.R.color#tumblr&#10;Dash&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/DashboardFragment.java&#10;OnBo&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/onboarding/OnboardingActivity.java&#10;fragment&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/SearchFragment.java&#10;activity_main&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/activity/layout/activity_main.xml&#10;Menu&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/menu/layout/menu_layout.xml&#10;dashbo&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/activity/layout/activity_dashboard.xml&#10;MainAc&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;Settings&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/activity/layout/activity_settings.xml&#10;Setting&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.activities.settings.SettingsActivity&#10;recyc&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;menu&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/menu/layout/menu_layout.xml&#10;Imag&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/util/ImageHelper.java&#10;Image&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/util/ImageHelper.java&#10;settin&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/drawable/ic_settings.xml&#10;men&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/menu_layout.xml&#10;das&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/dashboard/DashboardActivity.java&#10;botto&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/info_bottom_dual.xml&#10;Viewho&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/viewholders/BasicViewHolder.java&#10;in&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/InteractionFragment.java&#10;inter&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/InteractionFragment.java&#10;Activ&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/activity_dashboard.xml&#10;SmartIma&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/SmartImageView.java&#10;info&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/info_top_dual.xml&#10;top&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/info_top.xml&#10;Das&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/main/DashboardActivity.java&#10;Mani&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/AndroidManifest.xml&#10;view&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/view_holder_base.xml&#10;onb&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/onboarding/OnboardingActivity.java" />
+    <property name="SearchEverywhereHistoryKey" value="profile&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_profile.xml&#10;recycler&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;vieho&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/util/ViewHolderBinder.java&#10;Search&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.fragments.SearchFragment&#10;search&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_search.xml&#10;main&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;recyclera&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;bottom&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/drawable/post_bottom.xml&#10;dash&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_dashboard.xml&#10;Profil&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/ProfileFragment.java&#10;Basic&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/viewholders/BasicViewHolder.java&#10;mainA&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;profil&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/ProfileFragment.java&#10;Main&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;Da&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/DashboardFragment.java&#10;recycl&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;Profile&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_profile.xml&#10;basic&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/viewholders/BasicViewHolder.java&#10;Spark&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/SparkFragment.java&#10;spark&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_spark.xml&#10;Recycler&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.adapter.RecyclerAdapter&#10;profi&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/fragment/layout/fragment_profile.xml&#10;tumblr&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.R.color#tumblr&#10;Dash&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/DashboardFragment.java&#10;OnBo&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/onboarding/OnboardingActivity.java&#10;fragment&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/SearchFragment.java&#10;activity_main&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/activity/layout/activity_main.xml&#10;Menu&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/menu/layout/menu_layout.xml&#10;dashbo&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/activity/layout/activity_dashboard.xml&#10;MainAc&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java&#10;Settings&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/activity/layout/activity_settings.xml&#10;Setting&#9;PSI&#9;JAVA://cool.lucasbedolla.swish.activities.settings.SettingsActivity&#10;recyc&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java&#10;menu&#9;FILE&#9;file://C:/Users/lucasventures/Desktop/old desktop/spark_repo_2/app/src/main/res/layouts/menu/layout/menu_layout.xml&#10;Imag&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/util/ImageHelper.java&#10;Image&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/util/ImageHelper.java&#10;settin&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/drawable/ic_settings.xml&#10;men&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/menu_layout.xml&#10;das&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/dashboard/DashboardActivity.java&#10;botto&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/info_bottom_dual.xml&#10;Viewho&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/viewholders/BasicViewHolder.java&#10;in&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/InteractionFragment.java&#10;inter&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/fragments/InteractionFragment.java&#10;Activ&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/activity_dashboard.xml&#10;SmartIma&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/view/SmartImageView.java&#10;info&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/info_top_dual.xml&#10;top&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/info_top.xml&#10;Das&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/java/cool/lucasbedolla/swish/activities/main/DashboardActivity.java&#10;Mani&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/AndroidManifest.xml&#10;view&#9;FILE&#9;file://C:/Users/Lucas Leabres/Desktop/spark_repo_2/app/src/main/res/layout/view_holder_base.xml" />
     <property name="VectorAssetImportPath" value="C:\Users\Lucas Leabres\Downloads" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="android.profiler.active" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535796655182" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535933530518" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -3000,7 +3034,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2192" extended-state="6" />
+    <frame x="-14" y="0" width="1948" height="2174" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.6699941" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
@@ -3010,6 +3044,7 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19854917" sideWeight="0.5296884" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7144426" sideWeight="0.5014194" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242301" sideWeight="0.49875224" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819384" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.76292855" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -3017,7 +3052,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19903433" sideWeight="0.47031158" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4113082" sideWeight="0.47031158" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32564524" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32815847" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3026,19 +3061,41 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3006608" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294596" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.6699941" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19854917" sideWeight="0.5296884" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7144426" sideWeight="0.5014194" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5805014" sideWeight="0.49858055" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6662996" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32564524" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978156" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3006608" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32887855" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66647565" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997996" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3242301" sideWeight="0.49875224" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819384" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.76292855" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19903433" sideWeight="0.47031158" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34706205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32815847" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294596" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6699941" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
@@ -3366,43 +3423,43 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_onboarding.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/search_blue.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/search_blue.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_settings.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_search.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_search.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/util/ImageHelper.java">
@@ -3436,25 +3493,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="7" column="68" lean-forward="false" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/adaptive_launcher.xml">
@@ -3472,33 +3519,33 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_spark.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="48" column="39" lean-forward="false" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/viewholder/mono/layout/base_holder_layout.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/viewholder/mono/layout/base_holder_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="11" column="59" lean-forward="false" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/viewholder/mono/layout/info_top.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/viewholder/mono/layout/info_top.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="678">
           <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/heart_red.png">
@@ -3556,13 +3603,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_dashboard.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3672">
           <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/post_bottom.xml">
@@ -3594,23 +3641,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/viewholder/mono/layout/view_holder_base.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
           <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/viewholder/mono/layout/info_bottom.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/viewholder/mono/layout/info_bottom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="30" column="50" lean-forward="true" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/core/UnderTheHoodActivity.java">
@@ -3677,20 +3724,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_profile.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="49" column="52" lean-forward="false" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3113">
-          <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+        <state relative-caret-position="663">
+          <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3703,19 +3741,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_search.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1260">
           <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/fragments/ProfileFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+        <state relative-caret-position="1683">
+          <caret line="58" column="27" lean-forward="false" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
           <folding>
             <element signature="e#3185#3186#0" expanded="true" />
             <element signature="e#3236#3237#0" expanded="true" />
@@ -3727,18 +3765,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/util/ViewHolderBinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="224" column="0" lean-forward="true" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-          <folding>
-            <element signature="e#8474#9227#0" expanded="true" />
-            <element signature="e#9226#9227#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="9945">
+          <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/adapter/RecyclerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1553">
+        <state relative-caret-position="5814">
           <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
           <folding />
         </state>
@@ -3746,13 +3781,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cool/lucasbedolla/swish/http/FetchTumblrPostsTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="992">
-          <caret line="39" column="54" lean-forward="true" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state relative-caret-position="765">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#3071#3072#0" expanded="true" />
             <element signature="e#3107#3108#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/activity/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layouts/fragment/layout/fragment_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>
