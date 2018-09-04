@@ -250,6 +250,7 @@ public class ViewHolderBinder {
         String title = post.getTitle();
         String body = post.getBody();
 
+
         ConstraintLayout textPostLayout = (ConstraintLayout) LayoutInflater.from(ctx).inflate(R.layout.mono_text_post,null);
 
         TextView titleTextView = textPostLayout.findViewById(R.id.text_title);
