@@ -19,6 +19,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.TextPost;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -33,6 +34,8 @@ import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.util.ViewHolderBinder;
 import cool.lucasbedolla.swish.view.SmartImageView;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
+
+
 
 /**
  * Created by LUCASURE on 2/4/2016.
@@ -60,7 +63,34 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     @Override
     public int getItemViewType(int position) {
-        return 0;
+
+       String type = itemList.get(position).getType();
+        switch (type) {
+            case "photo":
+                return 0;
+            case "photoset":
+                return 0;
+            case "text":
+                return 2;
+            case "answer":
+                return 3;
+            case "video":
+                return 4;
+            case "quote":
+                return 5;
+            case "chat":
+                return 6;
+            case "link":
+                return 7;
+            case "question":
+                return 8;
+            case "loading":
+                return 9;
+            case "audio":
+                return 10;
+            default:
+                return 11;
+        }
     }
 
     @Override
@@ -74,7 +104,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this);
                 break;
             case TEXT:
-                ViewHolderBinder.placeText(ctx.get(), holder, post);
+                ViewHolderBinder.placeText(ctx.get(), holder, (TextPost) post);
                 break;
             case CHAT:
                 ViewHolderBinder.placeChat(ctx.get(), holder, post, this);
@@ -219,7 +249,33 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     }
 
     public enum PostType {
-        PHOTO, TEXT, VIDEO, QUESTION, ANSWER, CHAT, AUDIO, QUOTE, UNKNOWN, LOADING, LINK
+        PHOTO("photo"),
+        PHOTOSET("photoset"),
+        TEXT("text"),
+        VIDEO("video"),
+        QUESTION("question"),
+        ANSWER("answer"),
+        CHAT("chat"),
+        AUDIO("audio"),
+        QUOTE("quote"),
+        UNKNOWN("unknown"),
+        LOADING("loading"),
+        LINK("link");
+
+        private final String name;
+
+         PostType(String s) {
+            name = s;
+        }
+
+        public boolean equalsName(String otherName) {
+            // (otherName == null) check is not needed because name.equals(null) returns false
+            return name.equals(otherName);
+        }
+
+        public String toString() {
+            return this.name;
+        }
     }
 
 }

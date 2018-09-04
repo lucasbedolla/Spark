@@ -3,14 +3,19 @@ package cool.lucasbedolla.swish.util;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.text.Html;
+import android.text.Layout;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.TextPost;
 
 import java.util.HashMap;
 import java.util.List;
@@ -64,30 +69,6 @@ public class ViewHolderBinder {
         }
     }
 
-    private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost, View.OnClickListener listener, View.OnLongClickListener longCLickListener) {
-        FrameLayout targetLayout = holder.getContentTargetLayout();
-        if (targetLayout.getChildCount() > 0) {
-            targetLayout.removeAllViews();
-        }
-
-        LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
-
-        List<Photo> photos = photoPost.getPhotos();
-        for (int i = 0; i < photos.size(); i++) {
-
-            SmartImageView imageView = new SmartImageView(ctx);
-            int h = photos.get(i).getOriginalSize().getHeight();
-            int w = photos.get(i).getOriginalSize().getWidth();
-
-            imageView.setAspectRatio(h, w);
-            imageView.setImageUrl(photos.get(i).getSizes().get(0).getUrl());
-            contentHolder.addView(imageView);
-            imageView.setOnClickListener(listener);
-            imageView.setOnLongClickListener(longCLickListener);
-
-            downloadImageIntoImageView(imageView, imageView.getImageUrl());
-        }
-    }
 
     private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder) {
         configureTopLayout(context, holder, post);
@@ -234,8 +215,61 @@ public class ViewHolderBinder {
         return false;
     }
 
-    public static void placeText(Context context, BasicViewHolder holder, Post post) {
 
+    private static void setPhotos(Context ctx, BasicViewHolder holder, PhotoPost photoPost, View.OnClickListener listener, View.OnLongClickListener longCLickListener) {
+        FrameLayout targetLayout = holder.getContentTargetLayout();
+        if (targetLayout.getChildCount() > 0) {
+            targetLayout.removeAllViews();
+        }
+
+        LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
+
+        List<Photo> photos = photoPost.getPhotos();
+        for (int i = 0; i < photos.size(); i++) {
+
+            SmartImageView imageView = new SmartImageView(ctx);
+            int h = photos.get(i).getOriginalSize().getHeight();
+            int w = photos.get(i).getOriginalSize().getWidth();
+
+            imageView.setAspectRatio(h, w);
+            imageView.setImageUrl(photos.get(i).getSizes().get(0).getUrl());
+            contentHolder.addView(imageView);
+            imageView.setOnClickListener(listener);
+            imageView.setOnLongClickListener(longCLickListener);
+
+            downloadImageIntoImageView(imageView, imageView.getImageUrl());
+        }
+    }
+
+    public static void placeText(Context ctx, BasicViewHolder holder, TextPost post) {
+        FrameLayout targetLayout = holder.getContentTargetLayout();
+        if (targetLayout.getChildCount() > 0) {
+            targetLayout.removeAllViews();
+        }
+
+        String title = post.getTitle();
+        String body = post.getBody();
+
+
+        ConstraintLayout textPostLayout = (ConstraintLayout) LayoutInflater.from(ctx).inflate(R.layout.mono_text_post,null);
+
+        TextView titleTextView = textPostLayout.findViewById(R.id.text_title);
+        TextView bodyTextView = textPostLayout.findViewById(R.id.text_body);
+
+        if(title == null){
+            titleTextView.setVisibility(View.GONE);
+        }else{
+            titleTextView.setText(title);
+        }
+
+        if(body == null){
+            bodyTextView.setVisibility(View.GONE);
+        }else{
+            bodyTextView.setText(title);
+        }
+
+        targetLayout.addView(textPostLayout);
+        basicHolderSetUp(ctx, post, holder);
     }
 
     public static void placeVideo(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
@@ -264,7 +298,6 @@ public class ViewHolderBinder {
     public static void placeLoading(Context ctx, BasicViewHolder inferredViewHolder, View.OnClickListener listener) {
 
     }
-
 
     public static void placeQuestion(Context ctx, BasicViewHolder holder, Post post, RecyclerAdapter recyclerAdapter) {
 

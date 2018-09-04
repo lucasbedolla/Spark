@@ -19,6 +19,7 @@ import android.widget.ImageView;
 
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.TextPost;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -172,7 +173,7 @@ public class DashboardFragment
         int initialPostSize = loadedPosts.size();
 
         for (Post post : fetchedPosts) {
-            if (post instanceof PhotoPost) {
+            if (post instanceof PhotoPost| post instanceof TextPost) {
                 loadedPosts.add(post);
             }
         }

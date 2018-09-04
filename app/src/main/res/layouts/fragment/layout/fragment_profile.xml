@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/black_luscent"
+        android:background="@color/colorPrimaryLuscent"
         android:orientation="horizontal"
         app:layout_behavior="cool.lucasbedolla.swish.adapter.FooterReturnBehavior">
 
