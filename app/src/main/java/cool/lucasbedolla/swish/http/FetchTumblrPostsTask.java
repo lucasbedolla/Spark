@@ -28,8 +28,6 @@ public class FetchTumblrPostsTask extends AsyncTask {
     public static final int DASHBOARD = 0;
     public static final int SEARCH = 1;
     public static final int PROFILE = 2;
-    public static final int SETTINGS = 3;
-
 
     private WeakReference<FetchPostListener> listener;
 
@@ -41,7 +39,7 @@ public class FetchTumblrPostsTask extends AsyncTask {
         listener = new WeakReference<>((FetchPostListener) objects[2]);
         int actionID = (int) objects[3];
 
-        List<Post> fetchedList = new ArrayList<>(40);
+        List<Post> fetchedList = new ArrayList<>();
         try {
             String token = MyPrefs.getOAuthToken(ctx.get());
             String token_secret = MyPrefs.getOAuthTokenSecret(ctx.get());
@@ -49,7 +47,7 @@ public class FetchTumblrPostsTask extends AsyncTask {
             MyPrefs.setCurrentUser(ctx.get(), client.user().getName());
 
             Map<String, Object> params = new HashMap<>();
-            params.put("limit", 40);
+            params.put("limit", 10);
             params.put("offset", currentSizeOfPostsList);
 
             String blogName;

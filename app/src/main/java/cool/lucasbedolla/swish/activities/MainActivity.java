@@ -24,7 +24,7 @@ import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.NoSwipeViewPager;
 
-public class MainActivity extends UnderTheHoodActivity implements FetchPostListener, View.OnTouchListener, FragmentEventController {
+public class MainActivity extends UnderTheHoodActivity implements  View.OnTouchListener, FragmentEventController {
 
     private NoSwipeViewPager mViewPager;
     private int pressCount = 0;
@@ -44,16 +44,6 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
     public void onClick(View v) {
         //TODO: this will handle menu controls
 
-    }
-
-    @Override
-    public void fetchedPosts(List<Post> posts) {
-
-    }
-
-    @Override
-    public void fetchFailed(Exception e) {
-        Toast.makeText(this, "Search has unexpectedly failed. Please try again later.", Toast.LENGTH_SHORT).show();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
