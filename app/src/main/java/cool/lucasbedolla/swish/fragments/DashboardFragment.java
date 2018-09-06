@@ -27,6 +27,7 @@ import java.util.List;
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
+import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
@@ -48,17 +49,16 @@ public class DashboardFragment
     private RecyclerView recyclerViewMain;
     private RecyclerAdapter adapter;
     private int previousTotal = 0;
-    private boolean loading = true;
-    private int visibleThreshold = 5;
-
-    private View lay;
+    private boolean fetchingPosts = false;
+    private int visibleThreshold = 3;
 
     private SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
             refreshLayout.setRefreshing(true);
             loadedPosts.clear();
-            fetchPosts(getActivity(), loadedPosts.size(), ((MainActivity) getActivity()), FetchTumblrPostsTask.DASHBOARD);
+            previousTotal = 0;
+            fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
         }
     };
 
@@ -66,7 +66,6 @@ public class DashboardFragment
 
 
     private void fetchPosts(Context ctx, int postSize, FetchPostListener listener, int actionID) {
-
         new FetchTumblrPostsTask().execute(ctx, postSize, listener, actionID);
     }
 
@@ -119,8 +118,9 @@ public class DashboardFragment
             manager = new LinearLayoutManager(getActivity());
             ((LinearLayoutManager) manager).setOrientation(LinearLayoutManager.VERTICAL);
             recyclerViewMain.setLayoutManager(manager);
-            setOnScroll();
         }
+
+        setOnScroll();
 
         fetchPosts(getActivity(), loadedPosts.size(), this, FetchTumblrPostsTask.DASHBOARD);
 
@@ -133,30 +133,26 @@ public class DashboardFragment
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                //  must add route of execution outside of the onscroll, because it is called too frequently
+//
+//                if (MyPrefs.getIsDualMode(getActivity())) {
+//                    firstVisibleItem = ((StaggeredGridLayoutManager) manager).findFirstCompletelyVisibleItemPositions(null)[0];
+//                } else {
+//
+//                }
 
+                firstVisibleItem = ((LinearLayoutManager) manager).findFirstVisibleItemPosition();
+                visibleItemCount = recyclerViewMain.getChildCount();
+                totalItemCount = adapter.getItemCount();
 
-                if (MyPrefs.getIsDualMode(getActivity())) {
-                    visibleItemCount = recyclerViewMain.getChildCount();
-                    totalItemCount = manager.getItemCount();
-                    firstVisibleItem = ((StaggeredGridLayoutManager) manager).findFirstCompletelyVisibleItemPositions(null)[0];
-                } else {
-                    visibleItemCount = recyclerViewMain.getChildCount();
-                    totalItemCount = manager.getItemCount();
-                    firstVisibleItem = ((LinearLayoutManager) manager).findFirstVisibleItemPosition();
+                if (fetchingPosts && totalItemCount >= previousTotal) {
+                    fetchingPosts = false;
+                    previousTotal = totalItemCount;
                 }
 
-                if (loading) {
-                    if (totalItemCount >= previousTotal) {
-                        loading = false;
-                        previousTotal = totalItemCount;
-                    }
-                }
-                if (!loading && (totalItemCount - visibleItemCount)
-                        <= (firstVisibleItem + visibleThreshold)) {
-
-                    fetchPosts(getActivity(), loadedPosts.size(), (MainActivity) getActivity(), FetchTumblrPostsTask.DASHBOARD);
-
-                    loading = true;
+                if (!fetchingPosts & (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+                    fetchingPosts = true;
+                    fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
                 }
             }
         });
@@ -173,19 +169,18 @@ public class DashboardFragment
         int initialPostSize = loadedPosts.size();
 
         for (Post post : fetchedPosts) {
-            if (post instanceof PhotoPost| post instanceof TextPost) {
+            if (post instanceof PhotoPost | post instanceof TextPost) {
                 loadedPosts.add(post);
             }
         }
 
         if (initialPostSize == 0) {
             //recycleradapter config
-            adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
+            adapter = new RecyclerAdapter((UnderTheHoodActivity) getActivity(), loadedPosts);
             recyclerViewMain.setAdapter(adapter);
             refreshLayout.setRefreshing(false);
-
         } else {
-            adapter.notifyItemRangeChanged(0, loadedPosts.size());
+//            adapter.notifyItemRangeChanged(adapter.getItemCount(), adapter.getItemCount() - loadedPosts.size());
             adapter.notifyDataSetChanged();
         }
     }
