@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     tools:context="cool.lucasbedolla.swish.activities.onboarding.OnboardingActivity">
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loading_lottie"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:scaleType="centerCrop"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="lottie_waves.json"
-        app:lottie_loop="true" />
 
             <Button
                 android:id="@+id/go"
@@ -30,7 +19,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/button_background"
                 android:text="login to tumblr"
-                android:textColor="@color/white" />
+                android:textColor="@color/colorAccent" />
 
     <TextView
         android:id="@+id/textView"
@@ -40,5 +29,5 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="36sp"
-        android:text="W A V E S" />
+        android:text="S P A R K" />
 </RelativeLayout>

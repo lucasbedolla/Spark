@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_margin="22dp"
-        android:background="@color/waves"
+        android:background="@color/colorPrimary"
         android:id="@+id/separator"
         android:layout_below="@+id/waves" />
 

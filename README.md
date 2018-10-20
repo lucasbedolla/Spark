@@ -1,9 +1,4 @@
 # Spark
 A Tumblr client for Android.
 
-********************
-MAKING CONTRIBUTIONS
-********************
-
-It's pretty easy, really.
-Just open an issue, or message me directly! :D
+I'm currently in the process of taking this repo public. Please bare with me, and message me with any questions :)
