@@ -1,15 +1,15 @@
 package cool.lucasbedolla.swish.view.viewholders;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import androidx.recyclerview.widget.RecyclerView;
 import cool.lucasbedolla.swish.R;
 
 /**
@@ -25,7 +25,7 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
     private TextView description;
     private TextView authorText;
     private TextView followSource;
-    private ImageButton likeButton, reblogButton;
+    private ImageView likeButton, reblogButton;
 
     public BasicViewHolder(View itemView) {
         super(itemView);
@@ -86,11 +86,11 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return notes;
     }
 
-    public ImageButton getReblogButton() {
+    public ImageView getReblogButton() {
         return reblogButton;
     }
 
-    public ImageButton getLikeButton() {
+    public ImageView getLikeButton() {
         return likeButton;
     }
 

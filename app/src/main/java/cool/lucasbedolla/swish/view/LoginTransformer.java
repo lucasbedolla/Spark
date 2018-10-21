@@ -1,7 +1,8 @@
 package cool.lucasbedolla.swish.view;
 
-import android.support.v4.view.ViewPager;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Created by LUCASVENTURES on 5/18/2016.

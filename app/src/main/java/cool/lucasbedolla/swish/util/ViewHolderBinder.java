@@ -190,7 +190,9 @@ public class ViewHolderBinder {
         if (post.getSourceTitle() == null) {
             holder.getAuthorText().setText(Html.fromHtml("<b>" + post.getBlogName() + "</b>"));
             holder.getAuthorText().setTextColor(context.getResources().getColor(R.color.colorPrimary));
-            holder.getFollowSource().setVisibility(View.GONE);
+            if (holder.getFollowSource() != null) {
+                holder.getFollowSource().setVisibility(View.GONE);
+            }
         } else {
             holder.getAuthorText().setText(Html.fromHtml("<b>" +
                     post.getBlogName() +
@@ -201,9 +203,13 @@ public class ViewHolderBinder {
                 holder.getFollowSource().setVisibility(View.GONE);
             } else {
                 String sourceText = "view \n" + post.getSourceTitle();
-                holder.getFollowSource().setText(sourceText);
+                if (holder.getFollowSource() != null) {
+                    holder.getFollowSource().setText(sourceText);
+                }
             }
-            holder.getFollowSource().setVisibility(View.VISIBLE);
+            if (holder.getFollowSource() != null) {
+                holder.getFollowSource().setVisibility(View.VISIBLE);
+            }
         }
 
         holder.getProfilePicture().setOnClickListener(new View.OnClickListener() {

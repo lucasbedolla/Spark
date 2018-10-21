@@ -10,7 +10,7 @@ import cool.lucasbedolla.swish.R;
  * Created by Lucas Bedolla on 11/28/2017.
  */
 
-public class SmartImageView extends android.support.v7.widget.AppCompatImageView implements View.OnClickListener {
+public class SmartImageView extends androidx.appcompat.widget.AppCompatImageView implements View.OnClickListener {
 
     private String imageUrl;
     private float aspectRatio;

@@ -3,12 +3,12 @@ package cool.lucasbedolla.swish.adapter;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.ViewCompat;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 
 

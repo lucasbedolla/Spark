@@ -54,7 +54,7 @@ public class FetchTumblrPostsTask extends AsyncTask {
             MyPrefs.setCurrentUser(ctx.get(), client.user().getName());
 
             Map<String, Object> params = new HashMap<>();
-            params.put("limit", 40);
+            params.put("limit", 20);
             params.put("offset", currentSizeOfPostsList);
 
             switch (actionID) {

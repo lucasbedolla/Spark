@@ -5,7 +5,6 @@ import android.app.Application;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +22,7 @@ import com.tumblr.jumblr.types.Post;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.SparkApplication;
 import cool.lucasbedolla.swish.activities.MainActivity;

@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -43,6 +45,8 @@ public class OnboardingActivity extends UnderTheHoodActivity implements OnClickL
 
         Window window = getWindow();
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        ImageView animView = findViewById(R.id.bgn_anim);
+        animView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_anim));
 
         findViewById(R.id.go).setOnClickListener(this);
     }
@@ -55,7 +59,7 @@ public class OnboardingActivity extends UnderTheHoodActivity implements OnClickL
     private void login() {
         final Handler handler = new Handler();
         try {
-            Loglr.getInstance()
+            Loglr.INSTANCE
                     .setConsumerKey(Constants.CONSUMER_KEY)
                     .setConsumerSecretKey(Constants.CONSUMER_SECRET)
                     .setLoginListener(new LoginListener() {
@@ -105,7 +109,7 @@ public class OnboardingActivity extends UnderTheHoodActivity implements OnClickL
                         }
                     })
                     .setUrlCallBack(CALLBACK_URL)
-                    .initiateInActivity(this);
+                    .initiate(this);
         } catch (Exception e) {
             Toast.makeText(this, "An error occurred.", Toast.LENGTH_SHORT).show();
         }
