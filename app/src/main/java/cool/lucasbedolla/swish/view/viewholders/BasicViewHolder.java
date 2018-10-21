@@ -56,10 +56,6 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
         return authorText;
     }
 
-    public RoundedImageView getProfileImageView() {
-        return profileImageView;
-    }
-
     public TextView getFollowSource() {
         return followSource;
     }

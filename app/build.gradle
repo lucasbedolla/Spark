@@ -79,6 +79,9 @@ android {
         implementation 'com.tumblr:jumblr:0.0.11'
         implementation 'com.daksh:loglr:2.1.4'
 
+//        implementation 'com.github.halilozercan:BetterVideoPlayer:1.2.alpha1'
+//        implementation 'com.github.wseemann:FFmpegMediaPlayer:1.0.4'
+
         implementation 'com.romandanylyk:pageindicatorview:0.2.0'
 
         implementation 'com.karumi:dexter:5.0.0'

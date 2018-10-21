@@ -63,7 +63,7 @@ public class ImageHelper {
 
     public static void downloadBlogAvatarIntoImageView(ImageView imageView, String blogName) {
         Glide.with(imageView.getContext())
-                .load("http://api.tumblr.com/v2/blog/" + blogName.trim() + "/avatar/512")
+                .load("https://api.tumblr.com/v2/blog/" + blogName.trim() + "/avatar/512")
                 .thumbnail(0.1f)
                 .into(imageView);
     }

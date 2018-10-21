@@ -26,7 +26,7 @@
             android:background="@color/white"
             android:padding="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/charcoal" />
+            android:textColor="#464646" />
 
         <include layout="@layout/info_bottom" />
 

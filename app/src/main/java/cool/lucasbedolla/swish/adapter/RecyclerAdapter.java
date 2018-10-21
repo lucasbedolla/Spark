@@ -3,6 +3,7 @@ package cool.lucasbedolla.swish.adapter;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -41,6 +42,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     private final List<Post> itemList;
     private WeakReference<UnderTheHoodActivity> ctx;
+    private Typeface font;
 
     public RecyclerAdapter(UnderTheHoodActivity underTheHoodActivity, List<Post> inputList) {
         this.ctx = new WeakReference<>(underTheHoodActivity);
@@ -65,13 +67,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     @Override
     public void onBindViewHolder(BasicViewHolder holder, int position) {
+        if (font == null) {
+            font = Typeface.createFromAsset(holder.getContentTargetLayout().getContext().getAssets(), "OdinBold.otf");
+        }
 
         Post post = itemList.get(position);
         PostType type = mapPost(holder);
 
         switch (type) {
             case PHOTO:
-                ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this);
+                ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this, font);
                 break;
             case TEXT:
                 ViewHolderBinder.placeText(ctx.get(), holder, post);

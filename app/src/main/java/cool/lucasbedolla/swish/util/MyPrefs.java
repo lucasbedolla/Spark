@@ -25,6 +25,7 @@ public class MyPrefs {
     private static final String BLOG_NAMES = "BLOG_NAMES";
     private static final String CURRENT_BLOG = "CURRENT_BLOG";
     private static final String CURRENT_USER = "CURRENT_USER";
+    private static final String FONT_STYLE = "FONT_STYLE";
 
 
     private MyPrefs() {
@@ -114,7 +115,7 @@ public class MyPrefs {
 
     //this refers to which post creation or interaction will apply to
     public static void setBlogNames(Context ctx, String blogNames) {
-        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(BLOG_NAMES, blogNames).commit();
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(BLOG_NAMES, blogNames).apply();
     }
 
     //this refers to which post creation or interaction will apply to
@@ -123,7 +124,7 @@ public class MyPrefs {
     }
 
     public static void setCurrentBlog(Context ctx, String currentBlog) {
-        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(CURRENT_BLOG, currentBlog).commit();
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(CURRENT_BLOG, currentBlog).apply();
     }
 
     //this refers to actual tumblr account which provides the dashboard content
@@ -133,6 +134,14 @@ public class MyPrefs {
 
     //this refers to actual tumblr account which provides the dashboard content
     public static void setCurrentUser(Context ctx, String currentUser) {
-        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(CURRENT_USER, currentUser).commit();
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(CURRENT_USER, currentUser).apply();
+    }
+
+    public static void setIsFunFont(Context ctx, boolean isFun) {
+        PreferenceManager.getDefaultSharedPreferences(ctx).edit().putBoolean(FONT_STYLE, isFun).apply();
+    }
+
+    public static boolean getIsFunFont(Context ctx) {
+        return PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean(FONT_STYLE, true);
     }
 }

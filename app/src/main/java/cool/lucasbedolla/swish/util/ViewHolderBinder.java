@@ -1,6 +1,7 @@
 package cool.lucasbedolla.swish.util;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
@@ -34,8 +35,23 @@ public class ViewHolderBinder {
     private ViewHolderBinder() {
     }
 
-    public static void placePhotos(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener, View.OnLongClickListener longClickListener) {
+
+    public static void placePhotos(Context ctx,
+                                   BasicViewHolder inferredViewHolder,
+                                   Post post,
+                                   View.OnClickListener listener,
+                                   View.OnLongClickListener longClickListener) {
+        placePhotos(ctx, inferredViewHolder, post, listener,longClickListener, null);
+    }
+
+    public static void placePhotos(Context ctx,
+                                   BasicViewHolder inferredViewHolder,
+                                   Post post,
+                                   View.OnClickListener listener,
+                                   View.OnLongClickListener longClickListener,
+                                   Typeface font){
         PhotoPost photoPost = (PhotoPost) post;
+        basicHolderSetUp(ctx, photoPost, inferredViewHolder);
         setPhotos(ctx, inferredViewHolder, photoPost, listener, longClickListener);
         if (photoPost.getCaption() != null && photoPost.getCaption().length() > 0) {
             String captionHtml = ((PhotoPost) post).getCaption();
@@ -49,7 +65,12 @@ public class ViewHolderBinder {
         } else {
             inferredViewHolder.getDescription().setVisibility(View.GONE);
         }
-        basicHolderSetUp(ctx, photoPost, inferredViewHolder);
+//        if(MyPrefs.getIsFunFont(ctx)){
+//            inferredViewHolder.getAuthorText().setTypeface(font);
+//            inferredViewHolder.getFollowSource().setTypeface(font);
+//            inferredViewHolder.getDescription().setTypeface(font);
+//            inferredViewHolder.getNotes().setTypeface(font);
+//        }
     }
 
     private static String removeAuthorText(String authorTitle, String caption) {
@@ -182,17 +203,13 @@ public class ViewHolderBinder {
 
     private static void configureTopLayout(final Context context, BasicViewHolder holder, final Post post) {
 
-        if (MyPrefs.getIsClassicMode(context)) {
-            holder.getProfilePicture().setVisibility(View.VISIBLE);
-        }
+        downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
 
         //set up blog text
         if (post.getSourceTitle() == null) {
             holder.getAuthorText().setText(Html.fromHtml("<b>" + post.getBlogName() + "</b>"));
             holder.getAuthorText().setTextColor(context.getResources().getColor(R.color.colorPrimary));
-            if (holder.getFollowSource() != null) {
-                holder.getFollowSource().setVisibility(View.GONE);
-            }
+            holder.getFollowSource().setVisibility(View.GONE);
         } else {
             holder.getAuthorText().setText(Html.fromHtml("<b>" +
                     post.getBlogName() +
@@ -207,9 +224,7 @@ public class ViewHolderBinder {
                     holder.getFollowSource().setText(sourceText);
                 }
             }
-            if (holder.getFollowSource() != null) {
-                holder.getFollowSource().setVisibility(View.VISIBLE);
-            }
+            holder.getFollowSource().setVisibility(View.VISIBLE);
         }
 
         holder.getProfilePicture().setOnClickListener(new View.OnClickListener() {
@@ -227,13 +242,6 @@ public class ViewHolderBinder {
                         .commitNow();
             }
         });
-
-
-//
-//        holder.getProfileImageView().setOnClickListener(listener);
-//        holder.getAuthorText().setOnClickListener(listener);
-
-        downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
     }
 
     private static boolean isFollowingSourceOrReblogger() {

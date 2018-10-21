@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/post_author_pic"
+        android:background="#bfbfbf"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:riv_border_color="@color/white"
