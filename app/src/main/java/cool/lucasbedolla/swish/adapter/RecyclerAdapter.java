@@ -18,7 +18,14 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.tumblr.jumblr.types.AnswerPost;
+import com.tumblr.jumblr.types.AudioPost;
+import com.tumblr.jumblr.types.ChatPost;
+import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.QuotePost;
+import com.tumblr.jumblr.types.TextPost;
+import com.tumblr.jumblr.types.VideoPost;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -72,69 +79,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         }
 
         Post post = itemList.get(position);
-        PostType type = mapPost(holder);
 
-        switch (type) {
-            case PHOTO:
-                ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this, font);
-                break;
-            case TEXT:
-                ViewHolderBinder.placeText(ctx.get(), holder, post);
-                break;
-            case CHAT:
-                ViewHolderBinder.placeChat(ctx.get(), holder, post, this);
-                break;
-            case AUDIO:
-                ViewHolderBinder.placeAudio(ctx.get(), holder, post, this);
-                break;
-            case QUOTE:
-                ViewHolderBinder.placeQuote(ctx.get(), holder, post, this);
-                break;
-            case VIDEO:
-                ViewHolderBinder.placeVideo(ctx.get(), holder, post, this);
-                break;
-            case ANSWER:
-                ViewHolderBinder.placeAnswer(ctx.get(), holder, post, this);
-                break;
-            case QUESTION:
-                ViewHolderBinder.placeQuestion(ctx.get(), holder, post, this);
-                break;
-            case UNKNOWN:
-                ViewHolderBinder.placeUnknown(ctx.get(), holder, post, this);
-                break;
-            case LOADING:
-                ViewHolderBinder.placeLoading(ctx.get(), holder, this);
-                break;
-        }
+        if (post instanceof PhotoPost) {
+            ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this, font);
+        } else if (post instanceof TextPost) {
+            ViewHolderBinder.placeText(ctx.get(), holder, post);
+        } else if (post instanceof ChatPost) {
+            ViewHolderBinder.placeChat(ctx.get(), holder, post, this);
+        } else if (post instanceof QuotePost) {
+            ViewHolderBinder.placeQuote(ctx.get(), holder, post, this);
+        } else if (post instanceof VideoPost) {
+            ViewHolderBinder.placeVideo(ctx.get(), holder, post, this);
+        } else if (post instanceof AnswerPost) {
+            ViewHolderBinder.placeAnswer(ctx.get(), holder, post, this);
+        }else if(post instanceof AudioPost){
+            ViewHolderBinder.placeAudio(ctx.get(), holder, post, this);
 
-    }
-
-    private PostType mapPost(BasicViewHolder holder) {
-        switch (holder.getItemViewType()) {
-            case 0:
-                return PostType.PHOTO;
-            case 1:
-                return PostType.PHOTO;
-            case 2:
-                return PostType.TEXT;
-            case 3:
-                return PostType.ANSWER;
-            case 4:
-                return PostType.VIDEO;
-            case 5:
-                return PostType.QUOTE;
-            case 6:
-                return PostType.CHAT;
-            case 7:
-                return PostType.LINK;
-            case 8:
-                return PostType.QUESTION;
-            case 9:
-                return PostType.LOADING;
-            case 10:
-                return PostType.AUDIO;
-            default:
-                return PostType.UNKNOWN;
         }
     }
 
@@ -205,6 +165,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 alert.create().show();
             }
         }
+
         return false;
     }
 
@@ -220,12 +181,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                 .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                 .replace(R.id.fragment_container, interactionFragment, "IMAGE")
                 .commitNow();
-
     }
-
-    public enum PostType {
-        PHOTO, TEXT, VIDEO, QUESTION, ANSWER, CHAT, AUDIO, QUOTE, UNKNOWN, LOADING, LINK
-    }
-
 }
 

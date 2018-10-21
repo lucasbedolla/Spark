@@ -24,11 +24,6 @@ public abstract class EndlessScrollListener extends RecyclerView.OnScrollListene
         this.mLayoutManager = layoutManager;
     }
 
-    public EndlessScrollListener(GridLayoutManager layoutManager) {
-        this.mLayoutManager = layoutManager;
-        visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
-    }
-
     public EndlessScrollListener(StaggeredGridLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
         visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
