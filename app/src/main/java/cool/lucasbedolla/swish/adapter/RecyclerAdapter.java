@@ -55,17 +55,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         this.ctx = new WeakReference<>(underTheHoodActivity);
         itemList = inputList;
         isDual = MyPrefs.getIsDualMode(underTheHoodActivity);
-        }
+    }
 
     @NonNull
     @Override
     public BasicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int postType) {
-        if(isDual){
+        if (isDual) {
             return new BasicViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.view_holder_base_dual, parent, false));
+                    .inflate(R.layout.dual_view_holder_base, parent, false));
         } else {
             return new BasicViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.view_holder_base, parent, false));
+                    .inflate(R.layout.mono_view_holder_base, parent, false));
         }
     }
 
@@ -74,28 +74,49 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     // favoring a cleaner polymorphic method
     @Override
     public int getItemViewType(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public void onBindViewHolder(BasicViewHolder holder, int position) {
+        //need to reset the views recycling them, DUH
+
+        resetViewsIfNeeded(holder);
+
         Post post = itemList.get(position);
 
         if (post instanceof PhotoPost) {
-            ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this);
+            ViewHolderBinder.placePhotos(ctx.get(), holder, post, isDual, this, this);
         } else if (post instanceof TextPost) {
-            ViewHolderBinder.placeText(ctx.get(), holder, post);
+            ViewHolderBinder.placeText(ctx.get(), holder, post, isDual);
         } else if (post instanceof ChatPost) {
-            ViewHolderBinder.placeChat(ctx.get(), holder, post, this);
+            ViewHolderBinder.placeChat(ctx.get(), holder, post, isDual, this);
         } else if (post instanceof QuotePost) {
-            ViewHolderBinder.placeQuote(ctx.get(), holder, post, this);
+            ViewHolderBinder.placeQuote(ctx.get(), holder, post, isDual, this);
         } else if (post instanceof VideoPost) {
-            ViewHolderBinder.placeVideo(ctx.get(), holder, post, this);
+            ViewHolderBinder.placeVideo(ctx.get(), holder, post, isDual, this);
         } else if (post instanceof AnswerPost) {
-            ViewHolderBinder.placeAnswer(ctx.get(), holder, post, this);
-        }else if(post instanceof AudioPost){
-            ViewHolderBinder.placeAudio(ctx.get(), holder, post, this);
+            ViewHolderBinder.placeAnswer(ctx.get(), holder, post, isDual, this);
+        } else if (post instanceof AudioPost) {
+            ViewHolderBinder.placeAudio(ctx.get(), holder, post, isDual, this);
         }
+    }
+
+    private void resetViewsIfNeeded(BasicViewHolder holder) {
+        //just returning it to bone stock base view
+
+        if (holder.getContentTargetLayout().getChildCount() > 0) {
+            holder.getContentTargetLayout().removeAllViews();
+        }
+
+        holder.getDescription().setVisibility(View.VISIBLE);
+        holder.getDescription().setText("");
+
+        holder.getNotes().setText("");
+        holder.getAuthorText().setText("");
+        holder.getFollowSource().setText("");
+        holder.getProfilePicture().setImageDrawable(null);
+
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.TextPost;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +41,7 @@ public class ViewHolderBinder {
     public static void placePhotos(Context ctx,
                                    BasicViewHolder inferredViewHolder,
                                    Post post,
-                                   View.OnClickListener listener,
+                                   boolean isDual, View.OnClickListener listener,
                                    View.OnLongClickListener longClickListener) {
         placePhotos(ctx, inferredViewHolder, post, listener, longClickListener, null);
     }
@@ -57,23 +59,21 @@ public class ViewHolderBinder {
             String captionHtml = ((PhotoPost) post).getCaption();
             String caption = Html.fromHtml(captionHtml).toString().trim();
 
-            if (post.getSourceTitle() == null) {
-                inferredViewHolder.getDescription().setText(caption);
-            } else {
+            if (post.getSourceTitle() != null) {
                 inferredViewHolder.getDescription().setText(removeAuthorText(post.getSourceTitle(), caption));
+            } else {
+                inferredViewHolder.getDescription().setText(caption);
             }
         } else {
             inferredViewHolder.getDescription().setVisibility(View.GONE);
         }
-//        if(MyPrefs.getIsFunFont(ctx)){
-//            inferredViewHolder.getAuthorText().setTypeface(font);
-//            inferredViewHolder.getFollowSource().setTypeface(font);
-//            inferredViewHolder.getDescription().setTypeface(font);
-//            inferredViewHolder.getNotes().setTypeface(font);
-//        }
     }
 
     private static String removeAuthorText(String authorTitle, String caption) {
+
+        if (caption == null) {
+            return null;
+        }
 
         if (caption.contains(":") && caption.contains(authorTitle)) {
 
@@ -248,16 +248,43 @@ public class ViewHolderBinder {
         return false;
     }
 
-    public static void placeText(Context context, BasicViewHolder holder, Post post) {
+    public static void placeText(Context context, BasicViewHolder holder, Post post, boolean isDual) {
+
         LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
-        TextView viewIndicator = new TextView(context);
-        viewIndicator.setHeight(250);
-        viewIndicator.setWidth(300);
-        viewIndicator.setText("text Post");
-        contentHolder.addView(viewIndicator);
+        if(contentHolder.getChildCount()>0){
+            contentHolder.removeAllViews();
+        }
+        View contentLayout;
+        if (isDual) {
+            contentLayout = LayoutInflater.from(context).inflate(R.layout.dual_text_post, null, false);
+        } else {
+            contentLayout = LayoutInflater.from(context).inflate(R.layout.mono_text_post, null, false);
+        }
+
+        TextView title = contentLayout.findViewById(R.id.text_title);
+        TextView body = contentLayout.findViewById(R.id.text_body);
+
+        TextPost textPost = (TextPost) post;
+
+        if (textPost.getTitle() != null && !textPost.getTitle().isEmpty()) {
+            title.setText(Html.fromHtml(textPost.getTitle().trim()));
+        } else {
+            title.setVisibility(View.GONE);
+        }
+
+        if (textPost.getBody() != null && !textPost.getBody().isEmpty()) {
+            body.setText(Html.fromHtml(textPost.getBody().trim()));
+        } else {
+            body.setVisibility(View.GONE);
+        }
+
+        basicHolderSetUp(context, post, holder);
+        contentHolder.addView(contentLayout);
+        holder.getDescription().setVisibility(View.GONE);
+
     }
 
-    public static void placeVideo(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
+    public static void placeVideo(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
         TextView viewIndicator = new TextView(ctx);
         viewIndicator.setHeight(250);
@@ -266,7 +293,7 @@ public class ViewHolderBinder {
         contentHolder.addView(viewIndicator);
     }
 
-    public static void placeAudio(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
+    public static void placeAudio(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
         TextView viewIndicator = new TextView(ctx);
         viewIndicator.setHeight(250);
@@ -284,7 +311,7 @@ public class ViewHolderBinder {
         contentHolder.addView(viewIndicator);
     }
 
-    public static void placeChat(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
+    public static void placeChat(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
         TextView viewIndicator = new TextView(ctx);
         viewIndicator.setHeight(250);
@@ -293,7 +320,7 @@ public class ViewHolderBinder {
         contentHolder.addView(viewIndicator);
     }
 
-    public static void placeAnswer(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
+    public static void placeAnswer(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
         TextView viewIndicator = new TextView(ctx);
         viewIndicator.setHeight(250);
@@ -302,7 +329,7 @@ public class ViewHolderBinder {
         contentHolder.addView(viewIndicator);
     }
 
-    public static void placeQuote(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
+    public static void placeQuote(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
         TextView viewIndicator = new TextView(ctx);
         viewIndicator.setHeight(250);

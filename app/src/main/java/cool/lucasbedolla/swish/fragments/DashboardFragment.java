@@ -19,13 +19,13 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
+import cool.lucasbedolla.swish.adapter.WrapperLinearLayoutManager;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
@@ -45,7 +45,6 @@ public class DashboardFragment
     private ArrayList<Post> loadedPosts;
     private RecyclerView recyclerViewMain;
     private RecyclerAdapter adapter;
-    private EndlessScrollListener endlessScrollListener;
 
     private SwipeRefreshLayout.OnRefreshListener refreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
@@ -104,32 +103,34 @@ public class DashboardFragment
         recyclerViewMain.setDrawingCacheEnabled(true);
         recyclerViewMain.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
-        RecyclerView.LayoutManager manager;
+
         if (MyPrefs.getIsDualMode(getActivity())) {
-            manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-            ((StaggeredGridLayoutManager) manager).setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+            StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
             recyclerViewMain.setLayoutManager(manager);
-            endlessScrollListener = new EndlessScrollListener((StaggeredGridLayoutManager) manager) {
+            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
                 @Override
                 public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                     Log.d("scrolling", "STAGGERED: onLoadMore:  CALLED");
                     fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
                 }
             };
+            recyclerViewMain.addOnScrollListener(endlessScrollListener);
             Log.d("scrolling", "STAGGERED: endlessScrolling Initialized");
 
         } else {
-            manager = new LinearLayoutManager(getActivity());
-            ((LinearLayoutManager) manager).setOrientation(RecyclerView.VERTICAL);
+            WrapperLinearLayoutManager manager = new WrapperLinearLayoutManager(getActivity());
+            manager.setOrientation(RecyclerView.VERTICAL);
             recyclerViewMain.setLayoutManager(manager);
 
-            endlessScrollListener = new EndlessScrollListener((LinearLayoutManager) manager) {
+            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
                 @Override
                 public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                     Log.d("scrolling", "MONO: onLoadMore:  CALLED");
                     fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
                 }
             };
+            recyclerViewMain.addOnScrollListener(endlessScrollListener);
             Log.d("scrolling", "MONO: endlessScrolling Initialized");
         }
 
@@ -158,7 +159,6 @@ public class DashboardFragment
             adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
             recyclerViewMain.setAdapter(adapter);
             refreshLayout.setRefreshing(false);
-            recyclerViewMain.addOnScrollListener(endlessScrollListener);
             alreadyInitialized = true;
         }
 
