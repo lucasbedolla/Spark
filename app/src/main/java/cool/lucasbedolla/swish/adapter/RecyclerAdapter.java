@@ -3,7 +3,6 @@ package cool.lucasbedolla.swish.adapter;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.content.DialogInterface;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -28,8 +27,9 @@ import com.tumblr.jumblr.types.TextPost;
 import com.tumblr.jumblr.types.VideoPost;
 
 import java.lang.ref.WeakReference;
-import java.util.List;
+import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.SparkApplication;
@@ -47,26 +47,31 @@ import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements View.OnClickListener, View.OnLongClickListener {
 
-    private final List<Post> itemList;
+    private ArrayList<Post> itemList;
     private WeakReference<UnderTheHoodActivity> ctx;
-    private Typeface font;
+    private boolean isDual;
 
-    public RecyclerAdapter(UnderTheHoodActivity underTheHoodActivity, List<Post> inputList) {
+    public RecyclerAdapter(UnderTheHoodActivity underTheHoodActivity, ArrayList<Post> inputList) {
         this.ctx = new WeakReference<>(underTheHoodActivity);
         itemList = inputList;
-    }
+        isDual = MyPrefs.getIsDualMode(underTheHoodActivity);
+        }
 
+    @NonNull
     @Override
-    public BasicViewHolder onCreateViewHolder(ViewGroup parent, int postType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        if (MyPrefs.getIsDualMode(parent.getContext())) {
-            //tweak a new set of this layout to have smaller scale for dual mode
-            return new BasicViewHolder(inflater.inflate(R.layout.view_holder_base_dual, parent, false));
+    public BasicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int postType) {
+        if(isDual){
+            return new BasicViewHolder(LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.view_holder_base_dual, parent, false));
         } else {
-            return new BasicViewHolder(inflater.inflate(R.layout.view_holder_base, parent, false));
+            return new BasicViewHolder(LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.view_holder_base, parent, false));
         }
     }
 
+
+    //not using magic numbers and enums anymore-
+    // favoring a cleaner polymorphic method
     @Override
     public int getItemViewType(int position) {
         return 0;
@@ -74,14 +79,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
 
     @Override
     public void onBindViewHolder(BasicViewHolder holder, int position) {
-        if (font == null) {
-            font = Typeface.createFromAsset(holder.getContentTargetLayout().getContext().getAssets(), "OdinBold.otf");
-        }
-
         Post post = itemList.get(position);
 
         if (post instanceof PhotoPost) {
-            ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this, font);
+            ViewHolderBinder.placePhotos(ctx.get(), holder, post, this, this);
         } else if (post instanceof TextPost) {
             ViewHolderBinder.placeText(ctx.get(), holder, post);
         } else if (post instanceof ChatPost) {
@@ -94,7 +95,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
             ViewHolderBinder.placeAnswer(ctx.get(), holder, post, this);
         }else if(post instanceof AudioPost){
             ViewHolderBinder.placeAudio(ctx.get(), holder, post, this);
-
         }
     }
 

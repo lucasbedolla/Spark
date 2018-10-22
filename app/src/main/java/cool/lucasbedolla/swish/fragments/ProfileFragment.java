@@ -37,7 +37,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
     public static final int ID = 3;
     public static final String BLOG_NAME = "BLOG_NAME";
 
-    private List<Post> loadedPosts = new ArrayList<>();
+    private ArrayList<Post> loadedPosts;
     private RecyclerView recyclerViewMain;
     private RecyclerAdapter adapter;
 
@@ -51,6 +51,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        loadedPosts = new ArrayList<>();
         //lets cut to the chase, shall we?
         if (getArguments() == null) {
             return getErrorLayout();

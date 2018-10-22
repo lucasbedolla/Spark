@@ -8,6 +8,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
@@ -18,7 +19,6 @@ import java.util.List;
 
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.MainActivity;
-import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
 import cool.lucasbedolla.swish.fragments.ProfileFragment;
 import cool.lucasbedolla.swish.view.SmartImageView;
 import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
@@ -41,7 +41,7 @@ public class ViewHolderBinder {
                                    Post post,
                                    View.OnClickListener listener,
                                    View.OnLongClickListener longClickListener) {
-        placePhotos(ctx, inferredViewHolder, post, listener,longClickListener, null);
+        placePhotos(ctx, inferredViewHolder, post, listener, longClickListener, null);
     }
 
     public static void placePhotos(Context ctx,
@@ -49,7 +49,7 @@ public class ViewHolderBinder {
                                    Post post,
                                    View.OnClickListener listener,
                                    View.OnLongClickListener longClickListener,
-                                   Typeface font){
+                                   Typeface font) {
         PhotoPost photoPost = (PhotoPost) post;
         basicHolderSetUp(ctx, photoPost, inferredViewHolder);
         setPhotos(ctx, inferredViewHolder, photoPost, listener, longClickListener);
@@ -249,38 +249,70 @@ public class ViewHolderBinder {
     }
 
     public static void placeText(Context context, BasicViewHolder holder, Post post) {
-
+        LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
+        TextView viewIndicator = new TextView(context);
+        viewIndicator.setHeight(250);
+        viewIndicator.setWidth(300);
+        viewIndicator.setText("text Post");
+        contentHolder.addView(viewIndicator);
     }
 
     public static void placeVideo(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
-
+        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+        TextView viewIndicator = new TextView(ctx);
+        viewIndicator.setHeight(250);
+        viewIndicator.setWidth(300);
+        viewIndicator.setText("Video Post");
+        contentHolder.addView(viewIndicator);
     }
 
     public static void placeAudio(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
-
+        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+        TextView viewIndicator = new TextView(ctx);
+        viewIndicator.setHeight(250);
+        viewIndicator.setWidth(300);
+        viewIndicator.setText("audio Post");
+        contentHolder.addView(viewIndicator);
     }
 
     public static void placeUnknown(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
-
+        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+        TextView viewIndicator = new TextView(ctx);
+        viewIndicator.setHeight(250);
+        viewIndicator.setWidth(300);
+        viewIndicator.setText("Unknown Post");
+        contentHolder.addView(viewIndicator);
     }
 
     public static void placeChat(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
-
+        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+        TextView viewIndicator = new TextView(ctx);
+        viewIndicator.setHeight(250);
+        viewIndicator.setWidth(300);
+        viewIndicator.setText("chat Post");
+        contentHolder.addView(viewIndicator);
     }
 
     public static void placeAnswer(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
-
+        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+        TextView viewIndicator = new TextView(ctx);
+        viewIndicator.setHeight(250);
+        viewIndicator.setWidth(300);
+        viewIndicator.setText("answer Post");
+        contentHolder.addView(viewIndicator);
     }
 
     public static void placeQuote(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
+        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+        TextView viewIndicator = new TextView(ctx);
+        viewIndicator.setHeight(250);
+        viewIndicator.setWidth(300);
+        viewIndicator.setText("quote Post");
+        contentHolder.addView(viewIndicator);
     }
+//   TODO: need to create loding post for last item in view
+//    public static void placeLoading(Context ctx, BasicViewHolder inferredViewHolder, View.OnClickListener listener) {
+//
+//    }
 
-    public static void placeLoading(Context ctx, BasicViewHolder inferredViewHolder, View.OnClickListener listener) {
-
-    }
-
-
-    public static void placeQuestion(Context ctx, BasicViewHolder holder, Post post, RecyclerAdapter recyclerAdapter) {
-
-    }
 }

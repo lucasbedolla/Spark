@@ -12,7 +12,6 @@ import org.scribe.exceptions.OAuthConnectionException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
@@ -29,7 +28,7 @@ public class FetchTumblrPostsTask extends AsyncTask {
     public static final int SEARCH = 1;
     public static final int PROFILE = 2;
 
-    private WeakReference<FetchPostListener> listener;
+    private FetchPostListener listener;
 
     @Override
     protected Object doInBackground(Object[] objects) {
@@ -37,16 +36,16 @@ public class FetchTumblrPostsTask extends AsyncTask {
         WeakReference<Context> ctx = new WeakReference<>((Context) objects[0]);
 
         int currentSizeOfPostsList = (int) objects[1];
-
-        listener = new WeakReference<>((FetchPostListener) objects[2]);
-
+        listener = (FetchPostListener) objects[2];
         int actionID = (int) objects[3];
+        //below block is for getting a specific users posts
         String blogName = null;
         if (objects.length > 4) {
             blogName = (String) objects[4];
         }
 
-        List<Post> fetchedList = new ArrayList<>(40);
+        ArrayList<Post> fetchedList = new ArrayList<>(20);
+
         try {
             String token = MyPrefs.getOAuthToken(ctx.get());
             String token_secret = MyPrefs.getOAuthTokenSecret(ctx.get());
@@ -60,26 +59,26 @@ public class FetchTumblrPostsTask extends AsyncTask {
             switch (actionID) {
                 case SEARCH:
                     if (blogName == null) {
-                        listener.get().fetchFailed(new Exception("No blog name set during fetch task."));
+                        listener.fetchFailed(new Exception("No blog name set during fetch task."));
                     }
-                    fetchedList = client.tagged(blogName, params);
+                    fetchedList = (ArrayList<Post>) client.tagged(blogName, params);
                     break;
                 case DASHBOARD:
-                    fetchedList = client.userDashboard(params);
+                    fetchedList = (ArrayList<Post>) client.userDashboard(params);
                     break;
                 case PROFILE:
                     if (blogName == null) {
-                        listener.get().fetchFailed(new Exception("No blog name set during fetch task."));
+                        listener.fetchFailed(new Exception("No blog name set during fetch task."));
                     } else {
-                        fetchedList = client.blogPosts(blogName, params);
+                        fetchedList = (ArrayList<Post>) client.blogPosts(blogName, params);
                     }
                     break;
             }
 
         } catch (OAuthConnectionException | JumblrException o) {
-            listener.get().fetchFailed(o);
+            listener.fetchFailed(o);
         } catch (OutOfMemoryError e) {
-            listener.get().fetchFailed((Exception) e.getCause());
+            listener.fetchFailed((Exception) e.getCause());
         }
         return fetchedList;
     }
@@ -92,8 +91,6 @@ public class FetchTumblrPostsTask extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        listener.get().fetchedPosts((List<Post>) o);
-        listener.clear();
-        listener = null;
+        listener.fetchedPosts((ArrayList<Post>) o);
     }
 }

@@ -42,7 +42,7 @@ public class DashboardFragment
     public static final int ID = 0;
 
     private SwipeRefreshLayout refreshLayout;
-    private List<Post> loadedPosts = new ArrayList<>();
+    private ArrayList<Post> loadedPosts;
     private RecyclerView recyclerViewMain;
     private RecyclerAdapter adapter;
     private EndlessScrollListener endlessScrollListener;
@@ -82,7 +82,7 @@ public class DashboardFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_dashboard, container, false);
-
+        loadedPosts = new ArrayList<>();
         loadingLottie = layout.findViewById(R.id.loading_lottie);
 
         // pull to refresh layout config
@@ -113,7 +113,7 @@ public class DashboardFragment
                 @Override
                 public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                     Log.d("scrolling", "STAGGERED: onLoadMore:  CALLED");
-                    fetchPosts(getActivity(), loadedPosts.size(), (MainActivity) getActivity(), FetchTumblrPostsTask.DASHBOARD);
+                    fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
                 }
             };
             Log.d("scrolling", "STAGGERED: endlessScrolling Initialized");
@@ -127,13 +127,13 @@ public class DashboardFragment
                 @Override
                 public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                     Log.d("scrolling", "MONO: onLoadMore:  CALLED");
-                    fetchPosts(getActivity(), loadedPosts.size(), (MainActivity) getActivity(), FetchTumblrPostsTask.DASHBOARD);
+                    fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
                 }
             };
             Log.d("scrolling", "MONO: endlessScrolling Initialized");
         }
 
-        fetchPosts(getActivity(), loadedPosts.size(), this, FetchTumblrPostsTask.DASHBOARD);
+        fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
         return layout;
     }
 
@@ -145,21 +145,28 @@ public class DashboardFragment
             loadingLottie.setVisibility(View.GONE);
             loadingLottie.clearAnimation();
         }
-        //int index1 =loadedPosts.size() -1;
+        //index of last item loaded
+        int indexStart = 0;
+        if (loadedPosts.size() != 0) {
+            indexStart = loadedPosts.size() - 1;
+        }
 
         loadedPosts.addAll(fetchedPosts);
 
         if (!alreadyInitialized) {
             //recycleradapter config
+            adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
+            recyclerViewMain.setAdapter(adapter);
             refreshLayout.setRefreshing(false);
             recyclerViewMain.addOnScrollListener(endlessScrollListener);
             alreadyInitialized = true;
         }
 
-        adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
+        int indexEnd = loadedPosts.size() - 1;
 
-        recyclerViewMain.setAdapter(adapter);
-        //adapter.notifyItemRangeInserted(index1, loadedPosts.size()-1);
+
+        Log.d("POSTS", "fetchedPosts: notify item inserted between index:" + indexStart + ", and " + indexEnd);
+        adapter.notifyItemRangeInserted(indexStart, indexEnd);
     }
 
     @Override

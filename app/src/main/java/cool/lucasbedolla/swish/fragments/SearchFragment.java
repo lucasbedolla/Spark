@@ -44,7 +44,7 @@ public class SearchFragment extends Fragment implements FetchPostListener, View.
     private String searchValue;
     private String lastSearch;
 
-    private List<Post> loadedPosts = new ArrayList<>();
+    private ArrayList<Post> loadedPosts;
     private RecyclerView recyclerViewMain;
     private RecyclerAdapter adapter;
 
@@ -57,7 +57,7 @@ public class SearchFragment extends Fragment implements FetchPostListener, View.
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_search, container, false);
-
+        loadedPosts = new ArrayList<>();
         //init menu buttons
         layout.findViewById(R.id.menu_dash).setOnClickListener(this);
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
