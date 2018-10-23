@@ -3,6 +3,7 @@ package cool.lucasbedolla.swish.util;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.halilibo.bettervideoplayer.BetterVideoPlayer;
 import com.tumblr.jumblr.types.AnswerPost;
 import com.tumblr.jumblr.types.ChatPost;
 import com.tumblr.jumblr.types.Dialogue;
@@ -19,6 +21,8 @@ import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
 import com.tumblr.jumblr.types.TextPost;
+import com.tumblr.jumblr.types.Video;
+import com.tumblr.jumblr.types.VideoPost;
 
 import java.util.HashMap;
 import java.util.List;
@@ -285,13 +289,36 @@ public class ViewHolderBinder {
         holder.getDescription().setVisibility(View.GONE);
     }
 
-    public static void placeVideo(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
-        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
-        TextView viewIndicator = new TextView(ctx);
-        viewIndicator.setHeight(250);
-        viewIndicator.setWidth(300);
-        viewIndicator.setText("Video Post");
-        contentHolder.addView(viewIndicator);
+    public static void placeVideo(Context context, BasicViewHolder holder, Post post, boolean isDual, View.OnClickListener listener) {
+
+        LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
+
+        View contentLayout;
+        if (isDual) { contentLayout = LayoutInflater.from(context).inflate(R.layout.dual_video_post, null, false); } else {
+            contentLayout = LayoutInflater.from(context).inflate(R.layout.mono_video_post, null, false);
+        }
+
+        VideoPost videoPost = (VideoPost) post;
+        holder.getDescription().setText(videoPost.getCaption());
+
+        List<Video> videos = videoPost.getVideos();
+        for (Video video : videos) {
+            View videoRow;
+
+            if(isDual){ videoRow = LayoutInflater.from(context).inflate(R.layout.dual_video_row, null); } else {
+                videoRow = LayoutInflater.from(context).inflate(R.layout.mono_video_row, null);
+            }
+
+            BetterVideoPlayer player = videoRow.findViewById(R.id.player);
+            player.setSource(Uri.parse(video.getEmbedCode()));
+            //TODO: set listener to main activity ? check docs
+
+            ((ViewGroup) contentLayout).addView(videoRow);
+        }
+
+        basicHolderSetUp(context, post, holder);
+        contentHolder.addView(contentLayout);
+        holder.getDescription().setVisibility(View.GONE);
     }
 
     public static void placeAudio(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
