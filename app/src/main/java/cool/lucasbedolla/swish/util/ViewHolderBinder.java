@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.tumblr.jumblr.types.AnswerPost;
+import com.tumblr.jumblr.types.ChatPost;
+import com.tumblr.jumblr.types.Dialogue;
 import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
@@ -251,9 +255,7 @@ public class ViewHolderBinder {
     public static void placeText(Context context, BasicViewHolder holder, Post post, boolean isDual) {
 
         LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
-        if(contentHolder.getChildCount()>0){
-            contentHolder.removeAllViews();
-        }
+
         View contentLayout;
         if (isDual) {
             contentLayout = LayoutInflater.from(context).inflate(R.layout.dual_text_post, null, false);
@@ -281,7 +283,6 @@ public class ViewHolderBinder {
         basicHolderSetUp(context, post, holder);
         contentHolder.addView(contentLayout);
         holder.getDescription().setVisibility(View.GONE);
-
     }
 
     public static void placeVideo(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
@@ -311,26 +312,86 @@ public class ViewHolderBinder {
         contentHolder.addView(viewIndicator);
     }
 
-    public static void placeChat(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
-        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
-        TextView viewIndicator = new TextView(ctx);
-        viewIndicator.setHeight(250);
-        viewIndicator.setWidth(300);
-        viewIndicator.setText("chat Post");
-        contentHolder.addView(viewIndicator);
+    public static void placeChat(Context context, BasicViewHolder holder, Post post, boolean isDual, View.OnClickListener listener) {
+        LinearLayout container = holder.getTargetLayoutAsLinearLayout();
+
+        View contentLayout;
+        if (isDual) {
+            contentLayout = LayoutInflater.from(context).inflate(R.layout.dual_chat_post, null, false);
+        } else {
+            contentLayout = LayoutInflater.from(context).inflate(R.layout.mono_chat_post, null, false);
+        }
+
+
+        ChatPost chatPost = (ChatPost) post;
+
+        List<Dialogue> dialogueList = chatPost.getDialogue();
+
+
+        for (Dialogue dialogue : dialogueList) {
+            //each iteration should be identifiable
+            View dialogueRow;
+
+            if (isDual) {
+                dialogueRow = LayoutInflater.from(context).inflate(R.layout.dual_dialogue_row, (ViewGroup) contentLayout, false);
+            } else {
+                dialogueRow = LayoutInflater.from(context).inflate(R.layout.mono_dialogue_row, (ViewGroup) contentLayout, false);
+            }
+            TextView label = dialogueRow.findViewById(R.id.label);
+            TextView name = dialogueRow.findViewById(R.id.name);
+            TextView phrase = dialogueRow.findViewById(R.id.phrase);
+
+            label.setText(dialogue.getLabel());
+            name.setText(dialogue.getName());
+            phrase.setText(dialogue.getPhrase());
+//
+//            int index = dialogue.getName().length() - 1;
+//            if (index > 0) {
+//                if(dialogue.getPhrase().contains(dialogue.getName())){
+//                    int indexEnd = dialogue.getPhrase().indexOf(dialogue.getName());
+//                }
+//            }
+            ((ViewGroup) contentLayout).addView(dialogueRow);
+        }
+        basicHolderSetUp(context, post, holder);
+        holder.getDescription().setVisibility(View.GONE);
+        container.addView(contentLayout);
     }
 
     public static void placeAnswer(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
+
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
-        TextView viewIndicator = new TextView(ctx);
-        viewIndicator.setHeight(250);
-        viewIndicator.setWidth(300);
-        viewIndicator.setText("answer Post");
-        contentHolder.addView(viewIndicator);
+        if (contentHolder.getChildCount() > 0) {
+            contentHolder.removeAllViews();
+        }
+        View contentLayout;
+        if (isDual) {
+            contentLayout = LayoutInflater.from(ctx).inflate(R.layout.dual_answer_post, null, false);
+        } else {
+            contentLayout = LayoutInflater.from(ctx).inflate(R.layout.mono_answer_post, null, false);
+        }
+
+        TextView answer = contentLayout.findViewById(R.id.answer);
+        TextView question = contentLayout.findViewById(R.id.question);
+        TextView askingUrl = contentLayout.findViewById(R.id.url);
+        TextView askingName = contentLayout.findViewById(R.id.askingName);
+
+        AnswerPost answerPost = (AnswerPost) post;
+
+        answer.setText(answerPost.getAnswer());
+        question.setText(answerPost.getQuestion());
+        askingName.setText(answerPost.getAskingName() + " Asked:");
+        askingUrl.setText(answerPost.getAskingUrl());
+
+        contentHolder.addView(contentLayout);
+
+        basicHolderSetUp(ctx, post, inferredViewHolder);
+        inferredViewHolder.getDescription().setVisibility(View.GONE);
     }
 
     public static void placeQuote(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+
         TextView viewIndicator = new TextView(ctx);
         viewIndicator.setHeight(250);
         viewIndicator.setWidth(300);

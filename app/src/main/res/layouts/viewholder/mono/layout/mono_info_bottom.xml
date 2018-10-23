@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="notes"
-        android:textColor="@color/light_gray" />
+        android:textColor="@color/medium_gray" />
 
     <ImageButton
         android:id="@+id/reblog_button"
