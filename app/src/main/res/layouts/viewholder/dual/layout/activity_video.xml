@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<com.halilibo.bettervideoplayer.BetterVideoPlayer-->
+        <!--android:id="@+id/bvp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--bvp:bvp_autoPlay="true"-->
+        <!--bvp:bvp_captionColor="@android:color/holo_blue_light"-->
+        <!--bvp:bvp_captionSize="20sp"-->
+        <!--bvp:bvp_hideControlsOnPlay="true"-->
+        <!--bvp:bvp_loadingStyle="RotatingPlane"-->
+        <!--bvp:bvp_showBottomProgressBar="true"-->
+        <!--bvp:bvp_showTotalDuration="true"-->
+        <!--bvp:bvp_title="Big Buck Bunny" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

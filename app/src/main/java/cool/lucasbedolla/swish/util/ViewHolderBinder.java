@@ -3,7 +3,6 @@ package cool.lucasbedolla.swish.util;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.halilibo.bettervideoplayer.BetterVideoPlayer;
 import com.tumblr.jumblr.types.AnswerPost;
 import com.tumblr.jumblr.types.ChatPost;
 import com.tumblr.jumblr.types.Dialogue;
@@ -21,8 +19,6 @@ import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
 import com.tumblr.jumblr.types.TextPost;
-import com.tumblr.jumblr.types.Video;
-import com.tumblr.jumblr.types.VideoPost;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +47,7 @@ public class ViewHolderBinder {
                                    Post post,
                                    boolean isDual, View.OnClickListener listener,
                                    View.OnLongClickListener longClickListener) {
-        placePhotos(ctx, inferredViewHolder, post, listener, longClickListener, null);
+        placePhotos(ctx, inferredViewHolder, post, listener, longClickListener, null, isDual);
     }
 
     public static void placePhotos(Context ctx,
@@ -59,9 +55,9 @@ public class ViewHolderBinder {
                                    Post post,
                                    View.OnClickListener listener,
                                    View.OnLongClickListener longClickListener,
-                                   Typeface font) {
+                                   Typeface font, boolean isDual) {
         PhotoPost photoPost = (PhotoPost) post;
-        basicHolderSetUp(ctx, photoPost, inferredViewHolder);
+        basicHolderSetUp(ctx, photoPost, inferredViewHolder, isDual);
         setPhotos(ctx, inferredViewHolder, photoPost, listener, longClickListener);
         if (photoPost.getCaption() != null && photoPost.getCaption().length() > 0) {
             String captionHtml = ((PhotoPost) post).getCaption();
@@ -71,6 +67,9 @@ public class ViewHolderBinder {
                 inferredViewHolder.getDescription().setText(removeAuthorText(post.getSourceTitle(), caption));
             } else {
                 inferredViewHolder.getDescription().setText(caption);
+            }
+            if(isDual){
+                inferredViewHolder.getDescription().setVisibility(View.GONE);
             }
         } else {
             inferredViewHolder.getDescription().setVisibility(View.GONE);
@@ -118,12 +117,12 @@ public class ViewHolderBinder {
         }
     }
 
-    private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder) {
-        configureTopLayout(context, holder, post);
-        configureBottomLayout(context, holder, post);
+    private static void basicHolderSetUp(Context context, Post post, BasicViewHolder holder, boolean isDual) {
+        configureTopLayout(context, holder, post, isDual);
+        configureBottomLayout(context, holder, post, isDual);
     }
 
-    private static void configureBottomLayout(final Context context, final BasicViewHolder holder, final Post post) {
+    private static void configureBottomLayout(final Context context, final BasicViewHolder holder, final Post post, boolean isDual) {
         //done to reset reused viewholder
 
         final Drawable filledHeart = context.getResources().getDrawable(R.drawable.ic_filled_heart);
@@ -207,11 +206,15 @@ public class ViewHolderBinder {
                 }
             }
         });
+
+
     }
 
-    private static void configureTopLayout(final Context context, BasicViewHolder holder, final Post post) {
+    private static void configureTopLayout(final Context context, BasicViewHolder holder, final Post post, boolean isDual) {
 
-        downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
+        if (!isDual) {
+            downloadBlogAvatarIntoImageView(holder.getProfilePicture(), post.getBlogName());
+        }
 
         //set up blog text
         if (post.getSourceTitle() == null) {
@@ -231,25 +234,27 @@ public class ViewHolderBinder {
                 if (holder.getFollowSource() != null) {
                     holder.getFollowSource().setText(sourceText);
                 }
+                holder.getFollowSource().setVisibility(View.VISIBLE);
             }
-            holder.getFollowSource().setVisibility(View.VISIBLE);
+        }
+        if (!isDual) {
+            holder.getProfilePicture().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //todo: open up profile fragment
+                    ProfileFragment interactionFragment = new ProfileFragment();
+                    Bundle arguments = new Bundle();
+                    arguments.putString(ProfileFragment.BLOG_NAME, post.getBlogName());
+                    interactionFragment.setArguments(arguments);
+
+                    ((MainActivity) context).getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                            .replace(R.id.fragment_container, interactionFragment, "IMAGE")
+                            .commitNow();
+                }
+            });
         }
 
-        holder.getProfilePicture().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //todo: open up profile fragment
-                ProfileFragment interactionFragment = new ProfileFragment();
-                Bundle arguments = new Bundle();
-                arguments.putString(ProfileFragment.BLOG_NAME, post.getBlogName());
-                interactionFragment.setArguments(arguments);
-
-                ((MainActivity) context).getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
-                        .replace(R.id.fragment_container, interactionFragment, "IMAGE")
-                        .commitNow();
-            }
-        });
     }
 
     private static boolean isFollowingSourceOrReblogger() {
@@ -284,51 +289,75 @@ public class ViewHolderBinder {
             body.setVisibility(View.GONE);
         }
 
-        basicHolderSetUp(context, post, holder);
+        basicHolderSetUp(context, post, holder, isDual);
         contentHolder.addView(contentLayout);
         holder.getDescription().setVisibility(View.GONE);
     }
 
-    public static void placeVideo(Context context, BasicViewHolder holder, Post post, boolean isDual, View.OnClickListener listener) {
-
-        LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
-
-        View contentLayout;
-        if (isDual) { contentLayout = LayoutInflater.from(context).inflate(R.layout.dual_video_post, null, false); } else {
-            contentLayout = LayoutInflater.from(context).inflate(R.layout.mono_video_post, null, false);
-        }
-
-        VideoPost videoPost = (VideoPost) post;
-        holder.getDescription().setText(videoPost.getCaption());
-
-        List<Video> videos = videoPost.getVideos();
-        for (Video video : videos) {
-            View videoRow;
-
-            if(isDual){ videoRow = LayoutInflater.from(context).inflate(R.layout.dual_video_row, null); } else {
-                videoRow = LayoutInflater.from(context).inflate(R.layout.mono_video_row, null);
-            }
-
-            BetterVideoPlayer player = videoRow.findViewById(R.id.player);
-            player.setSource(Uri.parse(video.getEmbedCode()));
-            //TODO: set listener to main activity ? check docs
-
-            ((ViewGroup) contentLayout).addView(videoRow);
-        }
-
-        basicHolderSetUp(context, post, holder);
-        contentHolder.addView(contentLayout);
-        holder.getDescription().setVisibility(View.GONE);
-    }
-
-    public static void placeAudio(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
-        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
-        TextView viewIndicator = new TextView(ctx);
-        viewIndicator.setHeight(250);
-        viewIndicator.setWidth(300);
-        viewIndicator.setText("audio Post");
-        contentHolder.addView(viewIndicator);
-    }
+//    public static void placeVideo(Context context, BasicViewHolder holder, Post post, boolean isDual, View.OnClickListener listener) {
+//
+//        LinearLayout contentHolder = holder.getTargetLayoutAsLinearLayout();
+//
+//        View contentLayout;
+//        if (isDual) {
+//            contentLayout = LayoutInflater.from(context).inflate(R.layout.dual_video_post, contentHolder, true);
+//        } else {
+//            contentLayout = LayoutInflater.from(context).inflate(R.layout.mono_video_post, contentHolder, true);
+//        }
+//
+//        VideoPost videoPost = (VideoPost) post;
+//        holder.getDescription().setText(videoPost.getCaption());
+//
+//        List<Video> videos = videoPost.getVideos();
+//        for (Video video : videos) {
+//            View videoRow;
+//
+//            if (isDual) {
+//                videoRow = LayoutInflater.from(context).inflate(R.layout.dual_video_row, (ViewGroup) contentLayout);
+//            } else {
+//                videoRow = LayoutInflater.from(context).inflate(R.layout.mono_video_row, (ViewGroup) contentLayout);
+//            }
+//
+//
+//            BetterVideoPlayer player = videoRow.findViewById(R.id.player);
+////            int srcIndex = video.getEmbedCode().indexOf("src");
+////
+////            int heightIndex = video.getEmbedCode().indexOf("height") + 8;
+////            String heightString = video.getEmbedCode().substring(heightIndex);
+////            int heightEndIndex = video.getEmbedCode().indexOf("\'");
+////            heightString = heightString.substring(0, heightEndIndex);
+////            heightEndIndex = video.getEmbedCode().indexOf("\'");
+////            heightString = heightString.substring(0, heightEndIndex);
+////            //height/width of video
+////            double height = Integer.valueOf(heightString.substring(0, heightString.indexOf("\'")));
+////            double width = video.getWidth();
+////            //make sure this is returning no zero
+////            int displayWidth = ((MainActivity) context).getWindowManager().getDefaultDisplay().getWidth();
+////
+////            double aspectTrueHeight = (height / width) * displayWidth;
+////
+////            videoRow.setMinimumHeight((int) aspectTrueHeight);
+////            videoRow.setMinimumWidth(displayWidth);
+////
+////
+////            String https = video.getEmbedCode().substring(srcIndex + 5);
+////            https = https.substring(0, https.indexOf("\""));
+//            player.setSource(Uri.parse("https://www.youtube.com/watch?v=yEGth4SKv-c"));
+//
+//            player.setCallback((MainActivity) context);
+//        }
+//
+//        basicHolderSetUp(context, post, holder);
+//    }
+//
+//    public static void placeAudio(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
+//        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+//        TextView viewIndicator = new TextView(ctx);
+//        viewIndicator.setHeight(250);
+//        viewIndicator.setWidth(300);
+//        viewIndicator.setText("audio Post");
+//        contentHolder.addView(viewIndicator);
+//    }
 
     public static void placeUnknown(Context ctx, BasicViewHolder inferredViewHolder, Post post, View.OnClickListener listener) {
         LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
@@ -364,6 +393,7 @@ public class ViewHolderBinder {
             } else {
                 dialogueRow = LayoutInflater.from(context).inflate(R.layout.mono_dialogue_row, (ViewGroup) contentLayout, false);
             }
+
             TextView label = dialogueRow.findViewById(R.id.label);
             TextView name = dialogueRow.findViewById(R.id.name);
             TextView phrase = dialogueRow.findViewById(R.id.phrase);
@@ -380,7 +410,7 @@ public class ViewHolderBinder {
 //            }
             ((ViewGroup) contentLayout).addView(dialogueRow);
         }
-        basicHolderSetUp(context, post, holder);
+        basicHolderSetUp(context, post, holder, isDual);
         holder.getDescription().setVisibility(View.GONE);
         container.addView(contentLayout);
     }
@@ -405,14 +435,14 @@ public class ViewHolderBinder {
 
         AnswerPost answerPost = (AnswerPost) post;
 
-        answer.setText(answerPost.getAnswer());
-        question.setText(answerPost.getQuestion());
+        answer.setText(Html.fromHtml(answerPost.getAnswer()));
+        question.setText(Html.fromHtml(answerPost.getQuestion()));
         askingName.setText(answerPost.getAskingName() + " Asked:");
         askingUrl.setText(answerPost.getAskingUrl());
 
         contentHolder.addView(contentLayout);
 
-        basicHolderSetUp(ctx, post, inferredViewHolder);
+        basicHolderSetUp(ctx, post, inferredViewHolder, isDual);
         inferredViewHolder.getDescription().setVisibility(View.GONE);
     }
 
@@ -425,9 +455,5 @@ public class ViewHolderBinder {
         viewIndicator.setText("quote Post");
         contentHolder.addView(viewIndicator);
     }
-//   TODO: need to create loding post for last item in view
-//    public static void placeLoading(Context ctx, BasicViewHolder inferredViewHolder, View.OnClickListener listener) {
-//
-//    }
 
 }

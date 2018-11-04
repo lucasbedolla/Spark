@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
-    android:orientation="horizontal">
+    android:layout_marginBottom="4dp"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/card_view"
+    <include layout="@layout/dual_info_top" />
+
+    <FrameLayout
+        android:id="@+id/target_layout"
+        android:layout_width="match_parent"
+        android:background="@color/off_white"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/post_text_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:orientation="vertical">
+        android:background="@color/white"
+        android:padding="4dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#464646" />
 
-        <include
-            android:id="@+id/top"
-            layout="@layout/dual_info_top" />
-
-        <FrameLayout
-            android:id="@+id/target_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/post_text_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:padding="10dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="gone" />
-
-        <include
-            android:id="@+id/bottom"
-            layout="@layout/dual_info_bottom" />
-
-    </LinearLayout>
+    <include layout="@layout/dual_info_bottom" />
 
 </LinearLayout>
+
 
 
 

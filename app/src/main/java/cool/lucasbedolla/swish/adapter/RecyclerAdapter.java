@@ -31,8 +31,8 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import cool.lucasbedolla.swish.EmbrApplication;
 import cool.lucasbedolla.swish.R;
-import cool.lucasbedolla.swish.SparkApplication;
 import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.fragments.InteractionFragment;
@@ -94,11 +94,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         } else if (post instanceof QuotePost) {
             ViewHolderBinder.placeQuote(ctx.get(), holder, post, isDual, this);
         } else if (post instanceof VideoPost) {
-            ViewHolderBinder.placeVideo(ctx.get(), holder, post, isDual, this);
+            //ViewHolderBinder.placeVideo(ctx.get(), holder, post, isDual, this);
         } else if (post instanceof AnswerPost) {
             ViewHolderBinder.placeAnswer(ctx.get(), holder, post, isDual, this);
         } else if (post instanceof AudioPost) {
-            ViewHolderBinder.placeAudio(ctx.get(), holder, post, isDual, this);
+           // ViewHolderBinder.placeAudio(ctx.get(), holder, post, isDual, this);
         }
     }
 
@@ -115,7 +115,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         holder.getNotes().setText("");
         holder.getAuthorText().setText("");
         holder.getFollowSource().setText("");
-        holder.getProfilePicture().setImageDrawable(null);
+        if(!isDual){
+            holder.getProfilePicture().setImageDrawable(null);
+        }
 
     }
 
@@ -159,7 +161,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                                                     if (url.contains(".gif")) {
                                                         Toast.makeText(ctx.get(), "Saving a GIF file is currently not supported.", Toast.LENGTH_SHORT).show();
                                                     } else {
-                                                        WeakReference<Application> applicationWeakReference = new WeakReference<>(SparkApplication.getContext());
+                                                        WeakReference<Application> applicationWeakReference = new WeakReference<>(EmbrApplication.getContext());
                                                         ImageHelper.downloadImagefromDrawable(applicationWeakReference, ((ImageView) view).getDrawable());
                                                     }
                                                 }

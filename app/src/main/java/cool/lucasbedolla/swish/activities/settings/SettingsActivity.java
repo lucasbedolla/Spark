@@ -1,6 +1,5 @@
 package cool.lucasbedolla.swish.activities.settings;
 
-import android.app.ActivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -20,13 +19,6 @@ public class SettingsActivity extends UnderTheHoodActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-    }
-
-    @Override
-    public void onClick(View view) {
-        ((ActivityManager) getSystemService(ACTIVITY_SERVICE))
-                .clearApplicationUserData(); // note: it has a return value!
-        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
 

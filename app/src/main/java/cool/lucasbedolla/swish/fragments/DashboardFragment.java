@@ -11,9 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.tumblr.jumblr.types.AudioPost;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.VideoPost;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -26,11 +29,13 @@ import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
 import cool.lucasbedolla.swish.adapter.WrapperLinearLayoutManager;
+import cool.lucasbedolla.swish.adapter.WrapperStaggeredLayout;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.EndlessScrollListener;
+import cool.lucasbedolla.swish.view.SpacerDecoration;
 
 
 /**
@@ -51,15 +56,15 @@ public class DashboardFragment
         public void onRefresh() {
             refreshLayout.setRefreshing(true);
             loadedPosts.clear();
-            fetchPosts(getActivity(), loadedPosts.size(), ((MainActivity) getActivity()), FetchTumblrPostsTask.DASHBOARD);
+            fetchPosts(getActivity(), loadedPosts.size(), FetchTumblrPostsTask.DASHBOARD);
         }
     };
 
     private ImageView loadingLottie;
     private boolean alreadyInitialized = false;
 
-    private void fetchPosts(Context ctx, int postSize, FetchPostListener listener, int actionID) {
-        new FetchTumblrPostsTask().execute(ctx, postSize, listener, actionID);
+    private void fetchPosts(Context ctx, int postSize, int actionID) {
+        new FetchTumblrPostsTask().execute(ctx, postSize, DashboardFragment.this, actionID);
     }
 
     @Override
@@ -97,22 +102,19 @@ public class DashboardFragment
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
         layout.findViewById(R.id.menu_spark).setOnClickListener(this);
         layout.findViewById(R.id.menu_profile).setOnClickListener(this);
+
         //recyclerview config
         recyclerViewMain = layout.findViewById(R.id.recycler);
-        recyclerViewMain.setItemViewCacheSize(4);
-        recyclerViewMain.setDrawingCacheEnabled(true);
-        recyclerViewMain.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-
 
         if (MyPrefs.getIsDualMode(getActivity())) {
-            StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            WrapperStaggeredLayout manager = new WrapperStaggeredLayout(2, StaggeredGridLayoutManager.VERTICAL);
             manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
             recyclerViewMain.setLayoutManager(manager);
             EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
                 @Override
                 public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                     Log.d("scrolling", "STAGGERED: onLoadMore:  CALLED");
-                    fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
+                    fetchPosts(getActivity(), loadedPosts.size(), FetchTumblrPostsTask.DASHBOARD);
                 }
             };
             recyclerViewMain.addOnScrollListener(endlessScrollListener);
@@ -127,21 +129,20 @@ public class DashboardFragment
                 @Override
                 public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                     Log.d("scrolling", "MONO: onLoadMore:  CALLED");
-                    fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
+                    fetchPosts(getActivity(), loadedPosts.size(), FetchTumblrPostsTask.DASHBOARD);
                 }
             };
             recyclerViewMain.addOnScrollListener(endlessScrollListener);
             Log.d("scrolling", "MONO: endlessScrolling Initialized");
         }
 
-        fetchPosts(getActivity(), loadedPosts.size(), DashboardFragment.this, FetchTumblrPostsTask.DASHBOARD);
+        fetchPosts(getActivity(), loadedPosts.size(), FetchTumblrPostsTask.DASHBOARD);
         return layout;
     }
 
 
     @Override
     public void fetchedPosts(final List<Post> fetchedPosts) {
-
         if (loadingLottie.getVisibility() == View.VISIBLE) {
             loadingLottie.setVisibility(View.GONE);
             loadingLottie.clearAnimation();
@@ -152,11 +153,25 @@ public class DashboardFragment
             indexStart = loadedPosts.size() - 1;
         }
 
+        Iterator<Post> postIterator = fetchedPosts.iterator();
+
+        while (postIterator.hasNext()) {
+            Post post = postIterator.next();
+            if (post instanceof VideoPost
+                    || post instanceof AudioPost) {
+                postIterator.remove();
+            }
+        }
+
         loadedPosts.addAll(fetchedPosts);
 
-        if (!alreadyInitialized) {
+        if (!alreadyInitialized || refreshLayout.isRefreshing()) {
             //recycleradapter config
             adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
+            if(MyPrefs.getIsDualMode(getContext())){
+                SpacerDecoration decoration = new SpacerDecoration(20);
+                recyclerViewMain.addItemDecoration(decoration);
+            }
             recyclerViewMain.setAdapter(adapter);
             refreshLayout.setRefreshing(false);
             alreadyInitialized = true;

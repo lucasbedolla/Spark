@@ -25,7 +25,7 @@ import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.net.URLConnection;
 
-import cool.lucasbedolla.swish.SparkApplication;
+import cool.lucasbedolla.swish.EmbrApplication;
 
 /**
  * Created by Lucas Bedolla on 2/5/2018.
@@ -101,7 +101,7 @@ public class ImageHelper {
     }
 
     private static void scanFile(File file) {
-        MediaScannerConnection.scanFile(SparkApplication.getContext(), new String[]{file.getAbsolutePath()}, null, new MediaScannerConnection.OnScanCompletedListener() {
+        MediaScannerConnection.scanFile(EmbrApplication.getContext(), new String[]{file.getAbsolutePath()}, null, new MediaScannerConnection.OnScanCompletedListener() {
             @Override
             public void onScanCompleted(String path, Uri uri) {
                 Log.d(TAG, "onScanCompleted: File scanned");

@@ -1,73 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/extras_parent"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="36dp"
     android:background="@color/white"
-    android:gravity="center"
-    android:minHeight="48dp"
-    android:orientation="vertical">
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-
-    <LinearLayout
-        android:id="@+id/extras_content"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/notes"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/notes"
-            android:layout_width="80dp"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:textColor="@color/medium_gray"
-            android:text="notes"
-            android:visibility="visible" />
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:text="notes"
+        android:textColor="@color/medium_gray" />
 
+    <ImageButton
+        android:id="@+id/reblog_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/like_button"
+        android:adjustViewBounds="true" />
 
-        <ImageView
-            android:id="@+id/extras_button"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            app:srcCompat="@drawable/ic_arrow_down" />
+    <ImageButton
+        android:id="@+id/like_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true" />
 
-
-        <ImageView
-            android:id="@+id/reblog_button"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:text="reblog" />
-
-        <ImageView
-            android:id="@+id/like_button"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:text="like" />
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>

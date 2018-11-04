@@ -2,13 +2,8 @@ package cool.lucasbedolla.swish.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
-
-import com.tumblr.jumblr.types.Post;
-
-import java.util.List;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -19,12 +14,11 @@ import cool.lucasbedolla.swish.fragments.DashboardFragment;
 import cool.lucasbedolla.swish.fragments.ProfileFragment;
 import cool.lucasbedolla.swish.fragments.SearchFragment;
 import cool.lucasbedolla.swish.fragments.SparkFragment;
-import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.NoSwipeViewPager;
 
-public class MainActivity extends UnderTheHoodActivity implements FetchPostListener, View.OnTouchListener, FragmentEventController {
+public class MainActivity extends UnderTheHoodActivity implements FragmentEventController {
 
     private NoSwipeViewPager mViewPager;
     private int pressCount = 0;
@@ -38,22 +32,6 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
         mViewPager = findViewById(R.id.container);
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-    }
-
-    @Override
-    public void onClick(View v) {
-        //TODO: this will handle menu controls
-
-    }
-
-    @Override
-    public void fetchedPosts(List<Post> posts) {
-
-    }
-
-    @Override
-    public void fetchFailed(Exception e) {
-        Toast.makeText(this, "Search has unexpectedly failed. Please try again later.", Toast.LENGTH_SHORT).show();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -88,22 +66,6 @@ public class MainActivity extends UnderTheHoodActivity implements FetchPostListe
         }
     }
 
-
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getActionMasked()) {
-            case MotionEvent.ACTION_SCROLL:
-                Toast.makeText(this, "scrolling", Toast.LENGTH_SHORT).show();
-                break;
-            case MotionEvent.ACTION_UP:
-                Toast.makeText(this, "action up", Toast.LENGTH_SHORT).show();
-                break;
-            case MotionEvent.ACTION_DOWN:
-                Toast.makeText(this, "action down", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return true;
-    }
 
     @Override
     public void onBackPressed() {
