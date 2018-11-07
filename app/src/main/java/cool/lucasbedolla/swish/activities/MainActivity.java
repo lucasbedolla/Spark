@@ -13,7 +13,7 @@ import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.fragments.DashboardFragment;
 import cool.lucasbedolla.swish.fragments.ProfileFragment;
 import cool.lucasbedolla.swish.fragments.SearchFragment;
-import cool.lucasbedolla.swish.fragments.SparkFragment;
+import cool.lucasbedolla.swish.fragments.SettingsFragment;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.NoSwipeViewPager;
@@ -36,7 +36,7 @@ public class MainActivity extends UnderTheHoodActivity implements FragmentEventC
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        private SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -46,17 +46,18 @@ public class MainActivity extends UnderTheHoodActivity implements FragmentEventC
                 case 0:
                     return new DashboardFragment();
                 case 1:
-                    return new SparkFragment();
-                case 2:
                     return new SearchFragment();
-                case 3:
+                case 2:
                     ProfileFragment profileFragment = new ProfileFragment();
                     Bundle args = new Bundle();
                     args.putString(ProfileFragment.BLOG_NAME, MyPrefs.getCurrentUser(MainActivity.this));
                     profileFragment.setArguments(args);
                     return profileFragment;
+                case 3:
+                    return new SettingsFragment();
+
                 default:
-                    return new SparkFragment();
+                    return new SettingsFragment();
             }
         }
 
@@ -101,74 +102,33 @@ public class MainActivity extends UnderTheHoodActivity implements FragmentEventC
     //this handles events submitted by fragments
     @Override
     public void submitEvent(int fragmentID, View v, int action) {
-        switch (fragmentID) {
-            case 0:
-                handleDashEvents(v);
-                break;
-            case 1:
-                handleSparkEvents();
-                break;
-            case 2:
-                handleSearchEvents(v);
-                break;
-            case 3:
-                handleProfEvents(v);
-                break;
-        }
+        handleDashEvents(v, fragmentID);
     }
 
-    private void handleProfEvents(View v) {
+    private void handleDashEvents(View v, int fragmentID) {
         switch (v.getId()) {
             case R.id.menu_dash:
-                mViewPager.setCurrentItem(0, false);
-                break;
-            case R.id.menu_spark:
-                mViewPager.setCurrentItem(1, false);
-                break;
-            case R.id.menu_search:
-                mViewPager.setCurrentItem(2, false);
-                break;
-            case R.id.menu_profile:
-
-                break;
-        }
-    }
-
-    private void handleSearchEvents(View v) {
-        switch (v.getId()) {
-            case R.id.menu_dash:
-                mViewPager.setCurrentItem(0, false);
-                break;
-            case R.id.menu_spark:
-                mViewPager.setCurrentItem(1, false);
+                if (fragmentID != 0) {
+                    mViewPager.setCurrentItem(0, false);
+                }
                 break;
             case R.id.menu_search:
-
+                if (fragmentID != 1) {
+                    mViewPager.setCurrentItem(1, false);
+                }
                 break;
             case R.id.menu_profile:
-                mViewPager.setCurrentItem(3, false);
+                if (fragmentID != 2) {
+                    mViewPager.setCurrentItem(2, false);
+                }
+                break;
+            case R.id.menu_spark:
+                if (fragmentID != 3) {
+                    mViewPager.setCurrentItem(3, false);
+                }
                 break;
         }
     }
 
 
-    private void handleSparkEvents() {
-    }
-
-    private void handleDashEvents(View v) {
-        switch (v.getId()) {
-            case R.id.menu_dash:
-
-                break;
-            case R.id.menu_spark:
-                mViewPager.setCurrentItem(1, false);
-                break;
-            case R.id.menu_search:
-                mViewPager.setCurrentItem(2, false);
-                break;
-            case R.id.menu_profile:
-                mViewPager.setCurrentItem(3, false);
-                break;
-        }
-    }
 }

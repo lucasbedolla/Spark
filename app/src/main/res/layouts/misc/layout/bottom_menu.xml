@@ -41,6 +41,8 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_weight="1"
-        android:src="@drawable/spark" />
+        android:gravity="center"
+        android:padding="10dp"
+        app:srcCompat="@drawable/ic_settings" />
 
 </LinearLayout>

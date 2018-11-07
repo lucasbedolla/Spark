@@ -3,30 +3,37 @@ package cool.lucasbedolla.swish.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.tumblr.jumblr.types.PhotoPost;
+import com.tumblr.jumblr.types.AudioPost;
+import com.tumblr.jumblr.types.ChatPost;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.VideoPost;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.adapter.RecyclerAdapter;
+import cool.lucasbedolla.swish.adapter.WrapperLinearLayoutManager;
+import cool.lucasbedolla.swish.adapter.WrapperStaggeredLayout;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.ImageHelper;
+import cool.lucasbedolla.swish.util.MyPrefs;
+import cool.lucasbedolla.swish.view.EndlessScrollListener;
+import cool.lucasbedolla.swish.view.SpacerDecoration;
 
 
 /**
@@ -34,12 +41,13 @@ import cool.lucasbedolla.swish.util.ImageHelper;
  */
 public class ProfileFragment extends Fragment implements View.OnClickListener, FetchPostListener {
 
-    public static final int ID = 3;
+    public static final int ID = 2;
     public static final String BLOG_NAME = "BLOG_NAME";
 
     private ArrayList<Post> loadedPosts;
     private RecyclerView recyclerViewMain;
     private RecyclerAdapter adapter;
+    private boolean alreadyInitialized;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -62,33 +70,59 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
         layout.findViewById(R.id.menu_spark).setOnClickListener(this);
         layout.findViewById(R.id.menu_profile).setOnClickListener(this);
+
         //recyclerview config
         recyclerViewMain = layout.findViewById(R.id.recycler);
-        recyclerViewMain.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewMain.setItemViewCacheSize(26);
-        recyclerViewMain.setDrawingCacheEnabled(true);
-        recyclerViewMain.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
         Bundle bundle = getArguments();
-        /*
-        blog name is not self contained for flexibility of class
-         */
-        String blogName = bundle.getString(BLOG_NAME);
+        final String blogName = bundle.getString(BLOG_NAME);
 
         if (blogName != null) {
             ImageView backdrop = layout.findViewById(R.id.backdrop);
+            TextView blog = layout.findViewById(R.id.blog_name);
+            blog.setText(blogName);
             ImageHelper.downloadBlogAvatarIntoImageView(backdrop, blogName);
             fetchPosts(getActivity(), 0, this, blogName);
+
         } else {
             //todo: provide error message and return error layout  :O
             return getErrorLayout();
         }
 
-        //success!
+        if (MyPrefs.getIsDualMode(getActivity())) {
+            WrapperStaggeredLayout manager = new WrapperStaggeredLayout(2, StaggeredGridLayoutManager.VERTICAL);
+            manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+            recyclerViewMain.setLayoutManager(manager);
+            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
+                @Override
+                public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                    Log.d("scrolling", "STAGGERED: onLoadMore:  CALLED");
+                    fetchPosts(getActivity(), loadedPosts.size(),ProfileFragment.this, blogName);
+                }
+            };
+            recyclerViewMain.addOnScrollListener(endlessScrollListener);
+            Log.d("scrolling", "STAGGERED: endlessScrolling Initialized");
+
+        } else {
+            WrapperLinearLayoutManager manager = new WrapperLinearLayoutManager(getActivity());
+            manager.setOrientation(RecyclerView.VERTICAL);
+            recyclerViewMain.setLayoutManager(manager);
+
+            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
+                @Override
+                public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                    Log.d("scrolling", "MONO: onLoadMore:  CALLED");
+                    fetchPosts(getActivity(), loadedPosts.size(),ProfileFragment.this, blogName);
+                }
+            };
+            recyclerViewMain.addOnScrollListener(endlessScrollListener);
+            Log.d("scrolling", "MONO: endlessScrolling Initialized");
+        }
+
         return layout;
     }
 
-    public View getErrorLayout() {
+    private View getErrorLayout() {
         return new ImageView(getActivity());
     }
 
@@ -103,31 +137,45 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
     }
 
     @Override
-    public void fetchedPosts(List<Post> fetchedPosts) {
-        int initialPostSize = loadedPosts.size();
+    public void fetchedPosts(final List<Post> fetchedPosts) {
 
-        for (Post post : fetchedPosts) {
-            if (post instanceof PhotoPost) {
-                loadedPosts.add(post);
+        //index of last item loaded
+        int indexStart = 0;
+        if (loadedPosts.size() != 0) {
+            indexStart = loadedPosts.size() - 1;
+        }
+
+        Iterator<Post> postIterator = fetchedPosts.iterator();
+
+        while (postIterator.hasNext()) {
+            Post post = postIterator.next();
+            if (post instanceof VideoPost
+                    || post instanceof AudioPost || post instanceof ChatPost) {
+                postIterator.remove();
             }
         }
 
-        if (initialPostSize == 0) {
+        loadedPosts.addAll(fetchedPosts);
+
+        if (!alreadyInitialized) {
             //recycleradapter config
             adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
+            if (MyPrefs.getIsDualMode(getContext())) {
+                SpacerDecoration decoration = new SpacerDecoration(20);
+                recyclerViewMain.addItemDecoration(decoration);
+            }
             recyclerViewMain.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-            Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.alpha_in);
-            recyclerViewMain.startAnimation(anim);
-        } else {
-            adapter.notifyItemRangeChanged(0, loadedPosts.size());
-            adapter.notifyDataSetChanged();
+            alreadyInitialized = true;
         }
+
+        int indexEnd = loadedPosts.size() - 1;
+
+        Log.d("POSTS", "fetchedPosts: notify item inserted between index:" + indexStart + ", and " + indexEnd);
+        adapter.notifyItemRangeInserted(indexStart, indexEnd);
     }
 
     @Override
     public void fetchFailed(Exception e) {
-        Toast.makeText(getActivity(), "Search has unexpectedly failed. Please try again later.", Toast.LENGTH_SHORT).show();
     }
 
 }

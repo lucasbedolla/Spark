@@ -11,16 +11,8 @@
     <FrameLayout
         android:id="@+id/target_layout"
         android:layout_width="match_parent"
+        android:background="@color/off_white"
         android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/post_text_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="10dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#464646" />
 
     <include layout="@layout/mono_info_bottom" />
 

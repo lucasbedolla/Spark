@@ -39,7 +39,7 @@ import cool.lucasbedolla.swish.listeners.FragmentEventController;
  */
 public class SearchFragment extends Fragment implements FetchPostListener, View.OnClickListener {
 
-    public static final int ID = 2;
+    public static final int ID = 1;
 
     private String searchValue;
     private String lastSearch;

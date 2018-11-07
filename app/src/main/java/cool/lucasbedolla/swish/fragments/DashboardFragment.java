@@ -6,12 +6,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.tumblr.jumblr.types.AudioPost;
+import com.tumblr.jumblr.types.ChatPost;
 import com.tumblr.jumblr.types.Post;
 import com.tumblr.jumblr.types.VideoPost;
 
@@ -42,7 +42,7 @@ import cool.lucasbedolla.swish.view.SpacerDecoration;
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment
-        extends Fragment implements FetchPostListener, View.OnTouchListener, View.OnClickListener {
+        extends Fragment implements FetchPostListener, View.OnClickListener {
 
     public static final int ID = 0;
 
@@ -55,7 +55,10 @@ public class DashboardFragment
         @Override
         public void onRefresh() {
             refreshLayout.setRefreshing(true);
+            loadingLottie.setVisibility(View.VISIBLE);
+            recyclerViewMain.setVisibility(View.INVISIBLE);
             loadedPosts.clear();
+            adapter.notifyDataSetChanged();
             fetchPosts(getActivity(), loadedPosts.size(), FetchTumblrPostsTask.DASHBOARD);
         }
     };
@@ -143,10 +146,7 @@ public class DashboardFragment
 
     @Override
     public void fetchedPosts(final List<Post> fetchedPosts) {
-        if (loadingLottie.getVisibility() == View.VISIBLE) {
-            loadingLottie.setVisibility(View.GONE);
-            loadingLottie.clearAnimation();
-        }
+
         //index of last item loaded
         int indexStart = 0;
         if (loadedPosts.size() != 0) {
@@ -158,27 +158,34 @@ public class DashboardFragment
         while (postIterator.hasNext()) {
             Post post = postIterator.next();
             if (post instanceof VideoPost
-                    || post instanceof AudioPost) {
+                    || post instanceof AudioPost || post instanceof ChatPost) {
                 postIterator.remove();
             }
         }
 
         loadedPosts.addAll(fetchedPosts);
 
-        if (!alreadyInitialized || refreshLayout.isRefreshing()) {
+        if (!alreadyInitialized) {
             //recycleradapter config
             adapter = new RecyclerAdapter((MainActivity) getActivity(), loadedPosts);
-            if(MyPrefs.getIsDualMode(getContext())){
+            if (MyPrefs.getIsDualMode(getContext())) {
                 SpacerDecoration decoration = new SpacerDecoration(20);
                 recyclerViewMain.addItemDecoration(decoration);
             }
             recyclerViewMain.setAdapter(adapter);
-            refreshLayout.setRefreshing(false);
             alreadyInitialized = true;
         }
 
-        int indexEnd = loadedPosts.size() - 1;
+        if (loadingLottie.getVisibility() == View.VISIBLE) {
+            loadingLottie.setVisibility(View.GONE);
+            loadingLottie.clearAnimation();
+        }
 
+        if (refreshLayout.isRefreshing()) {
+            refreshLayout.setRefreshing(false);
+            recyclerViewMain.setVisibility(View.VISIBLE);
+        }
+        int indexEnd = loadedPosts.size() - 1;
 
         Log.d("POSTS", "fetchedPosts: notify item inserted between index:" + indexStart + ", and " + indexEnd);
         adapter.notifyItemRangeInserted(indexStart, indexEnd);
@@ -188,10 +195,6 @@ public class DashboardFragment
     public void fetchFailed(Exception e) {
     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        return false;
-    }
 
     @Override
     public void onClick(View v) {

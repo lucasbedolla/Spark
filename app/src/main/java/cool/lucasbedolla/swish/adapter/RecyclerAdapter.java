@@ -31,8 +31,8 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import cool.lucasbedolla.swish.EmbrApplication;
 import cool.lucasbedolla.swish.R;
+import cool.lucasbedolla.swish.SparkApplication;
 import cool.lucasbedolla.swish.activities.MainActivity;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.fragments.InteractionFragment;
@@ -54,7 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     public RecyclerAdapter(UnderTheHoodActivity underTheHoodActivity, ArrayList<Post> inputList) {
         this.ctx = new WeakReference<>(underTheHoodActivity);
         itemList = inputList;
-        isDual = MyPrefs.getIsDualMode(underTheHoodActivity);
+        isDual = MyPrefs.getIsDualMode(ctx.get());
     }
 
     @NonNull
@@ -109,9 +109,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
             holder.getContentTargetLayout().removeAllViews();
         }
 
-        holder.getDescription().setVisibility(View.VISIBLE);
-        holder.getDescription().setText("");
-
         holder.getNotes().setText("");
         holder.getAuthorText().setText("");
         holder.getFollowSource().setText("");
@@ -161,7 +158,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                                                     if (url.contains(".gif")) {
                                                         Toast.makeText(ctx.get(), "Saving a GIF file is currently not supported.", Toast.LENGTH_SHORT).show();
                                                     } else {
-                                                        WeakReference<Application> applicationWeakReference = new WeakReference<>(EmbrApplication.getContext());
+                                                        WeakReference<Application> applicationWeakReference = new WeakReference<>(SparkApplication.getContext());
                                                         ImageHelper.downloadImagefromDrawable(applicationWeakReference, ((ImageView) view).getDrawable());
                                                     }
                                                 }

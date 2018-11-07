@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    tools:context="cool.lucasbedolla.swish.fragments.SparkFragment">
+    android:background="@color/colorPrimary"
+    tools:context="cool.lucasbedolla.swish.fragments.SettingsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -11,7 +11,8 @@
         android:id="@+id/waves"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="W A V E S"
+        android:layout_marginTop="56dp"
+        android:text="Spark Settings"
         android:textColor="@color/white"
         android:textSize="60sp" />
 
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_margin="22dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         android:id="@+id/separator"
         android:layout_below="@+id/waves" />
 
@@ -59,5 +60,6 @@
         android:text="logout"
         android:textAlignment="center" />
 
+    <include layout="@layout/bottom_menu" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

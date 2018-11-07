@@ -22,7 +22,6 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
     private TextView notes;
     private RoundedImageView profileImageView;
     private FrameLayout contentTargetLayout;
-    private TextView description;
     private TextView authorText;
     private TextView followSource;
     private ImageView likeButton, reblogButton;
@@ -40,7 +39,6 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
 
         //content center
         contentTargetLayout = itemView.findViewById(R.id.target_layout);
-        description = itemView.findViewById(R.id.post_text_content);
 
         //bottom layout
         notes = itemView.findViewById(R.id.notes);
@@ -58,10 +56,6 @@ public class BasicViewHolder extends RecyclerView.ViewHolder {
 
     public TextView getFollowSource() {
         return followSource;
-    }
-
-    public TextView getDescription() {
-        return description;
     }
 
     public FrameLayout getContentTargetLayout() {

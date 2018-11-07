@@ -15,9 +15,11 @@ import android.widget.TextView;
 import com.tumblr.jumblr.types.AnswerPost;
 import com.tumblr.jumblr.types.ChatPost;
 import com.tumblr.jumblr.types.Dialogue;
+import com.tumblr.jumblr.types.Note;
 import com.tumblr.jumblr.types.Photo;
 import com.tumblr.jumblr.types.PhotoPost;
 import com.tumblr.jumblr.types.Post;
+import com.tumblr.jumblr.types.QuotePost;
 import com.tumblr.jumblr.types.TextPost;
 
 import java.util.HashMap;
@@ -64,15 +66,11 @@ public class ViewHolderBinder {
             String caption = Html.fromHtml(captionHtml).toString().trim();
 
             if (post.getSourceTitle() != null) {
-                inferredViewHolder.getDescription().setText(removeAuthorText(post.getSourceTitle(), caption));
-            } else {
-                inferredViewHolder.getDescription().setText(caption);
+                //inferredViewHolder.getDescription().setText(caption);
             }
-            if(isDual){
-                inferredViewHolder.getDescription().setVisibility(View.GONE);
-            }
+
         } else {
-            inferredViewHolder.getDescription().setVisibility(View.GONE);
+            //inferredViewHolder.getDescription().setVisibility(View.GONE);
         }
     }
 
@@ -142,7 +140,14 @@ public class ViewHolderBinder {
         if (post.getNoteCount() == 1) {
             holder.getNotes().setText(post.getNoteCount() + " note");
         } else {
-            holder.getNotes().setText(post.getNoteCount() + " notes");
+            long notes = post.getNoteCount();
+            if (notes > 1000) {
+                long kNotes = notes / 1000;
+                holder.getNotes().setText(kNotes + "k notes");
+                Note k;
+            } else {
+                holder.getNotes().setText(post.getNoteCount() + " notes");
+            }
         }
 
         holder.getLikeButton().setOnClickListener(new View.OnClickListener() {
@@ -233,10 +238,27 @@ public class ViewHolderBinder {
                 String sourceText = "view \n" + post.getSourceTitle();
                 if (holder.getFollowSource() != null) {
                     holder.getFollowSource().setText(sourceText);
+                    holder.getFollowSource().setVisibility(View.VISIBLE);
+                    holder.getFollowSource().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProfileFragment interactionFragment = new ProfileFragment();
+                            Bundle arguments = new Bundle();
+                            arguments.putString(ProfileFragment.BLOG_NAME, post.getSourceTitle());
+                            interactionFragment.setArguments(arguments);
+
+                            ((MainActivity) context).getSupportFragmentManager().beginTransaction()
+                                    .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                                    .replace(R.id.fragment_container, interactionFragment, "IMAGE")
+                                    .commitNow();
+                        }
+                    });
+                } else {
+                    holder.getFollowSource().setVisibility(View.GONE);
                 }
-                holder.getFollowSource().setVisibility(View.VISIBLE);
             }
         }
+
         if (!isDual) {
             holder.getProfilePicture().setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -291,7 +313,7 @@ public class ViewHolderBinder {
 
         basicHolderSetUp(context, post, holder, isDual);
         contentHolder.addView(contentLayout);
-        holder.getDescription().setVisibility(View.GONE);
+        //holder.getDescription().setVisibility(View.GONE);
     }
 
 //    public static void placeVideo(Context context, BasicViewHolder holder, Post post, boolean isDual, View.OnClickListener listener) {
@@ -411,7 +433,7 @@ public class ViewHolderBinder {
             ((ViewGroup) contentLayout).addView(dialogueRow);
         }
         basicHolderSetUp(context, post, holder, isDual);
-        holder.getDescription().setVisibility(View.GONE);
+        //holder.getDescription().setVisibility(View.GONE);
         container.addView(contentLayout);
     }
 
@@ -435,25 +457,47 @@ public class ViewHolderBinder {
 
         AnswerPost answerPost = (AnswerPost) post;
 
-        answer.setText(Html.fromHtml(answerPost.getAnswer()));
-        question.setText(Html.fromHtml(answerPost.getQuestion()));
-        askingName.setText(answerPost.getAskingName() + " Asked:");
-        askingUrl.setText(answerPost.getAskingUrl());
+        answer.setText(Html.fromHtml(answerPost.getAnswer()).toString().trim());
+        question.setText(Html.fromHtml(answerPost.getQuestion()).toString().trim());
+        askingName.setText(answerPost.getAskingName() + " asked:");
+        if (answerPost.getAskingUrl() == null) {
+            askingUrl.setVisibility(View.GONE);
+        } else {
+            askingUrl.setText(answerPost.getAskingUrl());
+        }
+        contentHolder.addView(contentLayout);
+
+        basicHolderSetUp(ctx, post, inferredViewHolder, isDual);
+        //inferredViewHolder.getDescription().setVisibility(View.GONE);
+    }
+
+    public static void placeQuote(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
+
+        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
+        if (contentHolder.getChildCount() > 0) {
+            contentHolder.removeAllViews();
+        }
+
+
+        View contentLayout;
+        if (isDual) {
+            contentLayout = LayoutInflater.from(ctx).inflate(R.layout.dual_quote_post, null, false);
+        } else {
+            contentLayout = LayoutInflater.from(ctx).inflate(R.layout.mono_quote_post, null, false);
+        }
+        TextView quoteTextView = contentLayout.findViewById(R.id.quote);
+        TextView sourceTextView = contentLayout.findViewById(R.id.source);
+
+        QuotePost quotePost = (QuotePost) post;
+        String quote = quotePost.getText();
+        String source = quotePost.getSource();
+
+        quoteTextView.setText("\"" + quote + "\"");
+        sourceTextView.setText("-" + Html.fromHtml(source) + "-");
 
         contentHolder.addView(contentLayout);
 
         basicHolderSetUp(ctx, post, inferredViewHolder, isDual);
-        inferredViewHolder.getDescription().setVisibility(View.GONE);
+        //inferredViewHolder.getDescription().setVisibility(View.GONE);
     }
-
-    public static void placeQuote(Context ctx, BasicViewHolder inferredViewHolder, Post post, boolean isDual, View.OnClickListener listener) {
-        LinearLayout contentHolder = inferredViewHolder.getTargetLayoutAsLinearLayout();
-
-        TextView viewIndicator = new TextView(ctx);
-        viewIndicator.setHeight(250);
-        viewIndicator.setWidth(300);
-        viewIndicator.setText("quote Post");
-        contentHolder.addView(viewIndicator);
-    }
-
 }
