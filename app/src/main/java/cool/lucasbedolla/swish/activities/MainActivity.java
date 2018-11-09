@@ -13,7 +13,6 @@ import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
 import cool.lucasbedolla.swish.fragments.DashboardFragment;
 import cool.lucasbedolla.swish.fragments.ProfileFragment;
 import cool.lucasbedolla.swish.fragments.SearchFragment;
-import cool.lucasbedolla.swish.fragments.SettingsFragment;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.NoSwipeViewPager;
@@ -53,17 +52,13 @@ public class MainActivity extends UnderTheHoodActivity implements FragmentEventC
                     args.putString(ProfileFragment.BLOG_NAME, MyPrefs.getCurrentUser(MainActivity.this));
                     profileFragment.setArguments(args);
                     return profileFragment;
-                case 3:
-                    return new SettingsFragment();
-
-                default:
-                    return new SettingsFragment();
             }
+            return null;
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return 3;
         }
     }
 
@@ -120,11 +115,6 @@ public class MainActivity extends UnderTheHoodActivity implements FragmentEventC
             case R.id.menu_profile:
                 if (fragmentID != 2) {
                     mViewPager.setCurrentItem(2, false);
-                }
-                break;
-            case R.id.menu_spark:
-                if (fragmentID != 3) {
-                    mViewPager.setCurrentItem(3, false);
                 }
                 break;
         }

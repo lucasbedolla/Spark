@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -48,6 +50,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
     private RecyclerView recyclerViewMain;
     private RecyclerAdapter adapter;
     private boolean alreadyInitialized;
+    private SettingsFragment settingsFragment;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -58,17 +61,19 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_profile, container, false);
-
         loadedPosts = new ArrayList<>();
+
+
         //lets cut to the chase, shall we?
         if (getArguments() == null) {
             return getErrorLayout();
         }
 
+        settingsFragment = new SettingsFragment();
+
         //init menu buttons
         layout.findViewById(R.id.menu_dash).setOnClickListener(this);
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
-        layout.findViewById(R.id.menu_spark).setOnClickListener(this);
         layout.findViewById(R.id.menu_profile).setOnClickListener(this);
 
         //recyclerview config
@@ -119,8 +124,28 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
             Log.d("scrolling", "MONO: endlessScrolling Initialized");
         }
 
+        Toolbar toolbar = layout.findViewById(R.id.main_toolbar);
+        toolbar.inflateMenu(R.menu.menu_settings);
+
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (item.getItemId() == R.id.settings) {
+                    //inflate rounded edge / white backgrounf fragment above the ando
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                            .replace(R.id.settings_container, settingsFragment, "IMAGE")
+                            .commitNow();
+
+                    return  true;
+                }
+                return false;
+            }
+        });
+
         return layout;
     }
+
 
     private View getErrorLayout() {
         return new ImageView(getActivity());

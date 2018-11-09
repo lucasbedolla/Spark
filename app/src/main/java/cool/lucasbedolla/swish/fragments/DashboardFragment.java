@@ -103,7 +103,6 @@ public class DashboardFragment
         //init menu buttons
         layout.findViewById(R.id.menu_dash).setOnClickListener(this);
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
-        layout.findViewById(R.id.menu_spark).setOnClickListener(this);
         layout.findViewById(R.id.menu_profile).setOnClickListener(this);
 
         //recyclerview config

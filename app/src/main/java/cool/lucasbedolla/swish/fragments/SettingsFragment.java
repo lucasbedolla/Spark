@@ -1,6 +1,7 @@
 package cool.lucasbedolla.swish.fragments;
 
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.onboarding.OnboardingActivity;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
+
+import static android.content.Context.ACTIVITY_SERVICE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,13 +41,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragmentr
-        View layout = inflater.inflate(R.layout.fragment_spark, container, false);
+        View layout = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        //init menu buttons
-        layout.findViewById(R.id.menu_dash).setOnClickListener(this);
-        layout.findViewById(R.id.menu_search).setOnClickListener(this);
-        layout.findViewById(R.id.menu_spark).setOnClickListener(this);
-        layout.findViewById(R.id.menu_profile).setOnClickListener(this);
+        layout.findViewById(R.id.white_space).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
 
         dualMode = layout.findViewById(R.id.dual_mode);
 
@@ -62,8 +66,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ((ActivityManager) getActivity().getSystemService(ACTIVITY_SERVICE))
-//                        .clearApplicationUserData(); // note: it has a return value!
+                ((ActivityManager) getActivity().getSystemService(ACTIVITY_SERVICE))
+                        .clearApplicationUserData(); // note: it has a return value!
                 Intent intent = new Intent(getActivity(), OnboardingActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

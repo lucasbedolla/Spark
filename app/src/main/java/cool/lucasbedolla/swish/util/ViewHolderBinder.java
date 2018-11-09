@@ -235,16 +235,18 @@ public class ViewHolderBinder {
             if (isFollowingSourceOrReblogger()) {
                 holder.getFollowSource().setVisibility(View.GONE);
             } else {
-                String sourceText = "view \n" + post.getSourceTitle();
-                if (holder.getFollowSource() != null) {
+                String sourceText = "view\nsource";
+                if (holder.getFollowSource() != null && !post.getSourceTitle().contains(".")&& !post.getSourceTitle().contains(" ")) {
                     holder.getFollowSource().setText(sourceText);
                     holder.getFollowSource().setVisibility(View.VISIBLE);
                     holder.getFollowSource().setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            ProfileFragment interactionFragment = new ProfileFragment();
+
                             Bundle arguments = new Bundle();
                             arguments.putString(ProfileFragment.BLOG_NAME, post.getSourceTitle());
+                            ProfileFragment interactionFragment = new ProfileFragment();
+
                             interactionFragment.setArguments(arguments);
 
                             ((MainActivity) context).getSupportFragmentManager().beginTransaction()
@@ -298,6 +300,8 @@ public class ViewHolderBinder {
         TextView body = contentLayout.findViewById(R.id.text_body);
 
         TextPost textPost = (TextPost) post;
+
+        //todo: fix the blue square issue
 
         if (textPost.getTitle() != null && !textPost.getTitle().isEmpty()) {
             title.setText(Html.fromHtml(textPost.getTitle().trim()));
