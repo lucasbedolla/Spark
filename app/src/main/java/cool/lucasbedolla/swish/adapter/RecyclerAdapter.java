@@ -48,13 +48,13 @@ import cool.lucasbedolla.swish.view.viewholders.BasicViewHolder;
 public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> implements View.OnClickListener, View.OnLongClickListener {
 
     private ArrayList<Post> itemList;
-    private WeakReference<UnderTheHoodActivity> ctx;
+    private UnderTheHoodActivity ctx;
     private boolean isDual;
 
     public RecyclerAdapter(UnderTheHoodActivity underTheHoodActivity, ArrayList<Post> inputList) {
-        this.ctx = new WeakReference<>(underTheHoodActivity);
+        ctx = underTheHoodActivity;
         itemList = inputList;
-        isDual = MyPrefs.getIsDualMode(ctx.get());
+        isDual = MyPrefs.getIsDualMode(underTheHoodActivity);
     }
 
     @NonNull
@@ -86,19 +86,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         Post post = itemList.get(position);
 
         if (post instanceof PhotoPost) {
-            ViewHolderBinder.placePhotos(ctx.get(), holder, post, isDual, this, this);
+            ViewHolderBinder.placePhotos(ctx, holder, post, isDual, this, this);
         } else if (post instanceof TextPost) {
-            ViewHolderBinder.placeText(ctx.get(), holder, post, isDual);
+            ViewHolderBinder.placeText(ctx, holder, post, isDual);
         } else if (post instanceof ChatPost) {
-            ViewHolderBinder.placeChat(ctx.get(), holder, post, isDual, this);
+            ViewHolderBinder.placeChat(ctx, holder, post, isDual, this);
         } else if (post instanceof QuotePost) {
-            ViewHolderBinder.placeQuote(ctx.get(), holder, post, isDual, this);
+            ViewHolderBinder.placeQuote(ctx, holder, post, isDual, this);
         } else if (post instanceof VideoPost) {
             //ViewHolderBinder.placeVideo(ctx.get(), holder, post, isDual, this);
         } else if (post instanceof AnswerPost) {
-            ViewHolderBinder.placeAnswer(ctx.get(), holder, post, isDual, this);
+            ViewHolderBinder.placeAnswer(ctx, holder, post, isDual, this);
         } else if (post instanceof AudioPost) {
-           // ViewHolderBinder.placeAudio(ctx.get(), holder, post, isDual, this);
+            // ViewHolderBinder.placeAudio(ctx.get(), holder, post, isDual, this);
         }
     }
 
@@ -112,7 +112,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         holder.getNotes().setText("");
         holder.getAuthorText().setText("");
         holder.getFollowSource().setText("");
-        if(!isDual){
+        if (!isDual) {
             holder.getProfilePicture().setImageDrawable(null);
         }
 
@@ -126,7 +126,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
     @Override
     public void onClick(View view) {
 
-        if (view instanceof SmartImageView & ctx.get() instanceof MainActivity) {
+        if (view instanceof SmartImageView & ctx instanceof MainActivity) {
             String url = ((SmartImageView) view).getImageUrl();
             if (url != null) {
                 showImageFragment(url);
@@ -140,7 +140,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
             final String url = ((SmartImageView) view).getImageUrl();
             if (url != null) {
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(ctx.get())
+                AlertDialog.Builder alert = new AlertDialog.Builder(ctx)
                         .setCancelable(true)
                         .setTitle("Save image?")
                         .setPositiveButton("save", new DialogInterface.OnClickListener() {
@@ -150,13 +150,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                                 //TODO: check for storage permissions!, if accepted, allow download, else, prompt that storage access must be granted
                                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
 
-                                    Dexter.withActivity(ctx.get())
+                                    Dexter.withActivity(ctx)
                                             .withPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                             .withListener(new PermissionListener() {
                                                 @Override
                                                 public void onPermissionGranted(PermissionGrantedResponse response) {
                                                     if (url.contains(".gif")) {
-                                                        Toast.makeText(ctx.get(), "Saving a GIF file is currently not supported.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(ctx,"Saving a GIF file is currently not supported.", Toast.LENGTH_SHORT).show();
                                                     } else {
                                                         WeakReference<Application> applicationWeakReference = new WeakReference<>(SparkApplication.getContext());
                                                         ImageHelper.downloadImagefromDrawable(applicationWeakReference, ((ImageView) view).getDrawable());
@@ -172,7 +172,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
                                                 public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {/* ... */}
                                             }).check();
                                 }
-
                             }
                         })
                         .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -197,7 +196,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BasicViewHolder> imple
         arguments.putString(InteractionFragment.RESOURCE_TYPE, InteractionFragment.RESOURCE_IMAGE);
         interactionFragment.setArguments(arguments);
 
-        ctx.get().getSupportFragmentManager().beginTransaction()
+        ctx.getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                 .replace(R.id.fragment_container, interactionFragment, "IMAGE")
                 .commitNow();

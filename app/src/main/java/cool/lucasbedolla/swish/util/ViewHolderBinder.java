@@ -236,7 +236,7 @@ public class ViewHolderBinder {
                 holder.getFollowSource().setVisibility(View.GONE);
             } else {
                 String sourceText = "view\nsource";
-                if (holder.getFollowSource() != null && !post.getSourceTitle().contains(".")&& !post.getSourceTitle().contains(" ")) {
+                if (holder.getFollowSource() != null && !post.getSourceTitle().contains(".") && !post.getSourceTitle().contains(" ")) {
                     holder.getFollowSource().setText(sourceText);
                     holder.getFollowSource().setVisibility(View.VISIBLE);
                     holder.getFollowSource().setOnClickListener(new View.OnClickListener() {
@@ -263,6 +263,22 @@ public class ViewHolderBinder {
 
         if (!isDual) {
             holder.getProfilePicture().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //todo: open up profile fragment
+                    ProfileFragment interactionFragment = new ProfileFragment();
+                    Bundle arguments = new Bundle();
+                    arguments.putString(ProfileFragment.BLOG_NAME, post.getBlogName());
+                    interactionFragment.setArguments(arguments);
+
+                    ((MainActivity) context).getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                            .replace(R.id.fragment_container, interactionFragment, "IMAGE")
+                            .commitNow();
+                }
+            });
+        }else{
+            holder.getAuthorText().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //todo: open up profile fragment
@@ -309,8 +325,11 @@ public class ViewHolderBinder {
             title.setVisibility(View.GONE);
         }
 
+
         if (textPost.getBody() != null && !textPost.getBody().isEmpty()) {
-            body.setText(Html.fromHtml(textPost.getBody().trim()));
+                body.setVisibility(View.VISIBLE);
+                body.setText(Html.fromHtml(textPost.getBody()));
+
         } else {
             body.setVisibility(View.GONE);
         }

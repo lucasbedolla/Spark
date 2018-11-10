@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/back"
+    xmlns:attrs="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:id="@+id/back"
     tools:context="cool.lucasbedolla.swish.activities.onboarding.OnboardingActivity">
 
-    <ImageView
-        android:id="@+id/bgn_anim"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/content_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY" />
+        android:layout_height="match_parent">
+    </androidx.viewpager.widget.ViewPager>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:src="@drawable/spark_logo_white"/>
 
     <Button
         android:id="@+id/go"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="59dp"
-        android:alpha=".8"
+        android:layout_marginBottom="40dp"
+        android:text="log in with Tumblr."
+        android:textColor="@color/white"
         android:background="@drawable/button_background"
-        android:text="login to tumblr"
-        android:textColor="@color/white" />
+        android:visibility="gone" />
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
         android:layout_width="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        app:srcCompat="@drawable/spark_logo_white" />
+        attrs:piv_viewPager="@id/content_pager"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>

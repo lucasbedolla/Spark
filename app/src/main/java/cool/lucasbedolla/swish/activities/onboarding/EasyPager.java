@@ -17,14 +17,12 @@ public class EasyPager extends FragmentPagerAdapter {
             "https://78.media.tumblr.com/78c1f796b9af285c85106728221f638f/tumblr_otrybhSCsG1ujqvcvo1_500.gif",
             "https://78.media.tumblr.com/f5c05f21654fcfebb2d0a63c2fc6ed13/tumblr_oqhp6zgFGQ1v8hxmso1_r1_1280.gif",
             "https://78.media.tumblr.com/d3f1f85ed8203d249425eeaf70f5f0e4/tumblr_oynyi5sHUX1rk9xsjo2_400.gif",
-            "https://78.media.tumblr.com/0c4556acc0873af9e78d879ee7b02f90/tumblr_oystneD33f1ubmu0ko1_400.gif",
             "https://78.media.tumblr.com/d16dcfc43f0816b34e9fd69cc0613b48/tumblr_oypfa3IfCH1qdwujbo3_250.gif"};
 
     String[] titles = {
             "A new way to tumblr!",
-            "Manage your blogs.",
-            "Check out multiple thingies at once.",
-            "Experience  things in new fangled ways.",
+            "Discover awesome things.",
+            "Check out multiple posts at once.",
             "OK. Now click the button."
     };
 
@@ -35,7 +33,7 @@ public class EasyPager extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 
     @Override

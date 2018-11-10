@@ -3,6 +3,7 @@ package cool.lucasbedolla.swish.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tumblr.jumblr.JumblrClient;
 import com.tumblr.jumblr.types.AudioPost;
 import com.tumblr.jumblr.types.ChatPost;
 import com.tumblr.jumblr.types.Post;
@@ -32,6 +34,7 @@ import cool.lucasbedolla.swish.adapter.WrapperStaggeredLayout;
 import cool.lucasbedolla.swish.http.FetchTumblrPostsTask;
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
+import cool.lucasbedolla.swish.util.Constants;
 import cool.lucasbedolla.swish.util.ImageHelper;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.EndlessScrollListener;
@@ -51,6 +54,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
     private RecyclerAdapter adapter;
     private boolean alreadyInitialized;
     private SettingsFragment settingsFragment;
+    private String blogName;
+    private ImageView backdrop;
+    private TextView blog;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -60,9 +66,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View layout = inflater.inflate(R.layout.fragment_profile, container, false);
+        final View layout = inflater.inflate(R.layout.fragment_profile, container, false);
         loadedPosts = new ArrayList<>();
-
 
         //lets cut to the chase, shall we?
         if (getArguments() == null) {
@@ -75,54 +80,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
         layout.findViewById(R.id.menu_dash).setOnClickListener(this);
         layout.findViewById(R.id.menu_search).setOnClickListener(this);
         layout.findViewById(R.id.menu_profile).setOnClickListener(this);
+        backdrop = layout.findViewById(R.id.backdrop);
+        blog = layout.findViewById(R.id.blog_name);
 
         //recyclerview config
         recyclerViewMain = layout.findViewById(R.id.recycler);
 
         Bundle bundle = getArguments();
-        final String blogName = bundle.getString(BLOG_NAME);
+        blogName = bundle.getString(BLOG_NAME, null);
 
-        if (blogName != null) {
-            ImageView backdrop = layout.findViewById(R.id.backdrop);
-            TextView blog = layout.findViewById(R.id.blog_name);
-            blog.setText(blogName);
-            ImageHelper.downloadBlogAvatarIntoImageView(backdrop, blogName);
-            fetchPosts(getActivity(), 0, this, blogName);
-
-        } else {
-            //todo: provide error message and return error layout  :O
-            return getErrorLayout();
-        }
-
-        if (MyPrefs.getIsDualMode(getActivity())) {
-            WrapperStaggeredLayout manager = new WrapperStaggeredLayout(2, StaggeredGridLayoutManager.VERTICAL);
-            manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
-            recyclerViewMain.setLayoutManager(manager);
-            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
-                @Override
-                public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                    Log.d("scrolling", "STAGGERED: onLoadMore:  CALLED");
-                    fetchPosts(getActivity(), loadedPosts.size(),ProfileFragment.this, blogName);
-                }
-            };
-            recyclerViewMain.addOnScrollListener(endlessScrollListener);
-            Log.d("scrolling", "STAGGERED: endlessScrolling Initialized");
-
-        } else {
-            WrapperLinearLayoutManager manager = new WrapperLinearLayoutManager(getActivity());
-            manager.setOrientation(RecyclerView.VERTICAL);
-            recyclerViewMain.setLayoutManager(manager);
-
-            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
-                @Override
-                public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                    Log.d("scrolling", "MONO: onLoadMore:  CALLED");
-                    fetchPosts(getActivity(), loadedPosts.size(),ProfileFragment.this, blogName);
-                }
-            };
-            recyclerViewMain.addOnScrollListener(endlessScrollListener);
-            Log.d("scrolling", "MONO: endlessScrolling Initialized");
-        }
 
         Toolbar toolbar = layout.findViewById(R.id.main_toolbar);
         toolbar.inflateMenu(R.menu.menu_settings);
@@ -137,13 +103,75 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, F
                             .replace(R.id.settings_container, settingsFragment, "IMAGE")
                             .commitNow();
 
-                    return  true;
+                    return true;
                 }
                 return false;
             }
         });
 
+        final Handler handler = new Handler();
+
+        if (blogName == null) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY,
+                            Constants.CONSUMER_SECRET,
+                            MyPrefs.getOAuthToken(getContext()),
+                            MyPrefs.getOAuthTokenSecret(getContext()));
+                    blogName = client.user().getName();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            blogBasedCall(blogName);
+                        }
+                    });
+                }
+            }).start();
+        } else {
+            blogBasedCall(blogName);
+        }
+
         return layout;
+    }
+
+    private void blogBasedCall(final String name) {
+
+
+        fetchPosts(getActivity(), 0, this, name);
+        blog.setText(name);
+        ImageHelper.downloadBlogAvatarIntoImageView(backdrop, name);
+
+
+        if (MyPrefs.getIsDualMode(getActivity())) {
+            WrapperStaggeredLayout manager = new WrapperStaggeredLayout(2, StaggeredGridLayoutManager.VERTICAL);
+            manager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+            recyclerViewMain.setLayoutManager(manager);
+            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
+                @Override
+                public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                    Log.d("scrolling", "STAGGERED: onLoadMore:  CALLED");
+                    fetchPosts(getActivity(), loadedPosts.size(), ProfileFragment.this, name);
+                }
+            };
+            recyclerViewMain.addOnScrollListener(endlessScrollListener);
+            Log.d("scrolling", "STAGGERED: endlessScrolling Initialized");
+
+        } else {
+            WrapperLinearLayoutManager manager = new WrapperLinearLayoutManager(getActivity());
+            manager.setOrientation(RecyclerView.VERTICAL);
+            recyclerViewMain.setLayoutManager(manager);
+
+            EndlessScrollListener endlessScrollListener = new EndlessScrollListener(manager) {
+                @Override
+                public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                    Log.d("scrolling", "MONO: onLoadMore:  CALLED");
+                    fetchPosts(getActivity(), loadedPosts.size(), ProfileFragment.this, name);
+                }
+            };
+            recyclerViewMain.addOnScrollListener(endlessScrollListener);
+            Log.d("scrolling", "MONO: endlessScrolling Initialized");
+        }
     }
 
 

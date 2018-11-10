@@ -3,8 +3,10 @@ package cool.lucasbedolla.swish.http;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.google.gson.Gson;
 import com.tumblr.jumblr.JumblrClient;
 import com.tumblr.jumblr.exceptions.JumblrException;
+import com.tumblr.jumblr.types.Blog;
 import com.tumblr.jumblr.types.Post;
 
 import org.scribe.exceptions.OAuthConnectionException;
@@ -12,6 +14,7 @@ import org.scribe.exceptions.OAuthConnectionException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import cool.lucasbedolla.swish.listeners.FetchPostListener;
@@ -51,6 +54,15 @@ public class FetchTumblrPostsTask extends AsyncTask {
             String token_secret = MyPrefs.getOAuthTokenSecret(ctx.get());
             JumblrClient client = new JumblrClient(Constants.CONSUMER_KEY, Constants.CONSUMER_SECRET, token, token_secret);
             MyPrefs.setCurrentUser(ctx.get(), client.user().getName());
+
+            List<Blog> blogs = client.user().getBlogs();
+            List<String> blogsNames = new ArrayList<>();
+            for (Blog blog : blogs) {
+                blogsNames.add(blog.getName());
+            }
+            String jsonBlog = new Gson().toJson(blogsNames, List.class);
+
+            MyPrefs.setBlogNames(ctx.get(), jsonBlog);
 
             Map<String, Object> params = new HashMap<>();
             params.put("limit", 20);

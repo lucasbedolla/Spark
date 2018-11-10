@@ -29,7 +29,7 @@
             android:name=".activities.onboarding.OnboardingActivity"
             android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
+            android:theme="@style/OnboardingTheme">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

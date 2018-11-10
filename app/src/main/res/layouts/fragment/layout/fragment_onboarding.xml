@@ -3,8 +3,15 @@
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_button"
     android:orientation="vertical">
+
+
+
+    <FrameLayout
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLuscent"/>
 
     <ImageView
         android:id="@+id/image"
@@ -13,12 +20,6 @@
         android:layout_centerInParent="true"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
-
-    <FrameLayout
-        android:id="@+id/filter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorLuscent"></FrameLayout>
 
 
     <TextView
@@ -32,6 +33,6 @@
         android:layout_marginRight="30dp"
         android:gravity="center"
         android:text="A new adventure awaits!"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/white"
         android:textSize="36sp" />
 </RelativeLayout>

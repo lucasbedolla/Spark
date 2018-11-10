@@ -1,9 +1,9 @@
 package cool.lucasbedolla.swish.fragments;
 
 
-import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +17,6 @@ import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.activities.onboarding.OnboardingActivity;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
-
-import static android.content.Context.ACTIVITY_SERVICE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,8 +64,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ActivityManager) getActivity().getSystemService(ACTIVITY_SERVICE))
-                        .clearApplicationUserData(); // note: it has a return value!
+                PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().clear().apply();
                 Intent intent = new Intent(getActivity(), OnboardingActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

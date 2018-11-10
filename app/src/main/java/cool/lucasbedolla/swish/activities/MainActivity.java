@@ -27,10 +27,22 @@ public class MainActivity extends UnderTheHoodActivity implements FragmentEventC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        loginFirstPrep();
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = findViewById(R.id.container);
         mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+    }
+
+    private void loginFirstPrep() {
+        if (MyPrefs.getIsLoggedIn(this)) {
+            return;
+        }
+
+        Bundle bundle = getIntent().getExtras();
+        MyPrefs.setOAuthToken(this, bundle.getString("OAUTH_TOKEN"));
+        MyPrefs.setOAuthTokenSecret(this, bundle.getString("OAUTH_TOKEN_SECRET"));
+        MyPrefs.setIsLoggedIn(this, true);
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
