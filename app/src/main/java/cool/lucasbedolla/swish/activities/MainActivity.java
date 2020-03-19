@@ -2,16 +2,12 @@ package cool.lucasbedolla.swish.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
-
-import com.tumblr.jumblr.types.Post;
-
-import java.util.List;
 
 import cool.lucasbedolla.swish.R;
 import cool.lucasbedolla.swish.core.UnderTheHoodActivity;
@@ -19,7 +15,6 @@ import cool.lucasbedolla.swish.fragments.DashboardFragment;
 import cool.lucasbedolla.swish.fragments.ProfileFragment;
 import cool.lucasbedolla.swish.fragments.SearchFragment;
 import cool.lucasbedolla.swish.fragments.SparkFragment;
-import cool.lucasbedolla.swish.listeners.FetchPostListener;
 import cool.lucasbedolla.swish.listeners.FragmentEventController;
 import cool.lucasbedolla.swish.util.MyPrefs;
 import cool.lucasbedolla.swish.view.NoSwipeViewPager;
